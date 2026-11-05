@@ -1,0 +1,181 @@
+/* IA compositrice : panneaux des réglages, de « Lance-moi un beat », « Continue mon idée » et « Aide aux paroles ». */
+
+.ia-panneau {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ia-panneau .aide {
+  margin: 0;
+}
+.ia-phrase {
+  resize: vertical;
+  line-height: 1.45;
+}
+
+/* Bouton de l'accueil : sous « Nouveau morceau ». */
+.ia-bouton-beat {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 10px;
+}
+.ia-etincelle {
+  width: 14px;
+  height: 14px;
+  background: var(--degrade);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+
+/* Réglages */
+.ia-cle-gardee {
+  font-size: 14px;
+  color: var(--vert);
+}
+.ia-rappel {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--r-petit);
+  background: var(--violet-voile);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.ia-boutons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.ia-etat {
+  margin: 0;
+  font-size: 14px;
+}
+.ia-etat[data-etat='ok'] {
+  color: var(--vert);
+}
+.ia-etat[data-etat='erreur'] {
+  color: var(--erreur-texte);
+}
+
+/* Envoi */
+.ia-envoi {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ia-envoi .btn-petit {
+  align-self: flex-start;
+}
+.ia-cout {
+  margin: 0;
+  font-size: 14px;
+  color: var(--texte-doux);
+}
+.ia-cout .aide {
+  display: block;
+}
+.ia-texte-envoye pre {
+  margin: 6px 0 0;
+  max-height: 40dvh;
+  overflow: auto;
+  padding: 10px;
+  border-radius: var(--r-petit);
+  background: var(--fond-creux);
+  border: 1px solid var(--bord);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.ia-lien-reglages {
+  color: var(--texte-doux);
+  font-weight: 500;
+}
+.ia-attente {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  font-size: 15px;
+}
+.ia-attente .btn {
+  margin-left: auto;
+}
+.ia-points {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 3px solid var(--violet-voile);
+  border-top-color: var(--violet);
+  animation: ia-tourne 0.8s linear infinite;
+}
+@keyframes ia-tourne {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ia-points {
+    animation: none;
+  }
+}
+
+/* Propositions de paroles */
+.ia-propositions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ia-proposition {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding: 12px 14px;
+  text-align: left;
+  border-radius: var(--r);
+  border: 1px solid var(--bord);
+  background: var(--fond-creux);
+  color: var(--texte);
+  font: inherit;
+  cursor: pointer;
+}
+.ia-proposition[aria-checked='true'] {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px var(--violet-voile);
+}
+.ia-proposition-tete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texte-doux);
+}
+.ia-ligne {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.ia-ligne-texte {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.ia-syllabes {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--texte-faible);
+}
+
+/* Carte de section : les deux actions de l'IA. */
+.ia-actions-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.ia-actions-section .btn {
+  min-width: 0;
+}

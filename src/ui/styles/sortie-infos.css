@@ -1,0 +1,134 @@
+/* Assistant de sortie, écran Infos : liste des titres et panneau d'un titre. Propriétaire : A1 (importé par sortie.css). */
+
+/* ------------------------------------------------------------ titres de la sortie */
+.sortie-titres {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sortie-titre {
+  border: 1px solid var(--bord);
+  border-radius: var(--r);
+  background: var(--fond-creux);
+}
+.sortie-titre[data-ouvert='true'] {
+  border-color: var(--bord-fort);
+}
+.sortie-titre-ligne {
+  display: flex;
+  align-items: center;
+  padding-right: 2px;
+}
+.sortie-titre-ouvrir {
+  flex: 1;
+  min-width: 0;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 4px 8px 10px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.sortie-titre-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--surface-3);
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+.sortie-titre-textes {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.sortie-titre-nom {
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sortie-titre-infos {
+  font-size: 12.5px;
+  color: #ffb3c9;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.sortie-titre-infos[data-complet='true'] {
+  color: var(--vert);
+}
+.sortie-titre-crayon {
+  color: var(--texte-faible);
+  display: inline-flex;
+}
+.sortie-titre .btn-icone {
+  width: 44px;
+  height: 44px;
+}
+.sortie-panneau-titre {
+  border-top: 1px solid var(--bord);
+  padding: 14px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.sortie-panneau-titre .aide {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.credit {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--bord);
+}
+.credit-bas {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.credit-bas select {
+  flex: 1;
+  min-width: 0;
+}
+.sortie-ajouter {
+  align-self: flex-start;
+}
+.sortie-ia {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+}
+.sortie-ia-nom {
+  font-size: 14px;
+  font-weight: 600;
+}
+.sortie-ia .segment {
+  padding: 0 4px;
+}
+.sortie-ajout {
+  justify-content: space-between;
+}
+.sortie-ajout-titre {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+

@@ -1,0 +1,223 @@
+/* Accueil « Mes morceaux » et choix du style. */
+
+.accueil-entete {
+  padding: 20px var(--marge) 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: radial-gradient(120% 80% at 100% 0%, rgba(236, 72, 153, 0.16), transparent 60%),
+    radial-gradient(90% 70% at 0% 0%, rgba(168, 85, 247, 0.2), transparent 60%);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--police-titre);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: var(--violet-clair);
+}
+.logo-onde {
+  width: 22px;
+  height: 14px;
+  background: repeating-linear-gradient(90deg, var(--magenta) 0 3px, transparent 3px 6px);
+  -webkit-mask: linear-gradient(to top, #000 30%, transparent 30%) 0 0 / 6px 100%, linear-gradient(#000, #000);
+  border-radius: 2px;
+}
+
+.liste-morceaux {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.morceau-ligne {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: var(--r);
+  background: var(--surface);
+  border: 1px solid var(--bord);
+  padding-right: 4px;
+}
+.morceau-ouvrir {
+  flex: 1;
+  min-width: 0;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 4px 10px 12px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.morceau-pastille {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--degrade);
+}
+.morceau-ligne[data-style='drill'] .morceau-pastille {
+  background: linear-gradient(135deg, #6d28d9, #a855f7);
+}
+.morceau-ligne[data-style='lofi'] .morceau-pastille {
+  background: linear-gradient(135deg, #ec4899, #f9a8d4);
+}
+.morceau-textes {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.morceau-titre {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  font-size: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.morceau-infos {
+  font-size: 13px;
+  color: var(--texte-doux);
+}
+
+/* ------------------------------------------------------------ choix du style */
+.cartes-styles {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.carte-style {
+  position: relative;
+  overflow: hidden;
+  min-height: 150px;
+  padding: 18px 18px 56px;
+  border-radius: 22px;
+  border: 1px solid var(--bord-fort);
+  background: var(--surface);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.carte-style::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.carte-style[data-style='trap']::before {
+  background: radial-gradient(90% 120% at 100% 0%, rgba(168, 85, 247, 0.55), transparent 65%);
+}
+.carte-style[data-style='drill']::before {
+  background: radial-gradient(90% 120% at 100% 0%, rgba(99, 102, 241, 0.5), transparent 65%);
+}
+.carte-style[data-style='lofi']::before {
+  background: radial-gradient(90% 120% at 100% 0%, rgba(236, 72, 153, 0.5), transparent 65%);
+}
+.carte-style:not(:disabled):active {
+  transform: scale(0.985);
+}
+.carte-style:disabled {
+  opacity: 0.6;
+}
+.carte-style > span {
+  position: relative;
+}
+.carte-style-haut {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.carte-style-nom {
+  font-family: var(--police-titre);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.carte-style-bpm {
+  font-family: var(--police-titre);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(14, 11, 20, 0.6);
+  color: var(--violet-clair);
+}
+.carte-style-phrase {
+  font-size: 15px;
+  color: var(--texte-doux);
+  max-width: 28ch;
+}
+.carte-style-onde {
+  position: absolute !important;
+  left: 18px;
+  right: 18px;
+  bottom: 14px;
+  height: 28px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+.carte-style-onde i {
+  flex: 1;
+  border-radius: 2px;
+  background: var(--degrade);
+  opacity: 0.8;
+}
+
+/* ------------------------------------------------------------ onglets « Morceaux | Sorties » et import (A1) */
+.accueil-onglets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  margin: 8px var(--marge) 4px;
+  padding: 4px;
+  border-radius: var(--r);
+  background: var(--fond-creux);
+  border: 1px solid var(--bord);
+}
+.accueil-onglet {
+  min-height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--texte-doux);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.accueil-onglet[aria-selected='true'] {
+  background: var(--surface-3);
+  color: var(--texte);
+  box-shadow: inset 0 0 0 1.5px var(--violet);
+}
+.importer-projet {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+.importer-projet .btn {
+  color: var(--violet-clair);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.importer-projet .btn[aria-disabled='true'] {
+  opacity: 0.5;
+  pointer-events: none;
+}

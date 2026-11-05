@@ -1,0 +1,217 @@
+/* Étape Voix : gros bouton rouge, calque d'enregistrement (décompte, prompteur, vumètre), prises. */
+
+.zone-rec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0 4px;
+}
+.zone-rec-texte {
+  font-weight: 600;
+}
+.btn-rec {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 59, 92, 0.25);
+  background: radial-gradient(circle at 35% 30%, #ff6b85, var(--rouge) 60%, #d91a42);
+  background-clip: padding-box;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 10px 32px rgba(255, 59, 92, 0.45);
+  touch-action: manipulation;
+}
+.btn-rec:active {
+  transform: scale(0.96);
+}
+.btn-rec:disabled {
+  opacity: 0.5;
+}
+.btn-rec[data-actif='1'] {
+  animation: pulsation 1.4s ease-in-out infinite;
+}
+@keyframes pulsation {
+  50% {
+    box-shadow: 0 0 0 14px rgba(255, 59, 92, 0.12), 0 10px 32px rgba(255, 59, 92, 0.45);
+  }
+}
+
+/* ------------------------------------------------------------ calque d'enregistrement */
+.calque-enr {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: radial-gradient(120% 60% at 50% 0%, rgba(255, 59, 92, 0.16), transparent 60%), var(--fond);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: calc(16px + env(safe-area-inset-top)) var(--marge) calc(28px + env(safe-area-inset-bottom));
+}
+.calque-enr-haut {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.calque-enr-section {
+  font-family: var(--police-titre);
+  font-size: 20px;
+  font-weight: 700;
+}
+.pastille-rec {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  background: var(--surface-3);
+}
+.pastille-rec[data-actif='1'] {
+  background: var(--rouge);
+  animation: clignote 1s steps(2, start) infinite;
+}
+@keyframes clignote {
+  to {
+    opacity: 0.55;
+  }
+}
+.decompte {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.decompte-chiffre {
+  font-family: var(--police-titre);
+  font-size: 120px;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--degrade);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: battement 0.35s ease-out;
+}
+@keyframes battement {
+  from {
+    transform: scale(1.35);
+    opacity: 0.4;
+  }
+}
+.prompteur {
+  flex: 1;
+  align-self: stretch;
+  overflow-y: auto;
+  scroll-behavior: auto;
+  /* Les paroles partent du haut de la zone lisible et finissent par passer au-dessus. */
+  padding: 22% 4px 45%;
+  -webkit-mask: linear-gradient(transparent, #000 15%, #000 80%, transparent);
+  mask: linear-gradient(transparent, #000 15%, #000 80%, transparent);
+}
+.prompteur p {
+  margin: 0 0 14px;
+  font-family: var(--police-titre);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+}
+.prompteur[data-phase='decompte'] p {
+  opacity: 0.45;
+}
+.prompteur p.aide {
+  font-family: var(--police);
+  font-size: 15px;
+  font-weight: 500;
+}
+.vumetre {
+  align-self: stretch;
+  height: 12px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.vumetre-barre {
+  display: block;
+  height: 100%;
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--vert) 0%, #facc15 75%, var(--rouge) 95%);
+  background-size: 100vw 100%;
+  transition: transform 60ms linear;
+}
+
+/* ------------------------------------------------------------ prises et calibrage */
+.liste-prises {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.prise {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--fond-creux);
+  border: 1px solid var(--bord);
+}
+.prise[data-choisie='1'] {
+  border-color: var(--violet);
+}
+.prise-textes {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.prise-nom {
+  font-weight: 600;
+}
+.prise .btn[data-actif='1'] {
+  border-color: var(--violet);
+  background: var(--violet-voile);
+}
+.ligne-calibrage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 15px;
+}
+.message-alerte {
+  background: #2a1d12;
+  border: 1px solid #5c3d1c;
+  color: #fde3c4;
+}
+
+/* ------------------------------------------------------------ effets de la voix */
+.pastilles-effets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.pastille-effet {
+  min-height: 52px;
+  border-radius: 999px;
+  border: 1px solid var(--bord-fort);
+  background: var(--fond-creux);
+  color: var(--texte-doux);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.pastille-effet[aria-pressed='true'] {
+  border-color: transparent;
+  background: var(--degrade);
+  color: #fff;
+}

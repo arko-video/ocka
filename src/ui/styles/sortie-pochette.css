@@ -1,0 +1,136 @@
+/* Assistant de sortie, écran Pochette : aperçu, recadrage, modèles. Propriétaire : A1 (importé par sortie.css). */
+
+/* ------------------------------------------------------------ pochette */
+.pochette-vide {
+  display: block;
+  background: repeating-linear-gradient(135deg, var(--surface-2) 0 10px, var(--surface) 10px 20px);
+  border: 1px dashed var(--bord-fort);
+}
+.pochette-actuelle {
+  align-items: center;
+}
+.pochette-grande {
+  display: block;
+  width: min(100%, 300px);
+  aspect-ratio: 1;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+.pochette-choix {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pochette-choix .btn {
+  width: 100%;
+}
+.pochette-choix .aide {
+  margin-bottom: 6px;
+}
+.pochette-choix .btn[aria-pressed='true'] {
+  background: var(--violet-voile);
+}
+label.btn:focus-within {
+  outline: 2px solid var(--violet-clair);
+  outline-offset: 2px;
+}
+.recadrage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+.recadrage:active {
+  cursor: grabbing;
+}
+.recadrage img {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+}
+.recadrage-grille {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.85);
+  background:
+    linear-gradient(to right, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) calc(33.33% - 0.5px) calc(33.33% + 0.5px), transparent calc(33.33% + 0.5px) calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) calc(66.66% - 0.5px) calc(66.66% + 0.5px), transparent calc(66.66% + 0.5px)),
+    linear-gradient(to bottom, transparent calc(33.33% - 0.5px), rgba(255, 255, 255, 0.45) calc(33.33% - 0.5px) calc(33.33% + 0.5px), transparent calc(33.33% + 0.5px) calc(66.66% - 0.5px), rgba(255, 255, 255, 0.45) calc(66.66% - 0.5px) calc(66.66% + 0.5px), transparent calc(66.66% + 0.5px));
+}
+.modeles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modeles-grille {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.modele {
+  position: relative;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--surface);
+  cursor: pointer;
+}
+.modele img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modele[aria-pressed='true'] {
+  border-color: var(--magenta);
+  box-shadow: 0 0 0 3px var(--magenta-voile);
+}
+.modele-attente {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, var(--surface) 30%, var(--surface-3) 50%, var(--surface) 70%) 0 0 / 300% 100%;
+  animation: attente 1.2s linear infinite;
+}
+@keyframes attente {
+  to {
+    background-position: -150% 0;
+  }
+}
+.modele-choisi {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--magenta);
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+.modeles .btn-petit {
+  align-self: center;
+}
+.sortie-interdits {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--r);
+  background: var(--fond-creux);
+  border: 1px solid var(--bord);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--texte-doux);
+}
+.sortie-interdits svg {
+  vertical-align: -3px;
+  color: #ffb3c9;
+}
+

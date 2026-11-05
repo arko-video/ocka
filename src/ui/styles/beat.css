@@ -1,0 +1,231 @@
+/* Étape Beat : choix du motif, vue d'ensemble, pads 4×4 de 76 px. */
+
+.segments-motif .segment {
+  min-width: 0;
+  padding: 0 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.segments-motif .segment[aria-checked='true'] {
+  background: var(--degrade);
+  box-shadow: none;
+  color: #fff;
+}
+.ensemble-bloc {
+  border-radius: var(--r);
+  background: var(--fond-creux);
+  border: 1px solid var(--bord);
+  padding: 4px 6px 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ensemble-tete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.ensemble-titre {
+  font-size: 13px;
+  color: var(--texte-doux);
+}
+.ensemble-titre strong {
+  color: var(--texte);
+  font-family: var(--police-titre);
+  font-size: 15px;
+}
+
+/* ------------------------------------------------------------ vue d'ensemble */
+.ensemble {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ensemble-ligne {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 12px;
+}
+.ensemble-nom {
+  flex: 0 0 82px;
+  font-size: 10.5px;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--texte-faible);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ensemble-ligne[data-choisi='1'] .ensemble-nom {
+  color: var(--violet-clair);
+}
+.ensemble-cases {
+  flex: 1;
+  display: grid;
+  gap: 2px;
+}
+.ensemble-cases i {
+  height: 10px;
+  border-radius: 3px;
+  background: var(--surface-2);
+}
+.ensemble-cases i[data-temps='1'] {
+  background: var(--surface-3);
+}
+.ensemble-cases i[data-etat='doux'] {
+  background: rgba(168, 85, 247, 0.55);
+}
+.ensemble-cases i[data-etat='fort'] {
+  background: var(--violet);
+}
+.ensemble-ligne[data-choisi='1'] .ensemble-cases i[data-etat='fort'] {
+  background: var(--magenta);
+}
+.ensemble-cases i[data-roul='1'] {
+  background-image: repeating-linear-gradient(90deg, transparent 0 2px, rgba(14, 11, 20, 0.6) 2px 3px);
+}
+.ensemble-cases i[data-courant='1'] {
+  box-shadow: 0 0 0 1.5px #fff;
+}
+
+/* ------------------------------------------------------------ pads */
+.pads-bloc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pads {
+  display: grid;
+  grid-template-columns: repeat(4, 76px);
+  grid-auto-rows: 76px;
+  gap: 8px;
+  justify-content: center;
+}
+@media (max-width: 351px) {
+  .pads {
+    grid-template-columns: repeat(4, minmax(64px, 1fr));
+    grid-auto-rows: minmax(64px, 76px);
+  }
+}
+.pad {
+  position: relative;
+  border-radius: 16px;
+  border: 1.5px solid var(--bord-fort);
+  background: var(--surface);
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  transition: transform 0.06s, background 0.1s;
+}
+.pad[data-temps='1'] {
+  background: var(--surface-2);
+}
+.pad:active {
+  transform: scale(0.94);
+}
+.pad[data-etat='doux'] {
+  border-color: var(--violet);
+  background: linear-gradient(160deg, rgba(168, 85, 247, 0.45), rgba(168, 85, 247, 0.22));
+}
+.pad[data-etat='fort'] {
+  border-color: transparent;
+  background: var(--degrade);
+  box-shadow: 0 6px 18px rgba(236, 72, 153, 0.3);
+}
+.pad[data-courant='1'] {
+  outline: 3px solid #fff;
+  outline-offset: 1px;
+}
+.pad-absent {
+  border-style: dashed;
+  opacity: 0.25;
+}
+.pad-num {
+  position: absolute;
+  top: 7px;
+  left: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--texte-faible);
+}
+.pad[data-temps='1'] .pad-num {
+  color: var(--texte-doux);
+}
+.pad[data-etat='fort'] .pad-num,
+.pad[data-etat='doux'] .pad-num {
+  color: rgba(255, 255, 255, 0.85);
+}
+.pad-roul {
+  position: absolute;
+  right: 7px;
+  bottom: 6px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(14, 11, 20, 0.75);
+  font-family: var(--police-titre);
+  font-size: 13px;
+  font-weight: 700;
+}
+.pads-bloc > .aide {
+  text-align: center;
+}
+.choix-roulement {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+.choix-roulement .choix {
+  min-height: 60px;
+  font-family: var(--police-titre);
+  font-size: 18px;
+  padding: 0;
+}
+.choix-roulement .choix:first-child {
+  font-family: var(--police);
+  font-size: 13px;
+}
+
+/* ------------------------------------------------------------ bascule Batterie | Mélodie */
+.bascule-vue {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--fond-creux);
+  border: 1px solid var(--bord-fort);
+}
+.bascule-vue-bouton {
+  min-height: 44px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--texte-doux);
+  font-family: var(--police-titre);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.bascule-vue-bouton[aria-pressed='true'] {
+  background: var(--texte);
+  color: var(--fond);
+}
+
+/* ------------------------------------------------------------ instruments : tes sons */
+.puce[data-perso='1'] {
+  max-width: 160px;
+}
+.puce[data-perso='1']:not([aria-checked='true']) {
+  border-color: rgba(236, 72, 153, 0.55);
+}
+.puce-ajout {
+  border-style: dashed;
+  border-color: var(--violet);
+  color: var(--violet-clair);
+}

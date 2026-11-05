@@ -1,0 +1,153 @@
+/* Assistant de sortie (Infos, Pochette, Vérifier) et onglet Sorties de l'accueil. Propriétaire : A1.
+   Découpé en 4 fichiers (moins de 300 lignes chacun) : celui-ci (cadre, champs, accueil) importe les 3 autres. */
+@import './sortie-infos.css';
+@import './sortie-pochette.css';
+@import './sortie-verifier.css';
+
+/* ------------------------------------------------------------ cadre : en-tête collant, barre d'action en bas */
+.sortie .ecran-corps {
+  padding-bottom: calc(104px + env(safe-area-inset-bottom));
+}
+.sortie-entete {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--fond);
+  border-bottom: 1px solid var(--bord);
+  padding-bottom: 8px;
+}
+.sortie-sous {
+  font-size: 13px;
+  color: var(--texte-doux);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sortie-etapes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  padding: 6px var(--marge) 0;
+}
+.sortie-etape {
+  min-height: 44px;
+  border: 1px solid var(--bord);
+  border-radius: 999px;
+  background: var(--fond-creux);
+  color: var(--texte-doux);
+  font-size: 13.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+.sortie-etape-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-grid;
+  place-items: center;
+}
+.sortie-etape[aria-current='step'] {
+  border-color: transparent;
+  background: var(--violet-voile);
+  color: var(--texte);
+  box-shadow: inset 0 0 0 1.5px var(--violet);
+}
+.sortie-etape[aria-current='step'] .sortie-etape-num {
+  border-color: transparent;
+  background: var(--degrade);
+  color: #fff;
+}
+.sortie-pied {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 18px var(--marge) calc(12px + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, var(--fond) 70%, transparent);
+}
+
+/* ------------------------------------------------------------ champs */
+.sortie select.champ-texte {
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23aaa2bd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  text-overflow: ellipsis;
+}
+.sortie input[type='date'].champ-texte {
+  min-height: 48px;
+}
+.sortie-deux {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.sortie-erreur {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #ff8fab;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.carte-vrai-nom {
+  border-color: var(--violet);
+  background: linear-gradient(160deg, rgba(168, 85, 247, 0.14), var(--surface) 60%);
+}
+.carte-titre .badge {
+  vertical-align: middle;
+}
+/* Mis en avant par « Corriger ». */
+.vise {
+  border-radius: 12px;
+  animation: vise 2.4s ease-out;
+}
+@keyframes vise {
+  0%,
+  40% {
+    box-shadow: 0 0 0 3px var(--magenta), 0 0 0 9px var(--magenta-voile);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* ------------------------------------------------------------ onglet Sorties de l'accueil */
+.sortie-vignette {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.sortie-vignette.pochette-vide {
+  background: var(--degrade);
+  border: none;
+  opacity: 0.6;
+}
+/* Le toast passe au-dessus de la barre d'action du bas. */
+body:has(.sortie-pied) .toast {
+  bottom: calc(96px + env(safe-area-inset-bottom));
+}
+/* Sans pochette, le carré vide reste petit : les boutons Importer / Fabriquer restent sous le pouce. */
+.pochette-grande.pochette-vide {
+  width: 140px;
+  box-shadow: none;
+}

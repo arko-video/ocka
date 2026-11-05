@@ -1,0 +1,233 @@
+/* Thème OCKA : nuit violette, accents violet électrique et magenta. Mobile d'abord (360 px), au pouce. */
+:root {
+  --fond: #0e0b14;
+  --fond-creux: #120e1a;
+  --surface: #1a1524;
+  --surface-2: #241d32;
+  --surface-3: #2e2540;
+  --bord: #2f2740;
+  --bord-fort: #43385a;
+  --texte: #f4f2f8;
+  --texte-doux: #aaa2bd;
+  --texte-faible: #6f6785;
+  --violet: #a855f7;
+  --violet-clair: #c08bff;
+  --violet-voile: rgba(168, 85, 247, 0.18);
+  --magenta: #ec4899;
+  --magenta-voile: rgba(236, 72, 153, 0.18);
+  --degrade: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+  --rouge: #ff3b5c;
+  --vert: #4ade80;
+  --erreur-fond: #2a1220;
+  --erreur-bord: #6b2440;
+  --erreur-texte: #ffd5e0;
+  --r-petit: 10px;
+  --r: 14px;
+  --r-grand: 20px;
+  --police-titre: 'Space Grotesk', system-ui, sans-serif;
+  --police: 'Inter', system-ui, sans-serif;
+  --marge: 16px;
+  --barre: 76px;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: var(--police);
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--violet-clair);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------ écran */
+.ecran {
+  min-height: 100dvh;
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top);
+  overflow-x: clip;
+}
+.ecran-corps {
+  flex: 1;
+  padding: 8px var(--marge) 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* ------------------------------------------------------------ en-tête */
+.entete {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 6px 0;
+  min-height: 56px;
+}
+.entete-titres {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2px;
+}
+.entete-titre {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.enregistre {
+  font-size: 12px;
+  color: var(--texte-doux);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 16px;
+  transition: opacity 0.4s;
+}
+.enregistre[data-etat='rien'] {
+  opacity: 0;
+}
+
+/* ------------------------------------------------------------ boutons */
+.btn {
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: var(--r);
+  border: 1px solid var(--bord);
+  background: var(--surface);
+  color: var(--texte);
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  touch-action: manipulation;
+  user-select: none;
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.btn:not(:disabled):active {
+  background: var(--surface-2);
+}
+.btn-principal {
+  min-height: 56px;
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  background: var(--degrade);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.28);
+}
+.btn-principal:not(:disabled):active {
+  background: var(--degrade);
+  filter: brightness(0.9);
+}
+.btn-contour {
+  border: 1.5px solid var(--violet);
+  background: var(--fond-creux);
+  color: var(--violet-clair);
+}
+.btn-discret {
+  border: none;
+  background: transparent;
+  color: var(--texte-doux);
+}
+.btn-petit {
+  min-height: 44px;
+  padding: 0 12px;
+  font-size: 14px;
+  border-radius: 12px;
+}
+.btn-danger {
+  color: #ff8fab;
+}
+.btn-rouge {
+  background: var(--rouge);
+  box-shadow: none;
+}
+.btn-icone {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--texte);
+}
+.btn-icone:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.btn-icone:not(:disabled):active {
+  background: var(--surface-2);
+}
+.btn-icone.encadre {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--bord);
+  background: var(--surface);
+}

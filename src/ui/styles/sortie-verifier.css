@@ -1,0 +1,111 @@
+/* Assistant de sortie, écran Vérifier : résumé, problèmes, dossier. Propriétaire : A1 (importé par sortie.css). */
+
+/* ------------------------------------------------------------ vérifier */
+.sortie-resume {
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+}
+.sortie-resume-pochette {
+  flex-shrink: 0;
+  width: 76px;
+  height: 76px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.sortie-resume-textes {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-size: 14px;
+}
+.sortie-resume-titre {
+  font-family: var(--police-titre);
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sortie-ok,
+.sortie-ko {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.sortie-ok {
+  color: var(--vert);
+}
+.sortie-ko {
+  color: #ffb3c9;
+}
+.problemes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.probleme {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 4px 8px;
+  padding: 10px 10px 10px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.probleme[data-niveau='bloquant'] {
+  background: var(--erreur-fond);
+  border: 1px solid var(--erreur-bord);
+  color: var(--erreur-texte);
+}
+.probleme[data-niveau='conseil'] {
+  background: var(--fond-creux);
+  border: 1px solid var(--bord);
+  color: var(--texte-doux);
+}
+.probleme-icone {
+  padding-top: 1px;
+}
+.probleme[data-niveau='conseil'] .probleme-icone {
+  color: var(--violet-clair);
+}
+.probleme-corriger {
+  grid-column: 2;
+  justify-self: end;
+}
+.sortie-barre {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+.sortie-barre span {
+  display: block;
+  height: 100%;
+  background: var(--degrade);
+  transform-origin: left;
+  transition: transform 0.2s;
+}
+.dossier-pret .carte-titre {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--vert);
+}
+.sortie-nom-fichier {
+  word-break: break-word;
+}
+.sortie-rappel {
+  margin: 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--violet-voile);
+  font-size: 14px;
+  line-height: 1.45;
+}
+

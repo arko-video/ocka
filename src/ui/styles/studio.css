@@ -1,0 +1,179 @@
+/* Studio : onglets des 5 étapes, corps, barre de lecture fixe en bas. */
+
+.studio {
+  padding-bottom: calc(var(--barre) + env(safe-area-inset-bottom));
+}
+.studio-corps {
+  flex: 1;
+  padding: 12px var(--marge) 28px;
+  min-width: 0;
+}
+.studio-corps > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ------------------------------------------------------------ onglets */
+.onglets {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--fond);
+  padding: 6px var(--marge) 0;
+  border-bottom: 1px solid var(--bord);
+}
+.onglets-liste {
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+}
+.onglet {
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  min-height: 48px;
+  padding: 0 5px;
+  border: none;
+  background: none;
+  color: var(--texte-faible);
+  font-size: 13.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  position: relative;
+}
+.onglet-num {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  font-size: 10.5px;
+  font-weight: 700;
+  display: inline-grid;
+  place-items: center;
+  line-height: 1;
+}
+.onglet[aria-selected='true'] {
+  color: var(--texte);
+}
+/* Téléphone étroit : seul l'onglet actif garde son numéro. */
+@media (max-width: 420px) {
+  .onglet[aria-selected='false'] .onglet-num {
+    display: none;
+  }
+}
+.onglet[aria-selected='true'] .onglet-num {
+  border-color: transparent;
+  background: var(--degrade);
+  color: #fff;
+}
+.onglet[aria-selected='true']::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: -1px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--degrade);
+}
+
+/* ------------------------------------------------------------ barre de lecture */
+.barre-lecture {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  max-width: 560px;
+  margin: 0 auto;
+  min-height: var(--barre);
+  padding: 10px var(--marge) calc(10px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(20, 16, 29, 0.94);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--bord);
+}
+.btn-lecture {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  background: var(--degrade);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(236, 72, 153, 0.35);
+}
+.btn-lecture[data-etat='pause'] svg {
+  margin-left: 3px;
+}
+.btn-lecture:active {
+  transform: scale(0.95);
+}
+.barre-temps {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  padding-left: 4px;
+}
+.barre-temps-actuel {
+  font-family: var(--police-titre);
+  font-size: 22px;
+  font-weight: 700;
+}
+.barre-temps-total {
+  font-size: 13px;
+  color: var(--texte-doux);
+}
+.btn-bascule {
+  flex-shrink: 0;
+  min-height: 44px;
+  min-width: 44px;
+  max-width: 120px;
+  padding: 0 10px;
+  border-radius: 12px;
+  border: 1px solid var(--bord-fort);
+  background: transparent;
+  color: var(--texte-doux);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-bascule-texte {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.btn-bascule[aria-pressed='true'] {
+  border-color: var(--violet);
+  background: var(--violet-voile);
+  color: #fff;
+}
+.btn-carre {
+  width: 44px;
+  padding: 0;
+}
+
+/* ------------------------------------------------------------ utilitaires du studio (U) */
+.texte-coupe {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

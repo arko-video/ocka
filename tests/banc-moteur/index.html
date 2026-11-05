@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Même CSP que l'appli (index.html) : le banc vérifie que le moteur marche avec elle. -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' blob: data:; media-src blob:; worker-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Banc moteur OCKA</title>
+  </head>
+  <body>
+    <h1>Banc du moteur son</h1>
+    <p>Exporte des WAV (téléchargés) pour les vérifier avec ffmpeg.</p>
+    <button id="trap">Trap (une frappe ajoutée)</button>
+    <button id="long">Trap 3 min (temps d'export)</button>
+    <button id="ecoute">Écoute 2 s (lecteur)</button>
+    <button id="kit">Démo des sons (trap, drill, lo-fi)</button>
+    <pre id="journal"></pre>
+    <script type="module" src="./banc.ts"></script>
+  </body>
+</html>

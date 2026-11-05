@@ -1,0 +1,99 @@
+/* Textes, messages d'erreur et toast. */
+
+/* ------------------------------------------------------------ textes */
+.titre {
+  margin: 0;
+  font-family: var(--police-titre);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.intro {
+  margin: 0;
+  font-size: 15px;
+  color: var(--texte-doux);
+}
+.aide {
+  display: block;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--texte-doux);
+}
+.doux {
+  color: var(--texte-doux);
+}
+.chiffres {
+  font-variant-numeric: tabular-nums;
+}
+.vide {
+  margin: 8px 0;
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--texte-doux);
+  border: 1px dashed var(--bord-fort);
+  border-radius: var(--r);
+}
+.sous-titre {
+  margin: 4px 0 0;
+  font-family: var(--police-titre);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--texte-doux);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ------------------------------------------------------------ messages et toast */
+.message {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--r);
+  font-size: 14px;
+  line-height: 1.4;
+  align-items: flex-start;
+}
+.message svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.message-erreur {
+  background: var(--erreur-fond);
+  border: 1px solid var(--erreur-bord);
+  color: var(--erreur-texte);
+}
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  width: min(calc(100% - 32px), 440px);
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface-3);
+  border: 1px solid var(--bord-fort);
+  border-radius: var(--r);
+  padding: 10px 10px 10px 14px;
+  font-size: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.toast[data-studio='1'] {
+  bottom: calc(var(--barre) + 12px + env(safe-area-inset-bottom));
+}
+.toast span {
+  flex: 1;
+}
+.toast-action {
+  min-height: 44px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--violet-clair);
+  font-weight: 700;
+  cursor: pointer;
+}

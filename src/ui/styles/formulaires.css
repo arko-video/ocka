@@ -1,0 +1,122 @@
+/* Champs de saisie, cases à cocher et feuille du bas (panneau). */
+
+/* ------------------------------------------------------------ champs */
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.champ-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texte-doux);
+}
+.champ-texte {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--bord-fort);
+  background: var(--fond-creux);
+  font-size: 16px;
+}
+.champ-texte:focus {
+  border-color: var(--violet);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--violet-voile);
+}
+.champ-paroles {
+  resize: vertical;
+  line-height: 1.5;
+}
+.case {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  font-size: 14px;
+  color: var(--texte-doux);
+  cursor: pointer;
+}
+.case input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--violet);
+}
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.formulaire p {
+  margin: 0;
+}
+
+/* ------------------------------------------------------------ feuille du bas (panneau) */
+.voile {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(6, 4, 10, 0.7);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: apparaitre 0.15s ease-out;
+}
+.feuille {
+  width: 100%;
+  max-width: 560px;
+  max-height: 85dvh;
+  overflow-y: auto;
+  background: var(--surface);
+  border-top: 1px solid var(--bord-fort);
+  border-radius: 24px 24px 0 0;
+  padding: 8px var(--marge) calc(20px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: monter 0.2s ease-out;
+}
+.feuille-poignee {
+  align-self: center;
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--bord-fort);
+}
+.feuille-entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.feuille-titre {
+  margin: 0;
+  font-family: var(--police-titre);
+  font-size: 20px;
+  font-weight: 700;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.liste-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.btn-ligne {
+  justify-content: flex-start;
+  min-height: 56px;
+}
+@keyframes monter {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+@keyframes apparaitre {
+  from {
+    opacity: 0;
+  }
+}

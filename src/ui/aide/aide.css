@@ -1,0 +1,246 @@
+/* Aide (« ? »), guide, « À propos » et premier lancement. Propriétaire : B3. Préfixes : guide-, bienvenue-. */
+
+/* ------------------------------------------------------------ bouton « ? » */
+.guide-bouton {
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--texte-doux);
+}
+/* ------------------------------------------------------------ l'aide en plein écran */
+.guide {
+  position: fixed;
+  inset: 0;
+  z-index: 65;
+  background: var(--fond);
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top);
+}
+.guide-entete {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 6px;
+  border-bottom: 1px solid var(--bord);
+}
+.guide-marque {
+  flex: 1;
+  font-family: var(--police-titre);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--violet-clair);
+  letter-spacing: 0.02em;
+}
+.guide-corps {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 20px var(--marge) calc(32px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.guide-titre {
+  margin: 0;
+  font-family: var(--police-titre);
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.guide-titre:focus {
+  outline: none;
+}
+.guide-resume {
+  margin: -4px 0 6px;
+  color: var(--texte-doux);
+  font-size: 15px;
+}
+.guide-intertitre {
+  margin: 10px 0 0;
+  font-family: var(--police-titre);
+  font-size: 17px;
+}
+.guide-p {
+  margin: 0;
+  font-size: 15px;
+}
+.guide-liste {
+  margin: 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+}
+.guide-etapes li::marker {
+  color: var(--violet-clair);
+  font-weight: 700;
+}
+.guide-conseil {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: var(--r);
+  background: var(--violet-voile);
+  border-left: 3px solid var(--violet);
+  font-size: 14px;
+}
+
+/* Liens externes et renvois : de vraies cibles au pouce (48 px). */
+.guide-lien,
+.guide-voir {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--r);
+  border: 1px solid var(--bord);
+  background: var(--surface);
+  color: var(--violet-clair);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.guide-voir {
+  width: 100%;
+  color: var(--texte);
+}
+.guide-lien svg,
+.guide-chevron {
+  flex-shrink: 0;
+  color: var(--texte-doux);
+}
+.guide-chevron {
+  font-size: 22px;
+  line-height: 1;
+}
+.guide-lien:active,
+.guide-voir:active {
+  background: var(--surface-2);
+}
+
+/* FAQ : une question qui s'ouvre. */
+.guide-question {
+  border: 1px solid var(--bord);
+  border-radius: var(--r);
+  background: var(--surface);
+}
+.guide-question summary {
+  min-height: 48px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.guide-question summary::-webkit-details-marker {
+  display: none;
+}
+.guide-question summary::after {
+  content: '+';
+  margin-left: auto;
+  padding-left: 12px;
+  color: var(--violet-clair);
+  font-size: 20px;
+}
+.guide-question[open] summary::after {
+  content: '−';
+}
+.guide-question p {
+  margin: 0;
+  padding: 0 14px 14px;
+  color: var(--texte-doux);
+  font-size: 15px;
+}
+.guide-apropos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.guide-tout {
+  margin-top: 12px;
+}
+
+/* ------------------------------------------------------------ premier lancement */
+.bienvenue {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top) + 12px) var(--marge) 0;
+}
+.bienvenue-carte {
+  padding: 18px 16px 16px;
+  border-radius: var(--r-grand);
+  border: 1px solid var(--bord-fort);
+  background: radial-gradient(120% 90% at 100% 0%, rgba(236, 72, 153, 0.18), transparent 60%),
+    radial-gradient(90% 80% at 0% 0%, rgba(168, 85, 247, 0.22), transparent 60%), var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+}
+.bienvenue-titre {
+  margin: 0;
+  font-family: var(--police-titre);
+  font-size: 22px;
+  line-height: 1.1;
+  padding-right: 44px;
+}
+.bienvenue-sous {
+  margin: -6px 0 0;
+  color: var(--texte-doux);
+  font-size: 14px;
+}
+.bienvenue-liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.bienvenue-liste li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 15px;
+}
+.bienvenue-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--degrade);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+.bienvenue-texte {
+  display: block;
+  color: var(--texte-doux);
+  font-size: 14px;
+}
+
+/* Le « ? » dans les en-têtes hors studio : accueil (à droite du logo) et choix du style (titre qui prend la place). */
+.accueil-haut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: -8px -8px -4px 0;
+}
+.entete-titre-large {
+  flex: 1;
+  min-width: 0;
+}

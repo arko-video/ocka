@@ -1,0 +1,269 @@
+/* Contrôles communs : cartes, puces, segments, choix, curseurs, interrupteurs, champs, feuille du bas. */
+
+.carte {
+  background: var(--surface);
+  border: 1px solid var(--bord);
+  border-radius: var(--r-grand);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.carte-titre {
+  margin: 0;
+  font-family: var(--police-titre);
+  font-size: 18px;
+  font-weight: 700;
+}
+.badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: var(--violet-voile);
+  color: var(--violet-clair);
+}
+.badge-magenta {
+  background: var(--magenta-voile);
+  color: #ff8cc6;
+}
+
+/* ------------------------------------------------------------ puces (choix exclusifs) */
+.puces {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.puces-defile {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 0 calc(-1 * var(--marge));
+  padding: 2px var(--marge);
+  scroll-padding: 0 var(--marge);
+}
+.puces-defile::-webkit-scrollbar {
+  display: none;
+}
+.puces-colonne {
+  flex-direction: column;
+}
+.puce {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--bord-fort);
+  background: var(--fond-creux);
+  color: var(--texte-doux);
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  touch-action: manipulation;
+}
+.puce[aria-checked='true'] {
+  border-color: transparent;
+  background: var(--degrade);
+  color: #fff;
+}
+.puce-large {
+  justify-content: space-between;
+  border-radius: var(--r);
+  min-height: 52px;
+}
+.puce-nom {
+  color: inherit;
+}
+.puce-detail {
+  font-weight: 500;
+  font-size: 13px;
+  opacity: 0.8;
+}
+.puce-compte {
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--rouge);
+  color: #fff;
+  font-size: 11px;
+  display: inline-grid;
+  place-items: center;
+}
+
+/* ------------------------------------------------------------ segments */
+.segments {
+  display: flex;
+  padding: 4px;
+  gap: 4px;
+  border-radius: var(--r);
+  background: var(--fond-creux);
+  border: 1px solid var(--bord);
+}
+.segment {
+  flex: 1;
+  min-height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--texte-doux);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.segment[aria-checked='true'] {
+  background: var(--surface-3);
+  color: var(--texte);
+  box-shadow: inset 0 0 0 1.5px var(--violet);
+}
+
+/* ------------------------------------------------------------ grilles de choix */
+.grille-choix {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.grille-4 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.choix {
+  min-height: 52px;
+  padding: 0 8px;
+  border-radius: var(--r);
+  border: 1px solid var(--bord-fort);
+  background: var(--surface-2);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.choix[aria-checked='true'] {
+  background: var(--violet-voile);
+  border-color: var(--violet);
+  color: #fff;
+}
+.choix-contour {
+  background: transparent;
+}
+
+/* ------------------------------------------------------------ réglages */
+.reglage {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.reglage-tete,
+.reglage-ligne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 15px;
+}
+.reglage-label {
+  display: block;
+  font-weight: 600;
+  font-size: 15px;
+}
+.reglage-valeur {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--texte-doux);
+  font-weight: 500;
+}
+.champ-nombre {
+  width: 72px;
+  min-height: 44px;
+  padding: 0 8px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid var(--bord-fort);
+  background: var(--fond-creux);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* Curseur : piste épaisse, gros pouce (zone de toucher de 44 px). */
+.curseur {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.curseur::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--surface-3);
+}
+.curseur::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 26px;
+  height: 26px;
+  margin-top: -10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid var(--violet);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+.curseur::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--surface-3);
+}
+.curseur::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid var(--violet);
+}
+
+/* Interrupteur : case à cocher role=switch. */
+.interrupteur {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  cursor: pointer;
+}
+.interrupteur input {
+  -webkit-appearance: none;
+  appearance: none;
+  flex-shrink: 0;
+  width: 52px;
+  height: 32px;
+  margin: 0;
+  border-radius: 16px;
+  background: var(--surface-3);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.interrupteur input::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.15s;
+}
+.interrupteur input:checked {
+  background: var(--violet);
+}
+.interrupteur input:checked::after {
+  transform: translateX(20px);
+}

@@ -1,0 +1,35 @@
+{
+  "name": "ocka",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OCKA — studio de musique gratuit et open source, dans le navigateur : beats, voix, morceaux et albums prêts pour Spotify",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "apercu": "vite preview",
+    "test": "vitest run",
+    "e2e": "playwright test",
+    "verif": "tsc --noEmit && vitest run"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
+    "@mediabunny/aac-encoder": "1.65.1",
+    "@preact/signals": "^2.11.4",
+    "idb-keyval": "^6.3.0",
+    "mediabunny": "1.65.1",
+    "preact": "^11.1.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@preact/preset-vite": "^2.10.6",
+    "prettier": "^3.9.10",
+    "sharp": "^0.35.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.1.0"
+  }
+}

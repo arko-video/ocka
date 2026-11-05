@@ -1,0 +1,245 @@
+/* Vue Mélodie de l'étape Beat (pads de la gamme, clavier, grille) et « Tes sons ». Propriétaire : U. */
+
+/* ------------------------------------------------------------ pads de la gamme */
+.carte-pads-notes {
+  gap: 12px;
+}
+.pads-notes-tete {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pads-notes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 68px;
+  gap: 8px;
+}
+.pad-note {
+  position: relative;
+  border-radius: 16px;
+  border: 1.5px solid var(--violet);
+  background: linear-gradient(160deg, rgba(168, 85, 247, 0.3), rgba(168, 85, 247, 0.12));
+  color: var(--texte);
+  font-family: var(--police-titre);
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  transition: transform 0.05s, filter 0.08s;
+}
+.pad-note[data-tonique='1'] {
+  border-color: transparent;
+  background: var(--degrade);
+  box-shadow: 0 6px 18px rgba(236, 72, 153, 0.28);
+}
+.pad-note:active {
+  transform: scale(0.93);
+  filter: brightness(1.35);
+}
+.pad-note-degre {
+  position: absolute;
+  top: 6px;
+  left: 9px;
+  font-family: var(--police);
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ------------------------------------------------------------ enregistrer au clavier */
+.clavier-bloc {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.btn-clavier {
+  width: 100%;
+}
+.point-rec {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--rouge);
+  box-shadow: 0 0 0 3px rgba(255, 59, 92, 0.25);
+}
+.clavier-actif {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 8px 8px 12px;
+  border-radius: var(--r);
+  background: rgba(255, 59, 92, 0.12);
+  border: 1px solid rgba(255, 59, 92, 0.45);
+}
+.clavier-actif .pastille-rec {
+  min-width: 44px;
+  text-align: center;
+  font-family: var(--police-titre);
+}
+.clavier-texte {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------ grille */
+.grille-carte {
+  --case: 44px;
+  --ecart: 2px;
+}
+.grille-entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.grille-entete .btn {
+  padding: 0 6px;
+}
+.puces-durees .puce {
+  min-width: 60px;
+  justify-content: center;
+}
+.grille-cadre {
+  display: flex;
+  gap: 6px;
+  min-width: 0;
+}
+.grille-cadre[data-bloque='1'] .case-note {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.grille-noms {
+  flex: 0 0 34px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ecart);
+}
+.grille-noms span {
+  height: var(--case);
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--texte-doux);
+}
+.grille-noms span:first-child {
+  height: 18px;
+}
+.grille-noms span[data-tonique='1'] {
+  color: #ff8cc6;
+}
+.grille-defile {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bord-fort) transparent;
+}
+.grille-cases {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--colonnes), var(--case));
+  grid-template-rows: 18px repeat(8, var(--case));
+  gap: var(--ecart);
+  width: max-content;
+}
+.grille-repere {
+  align-self: end;
+  padding-left: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--texte-faible);
+}
+.case-note {
+  padding: 0;
+  border: none;
+  border-radius: 7px;
+  background: var(--surface-2);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.case-note[data-temps='1'] {
+  background: var(--surface-3);
+}
+.case-note[data-tonique='1'][data-note='vide'] {
+  background: rgba(236, 72, 153, 0.12);
+}
+.case-note[data-mesure='1'] {
+  box-shadow: -2px 0 0 0 var(--bord-fort);
+}
+.case-note:not([data-note='vide']) {
+  background: var(--violet);
+}
+.case-note[data-tonique='1']:not([data-note='vide']) {
+  background: var(--magenta);
+}
+.case-note[data-note='debut'] {
+  border-radius: 8px 0 0 8px;
+}
+.case-note[data-note='suite'] {
+  border-radius: 0;
+  box-shadow: -2px 0 0 0 var(--violet);
+}
+.case-note[data-note='fin'] {
+  border-radius: 0 8px 8px 0;
+  box-shadow: -2px 0 0 0 var(--violet);
+}
+.case-note[data-tonique='1'][data-note='suite'],
+.case-note[data-tonique='1'][data-note='fin'] {
+  box-shadow: -2px 0 0 0 var(--magenta);
+}
+.grille-courant {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--pas) * (var(--case) + var(--ecart)));
+  width: var(--case);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------ tes sons (import, pads perso) */
+.importer-son {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.choix-pads {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.choix-pad {
+  min-height: 60px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  text-align: left;
+}
+.choix-pad[data-suggere='1'] {
+  border-color: var(--violet);
+}
+.choix-pad[aria-pressed='true'] {
+  background: var(--violet-voile);
+  border-color: var(--violet);
+}
+.choix-detail {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--texte-doux);
+}

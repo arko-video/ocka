@@ -1,0 +1,222 @@
+/* Étapes Son (pistes, master) et Exporter (progression, résultat, astuce). */
+
+.liste-pistes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+.piste {
+  padding: 10px 14px 6px;
+  gap: 0;
+  border-radius: var(--r);
+}
+.piste[data-muet='1'] {
+  opacity: 0.6;
+}
+.piste-tete {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.piste-nom {
+  flex: 1;
+  margin: 0;
+  font-family: var(--police-titre);
+  font-size: 17px;
+  font-weight: 700;
+}
+.btn-ms {
+  width: 44px;
+  font-family: var(--police-titre);
+  font-size: 15px;
+  font-weight: 700;
+}
+.btn-ms[data-solo='1'][aria-pressed='true'] {
+  border-color: #facc15;
+  background: rgba(250, 204, 21, 0.18);
+  color: #fde68a;
+}
+.curseur-ligne {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.curseur-label {
+  flex: 0 0 92px;
+  font-size: 13px;
+  color: var(--texte-doux);
+}
+.curseur-valeur {
+  flex: 0 0 34px;
+  text-align: right;
+  font-size: 13px;
+  color: var(--texte-doux);
+}
+.niveaux {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.carte-niveau {
+  text-align: left;
+  min-height: 64px;
+  padding: 12px 14px;
+  border-radius: var(--r);
+  border: 1px solid var(--bord-fort);
+  background: var(--fond-creux);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+.carte-niveau[aria-checked='true'] {
+  border-color: var(--violet);
+  background: var(--violet-voile);
+}
+.carte-niveau-tete {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.carte-niveau-nom {
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------ exporter */
+.btn-export {
+  flex-direction: column;
+  gap: 0;
+  min-height: 72px;
+  font-size: 19px;
+}
+.btn-export-detail {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+.barre-progression {
+  height: 10px;
+  border-radius: 5px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+.barre-progression span {
+  display: block;
+  height: 100%;
+  transform-origin: left;
+  background: var(--degrade);
+  transition: transform 0.2s;
+}
+.resultat-titre {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--vert);
+}
+.mesures {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+.mesures div {
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--fond-creux);
+}
+.mesures dt {
+  font-size: 12px;
+  color: var(--texte-doux);
+}
+.mesures dd {
+  margin: 2px 0 0;
+  font-family: var(--police-titre);
+  font-weight: 700;
+  font-size: 15px;
+}
+.astuce {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: var(--r);
+  border: 1px dashed var(--bord-fort);
+  font-size: 14px;
+  color: var(--texte-doux);
+}
+
+/* ------------------------------------------------------------ colle et A/B */
+.ancien-son {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--r);
+  border: 1px dashed var(--bord-fort);
+}
+.ab-bloc {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.btn-ab {
+  width: 100%;
+  min-height: 52px;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+.btn-ab[aria-pressed='true'] {
+  border-color: var(--magenta);
+  background: var(--magenta-voile);
+  color: #fff;
+}
+.ab-lettres {
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: var(--surface-3);
+  font-family: var(--police-titre);
+  font-weight: 700;
+  color: var(--texte);
+}
+
+/* ------------------------------------------------------------ autres exports */
+.autres-exports,
+.liste-exports {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.btn-export-ligne {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1px;
+  min-height: 60px;
+  padding: 8px 16px;
+  text-align: left;
+}
+.btn-export-nom {
+  font-size: 15px;
+  font-weight: 700;
+}
+.btn-export-ligne .btn-export-detail {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--texte-doux);
+  opacity: 1;
+}
+.export-wav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.export-wav .case {
+  padding-left: 4px;
+}
+.message-info {
+  margin: 0;
+  background: var(--violet-voile);
+  border: 1px solid var(--violet);
+  color: var(--texte);
+}
