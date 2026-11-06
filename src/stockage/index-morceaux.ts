@@ -53,6 +53,13 @@ export function fichiersUtilises(morceaux: Morceau[]): Set<string> {
 }
 
 /** Tous les fichiers de sons importés utilisés par ces morceaux. */
+/** Fichiers « sf2-<id>.sf2 » listés par au moins un morceau (C3). */
+export function soundfontsUtilisees(morceaux: Morceau[]): Set<string> {
+  const utilises = new Set<string>();
+  for (const m of morceaux) for (const s of m.soundfonts ?? []) if (s?.fichier) utilises.add(s.fichier);
+  return utilises;
+}
+
 export function sonsUtilises(morceaux: Morceau[]): Set<string> {
   const utilises = new Set<string>();
   for (const m of morceaux) for (const s of m.sons ?? []) if (s?.fichier) utilises.add(s.fichier);

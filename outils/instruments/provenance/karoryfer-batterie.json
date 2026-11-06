@@ -1,0 +1,272 @@
+{
+ "id": "karoryfer-batterie",
+ "source": {
+  "type": "fichiers-zip",
+  "banque": "karoryfer",
+  "url": "https://github.com/sfzinstruments/karoryfer.big-rusty-drums/releases/download/v1.100/Big_Rusty_Drums_1100.zip"
+ },
+ "fichiers": [
+  {
+   "fichier": "n036-v1.ogg",
+   "source": "Samples/kick_24/kick/kick/k_vl7_rr1.flac + Samples/kick_24/kick/oh/k_vl7_rr1.flac",
+   "sha256": [
+    "a2ec22a813e71a53660438fdafa83c649886ffaaccb6bbff4f49853b0146c115",
+    "b0239925dba7c5ef72a62941406c57194f4f262309c56c01aae8e2e0f8224f43"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n036-v2.ogg",
+   "source": "Samples/kick_24/kick/kick/k_vl13_rr1.flac + Samples/kick_24/kick/oh/k_vl13_rr1.flac",
+   "sha256": [
+    "35436a84127b72757e7dc7c266783af7e5f8e4f4244584df083a8cb8b784b768",
+    "5ef7f1388bf228013090ed74be8073148a3381078e9fdf0343a0c29e075a046a"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n037-v1.ogg",
+   "source": "Samples/snare_14/sidestick/top/sn_ss_vl2_rr1.flac + Samples/snare_14/sidestick/oh/sn_ss_vl2_rr1.flac",
+   "sha256": [
+    "a46c6344cad79946f12a248af8ae6e005d21a3101c47d1efb6d8fde5625d506a",
+    "9fe1cef1f2b79bb8f50e017cb2787b6e28fdb9f678286d9c1c72d3382eca19fc"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n037-v2.ogg",
+   "source": "Samples/snare_14/sidestick/top/sn_ss_vl4_rr1.flac + Samples/snare_14/sidestick/oh/sn_ss_vl4_rr1.flac",
+   "sha256": [
+    "b81e2102701952ed73eb8fcdb08d9e3ad5c055b822bd360e8b345f181436ad73",
+    "63519f4759e8712583e6cdd93936eac8fdaf6ef9f2dbd0ddb63f3d4627b3e5ae"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n038-v1.ogg",
+   "source": "Samples/snare_14/center/top/sn_center_vl5_rr1.flac + Samples/snare_14/center/btm/sn_center_vl5_rr1.flac + Samples/snare_14/center/oh/sn_center_vl5_rr1.flac",
+   "sha256": [
+    "73c19a6ba6baeab21dfca21136bd32b89adb80ef4182bb662556086f20c03ca8",
+    "7a5d39a7d84d13e022a6ede26876dd8482ecd0121a445189927205eb8eb535a8",
+    "15e6f72dc4c35b2cc650e7c7c8a64a60d143b008cf4ead953d7b1868c544487e"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n038-v2.ogg",
+   "source": "Samples/snare_14/center/top/sn_center_vl9_rr1.flac + Samples/snare_14/center/btm/sn_center_vl9_rr1.flac + Samples/snare_14/center/oh/sn_center_vl9_rr1.flac",
+   "sha256": [
+    "bce1459c07e2960252e8b7d67bbcd725c5333848bfa997828221f231781cf848",
+    "2d108313a2e26ef53ce4afa34a37e3cbd00f36b755223f63dbe4528d6efde736",
+    "034948624fe5068a4c52ca4745d3350da1b1258548d3642a9c398aadcb793404"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n040-v1.ogg",
+   "source": "Samples/snare_14/rimshot/top/sn_rims_vl3_rr1.flac + Samples/snare_14/rimshot/oh/sn_rims_vl3_rr1.flac",
+   "sha256": [
+    "db6c208aa4bdb51cee22e23ba3f64ca5c1218c353f805c7ad9c8e421a26959b5",
+    "2a399ff0f286ba209ec414ceb1100ca0ae928249e309a854a00f2f0503883862"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n040-v2.ogg",
+   "source": "Samples/snare_14/rimshot/top/sn_rims_vl6_rr1.flac + Samples/snare_14/rimshot/oh/sn_rims_vl6_rr1.flac",
+   "sha256": [
+    "8e6bc770239c31e4c0545ae6147abf2cf396923283ff5ebeecaf02318cf3c1c8",
+    "c69206fa16183379091fd55751692a6ad405dd9cbed8034f54eb24a8c5997cd1"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n042-v1.ogg",
+   "source": "Samples/hihat_14/tc/cl/ht_tc_vl4_rr1.flac + Samples/hihat_14/tc/oh/ht_tc_vl4_rr1.flac",
+   "sha256": [
+    "79f35988417de359a9664a32186cdcd1ae5fac5c3a391c8c25240b1f6778b9fc",
+    "3296b1951cc3a411e83c54ed165c82ee8e1442c90a91b9ff557435fe2289b10b"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n042-v2.ogg",
+   "source": "Samples/hihat_14/tc/cl/ht_tc_vl7_rr1.flac + Samples/hihat_14/tc/oh/ht_tc_vl7_rr1.flac",
+   "sha256": [
+    "e7bf4251a14a4f420dc2243466cf1eabdc43e9ac9984ff65d40eab5d010e548d",
+    "6a2dcf03734b15de3e563d903472e7f25cb7e3931eceea931d38fdad6df23ee1"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n044-v1.ogg",
+   "source": "Samples/hihat_14/chik/cl/ht_chik_vl3_rr1.flac + Samples/hihat_14/chik/oh/ht_chik_vl3_rr1.flac",
+   "sha256": [
+    "4b9d338991e950e36d6f8de26a345e6ec34c76f2e308db7daed8f60609cdddd0",
+    "2714c7674c3e6d5d8bc3b9ecbab794d7bd26d97c85d478090d730a57f073825c"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n044-v2.ogg",
+   "source": "Samples/hihat_14/chik/cl/ht_chik_vl5_rr1.flac + Samples/hihat_14/chik/oh/ht_chik_vl5_rr1.flac",
+   "sha256": [
+    "392467ae61eb072360cd357d3aad5b37a61d8875ee5eefa5b8318b6d3a1453be",
+    "2948bdd436c396780c955aae7340516b1be73a28942d0ccf72cff28f9085a139"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n046-v1.ogg",
+   "source": "Samples/hihat_14/open/cl/ht_open_vl3_rr1.flac + Samples/hihat_14/open/oh/ht_open_vl3_rr1.flac",
+   "sha256": [
+    "d4a380fc54b9cc724fb567c7d5c3abb4dbd2999340367925f7b7e41100f6ed27",
+    "137e645c60b11382e87e30207fcee730aad676d4e28c1970eec08652dbaf0e21"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n046-v2.ogg",
+   "source": "Samples/hihat_14/open/cl/ht_open_vl5_rr1.flac + Samples/hihat_14/open/oh/ht_open_vl5_rr1.flac",
+   "sha256": [
+    "38f3565f2c23803205e7483a3e992f33e041dd3af2e340e38b1486cc3663f856",
+    "429fac3437e0aa119308bf825c3c81097aa42baae70101e74b219abe48116f39"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n043-v1.ogg",
+   "source": "Samples/tom_22/center/cl/t22_vl4_rr1.flac + Samples/tom_22/center/oh/t22_vl4_rr1.flac",
+   "sha256": [
+    "38d05f0819dd792f96ca71a07d9998beb12362509e4786634d368e43aa45f680",
+    "0c7448ca3c11b5c599d8abe76fdea68ccbd7c9bfb96d99c803644a54714bdcb7"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n043-v2.ogg",
+   "source": "Samples/tom_22/center/cl/t22_vl6_rr1.flac + Samples/tom_22/center/oh/t22_vl6_rr1.flac",
+   "sha256": [
+    "eb8bf76f3bea0412ae2d48206598fcb2d15cf1ebf79ff3e1d0402818604cb7ab",
+    "63349573aca393208d67108647698ba73c5d6c9614cb9d616edaf09b4ae62a65"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n047-v1.ogg",
+   "source": "Samples/tom_15/center/cl/t15_vl4_rr1.flac + Samples/tom_15/center/oh/t15_vl4_rr1.flac",
+   "sha256": [
+    "48c8b595c2e25a02a6c52d4ef43fd5f3228f36a60d0911fa281d5caa7e0ca5ac",
+    "d9d260ae05e08924c15a26d28fd2ad7f246c9d900ee6fc04412bb154ac2cee5b"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n047-v2.ogg",
+   "source": "Samples/tom_15/center/cl/t15_vl6_rr1.flac + Samples/tom_15/center/oh/t15_vl6_rr1.flac",
+   "sha256": [
+    "8aa9c75b965c802975485a2aaed3244f4759d0c6e6ae6705cf6f7be302a9d3f7",
+    "88db4b563aa4df6144fa35b42156faebd70258bd79b4b7ba0161227fc2fedf51"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n050-v1.ogg",
+   "source": "Samples/tom_14/center/cl/t14_vl3_rr1.flac + Samples/tom_14/center/oh/t14_vl3_rr1.flac",
+   "sha256": [
+    "cb59527327ec38d3ce4afd0723d18d848e64f625b98a393d10c423c6dfbb6f83",
+    "bd0881e27bbd29ce55ef1c59814c16d5a815d006beb0fafdfbd944d0db3d8034"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n050-v2.ogg",
+   "source": "Samples/tom_14/center/cl/t14_vl5_rr1.flac + Samples/tom_14/center/oh/t14_vl5_rr1.flac",
+   "sha256": [
+    "7aabe82391ff96cda9203cee81fc72fa1665ca225ddfab8bc05abd883c18c727",
+    "6291e1080fe2579239ace581c2f37dcb500053cf062c914c06d4fb39c2308c75"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n049-v1.ogg",
+   "source": "Samples/crash_17/cr/cl/cr_vl3_rr1.flac + Samples/crash_17/cr/oh/cr_vl3_rr1.flac",
+   "sha256": [
+    "051688364f5676960f1721853345ab04b4b0edbc58d399c385979c433170e35c",
+    "f6beb5f29038df2d21059ccd706d8dce3b2d259f048f95bb3d8282086f392292"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n049-v2.ogg",
+   "source": "Samples/crash_17/cr/cl/cr_vl5_rr1.flac + Samples/crash_17/cr/oh/cr_vl5_rr1.flac",
+   "sha256": [
+    "b9205bc10e508eec7c38f031b666bda00268ea7b68fcbc5b8a584de44ec3a1d3",
+    "511907df68befff63a39df0693868ca8026f46bbd5d0c8e4d1b9cdfedea65504"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n051-v1.ogg",
+   "source": "Samples/ride_22/rd/cl/rd_vl5_rr1.flac + Samples/ride_22/rd/oh/rd_vl5_rr1.flac",
+   "sha256": [
+    "0370a712af800ec5a2bc6f3d6490ba82eaa4ca64cc81db612718a0a2745fed3a",
+    "ded108cf09901f9b5590066a5d5d7a506fdedda415c4bd773b2fa4fd3f7e23a5"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n051-v2.ogg",
+   "source": "Samples/ride_22/rd/cl/rd_vl9_rr1.flac + Samples/ride_22/rd/oh/rd_vl9_rr1.flac",
+   "sha256": [
+    "9d11eda4967cad986b99aaa2fc37bc6ffe5a1fdd4a46a42a4ca15a398f0e2752",
+    "e76f64a7fdc87abddd5beca55b04e0de1f18570fb6188cd3ecebe4f5b9112cac"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n053-v1.ogg",
+   "source": "Samples/ride_22/bl/cl/rd_bl_vl2_rr1.flac + Samples/ride_22/bl/oh/rd_bl_vl2_rr1.flac",
+   "sha256": [
+    "53ecee1d14df1ff9f3abaf383d743308194fa6a0bab45acdf088a48d89cee06a",
+    "bed76fe63376c5e9e21169f664d0e9ed350d81c29368620d60b473860fc032b4"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n053-v2.ogg",
+   "source": "Samples/ride_22/bl/cl/rd_bl_vl4_rr1.flac + Samples/ride_22/bl/oh/rd_bl_vl4_rr1.flac",
+   "sha256": [
+    "db0f09bb4272c3533ca5e3235b80f5577d787aa8cd6ef23f5142d0e2f7467ff6",
+    "6d1af3d880490485e447618b8e5f2f3fbae9ab115eac1bdd51800f4cce3386d3"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

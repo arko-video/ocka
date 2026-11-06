@@ -94,3 +94,36 @@ test('parcours complet (lecture, pads, structure, son, export) : zéro requête 
   expect(r.csp).toEqual([]);
   expect(r.erreurs).toEqual([]);
 });
+
+// v2 (vague C1) : un instrument de la banque se télécharge depuis la MÊME origine (connect-src 'self'), sans rien
+// d'extérieur ; il est rangé dans le Cache Storage « ocka-instruments » et jamais précaché par le service worker.
+test('instrument de la banque : téléchargé depuis la même origine, rangé dans ocka-instruments, zéro violation', async ({ page }) => {
+  const r = await surveiller(page);
+  const banque: string[] = [];
+  page.on('request', (q) => {
+    if (q.url().includes('/instruments/')) banque.push(q.url());
+  });
+  await nouveau(page, 'trap');
+  await page.getByTestId('onglet-beat').click();
+  await page.getByTestId('vue-instruments').click();
+  await page.getByTestId('ajouter-piste').click();
+  await page.getByTestId('choisir-vcsl-marimba@1').click();
+  await expect(page.getByTestId('pr-complet')).toBeVisible({ timeout: 60_000 });
+  const rangees = await page.evaluate(async () => {
+    const c = await caches.open('ocka-instruments');
+    return (await c.keys()).map((q) => new URL(q.url).pathname);
+  });
+  const precache = await page.evaluate(async () => {
+    const res: string[] = [];
+    for (const n of await caches.keys()) if (n !== 'ocka-instruments') for (const q of await (await caches.open(n)).keys()) res.push(q.url);
+    return res.filter((u) => u.includes('/instruments/'));
+  });
+  expect(banque.length).toBeGreaterThan(2);
+  for (const u of banque) expect(new URL(u).origin).toBe('http://localhost:4194');
+  expect(rangees).toContain('/ocka/instruments/vcsl-marimba/instrument.json');
+  expect(rangees.filter((p) => p.endsWith('.ogg')).length).toBeGreaterThan(10);
+  expect(precache).toEqual([]);
+  expect(r.sortantes).toEqual([]);
+  expect(r.csp).toEqual([]);
+  expect(r.erreurs).toEqual([]);
+});

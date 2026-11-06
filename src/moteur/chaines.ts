@@ -1,7 +1,8 @@
 // Les chaînes d'effets du graphe : pistes (Gain → StereoPanner → master), voix (préréglages), couleur du master.
 
-import type { Master, Piste } from '../morceau/types';
+import type { Master, Morceau, Piste, PisteFixe } from '../morceau/types';
 import { creerDoubler, creerEcho, creerRadio, NIVEAU_REVERBE, type Effet } from './audio/effets-voix';
+import { creerTranche } from './effets/tranche';
 import type { Banque } from './instruments/banque';
 import type { ChaineVoix } from './types-moteur';
 
@@ -10,6 +11,13 @@ export interface ChainePiste {
   entree: GainNode;
   volume: GainNode;
   pan: StereoPannerNode;
+  /**
+   * Tranche v2 : programme inserts (modulations, worklet ou rendu JS), automation, LFO et sidechain pour ]de, a]
+   * (temps du morceau, `origine` = heure du contexte du temps 0). À appeler à CHAQUE planification du graphe.
+   */
+  planifier?(de: number, a: number, origine: number): void;
+  /** Tranche v2 : débranche tout (worklet, sources, envois partagés). */
+  detruire?(): void;
 }
 
 /** Gain réel d'une piste : 0 si muette, ou si une autre piste est en solo. */
@@ -19,7 +27,12 @@ export function gainPiste(p: Piste, toutes: Piste[]): number {
   return p.volume;
 }
 
-export function creerPiste(ctx: BaseAudioContext, p: Piste, toutes: Piste[], sortie: AudioNode): ChainePiste {
+/**
+ * La chaîne d'une piste. Avec le morceau `m` (v2) : la TRANCHE complète (effets/tranche.ts : inserts, fader,
+ * sidechain, automation, LFO, envois) ; sans changement de son pour une piste qui n'utilise rien de tout ça.
+ */
+export function creerPiste(ctx: BaseAudioContext, p: Piste, toutes: Piste[], sortie: AudioNode, m?: Morceau): ChainePiste {
+  if (m) return creerTranche(ctx, m, p, toutes, sortie);
   const entree = ctx.createGain();
   const volume = ctx.createGain();
   volume.gain.value = gainPiste(p, toutes);
@@ -39,7 +52,7 @@ interface ReglageVoix {
   presence: number;
   air: number;
 }
-const VOIX: Record<NonNullable<Piste['preset']>, ReglageVoix> = {
+const VOIX: Record<NonNullable<PisteFixe['preset']>, ReglageVoix> = {
   naturel: { seuil: -20, ratio: 3, attaque: 0.01, relache: 0.2, reverbe: 0.12, presence: 1, air: 1 },
   rap: { seuil: -26, ratio: 4.5, attaque: 0.004, relache: 0.12, reverbe: 0.06, presence: 3, air: 1.5 },
   chant: { seuil: -22, ratio: 3, attaque: 0.012, relache: 0.25, reverbe: 0.25, presence: 1.5, air: 2.5 },
@@ -50,7 +63,7 @@ const VOIX: Record<NonNullable<Piste['preset']>, ReglageVoix> = {
  * plus, selon `piste.effets` : écho (croche pointée au `tempo`) et doubler (copies à gauche et à droite).
  * Sans effet (absents, à 0 ou à false), ce sont EXACTEMENT les nœuds et les réglages des phases 0 et 1.
  */
-export function creerChaineVoix(ctx: BaseAudioContext, piste: Piste, banque: Banque, sortie: AudioNode, tempo: number): ChaineVoix {
+export function creerChaineVoix(ctx: BaseAudioContext, piste: PisteFixe, banque: Banque, sortie: AudioNode, tempo: number): ChaineVoix {
   const r = VOIX[piste.preset ?? 'naturel'] ?? VOIX.naturel;
   const fx = piste.effets ?? {};
   const niveau = (v: number | undefined) => (typeof v === 'number' && Number.isFinite(v) ? Math.min(1, Math.max(0, v)) : 0);

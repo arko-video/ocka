@@ -30,10 +30,10 @@ export function estPage(x: unknown): x is IdPage {
 }
 
 /**
- * La page d'aide de l'écran en cours. `vueBeat` distingue Batterie et Mélodie dans l'étape Beat.
+ * La page d'aide de l'écran en cours. `vueBeat` distingue Batterie et Instruments (la mélodie) dans l'étape Beat.
  * Un écran inconnu (ajouté plus tard) ouvre le guide entier.
  */
-export function pageDeLEcran(ecran: string, vueBeat: 'batterie' | 'melodie' = 'batterie'): IdPage {
+export function pageDeLEcran(ecran: string, vueBeat: 'batterie' | 'instruments' = 'batterie'): IdPage {
   switch (ecran) {
     case 'accueil':
     case 'sorties':
@@ -41,7 +41,7 @@ export function pageDeLEcran(ecran: string, vueBeat: 'batterie' | 'melodie' = 'b
     case 'styles':
       return 'premier-morceau';
     case 'beat':
-      return vueBeat === 'melodie' ? 'melodie' : 'beat';
+      return vueBeat === 'instruments' ? 'melodie' : 'beat';
     case 'structure':
     case 'voix':
     case 'son':

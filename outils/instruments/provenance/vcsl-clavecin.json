@@ -1,0 +1,142 @@
+{
+ "id": "vcsl-clavecin",
+ "source": {
+  "type": "vcsl",
+  "sfz": "Chordophones/Zithers/Harpsichord, English - Normal"
+ },
+ "fichiers": [
+  {
+   "fichier": "z034-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_A#0_rr1.wav",
+   "sha256": "03344a0a1e0e733606f63e74a9fab50dad394be82410d1031d8e1c0deec0e462",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z037-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_C1_rr1.wav",
+   "sha256": "ebd76c47015272c89516308afe7d6b9db99a74ac5bfe2c29ac8cfb8548a92507",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z040-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_E1_rr1.wav",
+   "sha256": "3ce5f7a80b8a483a33f645211386325fc2c5f67d8ca53be447fdb3ced673168c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z043-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_F#1_rr1.wav",
+   "sha256": "522d2ee698edccc351eadb3da8b577235004635787eb4c7479393e468331417e",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z046-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_A#1_rr1.wav",
+   "sha256": "1ebbb63db631a011050c6cbafdd3e256a47b2643553ef6cfb93c8fd462c649fa",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z049-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_D2_rr1.wav",
+   "sha256": "70f2f6f1ce98488a2103e1d97601ab8996b022a5dfdde81a50eeeba9eacec024",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z052-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_E2_rr1.wav",
+   "sha256": "195849bf5869bdaf3b39a34cf9500a18800686eb20593c4673e1746b56bf94f8",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z055-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_F#2_rr1.wav",
+   "sha256": "0cf9e7260301134acc50d3e25cf83e3024934685ee9e184a6642aa21b090c7c9",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z058-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_A#2_rr1.wav",
+   "sha256": "c9dabc4eec86dba583cb2ff9ec128a3cd28a2ff266f504f2c6cd0594eba018f7",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z061-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_C3_rr1.wav",
+   "sha256": "a5d93c1ce51c01fee2b83a369cdd1b8fdc3155d46f4e9a16e42e26878108ac83",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z064-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_E3_rr1.wav",
+   "sha256": "6cdb5734c697deb49289f47e00c274b5926e886d6c2eb6cae1d12680077c6f9e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_F#3_rr1.wav",
+   "sha256": "6661561eeb3e603818707ed622e1a7aacb4c4a049264b42270fab70ad1221e31",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z070-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_A#3_rr1.wav",
+   "sha256": "e1308a98058e786dbf8274871b62b281c1de63d341059efff6565709fb22dfce",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_C4_rr1.wav",
+   "sha256": "e6d49fcd8e2efe5a49839d241caf2f244e8921e8cdecb869c4549835b38b6f8d",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z076-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_E4_rr1.wav",
+   "sha256": "9a6ab80a9356ab9bce87f90cd0c140c62ef697ab52ee5026cbc8f4caf8b6992d",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z079-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_F#4_rr1.wav",
+   "sha256": "d457367ebd4c2384ad54aec6fb4826f2b9b9cb5057da0bf9ed3c66d45b169b9c",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z082-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_A#4_rr1.wav",
+   "sha256": "d90b46fbae51de977d07ca26f82e3614b1ae51a708ad18d938b6bd2efffe05ea",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z085-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_C5_rr1.wav",
+   "sha256": "2df658ea8f0a168af97fa3d3f6dc6110098a8795e927ae61b944e6bf0152130b",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z088-v1.ogg",
+   "source": "Chordophones/Zithers/Harpsichord, English/Sustains/Normal/ZuckermannKitHarpsi_Normal_Sus_E5_rr1.wav",
+   "sha256": "281f70c8c8092645813b2edff717d4fbe704425df9424fd2f376375212b7c038",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

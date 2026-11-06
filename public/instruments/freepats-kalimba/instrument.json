@@ -1,0 +1,127 @@
+{
+ "id": "freepats-kalimba@1",
+ "nom": "Kalimba",
+ "famille": "Percussions mélodiques",
+ "licence": {
+  "nom": "CC0-1.0",
+  "url": "https://freepats.zenvoid.org/Ethnic/kalimba.html",
+  "auteur": "Xavimart, Gonzalo et Roberto, FreePats",
+  "sha256": [
+   "e26a7346c37849f571d28cb97ece8e1e32b8bcddf93866294d1d41fa55014782"
+  ]
+ },
+ "canaux": 1,
+ "gainDb": 0.0,
+ "relache": 0.3,
+ "budgetS": 17.824,
+ "zones": [
+  {
+   "fichier": "z053-v1.ogg",
+   "racine": 53,
+   "cents": -4.4,
+   "bas": 52,
+   "haut": 53,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.1,
+   "debut": 0,
+   "fin": 118784
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "racine": 54,
+   "cents": -5.2,
+   "bas": 54,
+   "haut": 55,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.0,
+   "debut": 0,
+   "fin": 113664
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "racine": 57,
+   "cents": -23.7,
+   "bas": 56,
+   "haut": 58,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -5.4,
+   "debut": 0,
+   "fin": 141056
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "racine": 60,
+   "cents": -23.2,
+   "bas": 59,
+   "haut": 61,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -4.9,
+   "debut": 0,
+   "fin": 118527
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "racine": 63,
+   "cents": -6.8,
+   "bas": 62,
+   "haut": 64,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.0,
+   "debut": 0,
+   "fin": 83712
+  },
+  {
+   "fichier": "z066-v1.ogg",
+   "racine": 66,
+   "cents": -8.0,
+   "bas": 65,
+   "haut": 67,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -1.5,
+   "debut": 0,
+   "fin": 77056
+  },
+  {
+   "fichier": "z069-v1.ogg",
+   "racine": 69,
+   "cents": -11.6,
+   "bas": 68,
+   "haut": 70,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": 0.9,
+   "debut": 0,
+   "fin": 68352
+  },
+  {
+   "fichier": "z072-v1.ogg",
+   "racine": 72,
+   "cents": -24.7,
+   "bas": 71,
+   "haut": 73,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -1.8,
+   "debut": 0,
+   "fin": 73472
+  },
+  {
+   "fichier": "z075-v1.ogg",
+   "racine": 75,
+   "cents": 16.7,
+   "bas": 74,
+   "haut": 76,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -0.1,
+   "debut": 0,
+   "fin": 60928
+  }
+ ]
+}

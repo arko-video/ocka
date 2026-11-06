@@ -1,7 +1,8 @@
 // Une section de l'arrangement : résumé (nom, mesures, fill / coupure, motifs, boucle), et une fois ouverte,
-// ses réglages, sa boucle, ses paroles et ses actions (monter, descendre, dupliquer, supprimer).
+// ses réglages, sa boucle, ses effets de fin (C3, R), ses paroles et ses actions (monter, descendre, dupliquer, supprimer).
 // Vague B (B2) : « Continue mon idée » et « Aide aux paroles » (IA facultative), dans des panneaux propres à la carte.
 
+import { idMotifDe, pistesInstrument } from '../../../morceau/acces';
 import type { Morceau, Section } from '../../../morceau/types';
 import { T } from '../../../textes-fr';
 import { motifsBatterie, nomMotif } from '../../edition/batterie';
@@ -18,7 +19,7 @@ import { sonParId } from '../../edition/sons';
 import { afficherToast, annulerAction, modifier } from '../../etat';
 import { mmss } from '../../format';
 import { IconeBas, IconeBoucle, IconeCopier, IconeHaut, IconeMoins, IconePlus, IconePoubelle } from '../Icones';
-import { ouvrirPanneau } from '../../navigation';
+import { ouvrirPanneau, ouvrirPerformance } from '../../navigation';
 import { PanneauParolesIA } from '../../ia/PanneauParolesIA';
 import { PanneauReglagesIA } from '../../ia/PanneauReglagesIA';
 import { PanneauSuiteIA } from '../../ia/PanneauSuiteIA';
@@ -41,7 +42,8 @@ export function CarteSection({ m, s, index, ouverte, basculer, ouvrirBoucle }: P
     s.motifs.batterie ? `${T.structure.batterie} : ${nomMotif(m, s.motifs.batterie)}` : null,
     s.motifs.basse ? T.structure.basse : null,
     s.motifs.accords ? T.structure.accords : null,
-    s.motifs.melodie ? T.structure.melodie : null,
+    // Pistes instrument qui jouent dans la section (format /3 : « Mélodie », « Piano »…).
+    ...pistesInstrument(m).map((p) => (idMotifDe(s, p.id) ? p.nom : null)),
   ].filter(Boolean);
   const sonBoucle = sonParId(m, s.boucle?.son);
   const boucle = s.boucle && sonBoucle ? T.structure.boucleDe(sonBoucle.nom, s.boucle.mesures) : null;
@@ -202,6 +204,12 @@ export function CarteSection({ m, s, index, ouverte, basculer, ouvrirBoucle }: P
               {T.structure.parolesAide}
             </span>
           </label>
+
+          <div class="ia-actions-section">
+            <button type="button" class="btn btn-contour btn-petit" aria-haspopup="dialog" onClick={() => ouvrirPerformance(s.id)} data-testid="section-perf">
+              {T.performance.carte(s.perf?.length ?? 0)}
+            </button>
+          </div>
 
           <div class="ia-actions-section">
             <button type="button" class="btn btn-contour btn-petit" aria-haspopup="dialog" onClick={() => ouvrirPanneau(ia.paroles)} data-testid="ia-paroles">

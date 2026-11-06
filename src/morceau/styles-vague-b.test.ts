@@ -2,6 +2,7 @@
 // trap, drill et lo-fi n'ont pas bougé (même morceau, même planning qu'avant la vague B).
 import { describe, expect, it } from 'vitest';
 import { calculerPlanning } from '../moteur/planning';
+import { motifDe } from './acces';
 import { normaliserMorceau } from './normaliser';
 import { nouveauMorceau, REGLAGES_STYLE, suitesAccords } from './styles';
 import { BASSES, BATTERIES, SUITES } from './styles-motifs';
@@ -14,11 +15,14 @@ function fnv(texte: string): string {
   return h.toString(16);
 }
 
-/** Empreintes relevées avant la vague B (morceau JSON, planning arrondi au µs). */
+/**
+ * Empreintes (morceau JSON, planning arrondi au µs). Planning : relevé avant la vague B, inchangé.
+ * Morceau : relevé au contrat C0 (format /3 : la piste instrument « melodie » ; avant : 5dc447, beaa4017, 3babd72d).
+ */
 const AVANT: Record<string, [string, string]> = {
-  trap: ['5dc447', 'e8f8999f'],
-  drill: ['beaa4017', '9bd6e8cc'],
-  lofi: ['3babd72d', 'd6dd9420'],
+  trap: ['4fb6e255', 'e8f8999f'],
+  drill: ['746872ed', '9bd6e8cc'],
+  lofi: ['d4c0190d', 'd6dd9420'], // intégration C3 : piste mélodie sur le Rhodes (morceau seulement ; planning inchangé)
 };
 
 const empreintes = (s: Style): [string, string] => {
@@ -60,9 +64,10 @@ describe('styles de la vague B', () => {
   it('phonk : 135 BPM, mineur, cloche mélodique sur l’intro et le refrain, charley en triolets', () => {
     const m = nouveauMorceau('phonk');
     expect([m.tempo, m.tonalite.mode]).toEqual([135, 'mineur']);
-    const mel = m.motifs['mel-cloche'];
-    expect(mel?.type === 'melodie' && mel.son).toBe('cloche');
-    expect(m.sections.filter((s) => s.motifs.melodie === 'mel-cloche').map((s) => s.id)).toEqual(['intro', 'refrain']);
+    // Format /3 : la cloche est le motif de notes de la piste instrument « melodie », instrument ocka-cloche@1.
+    expect(m.motifs['mel-cloche']?.type).toBe('notes');
+    expect(m.pistes.find((p) => p.id === 'melodie')).toMatchObject({ genre: 'instrument', instrument: 'ocka-cloche@1' });
+    expect(m.sections.filter((s) => motifDe(m, s, 'melodie') === m.motifs['mel-cloche']).map((s) => s.id)).toEqual(['intro', 'refrain']);
     expect((m.motifs['bat-couplet'] as MotifBatterie).roulements?.charley?.filter((x) => x === 3).length).toBeGreaterThan(4);
   });
   it('pop : 110 BPM, majeur, clap sur 2 et 4, charley en croches, accords au piano', () => {

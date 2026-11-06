@@ -2,7 +2,8 @@
 import { describe, expect, it } from 'vitest';
 import { normaliserMorceau } from '../morceau/normaliser';
 import { nouveauMorceau } from '../morceau/styles';
-import type { Morceau } from '../morceau/types';
+import { idMotifDe } from '../morceau/acces';
+import { PLAFONDS, type Morceau } from '../morceau/types';
 import { ErreurOcka } from '../moteur/erreur';
 import { appliquerParoles, marquerIa } from './infos-ia';
 import { lireBeat, lireParoles, lireSuite } from './lecture';
@@ -36,7 +37,9 @@ describe('« Lance-moi un beat »', () => {
   it('un beat correct donne un morceau complet, normalisé et jouable, avec musique « ia » (tout écrit par l’IA)', () => {
     const { morceau: m, ignores } = lireBeat(`Voici ton beat :\n\`\`\`json\n${json(BEAT_OK)}\n\`\`\``);
     expect(ignores).toEqual([]);
-    expect(m).toMatchObject({ format: 'ocka.morceau/2', style: 'phonk', tempo: 135, kit: 'phonk@1', titre: 'Drift de minuit' });
+    expect(m).toMatchObject({ format: 'ocka.morceau/3', style: 'phonk', tempo: 135, kit: 'phonk@1', titre: 'Drift de minuit' });
+    // La mélodie (format compact /2 de l'IA) devient la piste instrument « melodie », avec le son écrit par l'IA.
+    expect(m.pistes.find((p) => p.id === 'melodie')).toMatchObject({ genre: 'instrument', instrument: 'ocka-cloche@1' });
     expect(m.sections).toHaveLength(3);
     expect(m.ordre).toHaveLength(5);
     expect(m.pistes).toHaveLength(6);
@@ -107,9 +110,9 @@ describe('« Lance-moi un beat »', () => {
     const { morceau: m } = lireBeat(json(geant));
     expect(performance.now() - debut).toBeLessThan(3000);
     expect(m.titre.length).toBeLessThanOrEqual(100);
-    expect(Object.keys(m.motifs).length).toBeLessThanOrEqual(64);
+    expect(Object.keys(m.motifs).length).toBeLessThanOrEqual(PLAFONDS.motifs);
     expect(m.ordre.length).toBeLessThanOrEqual(200);
-    for (const mo of Object.values(m.motifs)) if (mo.type === 'melodie') expect(mo.notes.length).toBeLessThanOrEqual(512);
+    for (const mo of Object.values(m.motifs)) if (mo.type === 'notes') expect(mo.notes.length).toBeLessThanOrEqual(PLAFONDS.notesParMotifNotes);
   });
 
   it('réponses mal formées → message clair « Rien n’a été changé »', () => {
@@ -142,9 +145,9 @@ describe('« Continue mon idée »', () => {
     // Le motif « accords » de l'IA (une mélodie) ne remplace pas les accords du morceau.
     expect(r.motifs.accords).toBe(m.motifs.accords);
     expect(neuve.motifs.accords).toBe('accords');
-    expect(r.motifs[neuve.motifs.melodie!]?.type).toBe('melodie');
+    expect(r.motifs[idMotifDe(neuve, 'melodie')!]?.type).toBe('notes');
     expect(r.motifs[neuve.motifs.batterie!]?.type).toBe('batterie');
-    expect(neuve.motifs.melodie).toMatch(/^ia-/);
+    expect(idMotifDe(neuve, 'melodie')).toMatch(/^ia-/);
     // Prises, sons, pads, master, pistes : les mêmes objets ; infos : seulement musique « aide ».
     expect(r.prises).toBe(m.prises);
     expect(r.sons).toBe(m.sons);
@@ -249,5 +252,16 @@ describe('infos.ia (déclaration chez le distributeur)', () => {
     expect(toutIa.infos?.ia).toEqual({ paroles: 'aucune', musique: 'ia', voix: 'aucune' });
     expect(marquerIa(toutIa, { musique: true, paroles: true }).infos?.ia).toEqual({ paroles: 'aide', musique: 'ia', voix: 'aucune' });
     expect(marquerIa(deja, { musique: 'ia' }).infos?.ia).toEqual({ paroles: 'ia', musique: 'ia', voix: 'aucune' });
+  });
+
+  it('marquerIa : la voix (autotune réglé par l’IA) passe à « aide », sans toucher au reste', () => {
+    const m = nouveauMorceau('trap');
+    const v = marquerIa(m, { voix: true });
+    expect(v.infos?.ia).toEqual({ paroles: 'aucune', musique: 'aucune', voix: 'aide' });
+    expect(marquerIa(v, { voix: true })).toBe(v); // déjà déclaré : même objet
+    const deja = { ...m, infos: { ia: { paroles: 'ia', musique: 'ia', voix: 'aucune' } as const } };
+    expect(marquerIa(deja, { voix: true }).infos?.ia).toEqual({ paroles: 'ia', musique: 'ia', voix: 'aide' });
+    const voixIa = { ...m, infos: { ia: { paroles: 'aucune', musique: 'aucune', voix: 'ia' } as const } };
+    expect(marquerIa(voixIa, { voix: true })).toBe(voixIa); // jamais de baisse
   });
 });

@@ -18,8 +18,35 @@ export const DOSSIERS_OPFS = {
   sorties: 'ocka-sorties',
   /** Fichiers de travail (import d'un projet…), effacés au démarrage. */
   tmp: 'ocka-tmp',
+  /** SoundFonts importées par l'utilisateur (« sf2-<id>.sf2 », REGLE_CLE_SF2 ; v2, vague C3). */
+  sf2: 'ocka-sf2',
+  /** C3 (V) : morceaux de référence importés (PCM décodé par Mediabunny, « ref-<id>.f32 » + description .json). */
+  references: 'ocka-references',
+  /** C3 (V, R) : rendus gelés mis en cache (gel d'une piste, effets de performance), « gel-<clé>.f32 ». Jetables. */
+  gels: 'ocka-gels',
 } as const;
 export type NomDossier = keyof typeof DOSSIERS_OPFS;
+
+/**
+ * Caches (Cache Storage) d'OCKA (v2). Le service worker de la PWA a les siens (« workbox-… ») : jamais touchés ici.
+ * - instruments : instruments téléchargés par BQ (instrument.json et fichiers Ogg Opus, clé = URL de même origine).
+ */
+export const CACHES = {
+  instruments: 'ocka-instruments',
+} as const;
+export type NomCache = keyof typeof CACHES;
+/** Nom du cache des instruments (BQ l'importe pour ouvrir le même cache). */
+export const CACHE_INSTRUMENTS = CACHES.instruments;
+
+/** Un cache d'OCKA (créé s'il n'existe pas). Lève ErreurOcka « stockage » sans Cache Storage. */
+export async function cacheOcka(nom: NomCache): Promise<Cache> {
+  if (typeof caches === 'undefined') throw new ErreurOcka('Ce navigateur ne peut pas garder les instruments.', 'stockage');
+  try {
+    return await caches.open(CACHES[nom]);
+  } catch (e) {
+    throw enErreurOcka(e, { message: 'Ce navigateur ne peut pas garder les instruments.', code: 'stockage' });
+  }
+}
 
 /**
  * Phase 1 : les prises étaient dans le dossier « prises » (sans préfixe). A2 les déplace dans ocka-prises
@@ -39,6 +66,10 @@ export const BASES_IDB = {
   reglages: 'ocka-reglages',
   /** Clé de l'IA (vague B). */
   cles: 'ocka-cles',
+  /** Ta voix → instrument (C2, D) : entraînement du beatbox (« beatbox » → EntrainementBeatbox), réglages du direct. */
+  dubler: 'ocka-dubler',
+  /** C3 (R) : confort — modèles de pistes (« modele-<id> »), son du métronome, raccourcis. */
+  confort: 'ocka-confort',
   /** Boîte partagée avec Arko (magasin « boite », clé = date → { nom, type, blob }) : Arko la lit et la vide. */
   versArko: 'ocka-vers-arko',
 } as const;

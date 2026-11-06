@@ -4,26 +4,23 @@
 // Même morceau + même graine → mêmes boucles (la graine 0 donne la bibliothèque ; les autres servent au hasard).
 
 import { demiTonsDegre, hauteurTonique, notesAccord } from '../morceau/theorie';
-import type { Morceau, MotifAccords, MotifMelodie, NoteMelodie, SonMelodie, Style } from '../morceau/types';
+import { motifAccordsDe } from '../morceau/acces';
+import type { Morceau, MotifAccords, MotifNotes, Note, SonMelodie, Style } from '../morceau/types';
 import { hasardGraine } from '../morceau/varier';
+import { definitionStyle } from '../morceau/styles/index';
 
 export const TYPES_BOUCLES = ['cloche', 'arpege', 'contrechant', 'refrain', 'nappe', 'pince'] as const;
 export type TypeBoucle = (typeof TYPES_BOUCLES)[number];
 
 export interface Boucle {
   type: TypeBoucle;
-  motif: MotifMelodie;
+  motif: MotifNotes;
+  /** Son conseillé (instrument « ocka-<son>@1 » de la piste mélodie). */
+  son: SonMelodie;
 }
 
-/** Ordre et sons des boucles de chaque style (la 1re est la plus typique du style). */
-const PAR_STYLE: Record<Style, [TypeBoucle, SonMelodie][]> = {
-  trap: [['arpege', 'pluck'], ['cloche', 'cloche'], ['contrechant', 'lead'], ['refrain', 'piano'], ['nappe', 'nappe'], ['pince', 'pluck']],
-  drill: [['contrechant', 'piano'], ['arpege', 'pluck'], ['refrain', 'lead'], ['cloche', 'cloche'], ['nappe', 'nappe'], ['pince', 'piano']],
-  lofi: [['refrain', 'epiano'], ['arpege', 'epiano'], ['contrechant', 'piano'], ['pince', 'epiano'], ['nappe', 'nappe'], ['cloche', 'cloche']],
-  phonk: [['cloche', 'cloche'], ['arpege', 'pluck'], ['contrechant', 'lead'], ['refrain', 'cloche'], ['nappe', 'nappe'], ['pince', 'pluck']],
-  pop: [['refrain', 'piano'], ['arpege', 'pluck'], ['pince', 'piano'], ['contrechant', 'lead'], ['nappe', 'nappe'], ['cloche', 'cloche']],
-  boombap: [['refrain', 'epiano'], ['pince', 'epiano'], ['arpege', 'epiano'], ['contrechant', 'piano'], ['nappe', 'nappe'], ['cloche', 'cloche']],
-};
+/** Ordre et sons des boucles d'un style (la 1re est la plus typique) : dans le fichier du style (registre). */
+const parStyle = (style: string): [TypeBoucle, SonMelodie][] => definitionStyle(style).boucles;
 
 /** Ce qu'il faut savoir pour écrire une boucle : la gamme, les accords mesure par mesure, la longueur. */
 interface Contexte {
@@ -70,16 +67,16 @@ function empiler(c: Contexte, mesure: number, base: number, nombre: number): num
   return notes.slice(0, nombre);
 }
 
-const note = (pas: number, duree: number, midi: number, vel?: number): NoteMelodie => (vel === undefined ? { pas, duree, midi } : { pas, duree, midi, vel });
+const note = (pas: number, duree: number, midi: number, vel = 1): Note => ({ pas, duree, midi, vel });
 
 /** Motif de cloche (phonk) : la cloche 808 qui joue un riff syncopé de double-croches, dans l'aigu. */
-function cloche(c: Contexte): NoteMelodie[] {
+function cloche(c: Contexte): Note[] {
   const riffs = [
     { pas: [0, 3, 6, 8, 11, 14], sauts: [0, 0, 7, 4, 2, 0], vel: [1, 0.7, 0.9, 0.8, 0.7, 0.85] },
     { pas: [0, 3, 6, 10, 12, 14], sauts: [0, 0, 2, 4, 2, 7], vel: [1, 0.75, 0.8, 0.9, 0.7, 0.8] },
   ];
   const riff = riffs[Math.floor(c.h() * riffs.length)]!;
-  const notes: NoteMelodie[] = [];
+  const notes: Note[] = [];
   for (let m = 0; m * 16 < c.pas; m++) {
     const r = proche(c, [c.accords[m % c.accords.length]![0]!], 70);
     riff.pas.forEach((p, k) => notes.push(note(m * 16 + p, 2, marche(c, r, riff.sauts[k]!), riff.vel[k])));
@@ -88,10 +85,10 @@ function cloche(c: Contexte): NoteMelodie[] {
 }
 
 /** Arpège : les notes de l'accord en croches, qui montent puis redescendent. */
-function arpege(c: Contexte): NoteMelodie[] {
+function arpege(c: Contexte): Note[] {
   const formes = [[0, 1, 2, 3, 2, 1, 0, 1], [0, 2, 1, 3, 0, 2, 1, 3], [0, 1, 2, 3, 4, 3, 2, 1]];
   const forme = formes[Math.floor(c.h() * formes.length)]!;
-  const notes: NoteMelodie[] = [];
+  const notes: Note[] = [];
   for (let m = 0; m * 16 < c.pas; m++) {
     const acc = empiler(c, m, 64, 5);
     forme.forEach((k, i) => notes.push(note(m * 16 + i * 2, 2, acc[k % acc.length]!, i % 2 === 0 ? 0.9 : 0.7)));
@@ -100,8 +97,8 @@ function arpege(c: Contexte): NoteMelodie[] {
 }
 
 /** Contre-chant : deux notes longues par mesure, dans l'aigu, qui glissent d'une note de l'accord à la suivante. */
-function contrechant(c: Contexte): NoteMelodie[] {
-  const notes: NoteMelodie[] = [];
+function contrechant(c: Contexte): Note[] {
+  const notes: Note[] = [];
   let voix = proche(c, c.accords[0]!.slice(1), 74 + Math.floor(c.h() * 4));
   for (let m = 0; m * 16 < c.pas; m++) {
     const cl = c.accords[m % c.accords.length]!;
@@ -114,14 +111,14 @@ function contrechant(c: Contexte): NoteMelodie[] {
 }
 
 /** Mélodie de refrain : une cellule rythmique d'une mesure, répétée sur chaque accord, qui finit sur la tonique. */
-function refrain(c: Contexte): NoteMelodie[] {
+function refrain(c: Contexte): Note[] {
   const cellules = [
     { pas: [0, 3, 6, 8, 12], duree: [3, 3, 2, 4, 4], pente: [0, 1, 2, 0, -1] },
     { pas: [0, 2, 4, 7, 10], duree: [2, 2, 3, 3, 6], pente: [0, -1, 0, 1, 0] },
     { pas: [2, 4, 6, 8, 11, 14], duree: [2, 2, 2, 3, 3, 2], pente: [0, 1, 0, -1, 0, 1] },
   ];
   const cel = cellules[Math.floor(c.h() * cellules.length)]!;
-  const notes: NoteMelodie[] = [];
+  const notes: Note[] = [];
   const mesures = Math.ceil(c.pas / 16);
   for (let m = 0; m < mesures; m++) {
     const cl = c.accords[m % c.accords.length]!;
@@ -137,8 +134,8 @@ function refrain(c: Contexte): NoteMelodie[] {
 }
 
 /** Nappe : une longue note par accord (la tierce ou la quinte), qui bouge le moins possible. */
-function nappe(c: Contexte): NoteMelodie[] {
-  const notes: NoteMelodie[] = [];
+function nappe(c: Contexte): Note[] {
+  const notes: Note[] = [];
   let voix = 76;
   for (let m = 0; m * 16 < c.pas; m++) {
     const cl = c.accords[m % c.accords.length]!;
@@ -149,10 +146,10 @@ function nappe(c: Contexte): NoteMelodie[] {
 }
 
 /** Accords pincés : deux notes de l'accord sur les contretemps (« and »), courts. */
-function pince(c: Contexte): NoteMelodie[] {
+function pince(c: Contexte): Note[] {
   const placements = [[2, 6, 10, 14], [3, 6, 10, 13], [2, 7, 10]];
   const pl = placements[Math.floor(c.h() * placements.length)]!;
-  const notes: NoteMelodie[] = [];
+  const notes: Note[] = [];
   for (let m = 0; m * 16 < c.pas; m++) {
     const acc = empiler(c, m, 67, 4).slice(1, 3);
     for (const p of pl) for (const x of acc) notes.push(note(m * 16 + p, 1, x, 0.75));
@@ -160,14 +157,13 @@ function pince(c: Contexte): NoteMelodie[] {
   return notes;
 }
 
-const ECRIRE: Record<TypeBoucle, (c: Contexte) => NoteMelodie[]> = { cloche, arpege, contrechant, refrain, nappe, pince };
+const ECRIRE: Record<TypeBoucle, (c: Contexte) => Note[]> = { cloche, arpege, contrechant, refrain, nappe, pince };
 
 /** Le motif d'accords d'une section (sinon le premier du morceau). */
 export function accordsDe(m: Morceau, idSection?: string): MotifAccords | null {
   const s = m.sections.find((x) => x.id === idSection) ?? m.sections[0];
-  const id = s?.motifs.accords;
-  const a = id ? m.motifs[id] : undefined;
-  if (a?.type === 'accords') return a;
+  const a = s ? motifAccordsDe(m, s) : undefined;
+  if (a) return a;
   return (Object.values(m.motifs).find((x) => x.type === 'accords') as MotifAccords | undefined) ?? null;
 }
 
@@ -192,8 +188,8 @@ function contexte(m: Morceau, idSection: string | undefined, graine: number): Co
   return { gamme, accords, pas, h: hasardGraine(graine * 7919 + 17) };
 }
 
-/** Écrit une boucle d'un type, avec son son. Notes triées, sans doublon, dans la gamme. */
-export function ecrireBoucle(m: Morceau, type: TypeBoucle, son: SonMelodie, idSection?: string, graine = 0): MotifMelodie {
+/** Écrit une boucle d'un type (motif de notes). Notes triées, sans doublon, dans la gamme. */
+export function ecrireBoucle(m: Morceau, type: TypeBoucle, idSection?: string, graine = 0): MotifNotes {
   const c = contexte(m, idSection, graine);
   const vues = new Set<string>();
   const notes = ECRIRE[type](c)
@@ -201,16 +197,16 @@ export function ecrireBoucle(m: Morceau, type: TypeBoucle, son: SonMelodie, idSe
     .map((x) => ({ ...x, duree: Math.max(1, Math.min(x.duree, c.pas - x.pas)) }))
     .filter((x) => !vues.has(`${x.pas}|${x.midi}`) && vues.add(`${x.pas}|${x.midi}`))
     .sort((a, b) => a.pas - b.pas || a.midi - b.midi);
-  return { type: 'melodie', pas: c.pas, notes, son };
+  return { type: 'notes', pas: c.pas, notes };
 }
 
 /** La bibliothèque « Boucles OCKA » d'une section : 6 boucles, dans l'ordre du style. */
 export function boucles(m: Morceau, idSection?: string, graine = 0): Boucle[] {
-  const liste = PAR_STYLE[Object.hasOwn(PAR_STYLE, m.style) ? m.style : 'trap'];
-  return liste.map(([type, son]) => ({ type, motif: ecrireBoucle(m, type, son, idSection, graine) }));
+  const liste = parStyle(m.style);
+  return liste.map(([type, son]) => ({ type, motif: ecrireBoucle(m, type, idSection, graine), son }));
 }
 
 /** Le son conseillé d'un type de boucle dans un style. */
 export function sonConseille(style: Style, type: TypeBoucle): SonMelodie {
-  return (PAR_STYLE[style] ?? PAR_STYLE.trap).find(([t]) => t === type)?.[1] ?? 'piano';
+  return parStyle(style).find(([t]) => t === type)?.[1] ?? 'piano';
 }

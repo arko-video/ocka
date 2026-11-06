@@ -1,6 +1,6 @@
 // Textes du studio : Beat (batterie, mélodie, tes sons), Structure, Voix, Son, Exporter. Propriétaire : U.
 
-import type { IdPiste, InstrumentBatterie, Master, Piste, SonMelodie } from '../morceau/types';
+import type { IdFixe, InstrumentBatterie, Master, PisteFixe, SonMelodie } from '../morceau/types';
 
 /** « 1 note jouée », « 3 notes jouées » : chaque mot de `mots` prend un s au pluriel. */
 const pluriel = (n: number, mots: string) => `${n} ${n > 1 ? mots.replace(/(\S+)/g, '$1s') : mots}`;
@@ -179,7 +179,7 @@ export const TEXTES_STUDIO = {
     supprimee: 'Prise supprimée.',
     nouvellePrise: 'Prise enregistrée et gardée.',
     preset: 'Son de la voix',
-    presets: { naturel: 'Naturel', rap: 'Rap', chant: 'Chant' } satisfies Record<NonNullable<Piste['preset']>, string>,
+    presets: { naturel: 'Naturel', rap: 'Rap', chant: 'Chant' } satisfies Record<NonNullable<PisteFixe['preset']>, string>,
     erreurs: {
       micro_refuse: 'OCKA n’a pas accès au micro. Autorise-le dans les réglages du site (icône à gauche de l’adresse).',
       micro_absent: 'Aucun micro trouvé sur cet appareil.',
@@ -204,7 +204,7 @@ export const TEXTES_STUDIO = {
 
   son: {
     pistes: 'Pistes',
-    noms: { batterie: 'Batterie', basse: 'Basse', accords: 'Accords', melodie: 'Mélodie', sons: 'Tes sons', voix: 'Voix' } satisfies Record<IdPiste, string>,
+    noms: { batterie: 'Batterie', basse: 'Basse', accords: 'Accords', sons: 'Tes sons', voix: 'Voix' } satisfies Record<IdFixe, string>,
     volume: 'Volume',
     pan: 'Panoramique',
     gauche: 'G',

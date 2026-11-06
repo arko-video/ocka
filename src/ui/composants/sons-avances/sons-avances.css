@@ -1,0 +1,55 @@
+/* Découpe, éditeur de son, tempo et SoundFonts (C3) — propriétaire : S. */
+
+.sa-onglets .segment {
+  min-width: 0;
+  padding: 0 4px;
+  font-size: 13px;
+}
+.sa-onglets .segment:disabled {
+  opacity: 0.4;
+}
+.sa-onglet {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+.forme-onde {
+  position: relative;
+  width: 100%;
+  border-radius: var(--r);
+  border: 1px solid var(--bord);
+  background: var(--fond-creux);
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+  cursor: crosshair;
+}
+.forme-onde canvas {
+  display: block;
+}
+.sa-tranches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sa-tranche {
+  min-width: 44px;
+  justify-content: center;
+}
+.sa-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sa-tons {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sa-presets {
+  max-height: 240px;
+  overflow-y: auto;
+}

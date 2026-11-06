@@ -1,0 +1,227 @@
+/* Autotune avancé (C2, A2) : carte de la prise dans Voix, et éditeur de notes en plein écran (sur le style du piano
+   roll : barre de 48 px, clavier de 32 px, lignes colorées par la gamme). */
+
+.carte-autotune {
+  position: relative;
+}
+.carte-autotune-prise {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--texte-doux);
+}
+.autotune-badge {
+  align-self: flex-start;
+  margin: 0;
+}
+.pastilles-presets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.pastille-preset[aria-checked='true'] {
+  border-color: transparent;
+  background: var(--degrade);
+  color: #fff;
+}
+.carte-autotune .badge {
+  vertical-align: middle;
+}
+.puces-gamme {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.puces-gamme .puce {
+  justify-content: center;
+  padding: 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.puces-gamme .puce-gamme-choisie {
+  grid-column: 1 / -1;
+}
+.lien-gamme {
+  min-height: 44px;
+  padding: 0 4px;
+  border: none;
+  background: none;
+  color: var(--violet-clair);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.choix-gamme {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: var(--r);
+  background: var(--fond-creux);
+}
+.carte-autotune .segment[aria-pressed='true'],
+.choix-gamme .segment[aria-pressed='true'] {
+  background: var(--surface-3);
+  color: var(--texte);
+  box-shadow: inset 0 0 0 1.5px var(--violet);
+}
+.segment-ab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.reglages-autotune {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 4px;
+}
+.actions-autotune {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.actions-autotune .btn-contour,
+.actions-autotune .btn-principal {
+  flex: 1 1 130px;
+  padding-left: 8px;
+  padding-right: 8px;
+  white-space: nowrap;
+}
+.autotune-ia {
+  margin-top: 12px;
+}
+
+/* ------------------------------------------------------------ éditeur de notes */
+.an {
+  --an-courbe: #fde68a;
+  z-index: 59;
+}
+.an-badge {
+  position: absolute;
+  top: calc(56px + env(safe-area-inset-top));
+  right: 10px;
+  z-index: 6;
+  margin: 0;
+}
+.an-info {
+  flex-shrink: 0;
+  min-height: 32px;
+  margin: 0;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: var(--texte-doux);
+}
+.an-complet {
+  position: relative;
+}
+.an-grille {
+  cursor: default;
+}
+.an-note {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  background: rgba(168, 85, 247, 0.42);
+  box-shadow: inset 0 0 0 1px rgba(192, 139, 255, 0.7);
+  cursor: grab;
+  overflow: hidden;
+}
+.an-note[data-hors='1'] {
+  background: repeating-linear-gradient(135deg, rgba(168, 85, 247, 0.42) 0 4px, rgba(126, 59, 208, 0.42) 4px 8px);
+}
+.an-note[data-choisie='1'] {
+  background: rgba(236, 72, 153, 0.45);
+  box-shadow:
+    0 0 0 2px #fff,
+    0 4px 12px rgba(236, 72, 153, 0.5);
+  z-index: 2;
+}
+.an-note-nom {
+  align-self: flex-start;
+  padding: 2px 0 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.an-calcul {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  animation: an-tourne 0.8s linear infinite;
+  pointer-events: none;
+}
+@keyframes an-tourne {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.an-courbe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: visible;
+}
+.an-courbe path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.an-courbe-brute {
+  stroke: rgba(244, 242, 248, 0.35);
+  stroke-width: 1.5;
+}
+.an-courbe-corrigee {
+  stroke: var(--an-courbe);
+  stroke-width: 2.5;
+}
+.an-poignee {
+  position: absolute;
+  z-index: 4;
+  min-width: 44px;
+  height: 30px;
+  padding: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: #fff;
+  color: #1a1524;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  touch-action: none;
+}
+.an-poignee-justesse {
+  cursor: ns-resize;
+}
+.an-poignee-vibrato {
+  cursor: ew-resize;
+  background: var(--an-courbe);
+}
+.an-outils {
+  flex-shrink: 0;
+  display: flex;
+  gap: 8px;
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--bord);
+}
+.an-outils .btn {
+  flex: 1;
+  min-height: 44px;
+}

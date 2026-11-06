@@ -1,13 +1,16 @@
 // Le normaliseur : prend un morceau écrit par l'interface, un fichier importé ou une IA (même mal écrit)
-// et renvoie un morceau propre en version 2, avec la liste des problèmes trouvés (messages en français).
-// Il lit les versions 1 et 2. Il CORRIGE au lieu de rejeter ; seuls deux cas sont bloquants :
-// aucune section, ou un format plus récent que cette version d'OCKA.
-// Idempotent : normaliser deux fois donne le même morceau, et la 2e fois aucun problème.
+// et renvoie un morceau propre en version 3, avec la liste des problèmes trouvés (messages en français).
+// Il lit les versions 1 à 3 (les versions 1 et 2 passent d'abord par migration-v3.ts, sans changer le son).
+// Il CORRIGE au lieu de rejeter ; seuls deux cas sont bloquants : aucune section, ou un format plus récent.
+// Idempotent : normaliser deux fois donne le même morceau, et la 2e fois aucun problème (hors conseils).
 
+import { aMelodieV2, migrerVersV3 } from './migration-v3';
 import { normaliserInfos, normaliserPads, normaliserSons } from './normaliser-ajouts';
 import { normaliserMotifs } from './normaliser-motifs';
 import { apercu, estObjet, Journal, lireChoix, lireNombre, lireTexte, verifierCles, type Objet } from './normaliser-outils';
-import { normaliserMaster, normaliserOrdre, normaliserPistes, normaliserPrises, normaliserSections } from './normaliser-sections';
+import { finirPistes, normaliserPistes } from './normaliser-pistes';
+import { normaliserMaster, normaliserOrdre, normaliserPrises, normaliserSections } from './normaliser-sections';
+import { normaliserMarqueurs, normaliserSoundfonts, normaliserTranchesPads } from './normaliser-v3';
 import { lireTonique } from './theorie';
 import { FORMAT_MORCEAU, STYLES, VERSION_MORCEAU, type Morceau, type Probleme, type Tonique } from './types';
 
@@ -22,6 +25,7 @@ export interface ResultatNormalisation {
 const CLES = [
   'format', 'titre', 'artiste', 'style', 'tempo', 'swing', 'tonalite', 'kit', 'fondu',
   'motifs', 'sections', 'ordre', 'pistes', 'prises', 'master', 'album', 'sons', 'pads', 'infos',
+  'tranchesPads', 'marqueurs', 'soundfonts',
 ] as const;
 const REGLE_KIT = new RegExp(`^(${STYLES.join('|')})@\\d{1,3}$`);
 
@@ -69,9 +73,16 @@ export function lireVersion(format: unknown, prefixe: string, courante: number, 
 /** Normalise un morceau. `brut` peut être un objet ou du texte JSON. */
 export function normaliserMorceau(brut: unknown): ResultatNormalisation {
   const journal = new Journal();
-  const obj = lireEntree(brut, journal, 'Le morceau');
-  const version = lireVersion(obj.format, 'ocka.morceau', VERSION_MORCEAU, journal);
-  verifierCles(obj, CLES, '', journal);
+  const lu = lireEntree(brut, journal, 'Le morceau');
+  const version = lireVersion(lu.format, 'ocka.morceau', VERSION_MORCEAU, journal);
+  verifierCles(lu, CLES, '', journal);
+  // Un morceau des phases 0 et 1 garde la chaîne 1 : son son ne change pas.
+  const chaineDefaut: 1 | 2 = version < 2 ? 1 : 2;
+  const masterBrut = estObjet(lu.master) ? lu.master : {};
+  const chaine: 1 | 2 = masterBrut.chaine === 1 || masterBrut.chaine === 2 ? masterBrut.chaine : chaineDefaut;
+  // Sans « format » (fichier écrit à la main ou par une IA) mais avec une mélodie /2 et sans piste instrument : migré aussi.
+  const sansInstrument = !Array.isArray(lu.pistes) || !lu.pistes.some((p) => estObjet(p) && p.genre === 'instrument');
+  const obj = version < 3 || (lu.format === undefined && aMelodieV2(lu) && sansInstrument) ? migrerVersV3(lu, chaine) : lu;
 
   const style = lireChoix(obj.style, STYLES, 'trap', 'style', journal, 'le style');
   const ton = estObjet(obj.tonalite) ? obj.tonalite : {};
@@ -88,7 +99,11 @@ export function normaliserMorceau(brut: unknown): ResultatNormalisation {
   // Ordre important : les sections pointent vers les motifs et les sons ; l'ordre et les prises vers les sections.
   const { motifs, ids: idsMotifs } = normaliserMotifs(obj.motifs, journal, mode === 'mineur');
   const { sons, ids: idsSons } = normaliserSons(obj.sons, journal);
-  const { sections, ids: idsSections } = normaliserSections(obj.sections, motifs, idsMotifs, idsSons, journal);
+  // C3 : les SoundFonts du morceau d'abord (leurs presets « sf2-<id>-… » sont alors connus, sans conseil).
+  const soundfonts = obj.soundfonts !== undefined && obj.soundfonts !== null ? normaliserSoundfonts(obj.soundfonts, journal) : [];
+  const pistes = normaliserPistes(obj.pistes, journal, new Set(soundfonts.map((s) => s.id)));
+  const { sections, ids: idsSections } = normaliserSections(obj.sections, motifs, idsMotifs, idsSons, pistes.pistes, pistes.ids, journal);
+  finirPistes(pistes, sections, idsSections, journal);
   if (sections.length === 0) journal.bloquant('sections', "Le morceau n'a aucune section : ajoute au moins une section (ex. Couplet).");
 
   let kit = typeof obj.kit === 'string' ? obj.kit : '';
@@ -109,16 +124,24 @@ export function normaliserMorceau(brut: unknown): ResultatNormalisation {
     motifs,
     sections,
     ordre: normaliserOrdre(obj.ordre, sections, idsSections, journal),
-    pistes: normaliserPistes(obj.pistes, journal),
+    pistes: pistes.pistes,
     prises: normaliserPrises(obj.prises, sections, idsSections, journal),
-    // Un morceau des phases 0 et 1 garde la chaîne 1 : son son ne change pas.
-    master: normaliserMaster(obj.master, version < 2 ? 1 : 2, journal),
+    master: normaliserMaster(obj.master, chaineDefaut, journal),
   };
   if (obj.artiste !== undefined) morceau.artiste = lireTexte(obj.artiste, '', 'artiste', journal, 100);
   if (sons !== undefined) morceau.sons = sons;
   const pads = normaliserPads(obj.pads, idsSons, journal);
   if (pads !== undefined) morceau.pads = pads;
+  if (obj.tranchesPads !== undefined && obj.tranchesPads !== null) {
+    const t = normaliserTranchesPads(obj.tranchesPads, pads, sons, journal);
+    if (t && Object.keys(t).length > 0) morceau.tranchesPads = t;
+  }
   const infos = normaliserInfos(obj.infos, journal);
   if (infos !== undefined) morceau.infos = infos;
+  if (obj.marqueurs !== undefined && obj.marqueurs !== null) {
+    const mq = normaliserMarqueurs(obj.marqueurs, sections, idsSections, journal);
+    if (mq.length > 0) morceau.marqueurs = mq;
+  }
+  if (soundfonts.length > 0) morceau.soundfonts = soundfonts;
   return { morceau, problemes: journal.problemes, bloquant: journal.problemes.some((p) => p.niveau === 'bloquant') };
 }

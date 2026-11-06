@@ -1,0 +1,211 @@
+{
+ "id": "freepats-accordeon@1",
+ "nom": "Accordéon",
+ "famille": "Claviers",
+ "licence": {
+  "nom": "CC0-1.0",
+  "url": "https://freepats.zenvoid.org/Organ/accordion.html",
+  "auteur": "Jeff Stauffer (enregistrement), michael02022, FreePats",
+  "sha256": [
+   "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e"
+  ]
+ },
+ "canaux": 1,
+ "gainDb": 0.0,
+ "relache": 0.3,
+ "budgetS": 19.964,
+ "zones": [
+  {
+   "fichier": "z048-v1.ogg",
+   "racine": 48,
+   "cents": 24.2,
+   "bas": 47,
+   "haut": 49,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -7.3,
+   "debut": 0,
+   "fin": 62193,
+   "boucle": {
+    "debut": 19200,
+    "fin": 58097
+   }
+  },
+  {
+   "fichier": "z051-v1.ogg",
+   "racine": 51,
+   "cents": 29.5,
+   "bas": 50,
+   "haut": 52,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -7.1,
+   "debut": 0,
+   "fin": 65581,
+   "boucle": {
+    "debut": 19200,
+    "fin": 61485
+   }
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "racine": 54,
+   "cents": 7.6,
+   "bas": 53,
+   "haut": 55,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.0,
+   "debut": 0,
+   "fin": 81713,
+   "boucle": {
+    "debut": 19200,
+    "fin": 77617
+   }
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "racine": 57,
+   "cents": 21.5,
+   "bas": 56,
+   "haut": 58,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.9,
+   "debut": 0,
+   "fin": 75596,
+   "boucle": {
+    "debut": 19200,
+    "fin": 71500
+   }
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "racine": 60,
+   "cents": 17.0,
+   "bas": 59,
+   "haut": 61,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.6,
+   "debut": 0,
+   "fin": 92552,
+   "boucle": {
+    "debut": 19200,
+    "fin": 88456
+   }
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "racine": 63,
+   "cents": 23.8,
+   "bas": 62,
+   "haut": 64,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -7.4,
+   "debut": 0,
+   "fin": 84888,
+   "boucle": {
+    "debut": 19200,
+    "fin": 80792
+   }
+  },
+  {
+   "fichier": "z066-v1.ogg",
+   "racine": 66,
+   "cents": 19.8,
+   "bas": 65,
+   "haut": 67,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.0,
+   "debut": 0,
+   "fin": 97054,
+   "boucle": {
+    "debut": 19200,
+    "fin": 92958
+   }
+  },
+  {
+   "fichier": "z069-v1.ogg",
+   "racine": 69,
+   "cents": 17.6,
+   "bas": 68,
+   "haut": 69,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.4,
+   "debut": 0,
+   "fin": 99122,
+   "boucle": {
+    "debut": 19200,
+    "fin": 95026
+   }
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "racine": 71,
+   "cents": 14.2,
+   "bas": 70,
+   "haut": 72,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.6,
+   "debut": 0,
+   "fin": 84109,
+   "boucle": {
+    "debut": 19200,
+    "fin": 80013
+   }
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "racine": 74,
+   "cents": 14.7,
+   "bas": 73,
+   "haut": 75,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.8,
+   "debut": 0,
+   "fin": 61521,
+   "boucle": {
+    "debut": 19200,
+    "fin": 57425
+   }
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "racine": 77,
+   "cents": 22.1,
+   "bas": 76,
+   "haut": 78,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.0,
+   "debut": 0,
+   "fin": 89994,
+   "boucle": {
+    "debut": 19200,
+    "fin": 85898
+   }
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "racine": 80,
+   "cents": 7.5,
+   "bas": 79,
+   "haut": 81,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -12.2,
+   "debut": 0,
+   "fin": 63950,
+   "boucle": {
+    "debut": 19200,
+    "fin": 59854
+   }
+  }
+ ]
+}

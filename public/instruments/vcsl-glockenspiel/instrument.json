@@ -1,0 +1,145 @@
+{
+ "id": "vcsl-glockenspiel@1",
+ "nom": "Glockenspiel",
+ "famille": "Percussions mélodiques",
+ "licence": {
+  "nom": "CC0-1.0",
+  "url": "https://github.com/sgossner/VCSL",
+  "auteur": "Versilian Studios LLC (Sam Gossner et contributeurs)",
+  "sha256": [
+   "7649dda2c67decfcf7a8b98b5225c1b2693a191713d4bb83d4e0afa8b88e51c6",
+   "7ca228de549d54770f90bb125e23edcd1dc06cec2b9e1f452661720262f0ecd0",
+   "8aaf97481ef2582c14ef0382ec54c17c1b0a2f901a42976c332bac20fadd74a2",
+   "a2ba94e59119cd5272c1161fc8b8fbfb94c7b44de45a9a6cc5973b1c332103af",
+   "b28baea01b6028e061e5cc978fca70f9062af6a59d155b0fe55e54ec89f42c07",
+   "be0bf94731720c0094276fea5646e75ff3a8a646b3c828258e9aaab6a8ef6c49",
+   "d9410b4cd52c1b5eb458098d9f8e7685d6dc12d512ee32db378f19d04f2b1f4b"
+  ]
+ },
+ "canaux": 1,
+ "gainDb": 0.0,
+ "relache": 0.5,
+ "budgetS": 26.928,
+ "zones": [
+  {
+   "fichier": "z068-v1.ogg",
+   "racine": 68,
+   "cents": 0.0,
+   "bas": 67,
+   "haut": 69,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.0,
+   "debut": 0,
+   "fin": 144000
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "racine": 71,
+   "cents": 0.0,
+   "bas": 70,
+   "haut": 72,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -5.3,
+   "debut": 0,
+   "fin": 144000
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "racine": 74,
+   "cents": 0.0,
+   "bas": 73,
+   "haut": 75,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -5.1,
+   "debut": 0,
+   "fin": 144000
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "racine": 77,
+   "cents": 0.0,
+   "bas": 76,
+   "haut": 78,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -7.6,
+   "debut": 0,
+   "fin": 144000
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "racine": 80,
+   "cents": 0.0,
+   "bas": 79,
+   "haut": 81,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.9,
+   "debut": 0,
+   "fin": 143104
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "racine": 83,
+   "cents": 0.0,
+   "bas": 82,
+   "haut": 84,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -5.8,
+   "debut": 0,
+   "fin": 140544
+  },
+  {
+   "fichier": "z086-v1.ogg",
+   "racine": 86,
+   "cents": 0.0,
+   "bas": 85,
+   "haut": 87,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -5.6,
+   "debut": 0,
+   "fin": 119552
+  },
+  {
+   "fichier": "z089-v1.ogg",
+   "racine": 89,
+   "cents": 0.0,
+   "bas": 88,
+   "haut": 90,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.7,
+   "debut": 0,
+   "fin": 141312
+  },
+  {
+   "fichier": "z092-v1.ogg",
+   "racine": 92,
+   "cents": 0.0,
+   "bas": 91,
+   "haut": 93,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -13.6,
+   "debut": 0,
+   "fin": 112896
+  },
+  {
+   "fichier": "z095-v1.ogg",
+   "racine": 95,
+   "cents": 0.0,
+   "bas": 94,
+   "haut": 96,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -1.9,
+   "debut": 0,
+   "fin": 59136
+  }
+ ]
+}

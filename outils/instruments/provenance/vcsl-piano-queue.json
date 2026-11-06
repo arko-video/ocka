@@ -1,0 +1,212 @@
+{
+ "id": "vcsl-piano-queue",
+ "source": {
+  "type": "vcsl",
+  "sfz": "Chordophones/Zithers/Grand Piano, Steinway B"
+ },
+ "fichiers": [
+  {
+   "fichier": "z022-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_A#0_vl3_rr1.wav",
+   "sha256": "ee105d9ae493f9846fba63ff8d84a4e30a519a486b13050924d45471fe05c545",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z025-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C1_vl3_rr1.wav",
+   "sha256": "e1c7f8c2f29fab2395601fe6ece5551b040be1b4ba918fe36982e2dddde6386d",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z028-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_E1_vl3_rr1.wav",
+   "sha256": "fcefc334a8a4e058d87596d0c29b7f4415a506c5f9349b2664d5c877e6afdf83",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z031-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_F#1_vl3_rr1.wav",
+   "sha256": "60b25026c98093a493991735cd2e1182a955545abd708e262a9a50de02bf93b0",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z034-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_A#1_vl3_rr1.wav",
+   "sha256": "c036c0d949de9aae39c6c6324943dd6544d688fe59841943396ec8e99b86d3b8",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z036-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C2_vl3_rr1.wav",
+   "sha256": "6d27c3cc5fec4abb27e96e9a0246840804e5925de1e46d1733cc61373d13ee9c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z039-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_D2_vl3_rr1.wav",
+   "sha256": "ae914ab03432ea13372bd3a75a88fd43edc972abf5794a3f56c36366ad45b3bc",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z042-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_F#2_vl3_rr1.wav",
+   "sha256": "e78ad53a15654ad2ded47d07a756fac600fa4c243aaac1ea6a5523a6a5ad12f7",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z045-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_G#2_vl3_rr1.wav",
+   "sha256": "728d6c855648b125d0eb9516f26d99963b0193a6bb940ee68c287b0ed63602e0",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z048-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C3_vl3_rr1.wav",
+   "sha256": "9910a6e13c4572d78ed336f053132b3b806fa0483cc32a52730fdf18b4e72489",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z051-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_D3_vl3_rr1.wav",
+   "sha256": "7a57dcc62f221fb4888629c9484173b26ad51041e78689eeccec70013ad51768",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_F#3_vl3_rr1.wav",
+   "sha256": "f818d885b914206b932aff898d3c5eeedc2d53515b266fb44041c8ea0d441cd5",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_G#3_vl3_rr1.wav",
+   "sha256": "76a501e9bd19eefff87e103a89065b04ede5fab359040dc31184df0436d3ad86",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C4_vl3_rr1.wav",
+   "sha256": "1e7ec3baf2c9bb784d5c5bc1e3ff2a2dff70ceb2a9c887281a89b6a5df5a2e88",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_D4_vl3_rr1.wav",
+   "sha256": "62f07ca9027742ac07e7caa4c08f325585b5de6c9c485780281bd39d14a08b10",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z066-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_F#4_vl3_rr1.wav",
+   "sha256": "f1e94953958c04dd9768977581e94e1c55a4898cf68d5af09f9bc6f3b8dd9432",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z069-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_G#4_vl3_rr1.wav",
+   "sha256": "654604eb87a5907fcb81c1a188de34c9bc1d07ad2b519c316d2028230ab2f37a",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z072-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C5_vl3_rr1.wav",
+   "sha256": "c1251ce77aac2a28d475f12ccd7d183e427ac79950cb8776187a0ccd79f1328e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z075-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_D5_vl3_rr1.wav",
+   "sha256": "ef6aa60760ae682b4948085ff013b8836177eb1dfd08486199c97b1f073e0048",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z078-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_F#5_vl3_rr1.wav",
+   "sha256": "30ae5b3b74fe543e3f4dcf8f6df9cc1228285bf9f34810d5c511de1da5249f98",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z081-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_G#5_vl3_rr1.wav",
+   "sha256": "1d3959d90d2832bfa4b800bf055440aecb5f045eebf29a8e622c14aa63de3f98",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z084-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C6_vl3_rr1.wav",
+   "sha256": "5c162458135f81ae20a52851412f79a7b360ca9254af54f6b5c5cb7ffee45d3f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z087-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_D6_vl3_rr1.wav",
+   "sha256": "ff1e2ab98bbf970616c6a0544325357b18e85ef3701cae56838d3d0a42eb205d",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z090-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_F#6_vl3_rr1.wav",
+   "sha256": "2395079aa5e0f63ae6000329d46fa655dd6a85fec32612b9abe972ffd53618c9",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z093-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_G#6_vl3_rr1.wav",
+   "sha256": "02a3e88585feb91f2ebdc4a7c372c4570a07a21b85c0a56a49c1f195592dbd89",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z096-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C7_vl3_rr1.wav",
+   "sha256": "d30b755f954dd09f24dd1c03b7c3deeed8e9df530163969255b720a2d03f5187",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z099-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_D7_vl3_rr1.wav",
+   "sha256": "3bd02535ea0d154d10f8f038e1a833ff44bafe5cf3772b9ac7538d1eab84a149",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z102-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_F#7_vl3_rr1.wav",
+   "sha256": "21d81247189d418e88556055f54ff5013aad7a5339806d1cc6777d58febcbe53",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z105-v1.ogg",
+   "source": "Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_G#7_vl3_rr1.wav",
+   "sha256": "1fd2954e98163a76a69d69d4c84f425b22b53866b8d0bcf63a780e55012297e9",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

@@ -1,42 +1,37 @@
-// Format d'un morceau OCKA — "ocka.morceau/2". C'est la SEULE source de vérité d'un morceau :
-// l'interface (et plus tard une IA) écrit ce format, l'écoute et l'export ne lisent que lui.
+// Format d'un morceau OCKA — "ocka.morceau/3". C'est la SEULE source de vérité d'un morceau :
+// l'interface (et une IA) écrit ce format, l'écoute et l'export ne lisent que lui.
 // Temps musicaux en PAS de double-croche : 16 pas par mesure de 4/4.
-// Version 2 (vague A) : mélodie, sons importés (pads et boucles), effets de voix, chaîne du master, infos du titre.
-// Le normaliseur lit les versions 1 et 2 et écrit toujours la version 2. Tous les ajouts sont facultatifs
-// DANS LE FICHIER ; après le normaliseur, les pistes `melodie` et `sons` et `master.chaine` sont toujours là.
+// Version 3 (v2 d'OCKA, gelée ENTIÈREMENT au contrat C0 jusqu'aux champs de C3) : pistes instrument en nombre
+// libre (16 au plus), un motif de notes par piste et par section, tranches de mélangeur (inserts, sidechain,
+// automation, LFO), effets de performance, marqueurs, SoundFonts, recettes et découpes des sons, autotune réglable.
+// Le normaliseur lit les versions 1 à 3 et écrit toujours la version 3 (la mélodie /2 devient la piste
+// instrument « melodie », instrument « ocka-<son>@1 » : même son). Un OCKA v1 refuse un /3 (format plus récent).
+// Ajouts des vagues C2 et C3 : types-ajouts.ts ; tranche (mixage) : types-mixage.ts. Accesseurs : acces.ts.
 
-export const FORMAT_MORCEAU = 'ocka.morceau/2';
+import type { AutotunePrise, DecoupeSon, EffetPerf, InfosTitre, Marqueur, RecetteSon, ReglagesSynthe, SoundFontMorceau } from './types-ajouts';
+import type { Tranche } from './types-mixage';
+
+export * from './types-ajouts';
+export * from './types-regles';
+export * from './types-mixage';
+
+export const FORMAT_MORCEAU = 'ocka.morceau/3';
 /** Version du format écrite par cette version d'OCKA (les versions plus récentes sont refusées). */
-export const VERSION_MORCEAU = 2;
-
-/* ------------------------------------------------------------ règles d'écriture (communes à tous) */
-
-/** Identifiant (motif, section, prise, son, morceau, sortie) : 1 à 40 caractères, lettres, chiffres, _ et -. */
-export const REGLE_ID = /^[A-Za-z0-9_-]{1,40}$/;
-/** Clé du fichier d'une prise dans OPFS (dossier ocka-prises) : « prise-<id>.f32 ». */
-export const REGLE_CLE_PRISE = /^prise-[A-Za-z0-9_-]{1,40}\.f32$/;
-/** Clé du fichier d'un son importé dans OPFS (dossier ocka-sons) : « son-<id>.f32 ». */
-export const REGLE_CLE_SON = /^son-[A-Za-z0-9_-]{1,40}\.f32$/;
-/** Clé d'une pochette dans IndexedDB (base ocka-pochettes) : « pochette-<id> ». */
-export const REGLE_CLE_POCHETTE = /^pochette-[A-Za-z0-9_-]{1,40}$/;
-
-/** Plafonds du format (le normaliseur coupe au-delà). */
-export const PLAFONDS = {
-  motifs: 64,
-  sections: 64,
-  ordre: 200,
-  notesParMotif: 512,
-  prises: 200,
-  sons: 16,
-  /** Durée totale des sons importés d'un morceau (s). */
-  dureeSons: 120,
-  titresParSortie: 32,
-} as const;
+export const VERSION_MORCEAU = 3;
 
 /* ------------------------------------------------------------ listes fermées */
 
-/** 3 styles finis en vague A ; phonk, pop et boom bap ont des valeurs PROVISOIRES (copie de trap) jusqu'à la vague B. */
-export const STYLES = ['trap', 'drill', 'lofi', 'phonk', 'pop', 'boombap'] as const;
+/**
+ * Ids des styles, FIGÉS (contrat C2) : les 6 des phases 0 à 6, puis les 9 styles rap (S1) et les 20 autres (S2).
+ * Chaque style a son fichier morceau/styles/<id>.ts (registre : morceau/styles/index.ts) ; l'ordre ici ne compte pas
+ * pour l'affichage (l'écran du choix groupe par familles).
+ */
+export const STYLES = [
+  'trap', 'drill', 'lofi', 'phonk', 'pop', 'boombap',
+  'rage', 'plugg', 'cloud', 'jerseyclub', 'afrotrap', 'rapmelodique', 'jazzrap', 'ukdrill', 'memphis',
+  'hyperpop', 'bossanova', 'rnb', 'afrobeats', 'reggaeton', 'amapiano', 'house', 'techno', 'dnb', 'ukgarage',
+  'synthwave', 'jazz', 'rock', 'poppunk', 'funk', 'reggae', 'gospel', 'orchestral', 'ambient', 'kpop',
+] as const;
 export type Style = (typeof STYLES)[number];
 export type Mode = 'majeur' | 'mineur';
 /** Note de la gamme chromatique (dièses). */
@@ -49,18 +44,20 @@ export const INSTRUMENTS_BATTERIE = ['kick', 'snare', 'clap', 'charley', 'charle
 export type InstrumentBatterie = (typeof INSTRUMENTS_BATTERIE)[number];
 
 /**
- * Sons de la mélodie. `piano` = nouveau piano par résonateurs ; `epiano` = le piano électrique FM des accords ;
- * `cloche` et `nappe` = ceux des accords. Pas de basse synthé : la 808 suffit.
+ * Sons fabriqués par OCKA v1, joués par les instruments « ocka-<son>@1 » (et par les accords) :
+ * `piano` = piano par résonateurs ; `epiano` = piano électrique FM ; `cloche` et `nappe` = ceux des accords.
  */
 export const SONS_MELODIE = ['piano', 'epiano', 'lead', 'pluck', 'cloche', 'nappe'] as const;
 export type SonMelodie = (typeof SONS_MELODIE)[number];
 
-/** Pistes du mélangeur, dans l'ordre d'affichage. */
-export const IDS_PISTES = ['batterie', 'basse', 'accords', 'melodie', 'sons', 'voix'] as const;
-export type IdPiste = (typeof IDS_PISTES)[number];
-
 /** Longueurs possibles d'une boucle (mesures). */
 export const MESURES_BOUCLE = [1, 2, 4, 8] as const;
+
+/** Pistes FIXES (toujours là, dans cet ordre) ; une piste instrument n'a jamais un de ces ids. */
+export const IDS_FIXES = ['batterie', 'basse', 'accords', 'sons', 'voix'] as const;
+export type IdFixe = (typeof IDS_FIXES)[number];
+/** Id d'une piste : un IdFixe, ou celui d'une piste instrument (REGLE_ID, jamais un IdFixe). */
+export type IdPiste = string;
 
 /* ------------------------------------------------------------ morceau */
 
@@ -83,7 +80,10 @@ export interface Morceau {
   sections: Section[];
   /** Arrangement : ids de sections dans l'ordre (une section peut revenir). */
   ordre: string[];
-  /** Toujours les 6 pistes de IDS_PISTES, dans cet ordre, après le normaliseur. */
+  /**
+   * Après le normaliseur : batterie, basse, accords, puis les pistes instrument (16 au plus, dans leur ordre),
+   * puis sons et voix. Les 5 pistes fixes sont toujours là.
+   */
   pistes: Piste[];
   prises: Prise[];
   master: Master;
@@ -91,11 +91,17 @@ export interface Morceau {
   sons?: SonImporte[];
   /** Pad perso → id d'un son de `sons`. */
   pads?: Partial<Record<PadPerso, string>>;
+  /** Pad perso → n° de la découpe (SonImporte.tranches) jouée par ce pad ; absent = le son entier. */
+  tranchesPads?: Partial<Record<PadPerso, number>>;
   /** Infos du titre pour la sortie (explicite, langue, crédits, IA…). */
   infos?: InfosTitre;
+  /** 64 au plus. */
+  marqueurs?: Marqueur[];
+  /** SoundFonts importées (8 au plus). */
+  soundfonts?: SoundFontMorceau[];
 }
 
-export type Motif = MotifBatterie | MotifBasse | MotifAccords | MotifMelodie;
+export type Motif = MotifBatterie | MotifBasse | MotifAccords | MotifNotes;
 
 export interface MotifBatterie {
   type: 'batterie';
@@ -137,24 +143,26 @@ export interface MotifAccords {
   son?: 'piano' | 'nappe' | 'cloche';
 }
 
-/** Une note de mélodie, en MIDI absolu (24 à 108). */
-export interface NoteMelodie {
-  /** Pas de départ dans le motif (entier). */
+/** Une note d'un motif de notes, en MIDI absolu (BORNES_NOTE). */
+export interface Note {
+  /** Pas de départ dans le motif, arrondi au 1/24 de pas (0 ≤ pas < longueur du motif). */
   pas: number;
-  /** Durée en pas (entier, au moins 1, sans dépasser la fin du motif). */
+  /** Durée en pas, arrondie au 1/24 (au moins 1/24, sans dépasser la fin du motif). */
   duree: number;
   midi: number;
-  /** Vélocité 0,1 à 1 (défaut 1). */
-  vel?: number;
+  /** Vélocité 0,1 à 1 (l'échantillonneur choisit sa couche avec vel × 127 et applique vel^1,6). */
+  vel: number;
+  /** Glissé (glide) vers la note suivante de la piste. */
+  glisse?: boolean;
 }
 
-export interface MotifMelodie {
-  type: 'melodie';
-  /** 16 à 64 pas (1 à 4 mesures), multiple de 16. */
+/** Le motif d'une piste instrument dans une section (la généralisation de l'ancien motif « melodie »). */
+export interface MotifNotes {
+  type: 'notes';
+  /** 16 à 128 pas (1 à 8 mesures), multiple de 16. Il boucle jusqu'à la fin de la section. */
   pas: number;
-  /** Triées par pas puis par hauteur ; pas deux notes au même pas et à la même hauteur. */
-  notes: NoteMelodie[];
-  son: SonMelodie;
+  /** 1024 au plus, triées par pas puis par hauteur ; pas deux notes au même pas et à la même hauteur. */
+  notes: Note[];
 }
 
 export type NomSection = 'Intro' | 'Couplet' | 'Refrain' | 'Pont' | 'Outro' | string;
@@ -164,8 +172,12 @@ export interface Section {
   nom: NomSection;
   /** Nombre de mesures (1 à 16). */
   mesures: number;
-  /** Motif joué par chaque piste instrumentale (absent = silence pour cette piste). */
-  motifs: { batterie?: string; basse?: string; accords?: string; melodie?: string };
+  /**
+   * Motif joué par chaque piste (id de piste → id de motif ; absent = silence pour cette piste). Dictionnaire SANS
+   * prototype. batterie → MotifBatterie, basse → MotifBasse, accords → MotifAccords, piste instrument → MotifNotes.
+   * Lire avec les accesseurs de acces.ts (motifDe, motifNotesDe…).
+   */
+  motifs: Record<IdPiste, string>;
   /** Roulement de batterie (fill) sur la dernière mesure, pour annoncer la section suivante. */
   fill?: boolean;
   /** « break » : dernière mesure sans batterie ; « drop » : première mesure sans batterie ni basse. */
@@ -177,21 +189,36 @@ export interface Section {
    * `caler` : le son est rééchantillonné pour durer exactement `mesures` mesures (ça change un peu la hauteur).
    */
   boucle?: { son: string; mesures: (typeof MESURES_BOUCLE)[number]; caler: boolean };
+  /** Effets de performance (8 au plus), calculés hors ligne. */
+  perf?: EffetPerf[];
 }
 
-export interface Piste {
-  id: IdPiste;
-  /** Volume linéaire 0 à 1,5 (défaut 0,8). */
-  volume: number;
-  /** Panoramique −1 (gauche) à 1 (droite). */
-  pan: number;
-  muet: boolean;
-  solo: boolean;
+/** Piste fixe : batterie, basse (808), accords, sons (importés), voix. */
+export interface PisteFixe extends Tranche {
+  id: IdFixe;
+  genre?: undefined;
   /** Piste voix seulement : réglage prêt (passe-haut 90 Hz, compresseur, réverbe). Défaut « naturel ». */
   preset?: 'naturel' | 'rap' | 'chant';
   /** Piste voix seulement : effets au-dessus du préréglage (absent = aucun effet ajouté). */
   effets?: EffetsVoix;
 }
+
+/** Piste instrument (16 au plus) : un MotifNotes par section, joué par `instrument`. */
+export interface PisteInstrument extends Tranche {
+  /** REGLE_ID, jamais un IdFixe. La mélodie d'un morceau /2 garde l'id « melodie ». */
+  id: string;
+  genre: 'instrument';
+  /** Nom affiché et nom du fichier de piste séparée (40 caractères au plus). */
+  nom: string;
+  /** REGLE_INSTRUMENT. Inconnu mais bien écrit : gardé (muet tant qu'il n'est pas installé, avec un conseil). */
+  instrument: string;
+  /** Réglages d'un instrument fabriqué par le code (303, chiptune, onde dessinée…). */
+  synthe?: ReglagesSynthe;
+  /** Swing propre à la piste (0 à 0,6) ; absent = celui du morceau. */
+  swing?: number;
+}
+
+export type Piste = PisteFixe | PisteInstrument;
 
 /** Effets de voix. Niveaux de 0 à 1 ; l'autotune est arrondi au dixième (vague B). */
 export interface EffetsVoix {
@@ -227,6 +254,8 @@ export interface Prise {
   /** Prise gardée : une seule prise choisie par section en v1, les autres sont muettes. */
   choisie: boolean;
   nom?: string;
+  /** Autotune réglable de cette prise (C2) ; absent = le réglage simple de la piste voix. */
+  autotune?: AutotunePrise;
 }
 
 /** Un son importé. Le PCM est dans OPFS (dossier ocka-sons) ; seul lireSon (A2) lit ce fichier. */
@@ -240,6 +269,10 @@ export interface SonImporte {
   /** Durée en secondes (0 à 120). */
   duree: number;
   canaux: 1 | 2;
+  /** Son fabriqué par OCKA (kick, sfxr) : recalculé à l'identique depuis la recette. */
+  recette?: RecetteSon;
+  /** Découpes (sample chop) : 64 au plus, triées, dans [0, duree]. */
+  tranches?: DecoupeSon[];
 }
 
 export interface Master {
@@ -255,28 +288,6 @@ export interface Master {
    * 2 = avec la colle et les panoramiques par défaut (nouveaux morceaux). Facultatif dans le fichier.
    */
   chaine: 1 | 2;
-}
-
-/* ------------------------------------------------------------ infos du titre (sortie) */
-
-export const ROLES_CREDIT = ['auteur', 'compositeur', 'producteur', 'interprete'] as const;
-export type RoleCredit = (typeof ROLES_CREDIT)[number];
-export const NIVEAUX_IA = ['aucune', 'aide', 'ia'] as const;
-/** Déclaration de l'IA, élément par élément : aucune, aide (l'IA a aidé), ia (fait par l'IA). */
-export type NiveauIa = (typeof NIVEAUX_IA)[number];
-
-export interface InfosTitre {
-  /** « Il y a des gros mots ? » — absent = pas encore répondu. */
-  explicite?: boolean;
-  /** Code de langue (« fr », « en », « pt-BR ») ou « instrumental ». */
-  langue?: string;
-  /** Vrais noms complets (exigés par les distributeurs) ; 20 au plus. */
-  credits?: { nom: string; role: RoleCredit }[];
-  /** Nom de l'invité, écrit ensuite « (feat. X) » dans le titre. */
-  featuring?: string;
-  /** ISRC si le titre est déjà sorti (12 caractères, sans tirets). */
-  isrc?: string;
-  ia?: { paroles: NiveauIa; musique: NiveauIa; voix: NiveauIa };
 }
 
 /** Un problème trouvé (et souvent corrigé) par le normaliseur. Message en français. */

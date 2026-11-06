@@ -1,6 +1,7 @@
 // Master hors ligne en JS (sans worklet) contre le worklet de l'écoute : même son, écart ≤ −120 dB.
 // Un même signal (le trap de la QA, rendu puis poussé de +6 dB pour faire travailler colle et limiteur) passe :
-//  (a) dans la chaîne master AVEC le worklet (optionsMaster.workletHorsLigne) suivie du GainNode du fondu ;
+//  (a) dans le worklet du master de l'ÉCOUTE (couleur → limiteur.worklet, montés ICI par le test : depuis le contrat C3,
+//      l'export n'a plus d'option pour charger un worklet hors ligne), suivi du GainNode du fondu ;
 //  (b) dans la chaîne master hors ligne (couleur seule), puis appliquerMaster en JS (master + fondu).
 // Chaînes 1 et 2. Besoin du serveur de dev (modules sources) : npx vite --port 5198 --strictPort.
 import { writeFileSync } from 'node:fs';
@@ -17,9 +18,11 @@ test('master : JS hors ligne = worklet (≤ −120 dB), chaînes 1 et 2, fondu c
     const imp = (c: string) => import(/* @vite-ignore */ `/ocka/src/${c}.ts`);
     const { nouveauMorceau } = await imp('morceau/styles');
     const { rendre } = await imp('moteur/export-rendu');
-    const { creerChaineMaster, optionsMaster } = await imp('moteur/master');
+    const { creerChaineMaster } = await imp('moteur/master');
+    const { creerCouleur } = await imp('moteur/chaines');
+    const { SEUILS_COLLE } = await imp('moteur/audio/colle');
     const { appliquerMaster, fonduFin } = await imp('moteur/audio/master-hors-ligne');
-    const { retardMaster } = await imp('moteur/audio/worklet');
+    const { chargerLimiteur, creerLimiteur, retardMaster, SEUIL_MASTER } = await imp('moteur/audio/worklet');
     const FS = 44100;
     const m = nouveauMorceau('trap', 'QA master');
     m.ordre = m.ordre.slice(0, 2);
@@ -35,28 +38,40 @@ test('master : JS hors ligne = worklet (≤ −120 dB), chaînes 1 et 2, fondu c
       const master = { ...m.master, chaine, preset: 'chaud' };
       const rendus: Float32Array[][] = [];
       for (const worklet of [true, false]) {
-        optionsMaster.workletHorsLigne = worklet;
         const ctx = new OfflineAudioContext(2, n + retard, FS);
         const src = new AudioBufferSourceNode(ctx, { buffer: entree });
-        const c = await creerChaineMaster(ctx, master);
         const fondu = ctx.createGain();
-        const f = fonduFin(c.latence, duree, 2);
-        src.connect(c.entree);
         if (worklet) {
-          fondu.gain.setValueAtTime(1, c.latence);
+          // Le chemin de l'écoute : couleur → worklet (colle + limiteur), comme creerChaineMaster dans un AudioContext.
+          await chargerLimiteur(ctx);
+          const [debut, fin] = creerCouleur(ctx, master.preset);
+          const noeud = creerLimiteur(ctx, SEUIL_MASTER, { chaine, seuilColle: SEUILS_COLLE[master.preset], colle: 1 });
+          const latence = retard / FS;
+          const f = fonduFin(latence, duree, 2);
+          src.connect(debut);
+          fin.connect(noeud);
+          fondu.gain.setValueAtTime(1, latence);
           fondu.gain.setValueAtTime(1, f.debut);
           fondu.gain.linearRampToValueAtTime(0, f.fin);
-          c.sortie.connect(fondu).connect(ctx.destination);
-        } else c.sortie.connect(ctx.destination);
+          noeud.connect(fondu).connect(ctx.destination);
+          src.start(0);
+          const r = await ctx.startRendering();
+          noeud.port.postMessage('fin');
+          rendus.push([r.getChannelData(0).slice(), r.getChannelData(1).slice()]);
+          continue;
+        }
+        const c = await creerChaineMaster(ctx, master);
+        const f = fonduFin(c.latence, duree, 2);
+        src.connect(c.entree);
+        c.sortie.connect(ctx.destination);
         src.start(0);
         const r = await ctx.startRendering();
         const canaux = [r.getChannelData(0).slice(), r.getChannelData(1).slice()];
         const js = c.masterJs();
-        if (!worklet && js) await appliquerMaster(canaux, js, FS, f);
+        if (js) await appliquerMaster(canaux, js, FS, f);
         c.detruire();
         rendus.push(canaux);
       }
-      optionsMaster.workletHorsLigne = false;
       let crete = 0;
       let ecart = 0;
       let identiques = 0;

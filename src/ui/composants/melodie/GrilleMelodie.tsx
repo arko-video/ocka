@@ -4,7 +4,8 @@
 
 import type { RefObject } from 'preact';
 import { useEffect, useRef } from 'preact/hooks';
-import type { Morceau, MotifMelodie, SonMelodie } from '../../../morceau/types';
+import { ID_MELODIE } from '../../../morceau/acces';
+import type { Morceau, MotifNotes } from '../../../morceau/types';
 import { T } from '../../../textes-fr';
 import {
   basculerNote,
@@ -26,22 +27,26 @@ import { dureeNote } from './reglages-melodie';
 interface Props {
   m: Morceau;
   idSection: string;
-  motif: MotifMelodie | null;
+  motif: MotifNotes | null;
   /** Les 8 notes MIDI de la gamme affichées (de la plus grave à la plus aiguë). */
   lignes: number[];
-  son: SonMelodie;
+  /** Piste instrument jouée (la piste mélodie), ou null. */
+  piste: string | null;
   /** Pendant l'enregistrement au clavier : la grille ne bouge pas. */
   bloque: boolean;
+  /** Piste instrument éditée (piano roll « Simple ») ; absent = la piste mélodie. */
+  edite?: string;
 }
 
 type EtatCase = 'debut' | 'suite' | 'fin' | 'seule';
 
 /** État de chaque case occupée par une note : « midi|pas » → début, suite, fin ou note d'un seul pas. */
-function casesOccupees(motif: MotifMelodie | null): Map<string, EtatCase> {
+function casesOccupees(motif: MotifNotes | null): Map<string, EtatCase> {
   const cases = new Map<string, EtatCase>();
   for (const n of motif?.notes ?? []) {
     for (let k = 0; k < n.duree; k++) {
-      const etat: EtatCase = n.duree === 1 ? 'seule' : k === 0 ? 'debut' : k === n.duree - 1 ? 'fin' : 'suite';
+      const etat: EtatCase =
+        n.duree === 1 ? 'seule' : k === 0 ? 'debut' : k === n.duree - 1 ? 'fin' : 'suite';
       cases.set(`${n.midi}|${n.pas + k}`, etat);
     }
   }
@@ -71,13 +76,23 @@ function ColonneCourante({ idSection, longueur, defile, geste }: PropsColonne) {
     const c = colonne.current;
     if (!el || !c || Date.now() - (geste.current ?? 0) < PAUSE_SUIVI_MS) return;
     const x = c.offsetLeft;
-    if (x < el.scrollLeft || x + c.offsetWidth > el.scrollLeft + el.clientWidth) el.scrollLeft = Math.max(0, x - 4);
+    if (x < el.scrollLeft || x + c.offsetWidth > el.scrollLeft + el.clientWidth)
+      el.scrollLeft = Math.max(0, x - 4);
   }, [pas]);
   if (pas < 0) return null;
-  return <span ref={colonne} class="grille-courant" style={{ '--pas': pas }} data-pas={pas} data-testid="colonne-courante" aria-hidden="true" />;
+  return (
+    <span
+      ref={colonne}
+      class="grille-courant"
+      style={{ '--pas': pas }}
+      data-pas={pas}
+      data-testid="colonne-courante"
+      aria-hidden="true"
+    />
+  );
 }
 
-export function GrilleMelodie({ m, idSection, motif, lignes, son, bloque }: Props) {
+export function GrilleMelodie({ m, idSection, motif, lignes, piste, bloque, edite }: Props) {
   const section = m.sections.find((s) => s.id === idSection);
   const longueur = motif?.pas ?? (section ? longueurDefaut(section) : 32);
   const duree = dureeNote.value;
@@ -91,15 +106,17 @@ export function GrilleMelodie({ m, idSection, motif, lignes, son, bloque }: Prop
   const toucher = (pas: number, midi: number) => {
     if (bloque) return;
     const etait = motif ? noteA(motif, pas, midi) : undefined;
-    if (modifier((x) => basculerNote(x, idSection, pas, midi, duree)) && !etait) entendreNote(son, midi);
+    if (modifier((x) => basculerNote(x, idSection, pas, midi, duree, edite)) && !etait)
+      entendreNote(piste ?? ID_MELODIE, midi);
   };
   const changer = (mesures: number) => {
     const perdues = notesPerdues(motif, mesures);
-    if (modifier((x) => changerLongueur(x, idSection, mesures)) && perdues > 0)
+    if (modifier((x) => changerLongueur(x, idSection, mesures, edite)) && perdues > 0)
       afficherToast(T.melodie.perdues(perdues), 5000, { label: T.annuler, agir: annulerAction });
   };
   const effacer = () => {
-    if (modifier((x) => effacerMelodie(x, idSection))) afficherToast(T.melodie.effacee, 5000, { label: T.annuler, agir: annulerAction });
+    if (modifier((x) => effacerMelodie(x, idSection, edite)))
+      afficherToast(T.melodie.effacee, 5000, { label: T.annuler, agir: annulerAction });
   };
 
   return (

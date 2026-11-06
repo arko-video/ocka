@@ -127,17 +127,17 @@ test('mémoire : 12 exports FLAC de 3 min de suite, ni le tas JS ni la mémoire 
 
 // Album : « Préparer le dossier » d'une sortie de 12 titres de 3 min (exporterDossierSortie), sur le serveur de dev
 // (modules sources : npx vite --port 5198 --strictPort). Mémoire de Chrome avant, PENDANT (crête, relevée toutes les
-// 0,5 s) et après. « avant » = l'ancien chemin (worklet chargé dans chaque contexte hors ligne, optionsMaster),
-// « après » = master en JS. Chaque cas dans une page neuve.
+// 0,5 s) et après, dans une page neuve. Master en JS (le seul chemin de l'export depuis le contrat C3 : l'ancienne
+// option qui rechargeait le worklet dans chaque contexte hors ligne, et qui retenait ~800 Mo, est retirée).
 test.describe('album', () => {
   test.use({ baseURL: 'http://localhost:5198/ocka/' });
-  test('mémoire : dossier de sortie de 12 titres de 3 min (master JS contre worklet)', async ({ page }) => {
+  test('mémoire : dossier de sortie de 12 titres de 3 min (master JS)', async ({ page }) => {
     test.setTimeout(1_800_000);
     await morceau3min(page);
     await sortiePrete(page);
     await page.getByTestId('retour').click().catch(() => {});
     const bilan: Record<string, { ms: number; avantMo: number; creteMo: number; apresMo: number; tasMo: number; parType: Record<string, number>[] }> = {};
-    for (const [nom, worklet] of [['apres', false], ['avant', true]] as const) {
+    for (const nom of ['apres'] as const) {
       await page.goto('./');
       await page.waitForTimeout(1000);
       await tasJs(page);
@@ -145,10 +145,9 @@ test.describe('album', () => {
       const typeAvant = memoireParType();
       let creteMo = avantMo;
       const releve = setInterval(() => (creteMo = Math.max(creteMo, memoireChrome())), 500);
-      const ms = await page.evaluate(async (w) => {
+      const ms = await page.evaluate(async () => {
         const imp = (c: string) => import(/* @vite-ignore */ `/ocka/src/${c}.ts`);
         const api = await imp('moteur/api');
-        (await imp('moteur/master')).optionsMaster.workletHorsLigne = w;
         const [r] = await api.listerSorties();
         const sortie = await api.ouvrirSortie(r.id);
         const ids: string[] = [sortie.titres[0]];
@@ -159,19 +158,58 @@ test.describe('album', () => {
         const t0 = performance.now();
         await api.exporterDossierSortie(s, { format: 'flac16' });
         return performance.now() - t0;
-      }, worklet);
+      });
       clearInterval(releve);
       await page.waitForTimeout(2000);
       const tasMo = await tasJs(page); // purge les caches avant de mesurer
       bilan[nom] = { ms: Math.round(ms), avantMo, creteMo, apresMo: memoireChrome(), tasMo, parType: [typeAvant, memoireParType()] };
     }
     writeFileSync(join(SORTIES, 'bilan-memoire-album.json'), JSON.stringify(bilan, null, 2));
-    // Mesuré (4 nov. 2026) : master JS, l'onglet (renderer) +13 Mo après l'album, crête de tout Chrome +336 Mo ;
-    // ancien chemin (worklet) : onglet +819 Mo. (Le processus « browser » garde ~195 Mo une fois, après la 1re
-    // écriture du ZIP de ~300 Mo dans OPFS : il ne remonte pas au 2e album.)
+    // Mesuré (C2) : master JS, l'onglet (renderer) +3 à +12 Mo après l'album, crête de tout Chrome +333 à +346 Mo.
+    // (Le processus « browser » garde ~195 Mo une fois, après la 1re écriture du ZIP de ~300 Mo dans OPFS.)
     const onglet = (b: (typeof bilan)[string]) => b.parType[1]!.renderer! - b.parType[0]!.renderer!;
     expect(onglet(bilan.apres!)).toBeLessThan(60);
     expect(bilan.apres!.creteMo - bilan.apres!.avantMo).toBeLessThan(500);
-    expect(onglet(bilan.avant!) - onglet(bilan.apres!)).toBeGreaterThan(500); // le remède compte vraiment
+  });
+});
+
+// Inserts JS à l'export (M2, vague C1) : compresseur ou bitcrusher sur 3 pistes. Sans worklet hors ligne, la « passe A »
+// rend ces pistes avant leurs inserts (≈ 63 Mo par piste pour 3 min) et garde le résultat pendant l'export. Mesure :
+// retenu PENDANT l'export (crête) seulement, rendu après (4 exports de suite, l'onglet ne monte pas).
+test.describe('inserts', () => {
+  test.use({ baseURL: 'http://localhost:5198/ocka/' });
+  test('mémoire : 4 exports de 3 min avec compresseur ou bitcrusher sur 3 pistes', async ({ page }) => {
+    test.setTimeout(1_200_000);
+    await morceau3min(page);
+    await page.goto('./');
+    await page.waitForTimeout(1000);
+    await tasJs(page);
+    const avant = memoireParType();
+    const mesures: { n: number; ms: number; lufs: number; creteOngletMo: number; ongletMo: number }[] = [];
+    for (let n = 1; n <= 4; n++) {
+      let crete = 0;
+      const releve = setInterval(() => (crete = Math.max(crete, memoireParType().renderer ?? 0)), 250);
+      const r = await page.evaluate(async () => {
+        const imp = (c: string) => import(/* @vite-ignore */ `/ocka/src/${c}.ts`);
+        const api = await imp('moteur/api');
+        const [x] = await api.listerMorceaux();
+        const m = await api.ouvrirMorceau(x.id);
+        const types: Record<string, 'compresseur' | 'bitcrusher'> = { batterie: 'compresseur', basse: 'bitcrusher', accords: 'compresseur' };
+        const pistes = m.pistes.map((p: { id: string }) => (types[p.id] ? { ...p, inserts: [api.insertParDefaut(types[p.id], `js-${p.id}`)] } : p));
+        const t0 = performance.now();
+        const res = await api.exporterAudio({ ...m, pistes }, { format: 'flac16' });
+        return { ms: performance.now() - t0, lufs: res.lufs as number };
+      });
+      clearInterval(releve);
+      await page.waitForTimeout(1000);
+      await tasJs(page);
+      mesures.push({ n, ms: Math.round(r.ms), lufs: Math.round(r.lufs * 10) / 10, creteOngletMo: crete - avant.renderer!, ongletMo: memoireParType().renderer! - avant.renderer! });
+    }
+    writeFileSync(join(SORTIES, 'bilan-memoire-inserts.json'), JSON.stringify({ avant, mesures }, null, 2));
+    for (const x of mesures) expect(x.lufs).toBeCloseTo(-14, 0);
+    // Après chaque export, l'onglet revient près de son niveau : rien n'est retenu au-delà de l'export (même seuil
+    // que l'album), et ça ne monte pas d'un export à l'autre.
+    for (const x of mesures) expect(x.ongletMo, `après l'export ${x.n}`).toBeLessThan(60);
+    expect(mesures.at(-1)!.ongletMo - mesures[0]!.ongletMo).toBeLessThan(30);
   });
 });

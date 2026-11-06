@@ -1,0 +1,333 @@
+{
+ "format": "ocka.instruments/1",
+ "instruments": [
+  {
+   "id": "vcsl-piano-queue@1",
+   "nom": "Piano à queue",
+   "famille": "Claviers",
+   "taille": 788841,
+   "dureeS": 58.8,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-piano-droit@1",
+   "nom": "Piano droit",
+   "famille": "Claviers",
+   "taille": 754993,
+   "dureeS": 58.799,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "freepats-guitare-nylon@1",
+   "nom": "Guitare nylon",
+   "famille": "Guitares",
+   "taille": 565210,
+   "dureeS": 37.104,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "freepats-guitare-claire@1",
+   "nom": "Guitare électrique claire",
+   "famille": "Guitares",
+   "taille": 889519,
+   "dureeS": 58.8,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-cordes@1",
+   "nom": "Cordes en section",
+   "famille": "Cordes",
+   "taille": 804083,
+   "dureeS": 58.98,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-pizzicato@1",
+   "nom": "Cordes pizzicato",
+   "famille": "Cordes",
+   "taille": 442623,
+   "dureeS": 35.907,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-flute@1",
+   "nom": "Flûte",
+   "famille": "Vents",
+   "taille": 745419,
+   "dureeS": 52.015,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "karoryfer-basse@1",
+   "nom": "Basse électrique",
+   "famille": "Basses",
+   "taille": 772313,
+   "dureeS": 58.799,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "karoryfer-contrebasse@1",
+   "nom": "Contrebasse",
+   "famille": "Basses",
+   "taille": 667597,
+   "dureeS": 52.472,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vcsl-marimba@1",
+   "nom": "Marimba",
+   "famille": "Percussions mélodiques",
+   "taille": 878982,
+   "dureeS": 58.8,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vcsl-vibraphone@1",
+   "nom": "Vibraphone",
+   "famille": "Percussions mélodiques",
+   "taille": 829104,
+   "dureeS": 58.8,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "karoryfer-piano-doux@1",
+   "nom": "Piano doux",
+   "famille": "Claviers",
+   "taille": 773121,
+   "dureeS": 58.8,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "freepats-piano-bastringue@1",
+   "nom": "Piano bastringue",
+   "famille": "Claviers",
+   "taille": 808840,
+   "dureeS": 58.8,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "freepats-piano-fm@1",
+   "nom": "Piano électrique FM",
+   "famille": "Claviers",
+   "taille": 941586,
+   "dureeS": 58.8,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vcsl-orgue@1",
+   "nom": "Orgue d'église",
+   "famille": "Claviers",
+   "taille": 897415,
+   "dureeS": 58.855,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "freepats-orgue-electrique@1",
+   "nom": "Orgue électrique",
+   "famille": "Claviers",
+   "taille": 978963,
+   "dureeS": 59.022,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "freepats-accordeon@1",
+   "nom": "Accordéon",
+   "famille": "Claviers",
+   "taille": 303471,
+   "dureeS": 19.964,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vcsl-clavecin@1",
+   "nom": "Clavecin",
+   "famille": "Claviers",
+   "taille": 824755,
+   "dureeS": 54.363,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "freepats-guitare-saturee@1",
+   "nom": "Guitare saturée",
+   "famille": "Guitares",
+   "taille": 746207,
+   "dureeS": 47.715,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "freepats-ukulele@1",
+   "nom": "Ukulélé",
+   "famille": "Guitares",
+   "taille": 228895,
+   "dureeS": 17.405,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-violon@1",
+   "nom": "Violon",
+   "famille": "Cordes",
+   "taille": 834139,
+   "dureeS": 58.848,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-violoncelles@1",
+   "nom": "Violoncelles",
+   "famille": "Cordes",
+   "taille": 739458,
+   "dureeS": 55.96,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-cordes-staccato@1",
+   "nom": "Cordes staccato",
+   "famille": "Cordes",
+   "taille": 351636,
+   "dureeS": 25.963,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vcsl-harpe@1",
+   "nom": "Harpe",
+   "famille": "Cordes",
+   "taille": 775329,
+   "dureeS": 58.8,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-clarinette@1",
+   "nom": "Clarinette",
+   "famille": "Vents",
+   "taille": 915448,
+   "dureeS": 58.858,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-hautbois@1",
+   "nom": "Hautbois",
+   "famille": "Vents",
+   "taille": 727352,
+   "dureeS": 48.105,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-basson@1",
+   "nom": "Basson",
+   "famille": "Vents",
+   "taille": 837630,
+   "dureeS": 55.81,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-cor@1",
+   "nom": "Cor d'harmonie",
+   "famille": "Vents",
+   "taille": 552509,
+   "dureeS": 39.629,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-trompette@1",
+   "nom": "Trompette",
+   "famille": "Vents",
+   "taille": 746966,
+   "dureeS": 48.064,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-trombone@1",
+   "nom": "Trombone",
+   "famille": "Vents",
+   "taille": 710775,
+   "dureeS": 47.609,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vsco-tuba@1",
+   "nom": "Tuba",
+   "famille": "Vents",
+   "taille": 514730,
+   "dureeS": 41.077,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vcsl-saxophone@1",
+   "nom": "Saxophone ténor",
+   "famille": "Vents",
+   "taille": 874603,
+   "dureeS": 58.48,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vcsl-glockenspiel@1",
+   "nom": "Glockenspiel",
+   "famille": "Percussions mélodiques",
+   "taille": 367153,
+   "dureeS": 26.928,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "freepats-kalimba@1",
+   "nom": "Kalimba",
+   "famille": "Percussions mélodiques",
+   "taille": 263219,
+   "dureeS": 17.824,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vcsl-xylophone@1",
+   "nom": "Xylophone",
+   "famille": "Percussions mélodiques",
+   "taille": 361379,
+   "dureeS": 22.945,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vcsl-cloches@1",
+   "nom": "Cloches tubulaires",
+   "famille": "Percussions mélodiques",
+   "taille": 443546,
+   "dureeS": 30.0,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "karoryfer-batterie@1",
+   "nom": "Batterie acoustique",
+   "famille": "Batteries",
+   "taille": 473857,
+   "dureeS": 58.8,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "virtuosity-batterie-jazz@1",
+   "nom": "Batterie jazz",
+   "famille": "Batteries",
+   "taille": 453609,
+   "dureeS": 58.8,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "karoryfer-batterie-balais@1",
+   "nom": "Batterie aux balais",
+   "famille": "Batteries",
+   "taille": 356315,
+   "dureeS": 54.987,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "vcsl-percussions-latines@1",
+   "nom": "Percussions latines",
+   "famille": "Percussions",
+   "taille": 359072,
+   "dureeS": 38.507,
+   "licence": "CC0-1.0"
+  },
+  {
+   "id": "freepats-percussions@1",
+   "nom": "Percussions du monde",
+   "famille": "Percussions",
+   "taille": 83253,
+   "dureeS": 11.683,
+   "licence": "CC0-1.0"
+  }
+ ]
+}

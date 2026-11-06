@@ -118,7 +118,8 @@ describe('normaliseur', () => {
     expect(r.morceau.style).toBe('trap');
     expect(r.morceau.tonalite.tonique).toBe('A#');
     expect(r.morceau.kit).toBe('trap@1');
-    expect(r.morceau.pistes.map((p) => p.id)).toEqual(['batterie', 'basse', 'accords', 'melodie', 'sons', 'voix']);
+    // Format /3 : les 5 pistes fixes sont toujours là ; une piste instrument absente du fichier n'est pas recréée.
+    expect(r.morceau.pistes.map((p) => p.id)).toEqual(['batterie', 'basse', 'accords', 'sons', 'voix']);
     expect(r.morceau.pistes[1]!.volume).toBe(1.5);
     expect(r.morceau.master).toEqual({ preset: 'neutre', niveau: 'fort', chaine: 2 });
     expect(r.problemes.find((p) => p.chemin === 'tempo')?.message).toContain('hors limites');
@@ -146,7 +147,8 @@ describe('normaliseur', () => {
   });
   it('bloquant : aucune section, ou format plus récent ; JSON en texte accepté', () => {
     expect(normaliserMorceau({}).bloquant).toBe(true);
-    expect(normaliserMorceau({ ...nouveauMorceau('lofi'), format: 'ocka.morceau/3' }).bloquant).toBe(true);
+    expect(normaliserMorceau({ ...nouveauMorceau('lofi'), format: 'ocka.morceau/4' }).bloquant).toBe(true);
+    expect(normaliserMorceau({ ...nouveauMorceau('lofi'), format: 'ocka.morceau/3' }).bloquant).toBe(false);
     expect(normaliserMorceau({ ...nouveauMorceau('lofi'), format: 'ocka.morceau/1' }).bloquant).toBe(false);
     const texte = '```json\n' + JSON.stringify(nouveauMorceau('drill')) + '\n```';
     expect(normaliserMorceau(texte).problemes).toEqual([]);

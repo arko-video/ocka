@@ -1,0 +1,127 @@
+{
+ "id": "freepats-ukulele@1",
+ "nom": "Ukulélé",
+ "famille": "Guitares",
+ "licence": {
+  "nom": "CC0-1.0",
+  "url": "https://freepats.zenvoid.org/GuitarFamily/ukulele.html",
+  "auteur": "Mateusz Dąbrowski, FreePats",
+  "sha256": [
+   "cb857464cc847c261d954a4bfe3610380f96ff4d2603d94573ab3529aa574775"
+  ]
+ },
+ "canaux": 1,
+ "gainDb": 0.0,
+ "relache": 0.2,
+ "budgetS": 17.405,
+ "zones": [
+  {
+   "fichier": "z061-v1.ogg",
+   "racine": 61,
+   "cents": 2.3,
+   "bas": 60,
+   "haut": 62,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.4,
+   "debut": 0,
+   "fin": 143104
+  },
+  {
+   "fichier": "z064-v1.ogg",
+   "racine": 64,
+   "cents": 1.5,
+   "bas": 63,
+   "haut": 65,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -4.3,
+   "debut": 0,
+   "fin": 144000
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "racine": 67,
+   "cents": -1.4,
+   "bas": 66,
+   "haut": 68,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -4.4,
+   "debut": 0,
+   "fin": 79872
+  },
+  {
+   "fichier": "z070-v1.ogg",
+   "racine": 70,
+   "cents": -0.5,
+   "bas": 69,
+   "haut": 71,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.2,
+   "debut": 0,
+   "fin": 134912
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "racine": 73,
+   "cents": -2.1,
+   "bas": 72,
+   "haut": 73,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -4.4,
+   "debut": 0,
+   "fin": 93440
+  },
+  {
+   "fichier": "z075-v1.ogg",
+   "racine": 75,
+   "cents": -3.2,
+   "bas": 74,
+   "haut": 76,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -3.8,
+   "debut": 0,
+   "fin": 57088
+  },
+  {
+   "fichier": "z078-v1.ogg",
+   "racine": 78,
+   "cents": -4.8,
+   "bas": 77,
+   "haut": 79,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -4.8,
+   "debut": 0,
+   "fin": 56832
+  },
+  {
+   "fichier": "z081-v1.ogg",
+   "racine": 81,
+   "cents": -8.7,
+   "bas": 80,
+   "haut": 82,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -5.7,
+   "debut": 0,
+   "fin": 77056
+  },
+  {
+   "fichier": "z084-v1.ogg",
+   "racine": 84,
+   "cents": -2.5,
+   "bas": 83,
+   "haut": 84,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.8,
+   "debut": 0,
+   "fin": 49152
+  }
+ ]
+}

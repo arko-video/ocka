@@ -23,9 +23,6 @@ export interface DepartChaine {
   compensationDb?: number;
 }
 
-/** Tests (QA) seulement : true remet le worklet dans les contextes hors ligne (comparaison worklet / JS). */
-export const optionsMaster = { workletHorsLigne: false };
-
 /** Vrai si le contexte joue en ce moment (sinon on règle tout de suite, sans rampe). */
 function enDirect(ctx: BaseAudioContext): boolean {
   return typeof AudioContext !== 'undefined' && ctx instanceof AudioContext && ctx.state === 'running';
@@ -43,7 +40,7 @@ function viser(ctx: BaseAudioContext, p: AudioParam, v: number): void {
 
 /** Crée la chaîne du master d'un contexte (le worklet est chargé si besoin). */
 export async function creerChaineMaster(ctx: BaseAudioContext, master: Master, depart: DepartChaine = {}): Promise<ChaineMaster> {
-  const horsLigne = 'startRendering' in ctx && !optionsMaster.workletHorsLigne;
+  const horsLigne = 'startRendering' in ctx; // jamais de worklet hors ligne (plus d'option de test : contrat C3)
   if (!horsLigne) await chargerLimiteur(ctx);
   const sansDepart = depart.sans === true;
   const entree = ctx.createGain();

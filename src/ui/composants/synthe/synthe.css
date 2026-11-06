@@ -1,0 +1,64 @@
+/* Panneaux Synthé et « Fabriquer un son » (L). */
+.synthe-tete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.synthe-ligne {
+  display: grid;
+  grid-template-columns: minmax(84px, 34%) 1fr 56px;
+  align-items: center;
+  gap: 8px;
+}
+.synthe-nom {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--texte-doux);
+}
+.synthe-valeur {
+  text-align: right;
+  font-size: 14px;
+  color: var(--texte);
+}
+.synthe-crans {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.synthe-onde {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.synthe-onde-cadre {
+  width: 100%;
+  height: 150px;
+  border-radius: var(--r);
+  background: var(--fond-creux);
+  border: 1px solid var(--bord-fort);
+  touch-action: none;
+  cursor: crosshair;
+}
+.synthe-onde-zero {
+  stroke: var(--bord-fort);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.synthe-onde-trait {
+  fill: none;
+  stroke: var(--violet-clair);
+  stroke-width: 3;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.synthe-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.synthe-pads {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 8px;
+}

@@ -63,11 +63,12 @@ describe('ramasse-miettes', () => {
   async function scene() {
     const m = nouveauMorceau('trap', 'Gardé');
     // Autotune allumé sur la voix : le fichier corrigé de la prise choisie est utilisé, donc gardé.
-    m.pistes = m.pistes.map((p) => (p.id === 'voix' ? { ...p, effets: { ...p.effets, autotune: 0.5 } } : p));
+    m.pistes = m.pistes.map((p) => (p.id === 'voix' && p.genre !== 'instrument' ? { ...p, effets: { ...p.effets, autotune: 0.5 } } : p));
     autoGarde = nomAutotune('prise-garde.f32', 0.5, m.tonalite);
     autoAncienneForce = nomAutotune('prise-garde.f32', 0.8, m.tonalite);
     m.prises = [{ id: 'p', ancre: { section: m.sections[0]!.id, occurrence: 0, mesure: 0 }, tempo: 120, fichier: 'prise-garde.f32', frequence: 48000, duree: 1, debutCoupe: 0, finCoupe: 1, decalage: 0, gain: 1, choisie: true }];
     m.sons = [{ id: 's', nom: 'S', fichier: 'son-garde.f32', frequence: 44100, duree: 1, canaux: 1 }];
+    m.soundfonts = [{ id: 'garde', nom: 'SF', fichier: 'sf2-garde.sf2', taille: 4, sha256: 'a'.repeat(64) }];
     await sauverMorceau(m);
     const vieux = Date.now() - 2 * HEURE;
     for (const n of ['prise-garde.f32', 'prise-garde.json', 'prise-orphelin.f32', 'prise-orphelin.json', autoGarde, autoAncienneForce, 'auto-prise-mort-1.f32', 'lisez-moi.txt']) racine.poser('ocka-prises', n, o(), vieux);
@@ -75,6 +76,9 @@ describe('ramasse-miettes', () => {
     racine.poser('ocka-prises', 'prise-seance-passee.f32', o(), DEBUT_SEANCE - 1000);
     racine.poser('ocka-sons', 'son-garde.f32', o(), vieux);
     racine.poser('ocka-sons', 'son-orphelin.f32', o(), vieux);
+    racine.poser('ocka-sf2', 'sf2-garde.sf2', o(), vieux);
+    racine.poser('ocka-sf2', 'sf2-orpheline.sf2', o(), vieux);
+    racine.poser('ocka-sf2', 'sf2-recente.sf2', o(), Date.now());
     racine.poser('ocka-exports', 'export-vieux.wav', o(), vieux);
     racine.poser('ocka-exports', 'export-recent.wav', o(), Date.now());
     racine.poser('exports', 'video-arko.mp4', o(), vieux);
@@ -85,10 +89,11 @@ describe('ramasse-miettes', () => {
     await scene();
     const bilan = await menage();
     // Effacés : prise orpheline (+ .json), prise d'avant la séance, autotune d'une prise morte, autotune à une ancienne force.
-    expect(bilan).toEqual({ prises: 5, sons: 1, exports: 1, tmp: 0 });
+    expect(bilan).toEqual({ prises: 5, sons: 1, sf2: 1, exports: 1, tmp: 0 });
     expect(autoGarde).toMatch(/^auto-prise-garde-0\.5-[A-Za-z]+-(majeur|mineur)\.f32$/);
     expect(racine.noms('ocka-prises')).toEqual([autoGarde, 'lisez-moi.txt', 'prise-garde.f32', 'prise-garde.json', 'prise-recente.f32']);
     expect(racine.noms('ocka-sons')).toEqual(['son-garde.f32']);
+    expect(racine.noms('ocka-sf2')).toEqual(['sf2-garde.sf2', 'sf2-recente.sf2']);
     expect(racine.noms('ocka-exports')).toEqual(['export-recent.wav']);
     expect(racine.noms('exports')).toEqual(['video-arko.mp4']);
     expect(racine.noms('arko-projets')).toEqual(['p.json']);

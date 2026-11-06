@@ -129,5 +129,6 @@ export function normaliserReglages(brut: unknown): Reglages {
   if (typeof o.distributeur === 'string' && (DISTRIBUTEURS as readonly string[]).includes(o.distributeur)) {
     r.distributeur = o.distributeur as Reglages['distributeur'];
   }
+  if (o.avance === true) r.avance = true; // false = absent
   return r;
 }

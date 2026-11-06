@@ -1,0 +1,156 @@
+{
+ "id": "vcsl-orgue",
+ "source": {
+  "type": "vcsl",
+  "sfz": "Aerophones/Edge-blown Aerophones/Pipe Organ - Loud"
+ },
+ "fichiers": [
+  {
+   "fichier": "z036-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_C1.wav",
+   "sha256": "655578ef565eb845785935baca41600ca620f19dae8ba0c102ef53d4128febd4",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z039-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_D#1.wav",
+   "sha256": "7ce6ac35c8f951d36a1ebe66043f5a3e1ae3ca6bb3c45c1e74d1a3f64834fa5c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z042-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_F#1.wav",
+   "sha256": "03e8a7f44599f0df9975566fff56ece53990d61851f9051f264fa6506f1e075e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z045-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_A1.wav",
+   "sha256": "d0c1af924435e9b9c31801888e3f3f62b14f05c0d29dc2b5c69b1d700105fad3",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z048-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_C2.wav",
+   "sha256": "6a45ea670fd525c8d9c6e26c2d0c0cf5248972b3aa9cc98521b826208aba03c7",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z051-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_D#2.wav",
+   "sha256": "aeb0fb90c0b8f8c34bb71c998b63ef485e43522071aa39085045b7f50179bb33",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_F#2.wav",
+   "sha256": "0fccf2e5ad86e2ef4ea2475a69fdb4d6c2687e69f83a15d06cbae03e34ac5eee",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_A2.wav",
+   "sha256": "4b58d8b01067b740b6170e6a3900bd27adb7cf2ace7d48033759826a6e4b2316",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_C3.wav",
+   "sha256": "1524a5631561e898617154a2f1b6bdc6fbdacb383549255d78d14eb53b588f8b",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_D#3.wav",
+   "sha256": "c8eb1bff00e0261bb403d6a245f54087808c3cb77c03914e97d0f606205895c7",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z066-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_F#3.wav",
+   "sha256": "5b0043d88777245103c73f04a5569b9e4e2cd143e21eeebdffd8b3684eec9df6",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z069-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_A3.wav",
+   "sha256": "dc5ad93f22d343ea345d3964e7c7cf1d62a3229f8a2660c12a035473743470b2",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z072-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_C4.wav",
+   "sha256": "9f3b80ef47d908b8acae4d6e7898a28e8179c3e090d6ee1ff4c326d35ea1d945",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z075-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_D#4.wav",
+   "sha256": "cd5305ad957832c8f87d3676ba3fe47751de3817a793d676362438509a415268",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z078-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_F#4.wav",
+   "sha256": "bc9f4e8f0f20484a7b8eb1e35c2800c3658b59a1d8d28a8fc2f88b0ab788e28d",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z081-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_A4.wav",
+   "sha256": "5ac10b40fb5cb026e3e487e05e24a1b0aeda35fa8df956d48f8c9d9fd18bff38",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z084-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_C5.wav",
+   "sha256": "abcfa8821cd0ff1279f427b71cfad6467d39b0a56481fda4f164880df8f6ddcc",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z087-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_D#5.wav",
+   "sha256": "92185a77cd3f976715bc0dcd88719b7369235d2bab082441ad3d66176a0ba01d",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z090-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_F#5.wav",
+   "sha256": "02ad4cf4038e4934a6de35ce9e9a6928bb2191e2e23a7ceddce0a2e0f83be532",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z093-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_A5.wav",
+   "sha256": "6377903ce83e54cd8032308bc8fc1a3d7351af807b720b0c74fa97076b2eeb91",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z096-v1.ogg",
+   "source": "Aerophones/Edge-blown Aerophones/Pipe Organ/Loud/Rode_Man3Open_C6.wav",
+   "sha256": "fcb7ed9e78012eab036f89dfd9529852ba11193afa2f224fd4536fe427f8292b",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

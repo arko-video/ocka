@@ -2,6 +2,7 @@
 // - ocka-prises : prises (+ description) et fichiers de l'autotune « auto-… » qu'AUCUN morceau sauvé n'utilise (un
 //   fichier corrigé n'est utilisé que pour la force et la tonalité actuelles du morceau : fichiersAutotune) ;
 // - ocka-sons : sons importés qu'aucun morceau sauvé n'utilise ;
+// - ocka-sf2 (C3) : SoundFonts (« sf2-<id>.sf2 ») qu'aucun morceau sauvé ne liste dans `soundfonts` ;
 //   → effacés s'ils sont d'avant cette séance (seulement si aucun autre onglet d'OCKA n'est ouvert : un autre
 //     onglet peut avoir une prise pas encore sauvée), ou vieux d'au moins une heure (« Annuler » peut les ramener) ;
 // - ocka-exports : exports de plus d'une heure (un export récent peut être en cours de partage) ;
@@ -13,12 +14,13 @@ import type { Morceau } from '../morceau/types';
 import { fichiersAutotune } from '../autotune/autotune';
 import { AGE_MIN_NETTOYAGE, DEBUT_SEANCE, choisirOrphelins } from '../enregistrement/prises';
 import { dossierOpfs, magasin, type NomDossier } from './dossiers';
-import { fichiersUtilises, sonsUtilises } from './index-morceaux';
+import { fichiersUtilises, sonsUtilises, soundfontsUtilisees } from './index-morceaux';
 import { CLE_INDEX, migrer, sousVerrou } from './migration';
 
 export interface BilanMenage {
   prises: number;
   sons: number;
+  sf2: number;
   exports: number;
   tmp: number;
 }
@@ -112,6 +114,7 @@ export async function menage(ageMin = AGE_MIN_NETTOYAGE): Promise<BilanMenage> {
     const maintenant = Date.now();
     const prises = await lister('prises');
     const sons = await lister('sons');
+    const sf2 = await lister('sf2');
     const exports = await lister('exports');
     const tmp = await lister('tmp');
     const vieux = (f: { modifie: number }) => maintenant - f.modifie >= AGE_MIN_NETTOYAGE;
@@ -120,6 +123,7 @@ export async function menage(ageMin = AGE_MIN_NETTOYAGE): Promise<BilanMenage> {
     return {
       prises: await effacer(prises.d, choisirOrphelins(prises.fichiers, utilises, maintenant, ageMin, debut)),
       sons: await effacer(sons.d, choisirOrphelins(sons.fichiers, sonsUtilises(morceaux), maintenant, ageMin, debut, /^son-[A-Za-z0-9_-]{1,40}\.f32$/)),
+      sf2: await effacer(sf2.d, choisirOrphelins(sf2.fichiers, soundfontsUtilisees(morceaux), maintenant, ageMin, debut, /^sf2-[A-Za-z0-9_-]{1,40}\.sf2$/)),
       exports: await effacer(exports.d, exports.fichiers.filter(vieux).map((f) => f.nom)),
       tmp: await effacer(tmp.d, tmp.fichiers.filter((f) => vieux(f) || f.modifie < debut).map((f) => f.nom)),
     };

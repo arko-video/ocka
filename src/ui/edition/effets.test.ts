@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { pisteVoix } from '../../morceau/acces';
 import { basculerEffet, effetActif, effetsVoix, NIVEAU_DEFAUT, reglerChaine, reglerNiveauEffet } from './effets';
 import { exempleMorceau } from './exemple';
 import { idLibre, nettoyerId } from './ids';
@@ -27,7 +28,7 @@ describe('effets de la voix', () => {
   it('garde les autres réglages de la voix (préréglage, autotune)', () => {
     const m0 = exempleMorceau();
     m0.pistes = m0.pistes.map((p) => (p.id === 'voix' ? { ...p, preset: 'rap', effets: { autotune: 0.5 } } : p));
-    const v = basculerEffet(m0, 'doubler').pistes.find((p) => p.id === 'voix')!;
+    const v = pisteVoix(basculerEffet(m0, 'doubler'));
     expect(v.preset).toBe('rap');
     expect(v.effets).toEqual({ autotune: 0.5, doubler: true });
   });

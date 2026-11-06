@@ -1,0 +1,115 @@
+/* Voix avancée et écoute de référence (C3, V) : cartes empilées, grille du comping qui tient dans 360 px. */
+
+.va {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.va-carte {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+.va-carte .aide {
+  margin: 0;
+}
+.va-ligne {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.va-ligne .champ-label {
+  flex: 1 1 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.va-ligne .vumetre {
+  flex: 1 1 80px;
+}
+.va-grille {
+  display: grid;
+  gap: 3px;
+  align-items: center;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.va-entete {
+  text-align: center;
+  font-size: 12px;
+  color: var(--texte-faible);
+}
+.va-nom {
+  font-size: 13px;
+  color: var(--texte-doux);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.va-case {
+  height: 36px;
+  min-width: 24px;
+  border-radius: 8px;
+  border: 1px solid var(--bord-fort);
+  background: var(--surface-2);
+  cursor: pointer;
+}
+.va-case[aria-pressed='true'] {
+  background: var(--degrade);
+  border-color: transparent;
+}
+.va-case:focus-visible {
+  outline: 2px solid var(--violet-clair);
+  outline-offset: 1px;
+}
+.va-pistes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.va-ab {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.va-ab .btn[aria-pressed='true'] {
+  background: var(--degrade);
+  color: var(--texte);
+  border-color: transparent;
+}
+.va-refs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.va-ref {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: var(--r-petit);
+  background: var(--surface-2);
+  border: 1px solid var(--bord);
+}
+.va-ref[aria-current='true'] {
+  border-color: var(--violet);
+}
+.va-fichier {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}

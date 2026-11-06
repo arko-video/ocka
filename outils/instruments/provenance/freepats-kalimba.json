@@ -1,0 +1,74 @@
+{
+ "id": "freepats-kalimba",
+ "source": {
+  "type": "archive",
+  "banque": "freepats",
+  "url": "https://freepats.zenvoid.org/Ethnic/Kalimba/Kalimba-SFZ-20190723.tar.xz",
+  "sfz": "Kalimba-20190723.sfz"
+ },
+ "fichiers": [
+  {
+   "fichier": "z053-v1.ogg",
+   "source": "Kalimba-SFZ-20190723.tar.xz",
+   "sha256": "e26a7346c37849f571d28cb97ece8e1e32b8bcddf93866294d1d41fa55014782",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "source": "Kalimba-SFZ-20190723.tar.xz",
+   "sha256": "e26a7346c37849f571d28cb97ece8e1e32b8bcddf93866294d1d41fa55014782",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "source": "Kalimba-SFZ-20190723.tar.xz",
+   "sha256": "e26a7346c37849f571d28cb97ece8e1e32b8bcddf93866294d1d41fa55014782",
+   "transposition": -3,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "source": "Kalimba-SFZ-20190723.tar.xz",
+   "sha256": "e26a7346c37849f571d28cb97ece8e1e32b8bcddf93866294d1d41fa55014782",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "source": "Kalimba-SFZ-20190723.tar.xz",
+   "sha256": "e26a7346c37849f571d28cb97ece8e1e32b8bcddf93866294d1d41fa55014782",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z066-v1.ogg",
+   "source": "Kalimba-SFZ-20190723.tar.xz",
+   "sha256": "e26a7346c37849f571d28cb97ece8e1e32b8bcddf93866294d1d41fa55014782",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z069-v1.ogg",
+   "source": "Kalimba-SFZ-20190723.tar.xz",
+   "sha256": "e26a7346c37849f571d28cb97ece8e1e32b8bcddf93866294d1d41fa55014782",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z072-v1.ogg",
+   "source": "Kalimba-SFZ-20190723.tar.xz",
+   "sha256": "e26a7346c37849f571d28cb97ece8e1e32b8bcddf93866294d1d41fa55014782",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z075-v1.ogg",
+   "source": "Kalimba-SFZ-20190723.tar.xz",
+   "sha256": "e26a7346c37849f571d28cb97ece8e1e32b8bcddf93866294d1d41fa55014782",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  }
+ ]
+}

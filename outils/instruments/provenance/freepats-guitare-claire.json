@@ -1,0 +1,123 @@
+{
+ "id": "freepats-guitare-claire",
+ "source": {
+  "type": "archive",
+  "banque": "freepats",
+  "sfz": "EGuitarFSBS-clean bridge small 20260807.sfz",
+  "url": "https://github.com/freepats/electric-guitar-FSBS-clean/releases/download/2026-08-07/EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z"
+ },
+ "fichiers": [
+  {
+   "fichier": "z041-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z046-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z049-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z052-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z055-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z058-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z061-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z064-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z070-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z076-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z079-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z082-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z085-v1.ogg",
+   "source": "EGuitarFSBS-clean-bridge-small-SFZ+FLAC-20260807.7z",
+   "sha256": "07c8cdf94dc9b4875ff6c43e51440d84f939a45530060c0761093a56d4a1f032",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

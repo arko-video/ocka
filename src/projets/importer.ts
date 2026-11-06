@@ -3,6 +3,8 @@
 // 2. JSON passé au normaliseur ; chaque prise et chaque son dont le WAV existe et est lisible reçoit une clé OPFS
 //    NEUVE (« prise-<nouvel id>.f32 ») : un nom venu du ZIP ne devient jamais un chemin, une clé d'origine n'est
 //    jamais réutilisée. Une prise ou un son sans fichier est retiré (le normaliseur nettoie les références).
+//    C3 : une SoundFont présente (en-tête RIFF sfbk, taille annoncée) reçoit un id NEUF, et les instruments
+//    « sf2-<ancien id>-… » des pistes sont réécrits ; absente, elle reste listée (piste muette, message clair).
 // 3. Place vérifiée (somme × 1,1), fichiers recopiés en flux (CRC vérifié), puis le morceau (ou les morceaux et
 //    la sortie) enregistré EN DERNIER, avec un id neuf. Au moindre échec, tout ce qui a été créé est effacé.
 
@@ -21,7 +23,7 @@ import { sauverMorceau, supprimerMorceau } from '../stockage/morceaux';
 import { sauverSortie } from '../stockage/sorties';
 import { lireZip } from '../zip/lire';
 import type { LecteurZip } from '../zip/types';
-import { illisible, lireJson, lireType, nomZipMorceau, nomZipPrise, nomZipSon, REGLES_MORCEAU, REGLES_SORTIE, REGLES_TOUT } from './commun';
+import { illisible, lireJson, lireType, nomZipMorceau, nomZipPrise, nomZipSf2, nomZipSon, REGLES_MORCEAU, REGLES_SORTIE, REGLES_TOUT } from './commun';
 import { copierVersOpfs, type Copie, type Cree } from './copie';
 
 interface Plan {
@@ -79,11 +81,38 @@ async function preparer(z: LecteurZip): Promise<Plan> {
   }
   const brut: Morceau = { ...lu.morceau, prises };
   if (lu.morceau.sons) brut.sons = sons;
+  await preparerSoundfonts(z, present, brut, copies);
   // Seconde normalisation : pads et boucles qui visaient un son retiré, plafonds des sons.
   const morceau = normaliserMorceau(brut).morceau;
-  const gardees = new Set([...morceau.prises.map((p) => p.fichier), ...(morceau.sons ?? []).map((s) => s.fichier)]);
+  const gardees = new Set([...morceau.prises.map((p) => p.fichier), ...(morceau.sons ?? []).map((s) => s.fichier), ...(morceau.soundfonts ?? []).map((s) => s.fichier)]);
   const utiles = copies.filter((c) => gardees.has(c.cle));
-  return { morceau, copies: utiles, octets: utiles.reduce((s, c) => s + c.wav.taille, 0) };
+  return { morceau, copies: utiles, octets: utiles.reduce((s, c) => s + (c.wav?.taille ?? c.blob.size), 0) };
+}
+
+/** SoundFonts du ZIP : id neuf, instruments des pistes réécrits (modifie `m`), copie brute ajoutée à `copies`. */
+async function preparerSoundfonts(z: LecteurZip, present: Set<string>, m: Morceau, copies: Copie[]): Promise<void> {
+  if (!m.soundfonts?.length) return;
+  const ids = new Map<string, string>();
+  m.soundfonts = await Promise.all(
+    m.soundfonts.map(async (s) => {
+      const nom = nomZipSf2(s.fichier);
+      if (!present.has(nom)) return s;
+      const blob = z.blob(nom);
+      const tete = new Uint8Array(await blob.slice(0, 12).arrayBuffer());
+      const texte = String.fromCharCode(...tete);
+      if (blob.size !== s.taille || !texte.startsWith('RIFF') || texte.slice(8) !== 'sfbk') return s;
+      const id = nouvelId();
+      ids.set(s.id, id);
+      const fichier = `sf2-${id}.sf2`;
+      copies.push({ dossier: 'sf2', cle: fichier, blob, wav: null, crc: z.entrees.find((e) => e.nom === nom)!.crc32 });
+      return { ...s, id, fichier };
+    }),
+  );
+  if (!ids.size) return;
+  m.pistes = m.pistes.map((p) => {
+    const r = p.genre === 'instrument' ? /^sf2-([A-Za-z0-9_-]{1,40})(-\d{1,3}-\d{1,3}@1)$/.exec(p.instrument) : null;
+    return r && ids.has(r[1]!) && p.genre === 'instrument' ? { ...p, instrument: `sf2-${ids.get(r[1]!)}${r[2]}` } : p;
+  });
 }
 
 /** Ouvre un .ocka (fichier, ou entrée d'un .ocka-sortie) avec les règles d'un morceau. */
@@ -103,7 +132,7 @@ export async function importerProjet(f: File, options: OptionsLongues = {}): Pro
     const type = await lireType(await lireZip(f, REGLES_TOUT));
     const prises = await dossierOpfs('prises');
     const sons = await dossierOpfs('sons');
-    const dossiers = { prises, sons };
+    const dossiers = { prises, sons, sf2: await dossierOpfs('sf2') };
 
     if (type === 'morceau') {
       const plan = await preparer(await ouvrirMorceauZip(f));
@@ -161,7 +190,7 @@ export async function importerProjet(f: File, options: OptionsLongues = {}): Pro
 /** Description « .json » à côté de chaque prise (comme à l'enregistrement ; simple complément). */
 async function ecrireDescriptions(plan: Plan, d: FileSystemDirectoryHandle, crees: Cree[]): Promise<void> {
   for (const c of plan.copies) {
-    if (c.dossier !== 'prises') continue;
+    if (c.dossier !== 'prises' || !c.wav) continue;
     crees.push({ dossier: d, nom: nomDescription(c.cle) });
     const description = { format: 'ocka.prise/1', encodage: 'f32le', canaux: 1, frequence: c.wav.frequence, echantillons: c.wav.trames };
     try {

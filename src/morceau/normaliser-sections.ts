@@ -1,28 +1,45 @@
-// Normalisation des sections (et de leurs boucles), de l'arrangement, des pistes (et effets de voix),
-// des prises et du master. Les références (ordre, ancres, motifs, boucles) passent par les `Ids`
-// des familles déjà normalisées : une section renommée garde ses références.
+// Normalisation des sections (motifs par piste, boucles, effets de performance), de l'arrangement, des prises et du
+// master. Les références (ordre, ancres, pistes, motifs, boucles) passent par les `Ids` des familles déjà
+// normalisées : une section ou une piste renommée garde ses références.
 
-import { pistesParDefaut } from './styles';
-import { apercu, arrondir, estObjet, Ids, Journal, lireBooleen, lireChoix, lireNombre, lireTexte, verifierCles, type Objet } from './normaliser-outils';
-import {
-  MESURES_BOUCLE,
-  PLAFONDS,
-  REGLE_CLE_PRISE,
-  type EffetsVoix,
-  type Master,
-  type Motif,
-  type Piste,
-  type Prise,
-  type Section,
-} from './types';
+import { normaliserAutotune, normaliserPerf } from './normaliser-v3';
+import { apercu, dictionnaire, estObjet, Ids, Journal, lireBooleen, lireChoix, lireNombre, lireTexte, verifierCles, type Objet } from './normaliser-outils';
+import { MESURES_BOUCLE, PLAFONDS, REGLE_CLE_PRISE, type Master, type Motif, type Piste, type Prise, type Section } from './types';
 
-const PISTES_MOTIF = ['batterie', 'basse', 'accords', 'melodie'] as const;
+/** Type de motif attendu pour une piste (null : la piste n'a pas de motifs, ex. sons et voix). */
+function typeAttendu(p: Piste): Motif['type'] | null {
+  if (p.genre === 'instrument') return 'notes';
+  return p.id === 'batterie' || p.id === 'basse' || p.id === 'accords' ? p.id : null;
+}
+
+/** Section.motifs : id de piste → id de motif du bon type (dictionnaire sans prototype). */
+function normaliserRefs(v: unknown, motifs: Record<string, Motif>, idsMotifs: Ids, pistes: Piste[], idsPistes: Ids, c: string, journal: Journal): Section['motifs'] {
+  const refs = dictionnaire<string>();
+  for (const [cle, ref] of Object.entries(estObjet(v) ? v : {})) {
+    if (ref === undefined || ref === null || ref === '') continue;
+    const piste = pistes.find((p) => p.id === idsPistes.trouver(cle));
+    const attendu = piste ? typeAttendu(piste) : null;
+    if (!piste || !attendu) {
+      journal.corrige(`${c}.motifs.${apercu(cle)}`, `La piste « ${apercu(cle)} » n'existe pas ou ne joue pas de motif : référence retirée.`);
+      continue;
+    }
+    const cible = idsMotifs.trouver(ref);
+    if (!cible || motifs[cible]?.type !== attendu) {
+      journal.corrige(`${c}.motifs.${piste.id}`, `Le motif « ${apercu(ref)} » n'existe pas (ou n'est pas un motif de ${attendu}) : la piste ${piste.id} est silencieuse ici.`);
+      continue;
+    }
+    refs[piste.id] = cible;
+  }
+  return refs;
+}
 
 export function normaliserSections(
   v: unknown,
   motifs: Record<string, Motif>,
   idsMotifs: Ids,
   idsSons: Ids,
+  pistes: Piste[],
+  idsPistes: Ids,
   journal: Journal,
 ): { sections: Section[]; ids: Ids } {
   const sections: Section[] = [];
@@ -33,25 +50,13 @@ export function normaliserSections(
   brutes.slice(0, PLAFONDS.sections).forEach((b, i) => {
     const c = `sections[${i}]`;
     if (!estObjet(b)) return journal.ignore(c, 'Cette section n’est pas un objet : ignorée.');
-    verifierCles(b, ['id', 'nom', 'mesures', 'motifs', 'fill', 'coupure', 'paroles', 'boucle'], c, journal);
+    verifierCles(b, ['id', 'nom', 'mesures', 'motifs', 'fill', 'coupure', 'paroles', 'boucle', 'perf'], c, journal);
     const id = ids.donner(b.id, i, `${c}.id`, journal);
-    const refs: Section['motifs'] = {};
-    const brutsMotifs = estObjet(b.motifs) ? b.motifs : {};
-    for (const piste of PISTES_MOTIF) {
-      const ref = brutsMotifs[piste];
-      if (ref === undefined || ref === null || ref === '') continue;
-      const cible = idsMotifs.trouver(ref);
-      if (!cible || motifs[cible]?.type !== piste) {
-        journal.corrige(`${c}.motifs.${piste}`, `Le motif « ${apercu(ref)} » n'existe pas (ou n'est pas un motif de ${piste}) : la piste ${piste} est silencieuse ici.`);
-        continue;
-      }
-      refs[piste] = cible;
-    }
     const section: Section = {
       id,
       nom: lireTexte(b.nom, `Section ${i + 1}`, `${c}.nom`, journal, 40),
       mesures: lireNombre(b.mesures, `${c}.mesures`, journal, { defaut: 4, min: 1, max: 16, nom: 'le nombre de mesures', entier: true }),
-      motifs: refs,
+      motifs: normaliserRefs(b.motifs, motifs, idsMotifs, pistes, idsPistes, c, journal),
       fill: lireBooleen(b.fill, false, `${c}.fill`, journal),
       coupure: lireChoix(b.coupure, ['aucune', 'break', 'drop'] as const, 'aucune', `${c}.coupure`, journal, 'la coupure'),
     };
@@ -59,6 +64,10 @@ export function normaliserSections(
     if (b.boucle !== undefined && b.boucle !== null) {
       const boucle = normaliserBoucle(b.boucle, idsSons, `${c}.boucle`, journal);
       if (boucle) section.boucle = boucle;
+    }
+    if (b.perf !== undefined && b.perf !== null) {
+      const perf = normaliserPerf(b.perf, section.mesures * 16, pistes, idsPistes, `${c}.perf`, journal);
+      if (perf.length > 0) section.perf = perf;
     }
     sections.push(section);
   });
@@ -99,55 +108,6 @@ export function normaliserOrdre(v: unknown, sections: Section[], idsSections: Id
   return ordre;
 }
 
-function normaliserEffets(v: unknown, c: string, journal: Journal): EffetsVoix | null {
-  if (!estObjet(v)) {
-    journal.ignore(c, 'Les effets devaient être un objet : ignorés.');
-    return null;
-  }
-  verifierCles(v, ['reverbe', 'echo', 'radio', 'doubler', 'autotune'], c, journal);
-  const e: EffetsVoix = {};
-  if (v.reverbe !== undefined) e.reverbe = lireNombre(v.reverbe, `${c}.reverbe`, journal, { defaut: 0, min: 0, max: 1, nom: 'la réverbe' });
-  if (v.echo !== undefined) e.echo = lireNombre(v.echo, `${c}.echo`, journal, { defaut: 0, min: 0, max: 1, nom: "l'écho" });
-  if (v.radio !== undefined) e.radio = lireBooleen(v.radio, false, `${c}.radio`, journal);
-  if (v.doubler !== undefined) e.doubler = lireBooleen(v.doubler, false, `${c}.doubler`, journal);
-  if (v.autotune !== undefined) {
-    const a = lireNombre(v.autotune, `${c}.autotune`, journal, { defaut: 0, min: 0, max: 1, nom: "l'autotune" });
-    e.autotune = arrondir(Math.round(a * 10) / 10);
-    if (e.autotune !== a) journal.corrige(`${c}.autotune`, `L'autotune est réglé au dixième : ${e.autotune}.`);
-  }
-  return e;
-}
-
-/** Les 6 pistes, toujours dans l'ordre de IDS_PISTES (les manquantes sont ajoutées, les inconnues ignorées). */
-export function normaliserPistes(v: unknown, journal: Journal): Piste[] {
-  const brutes = Array.isArray(v) ? v.filter(estObjet) : [];
-  return pistesParDefaut().map((d) => {
-    const b = brutes.find((p) => p.id === d.id);
-    const c = `pistes.${d.id}`;
-    if (!b) {
-      // Les vieux morceaux (version 1) n'ont ni « melodie » ni « sons » : c'est normal, pas de message.
-      if (v !== undefined && d.id !== 'melodie' && d.id !== 'sons') journal.corrige(c, `La piste ${d.id} manquait : ajoutée avec les réglages par défaut.`);
-      return d;
-    }
-    verifierCles(b, ['id', 'volume', 'pan', 'muet', 'solo', 'preset', 'effets'], c, journal);
-    const p: Piste = {
-      id: d.id,
-      volume: lireNombre(b.volume, `${c}.volume`, journal, { defaut: d.volume, min: 0, max: 1.5, nom: 'le volume' }),
-      pan: lireNombre(b.pan, `${c}.pan`, journal, { defaut: 0, min: -1, max: 1, nom: 'le panoramique' }),
-      muet: lireBooleen(b.muet, false, `${c}.muet`, journal),
-      solo: lireBooleen(b.solo, false, `${c}.solo`, journal),
-    };
-    if (d.id === 'voix') {
-      p.preset = lireChoix(b.preset, ['naturel', 'rap', 'chant'] as const, 'naturel', `${c}.preset`, journal, 'le réglage de voix');
-      if (b.effets !== undefined && b.effets !== null) {
-        const e = normaliserEffets(b.effets, `${c}.effets`, journal);
-        if (e) p.effets = e;
-      }
-    } else if (b.effets !== undefined) journal.ignore(`${c}.effets`, 'Les effets ne servent que pour la voix : ignorés.');
-    return p;
-  });
-}
-
 function normaliserPrise(b: Objet, i: number, sections: Section[], idsSections: Ids, ids: Ids, journal: Journal): Prise | null {
   const c = `prises[${i}]`;
   const ancre = estObjet(b.ancre) ? b.ancre : {};
@@ -181,6 +141,10 @@ function normaliserPrise(b: Objet, i: number, sections: Section[], idsSections: 
     choisie: lireBooleen(b.choisie, false, `${c}.choisie`, journal),
   };
   if (b.nom !== undefined) prise.nom = lireTexte(b.nom, '', `${c}.nom`, journal, 60);
+  if (b.autotune !== undefined && b.autotune !== null) {
+    const a = normaliserAutotune(b.autotune, duree, `${c}.autotune`, journal);
+    if (a) prise.autotune = a;
+  }
   return prise;
 }
 

@@ -69,6 +69,15 @@ export class Ids {
   private carte = new Map<string, string>();
   constructor(private prefixe: string) {}
 
+  /** Réserve des ids (pistes fixes) : ils se trouvent eux-mêmes, et aucun autre élément ne les reçoit. */
+  reserver(ids: readonly string[]): this {
+    for (const id of ids) {
+      this.pris.add(id);
+      this.carte.set(id, id);
+    }
+    return this;
+  }
+
   donner(brut: unknown, i: number, chemin: string, journal: Journal): string {
     const texte = typeof brut === 'string' ? brut.trim() : typeof brut === 'number' && Number.isFinite(brut) ? String(brut) : '';
     let id = texte;
@@ -160,6 +169,18 @@ export function lireNombre(v: unknown, chemin: string, journal: Journal, r: Regl
   return b;
 }
 
+/** Lit une position ou une durée en pas, bornée puis arrondie au 1/`grille` de pas (24 : la grille des notes). */
+export function lirePas24(v: unknown, chemin: string, journal: Journal, r: Omit<RegleNombre, 'entier'>, grille = 24): number {
+  const x = v === undefined || v === null ? r.defaut : lireNombreBrut(v);
+  if (x === null) {
+    journal.corrige(chemin, `${majuscule(r.nom)} (${apercu(v)}) n'est pas un nombre : remplacé par ${formaterNombre(r.defaut)}.`);
+    return r.defaut;
+  }
+  const q = borner(Math.round(borner(x, r.min, r.max) * grille) / grille, r.min, r.max);
+  if (Math.abs(q - x) > 1e-9) journal.corrige(chemin, `${majuscule(r.nom)} (${formaterNombre(x)}) est ramené à ${formaterNombre(q)} (grille du 1/${grille} de pas).`);
+  return q;
+}
+
 /** Lit une valeur parmi une liste de choix ; sinon défaut (avec message). */
 export function lireChoix<T extends string>(v: unknown, choix: readonly T[], defaut: T, chemin: string, journal: Journal, nom: string): T {
   if (v === undefined || v === null) return defaut;
@@ -167,7 +188,9 @@ export function lireChoix<T extends string>(v: unknown, choix: readonly T[], def
     const trouve = choix.find((c) => c.toLowerCase() === v.trim().toLowerCase().replace('-', ''));
     if (trouve) return trouve;
   }
-  journal.corrige(chemin, `${majuscule(nom)} « ${apercu(v)} » est inconnu(e) : remplacé(e) par « ${defaut} » (choix : ${choix.join(', ')}).`);
+  // Longue liste (les 35 styles) : les 8 premiers seulement, pour garder un message court.
+  const liste = choix.length > 12 ? `${choix.slice(0, 8).join(', ')}… ${choix.length} en tout` : choix.join(', ');
+  journal.corrige(chemin, `${majuscule(nom)} « ${apercu(v)} » est inconnu(e) : remplacé(e) par « ${defaut} » (choix : ${liste}).`);
   return defaut;
 }
 

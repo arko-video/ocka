@@ -9,7 +9,8 @@
 
 import { normaliserMorceau } from '../morceau/normaliser';
 import { dureeMorceau } from '../morceau/temps';
-import { IDS_PISTES, type IdPiste, type Morceau } from '../morceau/types';
+import { estPisteInstrument } from '../morceau/acces';
+import type { IdFixe, IdPiste, Morceau } from '../morceau/types';
 import { dossierOpfs, enErreurOcka, verifierPlace } from '../stockage/dossiers';
 import { creerZip } from '../zip/ecrire';
 import type { OptionsLongues } from './api-fichiers';
@@ -20,6 +21,7 @@ import { ErreurOcka } from './erreur';
 import { construireGraphe } from './graphe';
 import { oublierBanque } from './instruments/banque';
 import { detruireBus } from './instruments/bus';
+import { preparerTranches } from './effets/preparer';
 
 const FREQ = 44100;
 /** Bloc d'écriture (trames, multiple de 128) = aussi la fenêtre de planification (~0,5 s). */
@@ -27,30 +29,41 @@ const BLOC = 128 * 172;
 /** Taille maximale du rendu d'une passe (octets) : décide du nombre de pistes rendues ensemble. */
 export const BUDGET_PASSE = 128 * 1024 * 1024;
 
-/** Noms des fichiers dans le ZIP. */
-export const NOMS_PISTES: Record<IdPiste, string> = {
+/** Noms des fichiers des pistes fixes dans le ZIP (une piste instrument prend son `nom`). */
+export const NOMS_PISTES: Record<IdFixe, string> = {
   batterie: 'Batterie',
   basse: 'Basse',
   accords: 'Accords',
-  melodie: 'Mélodie',
   sons: 'Sons',
   voix: 'Voix',
 };
+
+/** Nom du fichier de chaque piste (sans caractères interdits ; « Nom (2) » si deux pistes ont le même nom). */
+export function nomsFichiers(m: Morceau): Map<IdPiste, string> {
+  const noms = new Map<IdPiste, string>();
+  const pris = new Set<string>();
+  for (const p of m.pistes) {
+    const base = nomPropre(estPisteInstrument(p) ? p.nom : NOMS_PISTES[p.id]);
+    let nom = base;
+    for (let k = 2; pris.has(nom.toLowerCase()); k++) nom = `${base} (${k})`;
+    pris.add(nom.toLowerCase());
+    noms.set(p.id, nom);
+  }
+  return noms;
+}
 
 /** Outils remplaçables par les tests (graphe et ZIP simulés tant que M1 et A2 ne sont pas branchés). */
 export const outilsPistes = { construireGraphe, creerZip, chargerMedias };
 
 /** Pistes qui peuvent jouer (des notes, une boucle, un pad ou une prise, et un volume non nul). */
 export function pistesQuiJouent(m: Morceau): IdPiste[] {
-  const joue: Record<IdPiste, boolean> = {
-    batterie: m.sections.some((s) => s.motifs.batterie),
-    basse: m.sections.some((s) => s.motifs.basse),
-    accords: m.sections.some((s) => s.motifs.accords),
-    melodie: m.sections.some((s) => s.motifs.melodie),
-    sons: m.sections.some((s) => s.boucle) || Object.keys(m.pads ?? {}).length > 0,
-    voix: m.prises.some((p) => p.choisie),
+  const avecMotif = (id: IdPiste) => m.sections.some((s) => Object.hasOwn(s.motifs, id) && !!s.motifs[id]);
+  const joue = (id: IdPiste): boolean => {
+    if (id === 'sons') return m.sections.some((s) => s.boucle) || Object.keys(m.pads ?? {}).length > 0;
+    if (id === 'voix') return m.prises.some((p) => p.choisie);
+    return avecMotif(id);
   };
-  return m.pistes.filter((p) => joue[p.id] && gainPiste(p, m.pistes) > 0).map((p) => p.id);
+  return m.pistes.filter((p) => joue(p.id) && gainPiste(p, m.pistes) > 0).map((p) => p.id);
 }
 
 /** Nombre de pistes qui peuvent jouer (pour estimer la place avant le rendu ; au moins 1). */
@@ -130,8 +143,8 @@ async function rendrePasse(morceau: Morceau, medias: Medias, ids: IdPiste[], n: 
   const fusion = ctx.createChannelMerger(2 * ids.length);
   fusion.connect(ctx.destination);
   const nulle = ctx.createGain(); // ne va nulle part : le master et les pistes d'autres passes ne sont pas calculés
-  const pistesSeparees: Partial<Record<IdPiste, AudioNode>> = {};
-  for (const id of IDS_PISTES) pistesSeparees[id] = nulle;
+  const pistesSeparees = Object.create(null) as Record<IdPiste, AudioNode>;
+  for (const p of morceau.pistes) pistesSeparees[p.id] = nulle;
   ids.forEach((id, i) => {
     const g = ctx.createGain();
     g.channelCount = 2;
@@ -142,6 +155,8 @@ async function rendrePasse(morceau: Morceau, medias: Medias, ids: IdPiste[], n: 
     separe.connect(fusion, 1, 2 * i + 1);
     pistesSeparees[id] = g;
   });
+  // Inserts JS (compresseur, bitcrusher) : passe A en JS, sans worklet (effets/preparer.ts).
+  await preparerTranches(ctx, morceau, medias.prises, medias.sons);
   const graphe = await outilsPistes.construireGraphe(ctx, morceau, medias.prises, nulle, { pistesSeparees, sons: medias.sons });
   let rendu: AudioBuffer;
   try {
@@ -184,25 +199,27 @@ export async function exporterPistes(entree: Morceau, options: OptionsLongues = 
   options.surProgression?.(0);
   // Fichiers de travail + ZIP : 2 fois les pistes qui jouent (une piste muette n'écrit rien), plus une marge.
   await verifierPlace(pistesAttendues(morceau) * tailleWavFlottant(n, 2), 2.2);
-  const travail = await ouvrirTravail(IDS_PISTES.length);
+  const tous = morceau.pistes.map((p) => p.id);
+  const noms = nomsFichiers(morceau);
+  const travail = await ouvrirTravail(tous.length);
   try {
     const medias = await outilsPistes.chargerMedias(morceau);
-    const cretes = new Array<number>(IDS_PISTES.length).fill(0);
+    const cretes = new Array<number>(tous.length).fill(0);
     const groupes = passes(pistesQuiJouent(morceau), n);
     for (const [k, ids] of groupes.entries()) {
-      const index = ids.map((id) => IDS_PISTES.indexOf(id));
+      const index = ids.map((id) => tous.indexOf(id));
       const repartiteur = new RepartiteurPistes(ids.length, BLOC, n, index.map((i) => travail.puits[i]!));
       await rendrePasse(morceau, medias, ids, n, repartiteur, options, (0.85 * k) / groupes.length, (0.85 * (k + 1)) / groupes.length);
       index.forEach((i, j) => (cretes[i] = repartiteur.cretes[j]!));
     }
-    const jouees = IDS_PISTES.map((id, i) => ({ id, i })).filter(({ i }) => cretes[i]! > 0);
+    const jouees = tous.map((id, i) => ({ id, i })).filter(({ i }) => cretes[i]! > 0);
     if (jouees.length === 0) throw new ErreurOcka('Le morceau est silencieux : aucune piste à exporter.', 'morceau_invalide');
     const base = nomPropre(morceau.titre);
     const zip = await outilsPistes.creerZip('exports', `${base} (pistes).zip`);
     try {
       for (const [k, { id, i }] of jouees.entries()) {
         if (options.signal?.aborted) throw new ErreurOcka('Export annulé.', 'annule');
-        await zip.ajouter(`${base} - ${NOMS_PISTES[id]}.wav`, new Blob([enTeteWavFlottant(n, 2, FREQ), await travail.fichier(i)]));
+        await zip.ajouter(`${base} - ${noms.get(id)}.wav`, new Blob([enTeteWavFlottant(n, 2, FREQ), await travail.fichier(i)]));
         options.surProgression?.(0.85 + (0.15 * (k + 1)) / jouees.length);
       }
       return await zip.terminer();

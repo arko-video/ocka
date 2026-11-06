@@ -1,0 +1,126 @@
+/* Piano roll (U1) : couloir de vélocité, barre d'outils et ses menus. */
+
+.pr-couloir-ligne {
+  flex-shrink: 0;
+  display: flex;
+  border-top: 1px solid var(--bord);
+}
+.pr-couloir {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: var(--fond-creux);
+  touch-action: none;
+}
+.pr-tige {
+  position: absolute;
+  bottom: 4px;
+  width: 6px;
+  border-radius: 3px 3px 0 0;
+  background: var(--violet);
+}
+.pr-tige[data-choisie='1'] {
+  background: var(--magenta);
+}
+.pr-bas {
+  flex-shrink: 0;
+  position: relative;
+  border-top: 1px solid var(--bord);
+  background: var(--surface);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.pr-selection {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 36px;
+  padding: 0 4px;
+  font-size: 13px;
+  color: var(--texte-doux);
+}
+.pr-selection-texte {
+  flex: 1;
+  text-align: center;
+}
+.pr-effacer {
+  color: #ff8fab;
+}
+.pr-outils {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-top: 1px solid var(--bord);
+}
+.pr-outil {
+  min-height: 56px;
+  padding: 4px 0;
+  border: none;
+  background: none;
+  color: var(--texte);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+}
+.pr-outil:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.pr-outil[aria-expanded='true'],
+.pr-outil[data-actif='1'] {
+  color: var(--violet-clair);
+  background: var(--violet-voile);
+}
+.pr-outil-valeur {
+  min-height: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  max-width: 56px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pr-bientot {
+  display: block;
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--texte-faible);
+}
+.pr-menu {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: calc(100% + 8px);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--r);
+  border: 1px solid var(--bord-fort);
+  background: var(--surface-2);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.45);
+}
+.pr-menu-titre {
+  margin: 0;
+  font-size: 13px;
+  color: var(--texte-doux);
+}
+.pr-choix {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pr-choix .puce {
+  min-height: 40px;
+}
+
+/* Un message (toast) passe au-dessus de la barre d'outils, pas sur elle. */
+body:has(.pr) .toast[data-studio='1'] {
+  bottom: calc(104px + env(safe-area-inset-bottom));
+}

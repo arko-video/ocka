@@ -20,3 +20,4 @@ export {
 } from './requetes';
 export { lireBeat, lireParoles, lireSuite, type LigneProposee, type Proposition } from './lecture';
 export { appliquerParoles, marquerIa } from './infos-ia';
+export { lireAutotune, MAX_NOTES_IA, requeteAutotune } from './autotune';

@@ -1,0 +1,221 @@
+{
+ "id": "karoryfer-piano-doux",
+ "source": {
+  "type": "zip",
+  "banque": "karoryfer",
+  "url": "https://github.com/sfzinstruments/Osiris_Piano/releases/download/v0.925/Osiris_Piano_0925.zip",
+  "sfz": "Osiris Piano/Programs/01-natural.sfz"
+ },
+ "fichiers": [
+  {
+   "fichier": "z021-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_A-1_vl1.flac",
+   "sha256": "ec6a25fbbb63d66a9d7410e61d4808b1a1c9db83964a0321dffaa4da83073b85",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z023-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_B-1_vl1.flac",
+   "sha256": "5df020a1900c3096521218104bcc0173025a7066563acdd90ebdf6d63ebad624",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z026-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_D0_vl1.flac",
+   "sha256": "99eae8089f2363dbf64d5645422712c82810fe194078cbbebda1a3584177485a",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z029-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_F0_vl1.flac",
+   "sha256": "c0cdd805fa7320df1152b32d689870ca0613b3c33b6a81c5627af312adfa395e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z032-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_G0_vl1.flac",
+   "sha256": "0c7094efbe3db9c0c859e23f8b536daa993bbe96acb7c4ec9545235798d34c96",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z035-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_B0_vl1.flac",
+   "sha256": "15a5441852d4212385ed322dec4b12769d57ec6e02fa19cd5405460597d5a5e9",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z038-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_D1_vl1.flac",
+   "sha256": "92555e84d35d2b7111bacdbac14c131b216a27f2944f764e07f65434c1934260",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z041-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_F1_vl1.flac",
+   "sha256": "7a06ed9decd9e340b59945b0157b7d4cf8b71661902f8677418fac3bb4778134",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_G1_vl1.flac",
+   "sha256": "d36221b94e3532634a28af215260a9efabbf5b33ba12be92f550fc90c9ef568a",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_B1_vl1.flac",
+   "sha256": "cf517e887a700d00dfa1385477fb10406cefdcb25b4bbf55b82ebe3beb5ac53c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_D2_vl1.flac",
+   "sha256": "c3e8af36867788db7a380aad60c77cb2d92ab0d49f4627fe654abf41c25d24cd",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_F2_vl1.flac",
+   "sha256": "dfd47f1f7289816b50e17f4075effbe679c68278fd067d799bf884b813a456b8",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_G2_vl1.flac",
+   "sha256": "6f9294682ffa1e07021ed3420eb8b318a77623395348462a2b2502354b9f26e6",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_B2_vl1.flac",
+   "sha256": "5811ecbb1e7ddbcc641efb01fa4b3463d517377840652bd0753801b2dba1a24d",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_D3_vl1.flac",
+   "sha256": "d9bda5bc088ae864d355b5c69de6c78bd47c1376a21cab060408001d29bc8685",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_F3_vl1.flac",
+   "sha256": "14c1ecdfc7993f1e9de29d0ff116b2252a967f1b729d597f7e629d4bfa4454b1",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_G3_vl1.flac",
+   "sha256": "d4259aa1ac6ce7ca9e8603320f9663dbaa1823a1e87720ee2c8eda8ceccb249f",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_B3_vl2.flac",
+   "sha256": "326099bae430c7c7b333350dcbda1cc02b0d853be185939316723389ca5364fe",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_D4_vl1.flac",
+   "sha256": "94f435087979f7eaab78e1c46f3e8588670c0501a498f467ecab1a305d0956f4",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_F4_vl1.flac",
+   "sha256": "ce1f01134460dc37a509b811eb1abf5cbbfd13eabb73e3ab938f1a3d5039c54b",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_G4_vl1.flac",
+   "sha256": "ac47102677e59588c68fce6b74feee9ad7632c4996b5b096982c587f14de5247",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_B4_vl1.flac",
+   "sha256": "cf0c9e8ca4a7286f8dcf06b0e65692f6fabbdd07ac040ad4bf6dba7e8eba0c1d",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z086-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_D5_vl1.flac",
+   "sha256": "efacaa6fb7ca9779b5519017024f22fa95545bc7a6d75355822035e1937a3a27",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z089-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_F5_vl1.flac",
+   "sha256": "e327c1199f58f19422d7df0b1b619ecefba9652cbed3028a568d536a855f89e1",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z092-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_G5_vl1.flac",
+   "sha256": "9b00bcac6a141b1a9dfc1128dcc42fbe9604438bedc23b656ce5b9548f4edd87",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z095-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_B5_vl1.flac",
+   "sha256": "6eafe78284dfb91b28de82319a93ea8027182b8af5b5a89d91aa9d570655bd21",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z098-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_D6_vl1.flac",
+   "sha256": "638b29557d6847e6bdd9cf2dc67f38f3c13e0f744c3d4f600705aeda23a5161e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z101-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_F6_vl1.flac",
+   "sha256": "9af411e9a3c14d1cb81fdfd571cbeddcb7b540111f6d43b1ea151254930fc55e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z104-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_G6_vl1.flac",
+   "sha256": "a039f206d237c4ddc68f41d5ed8b0d143b596c1e20d2d477b8fc373dcf3c4a4a",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z107-v1.ogg",
+   "source": "Osiris Piano/UC/A/Piano_UC_MicA_B6_vl1.flac",
+   "sha256": "ba02b1ed856f9face167d429f76a885b80cae702bbcccc5eeda99eeafb5336dc",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

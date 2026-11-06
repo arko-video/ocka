@@ -1,0 +1,74 @@
+{
+ "id": "freepats-ukulele",
+ "source": {
+  "type": "archive",
+  "banque": "freepats",
+  "url": "https://github.com/freepats/ukulele1/releases/download/2026-08-11/Ukulele-SFZ+WAV-20260811.7z",
+  "sfz": "Ukulele 20260811.sfz"
+ },
+ "fichiers": [
+  {
+   "fichier": "z061-v1.ogg",
+   "source": "Ukulele-SFZ+WAV-20260811.7z",
+   "sha256": "cb857464cc847c261d954a4bfe3610380f96ff4d2603d94573ab3529aa574775",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z064-v1.ogg",
+   "source": "Ukulele-SFZ+WAV-20260811.7z",
+   "sha256": "cb857464cc847c261d954a4bfe3610380f96ff4d2603d94573ab3529aa574775",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "source": "Ukulele-SFZ+WAV-20260811.7z",
+   "sha256": "cb857464cc847c261d954a4bfe3610380f96ff4d2603d94573ab3529aa574775",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z070-v1.ogg",
+   "source": "Ukulele-SFZ+WAV-20260811.7z",
+   "sha256": "cb857464cc847c261d954a4bfe3610380f96ff4d2603d94573ab3529aa574775",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "source": "Ukulele-SFZ+WAV-20260811.7z",
+   "sha256": "cb857464cc847c261d954a4bfe3610380f96ff4d2603d94573ab3529aa574775",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z075-v1.ogg",
+   "source": "Ukulele-SFZ+WAV-20260811.7z",
+   "sha256": "cb857464cc847c261d954a4bfe3610380f96ff4d2603d94573ab3529aa574775",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z078-v1.ogg",
+   "source": "Ukulele-SFZ+WAV-20260811.7z",
+   "sha256": "cb857464cc847c261d954a4bfe3610380f96ff4d2603d94573ab3529aa574775",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z081-v1.ogg",
+   "source": "Ukulele-SFZ+WAV-20260811.7z",
+   "sha256": "cb857464cc847c261d954a4bfe3610380f96ff4d2603d94573ab3529aa574775",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z084-v1.ogg",
+   "source": "Ukulele-SFZ+WAV-20260811.7z",
+   "sha256": "cb857464cc847c261d954a4bfe3610380f96ff4d2603d94573ab3529aa574775",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

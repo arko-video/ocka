@@ -1,16 +1,46 @@
 // Le planning : la liste de TOUT ce qui se joue dans un morceau (frappes et pads perso, notes de 808, accords,
-// notes de mélodie, relances des boucles de sons importés), avec le temps en secondes depuis le début.
+// notes des pistes instrument, relances des boucles de sons importés), avec le temps en secondes depuis le début.
 // Pur (sans Web Audio) : testé dans Vitest, utilisé tel quel par l'écoute (fenêtre de 200 ms) et par l'export.
 
+import { fillStyle } from '../morceau/styles/index';
 import { demiTonsDegre, fondamentale, hauteurTonique, lireDegre, voicingsSuite } from '../morceau/theorie';
 import { arrangement, pasVersSecondes, type Occurrence } from '../morceau/temps';
-import type { InstrumentBatterie, Morceau, MotifAccords, MotifBasse, MotifBatterie, MotifMelodie, Section, SonMelodie } from '../morceau/types';
+import { motifAccordsDe, motifBasseDe, motifBatterieDe, motifNotesDe, pistesInstrument, syntheOcka } from '../morceau/acces';
+import type { InstrumentBatterie, Morceau, MotifAccords, MotifBasse, MotifBatterie, MotifNotes, PisteInstrument, ReglagesSynthe, Section } from '../morceau/types';
+import type { NoteMotifSynthe } from './api-synthes';
+import { empreinteReglages, synthe, syntheParMotif } from './synthese/registre-synthes';
 
 export type Evenement =
   | { type: 'frappe'; t: number; instrument: InstrumentBatterie; vel: number }
   | { type: 'basse'; t: number; duree: number; midi: number; cible?: number; vel: number }
   | { type: 'accord'; t: number; duree: number; notes: number[]; son: NonNullable<MotifAccords['son']>; vel: number }
-  | { type: 'note'; t: number; duree: number; midi: number; son: SonMelodie; vel: number }
+  /**
+   * Note d'une piste instrument. `son` : l'id court du son fabriqué par le code (« ocka-<son>@1 » : son v1 ou synthé
+   * PRÊT de C3, syntheOcka) ; null = instrument échantillonné (banque, SoundFont) ou inconnu : joué par
+   * l'échantillonneur, ou muet et compté (Graphe.muettes).
+   */
+  | {
+      type: 'note';
+      t: number;
+      duree: number;
+      midi: number;
+      /** Gain des sons v1 (GAIN_NOTE × vélocité). */
+      vel: number;
+      piste: string;
+      instrument: string;
+      son: string | null;
+      /** Réglages du synthé (PisteInstrument.synthe), s'il y en a. */
+      reglages?: ReglagesSynthe;
+      /** Vélocité de la note (0,1 à 1) : couche et gain de l'échantillonneur. */
+      velNote: number;
+      /** Glissé : la fin de la note glisse vers cette note MIDI (la note suivante de la piste). */
+      glisse?: number;
+    }
+  /**
+   * C3 — passage d'un motif d'un synthé « motif » (303) : UN tampon de `t` à `t + duree` (fin du passage ou de la
+   * section), notes en secondes depuis `t`. `cle` : clé du tampon (cles.motif), stable pour un même passage.
+   */
+  | { type: 'motif'; t: number; duree: number; piste: string; son: string; notes: NoteMotifSynthe[]; reglages?: ReglagesSynthe; cle: string }
   /** Relance d'une boucle de son importé : jouée de `t` à `t + duree` (prochaine relance ou fin de section). */
   | { type: 'boucle'; t: number; duree: number; son: string; mesures: number; caler: boolean };
 
@@ -39,17 +69,8 @@ function humaniser(vel: number, pasGlobal: number, inst: number, k: number): num
  * Phonk : roulements en triolets ; pop : croches puis double-croches ; boom bap : 3 coups secs, comme un batteur.
  */
 function fill(morceau: Morceau): { pas: number; vel: number; roul: number }[] {
-  if (morceau.style === 'lofi') return [{ pas: 13, vel: 0.4, roul: 0 }, { pas: 14, vel: 0.6, roul: 0 }, { pas: 15, vel: 0.8, roul: 0 }];
-  if (morceau.style === 'phonk') return [{ pas: 12, vel: 0.5, roul: 3 }, { pas: 13, vel: 0.6, roul: 3 }, { pas: 14, vel: 0.75, roul: 3 }, { pas: 15, vel: 0.9, roul: 3 }];
-  if (morceau.style === 'pop')
-    return [8, 10, 12, 13, 14, 15].map((pas, k) => ({ pas, vel: 0.45 + k * 0.1, roul: 0 }));
-  if (morceau.style === 'boombap') return [{ pas: 11, vel: 0.45, roul: 0 }, { pas: 14, vel: 0.65, roul: 0 }, { pas: 15, vel: 0.85, roul: 0 }];
-  return [
-    { pas: 12, vel: 0.5, roul: 2 },
-    { pas: 13, vel: 0.6, roul: 2 },
-    { pas: 14, vel: 0.75, roul: 3 },
-    { pas: 15, vel: 0.9, roul: 4 },
-  ];
+  // Dans le fichier du style (SonStyle.fill) ; absent : celui de la trap.
+  return fillStyle(morceau.style);
 }
 
 function planifierBatterie(m: Morceau, o: Occurrence, motif: MotifBatterie, sortie: Evenement[]) {
@@ -134,17 +155,71 @@ function planifierAccords(m: Morceau, o: Occurrence, motif: MotifAccords, sortie
   }
 }
 
-/** Mélodie : le motif (1 à 4 mesures) se répète sur la section ; une note est coupée à la fin de la section. */
-function planifierMelodie(m: Morceau, o: Occurrence, motif: MotifMelodie, sortie: Evenement[]) {
+/**
+ * Piste instrument : le motif (1 à 8 mesures) se répète sur la section ; une note est coupée à la fin de la section.
+ * Swing propre à la piste (`PisteInstrument.swing`) s'il est donné. Glissé : vers la note suivante de la piste
+ * (la plus proche qui commence après le début de celle-ci).
+ */
+function planifierNotes(m: Morceau, o: Occurrence, piste: PisteInstrument, motif: MotifNotes, sortie: Evenement[]) {
+  const son = syntheOcka(piste.instrument);
+  const temps = piste.swing === undefined ? m : { tempo: m.tempo, swing: piste.swing };
+  if (son !== null && syntheParMotif(son)) return planifierPassages(o, piste, son, motif, temps, sortie);
+  const reglages = son !== null && piste.synthe ? { reglages: piste.synthe } : {};
+  const notes: Extract<Evenement, { type: 'note' }>[] = [];
+  const glisses: boolean[] = [];
   for (let cycle = 0; cycle * motif.pas < o.pas; cycle++) {
     for (const n of motif.notes) {
       const debut = cycle * motif.pas + n.pas;
       if (debut >= o.pas) break;
-      const fin = Math.min(debut + Math.max(1, n.duree), cycle * motif.pas + motif.pas, o.pas);
-      const t = pasVersSecondes(m, o.debutPas + debut);
-      const duree = pasVersSecondes(m, o.debutPas + fin) - t;
-      sortie.push({ type: 'note', t, duree, midi: n.midi, son: motif.son, vel: GAIN_NOTE * (n.vel ?? 1) });
+      const fin = Math.min(debut + Math.max(1 / 24, n.duree), cycle * motif.pas + motif.pas, o.pas);
+      const t = pasVersSecondes(temps, o.debutPas + debut);
+      const duree = pasVersSecondes(temps, o.debutPas + fin) - t;
+      notes.push({ type: 'note', t, duree, midi: n.midi, vel: GAIN_NOTE * n.vel, piste: piste.id, instrument: piste.instrument, son, ...reglages, velNote: n.vel });
+      glisses.push(n.glisse === true);
     }
+  }
+  notes.forEach((ev, k) => {
+    if (glisses[k]) {
+      const suivante = notes.find((x, j) => j > k && x.t > ev.t);
+      if (suivante && suivante.midi !== ev.midi) ev.glisse = suivante.midi;
+    }
+    sortie.push(ev);
+  });
+}
+
+/** Empreinte courte et stable d'un texte (FNV-1a). */
+function empreinte(texte: string): string {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < texte.length; i++) h = Math.imul(h ^ texte.charCodeAt(i), 0x01000193) >>> 0;
+  return `${h.toString(36)}-${texte.length.toString(36)}`;
+}
+
+/** Arrondi à la microseconde : deux passages identiques ont la même clé (erreurs d'arrondi des flottants). */
+const micro = (x: number) => Math.round(x * 1e6) / 1e6;
+
+/** C3 — synthé « motif » (303) : un événement par passage du motif dans la section (slides dans le passage). */
+function planifierPassages(o: Occurrence, piste: PisteInstrument, son: string, motif: MotifNotes, temps: Pick<Morceau, 'tempo' | 'swing'>, sortie: Evenement[]) {
+  const def = synthe(son)!;
+  for (let debut = 0; debut < o.pas; debut += motif.pas) {
+    const finPassage = Math.min(debut + motif.pas, o.pas);
+    const t = pasVersSecondes(temps, o.debutPas + debut);
+    const notes: NoteMotifSynthe[] = [];
+    const glisses: boolean[] = [];
+    for (const n of motif.notes) {
+      if (debut + n.pas >= finPassage) break;
+      const t0 = pasVersSecondes(temps, o.debutPas + debut + n.pas);
+      const t1 = pasVersSecondes(temps, o.debutPas + Math.min(debut + n.pas + Math.max(1 / 24, n.duree), finPassage));
+      notes.push({ t: micro(t0 - t), duree: micro(t1 - t0), midi: n.midi, vel: n.vel });
+      glisses.push(n.glisse === true);
+    }
+    notes.forEach((n, k) => {
+      const suivante = glisses[k] ? notes.find((x, j) => j > k && x.t > n.t) : undefined;
+      if (suivante && suivante.midi !== n.midi) n.glisse = suivante.midi;
+    });
+    if (notes.length === 0) continue;
+    const duree = micro(pasVersSecondes(temps, o.debutPas + finPassage) - t);
+    const cle = empreinte(JSON.stringify([notes, duree, empreinteReglages(def, piste.synthe)]));
+    sortie.push({ type: 'motif', t, duree, piste: piste.id, son, notes, ...(piste.synthe ? { reglages: piste.synthe } : {}), cle });
   }
 }
 
@@ -161,18 +236,19 @@ function planifierBoucle(m: Morceau, o: Occurrence, b: NonNullable<Section['bouc
 /** Tout le planning du morceau, trié par temps. */
 export function calculerPlanning(morceau: Morceau): Evenement[] {
   const sortie: Evenement[] = [];
+  const instruments = pistesInstrument(morceau);
   for (const o of arrangement(morceau)) {
-    const ids = o.section.motifs;
-    const bat = ids.batterie ? morceau.motifs[ids.batterie] : undefined;
-    const basse = ids.basse ? morceau.motifs[ids.basse] : undefined;
-    const acc = ids.accords ? morceau.motifs[ids.accords] : undefined;
-    const mel = ids.melodie ? morceau.motifs[ids.melodie] : undefined;
-    const accords = acc?.type === 'accords' ? acc : undefined;
-    if (bat?.type === 'batterie') planifierBatterie(morceau, o, bat, sortie);
+    const bat = motifBatterieDe(morceau, o.section);
+    const basse = motifBasseDe(morceau, o.section);
+    const accords = motifAccordsDe(morceau, o.section);
+    if (bat) planifierBatterie(morceau, o, bat, sortie);
     else if (o.section.fill) planifierBatterie(morceau, o, { type: 'batterie', pas: 16, pistes: {} }, sortie);
-    if (basse?.type === 'basse') planifierBasse(morceau, o, basse, accords, sortie);
+    if (basse) planifierBasse(morceau, o, basse, accords, sortie);
     if (accords) planifierAccords(morceau, o, accords, sortie);
-    if (mel?.type === 'melodie') planifierMelodie(morceau, o, mel, sortie);
+    for (const p of instruments) {
+      const motif = motifNotesDe(morceau, o.section, p.id);
+      if (motif) planifierNotes(morceau, o, p, motif, sortie);
+    }
     if (o.section.boucle && o.section.boucle.mesures > 0) planifierBoucle(morceau, o, o.section.boucle, sortie);
   }
   return sortie.sort((a, b) => a.t - b.t);

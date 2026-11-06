@@ -1,0 +1,139 @@
+{
+ "id": "vsco-cordes",
+ "source": null,
+ "fichiers": [
+  {
+   "fichier": "z037-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_C1_v3_1.wav",
+   "sha256": "19195ab85ab71626bd11e7100febdaeeba1c237ff5887b934fd0ffd8dfad82cb",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z040-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_E1_v3_1.wav",
+   "sha256": "ee190b95be4f2416b9f41d248d255a4d7067b722f9b21482b30bc9872a9bb0d1",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z043-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_G1_v3_1.wav",
+   "sha256": "e4c61d4ab855ec20ddb69ff608a1c066ff8a779ddd08d1dfe1d534d3a4563ad0",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_G1_v3_1.wav",
+   "sha256": "e4c61d4ab855ec20ddb69ff608a1c066ff8a779ddd08d1dfe1d534d3a4563ad0",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_B1_v3_1.wav",
+   "sha256": "8331a0e13f41243efab111f9b5e9185524c27ee48631269acecafc954ab7eaa8",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_D2_v3_1.wav",
+   "sha256": "fc946615cd6550570c8f05d61c0d59b9079bf9daba8bf25be7943487fea5a7ae",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_F2_v3_1.wav",
+   "sha256": "d965197faf2e6ab8675f1d65505e5ba934a5ab769412d314bad94133e18f24d0",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_A2_v3_1.wav",
+   "sha256": "b7f226f19b9616abe5fa4a27ef50116667e19eb0127f30eacfa6d1a83e9149f0",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v1.ogg",
+   "source": "Strings/Violin Section/susVib/VlnEns_susVib_B2_v2.wav",
+   "sha256": "a822fd195e60881afac5e0801d8d494b782a8f6787a08f3c711f5e00290b3fb6",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "source": "Strings/Violin Section/susVib/VlnEns_susVib_D3_v2.wav",
+   "sha256": "77893dbf1ea1be8c40ad756d16b916298e6b1b0742495e9853e020375592357c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "source": "Strings/Violin Section/susVib/VlnEns_susVib_F#3_v2.wav",
+   "sha256": "d7bc6b4c259b9543de4fe66228ee107205b8f539c8d7c1de71f5781d45a14fc7",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "source": "Strings/Violin Section/susVib/VlnEns_susVib_F#3_v2.wav",
+   "sha256": "d7bc6b4c259b9543de4fe66228ee107205b8f539c8d7c1de71f5781d45a14fc7",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z070-v1.ogg",
+   "source": "Strings/Violin Section/susVib/VlnEns_susVib_A3_v2.wav",
+   "sha256": "3fc4a9e22037643fce11e755da72c61c664893f83e637c24a7b5c2d3824ab986",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "source": "Strings/Violin Section/susVib/VlnEns_susVib_C4_v2.wav",
+   "sha256": "5857387b40c412f756ef281c1171247664432a4e5078c98142d595d15cd92ef9",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z076-v1.ogg",
+   "source": "Strings/Violin Section/susVib/VlnEns_susVib_E4_v2.wav",
+   "sha256": "030c09a631ebbc7304fc0b47bb5c346cd646e7451d9fdc531870f2534c60d9e9",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z079-v1.ogg",
+   "source": "Strings/Violin Section/susVib/VlnEns_susVib_G4_v2.wav",
+   "sha256": "a1d6d5a0397541692e2f88a0cd9820eabe90407784ee631aa3bfa74772637a65",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z082-v1.ogg",
+   "source": "Strings/Violin Section/susVib/VlnEns_susVib_B4_v2.wav",
+   "sha256": "bdb85532f47e4ebd681f9617a415116e7e5aeb786dce2eeab5ab9b93c1b31644",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z084-v1.ogg",
+   "source": "Strings/Violin Section/susVib/VlnEns_susVib_B4_v2.wav",
+   "sha256": "bdb85532f47e4ebd681f9617a415116e7e5aeb786dce2eeab5ab9b93c1b31644",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z087-v1.ogg",
+   "source": "Strings/Violin Section/susVib/VlnEns_susVib_D5_v2.wav",
+   "sha256": "0c2ca9de723bed0a0968e32126b934f778cd678b367a29e7fde91004daf84daf",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

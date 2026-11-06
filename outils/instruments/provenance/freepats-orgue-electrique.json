@@ -1,0 +1,158 @@
+{
+ "id": "freepats-orgue-electrique",
+ "source": {
+  "type": "archive",
+  "banque": "freepats",
+  "url": "https://freepats.zenvoid.org/Organ/DrawbarOrganEmulation/DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+  "sfz": "DrawbarOrganEmulation-20190712.sfz"
+ },
+ "fichiers": [
+  {
+   "fichier": "z037-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z040-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z043-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z045-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z048-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z051-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z086-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z089-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z092-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z095-v1.ogg",
+   "source": "DrawbarOrganEmulation-SFZ-20190712.tar.xz",
+   "sha256": "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

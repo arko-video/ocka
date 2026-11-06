@@ -34,7 +34,7 @@ describe('aide de chaque écran', () => {
   });
   it('Beat donne la batterie ou la mélodie selon la bascule', () => {
     expect(pageDeLEcran('beat', 'batterie')).toBe('beat');
-    expect(pageDeLEcran('beat', 'melodie')).toBe('melodie');
+    expect(pageDeLEcran('beat', 'instruments')).toBe('melodie');
   });
   it('les 5 étapes, les 3 écrans de l’assistant et l’accueil ont leur aide à eux', () => {
     expect(['structure', 'voix', 'son', 'exporter'].map((e) => pageDeLEcran(e))).toEqual(['structure', 'voix', 'son', 'exporter']);

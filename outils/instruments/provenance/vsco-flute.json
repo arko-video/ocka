@@ -1,0 +1,100 @@
+{
+ "id": "vsco-flute",
+ "source": {
+  "type": "vsco",
+  "sfz": "FluteSusVib"
+ },
+ "fichiers": [
+  {
+   "fichier": "z060-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_C3_v1_1.wav",
+   "sha256": "073631c8442b275d803e608e840c2ce6cad3b08320018e08510cf3cb57373154",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_E3_v1_1.wav",
+   "sha256": "831386b21a704a5fccf204b18a536d638ea191f1b56662200192241215e21abd",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z066-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_E3_v1_1.wav",
+   "sha256": "831386b21a704a5fccf204b18a536d638ea191f1b56662200192241215e21abd",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z069-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_A3_v1_1.wav",
+   "sha256": "4ea04a7a2ba152752e1b475798619a62f2546f54972caa6ddcd88f29a2046c81",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z072-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_C4_v1_2.wav",
+   "sha256": "20dba9acc31536b3758a50f9b09e17245eb35f7cfffb17a97314b73f8cfe6e60",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z075-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_E4_v1_2.wav",
+   "sha256": "84c1ecc4e989f25ca72d50dd2f9a5a7d6dfee5084468bfc0e83a33950ec0ce4d",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z078-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_E4_v1_2.wav",
+   "sha256": "84c1ecc4e989f25ca72d50dd2f9a5a7d6dfee5084468bfc0e83a33950ec0ce4d",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z081-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_A4_v1_1.wav",
+   "sha256": "cf3c1c30943b8b8ef8b5b9ced89430c014987a037204098d002f86e424391ba9",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z084-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_C5_v1_1.wav",
+   "sha256": "ecb78c59069866ea7c3327594851827cd2f50c5d411aad422269a88e53614fbe",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z087-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_E5_v1_2.wav",
+   "sha256": "87aa10af26ddb9cfbfda1f93831c7031d2f4564f260b71209796a7bc485ec6d4",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z090-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_E5_v1_2.wav",
+   "sha256": "87aa10af26ddb9cfbfda1f93831c7031d2f4564f260b71209796a7bc485ec6d4",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z093-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_A5_v1_1.wav",
+   "sha256": "067a42df19ec1864389c28235a6794033471c0ffa3d7e16637396a505ca7d7fd",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z096-v1.ogg",
+   "source": "Woodwinds/Flute/susvib/LDFlute_susvib_C6_v1_1.wav",
+   "sha256": "0ead172a529daad09ecbab66027027b92189afe79f50f71dc20ee58ca66c9135",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

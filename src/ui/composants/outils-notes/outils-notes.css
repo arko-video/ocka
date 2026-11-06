@@ -1,0 +1,166 @@
+/* Outils malins et MIDI (P) : panneaux en feuille, au pouce (360 px), sur les variables du thème. */
+
+.on {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.on-cible {
+  margin: 0;
+  font-size: 14px;
+  color: var(--texte-doux);
+}
+.on-cible strong {
+  color: var(--texte);
+}
+.on-apercu-bloc {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.on-apercu {
+  width: 100%;
+  height: 72px;
+  display: block;
+  border-radius: var(--r-petit);
+  background: var(--fond-creux);
+  border: 1px solid var(--bord);
+}
+.on-apercu .on-temps {
+  stroke: var(--bord);
+  stroke-width: 0.05;
+}
+.on-apercu .on-mesure {
+  stroke: var(--bord-fort);
+  stroke-width: 0.12;
+}
+.on-apercu .on-note {
+  fill: var(--violet);
+}
+.on-apercu .on-choisie {
+  fill: var(--magenta);
+}
+.on-apercu .on-fantome {
+  fill: var(--texte-faible);
+  opacity: 0.55;
+}
+.on-fantomes-noms {
+  color: var(--texte-faible);
+}
+.on-onglets {
+  margin-top: 2px;
+}
+.on-onglets .puce[aria-selected='true'] {
+  border-color: transparent;
+  background: var(--degrade);
+  color: #fff;
+}
+.on-corps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 180px;
+}
+.on-corps .aide {
+  margin: 0;
+}
+.on-reglage {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.on-reglage > .curseur-label,
+.on-curseur > .curseur-label {
+  flex: none;
+}
+.on-curseur {
+  display: grid;
+  grid-template-columns: auto 1fr 52px;
+  align-items: center;
+  gap: 10px;
+}
+.on-valeur {
+  text-align: right;
+  font-size: 14px;
+  color: var(--texte-doux);
+}
+.on-appliquer {
+  width: 100%;
+  min-height: 52px;
+}
+.on-idee {
+  text-align: center;
+}
+.on-deux {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.on-deux .btn {
+  min-height: 48px;
+}
+.on-case {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  font-size: 14px;
+}
+.on-case input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--violet);
+  flex-shrink: 0;
+}
+.on-avance {
+  border-top: 1px solid var(--bord);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+.on-avance .aide {
+  margin: 0;
+}
+
+/* Panneau MIDI */
+.midi-bloc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.midi-bloc h3 {
+  margin: 0;
+  font-family: var(--police-titre);
+  font-size: 16px;
+}
+.midi-bloc .aide {
+  margin: 0;
+}
+.midi-fichier {
+  display: none;
+}
+.midi-avertissements {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: var(--texte-doux);
+}
+.midi-select {
+  width: 100%;
+  min-height: 44px;
+}
+.midi-etat {
+  font-size: 14px;
+  color: var(--texte-doux);
+  margin: 0;
+}
+.midi-etat[data-actif='1'] {
+  color: var(--vert);
+}
+.midi-rec[data-actif='1'] {
+  background: var(--rouge);
+  border-color: var(--rouge);
+  color: #fff;
+}

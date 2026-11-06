@@ -22,6 +22,8 @@ interface Session {
   lecteur: Lecteur;
   ctx: AudioContext;
   idSection: string;
+  /** Piste éditée (piano roll « Simple ») ; undefined = la piste mélodie. */
+  piste: string | undefined;
   /** Heure du contexte où le 1er pas de la section part vers la sortie (connue quand la lecture démarre). */
   heureDebut: number | null;
   retrait: number;
@@ -72,15 +74,25 @@ export function clavierActif(): boolean {
   return session !== null;
 }
 
-/** Démarre l'enregistrement au clavier sur la section (1re apparition dans l'arrangement). */
-export async function demarrerClavier(idSection: string) {
+/** Démarre l'enregistrement au clavier sur la section (1re apparition dans l'arrangement), sur `piste` ou la mélodie. */
+export async function demarrerClavier(idSection: string, piste?: string) {
   const m = morceau.peek();
   const s = m?.sections.find((x) => x.id === idSection);
   if (!m || !s || session) return;
   const l = obtenirLecteur();
   if (!l) return;
   const ctx = l.ctx ?? contexteAudio();
-  const sess: Session = { lecteur: l, ctx, idSection, heureDebut: null, retrait: 0, frappes: [], minuteries: [], desabonner: null };
+  const sess: Session = {
+    lecteur: l,
+    ctx,
+    idSection,
+    piste,
+    heureDebut: null,
+    retrait: 0,
+    frappes: [],
+    minuteries: [],
+    desabonner: null,
+  };
   session = sess;
   phaseClavier.value = 'decompte';
   decompteClavier.value = 4;
@@ -99,19 +111,23 @@ export async function demarrerClavier(idSection: string) {
     const noire = 60 / m.tempo;
     const fin = jouerDecompte(ctx, m.tempo);
     const dans = (heure: number) => Math.max(0, (heure - ctx.currentTime) * 1000);
-    for (let i = 1; i < 4; i++) sess.minuteries.push(setTimeout(() => (decompteClavier.value = 4 - i), dans(fin - (4 - i) * noire)));
+    for (let i = 1; i < 4; i++)
+      sess.minuteries.push(setTimeout(() => (decompteClavier.value = 4 - i), dans(fin - (4 - i) * noire)));
     sess.minuteries.push(
-      setTimeout(() => {
-        if (session !== sess) return;
-        l.lire();
-        const h = l.heureDe?.(debut);
-        sess.heureDebut = h !== undefined && Number.isFinite(h) ? h : ctx.currentTime;
-        phaseClavier.value = 'enregistrement';
-        // Lecture arrêtée par la barre (Pause) : on termine l'enregistrement.
-        sess.desabonner = l.surChangement(() => {
-          if (session === sess && !l.enLecture) arreterClavier();
-        });
-      }, dans(fin) - 15),
+      setTimeout(
+        () => {
+          if (session !== sess) return;
+          l.lire();
+          const h = l.heureDe?.(debut);
+          sess.heureDebut = h !== undefined && Number.isFinite(h) ? h : ctx.currentTime;
+          phaseClavier.value = 'enregistrement';
+          // Lecture arrêtée par la barre (Pause) : on termine l'enregistrement.
+          sess.desabonner = l.surChangement(() => {
+            if (session === sess && !l.enLecture) arreterClavier();
+          });
+        },
+        dans(fin) - 15,
+      ),
     );
   } catch (e) {
     nettoyer();
@@ -138,7 +154,7 @@ export function arreterClavier() {
   const m = morceau.peek();
   const section = m?.sections.find((x) => x.id === s.idSection);
   if (!m || !section || s.heureDebut === null) return;
-  const avant = motifMelodie(m, s.idSection);
+  const avant = motifMelodie(m, s.idSection, s.piste);
   const notes = calerFrappes(s.frappes, {
     heureDebut: s.heureDebut,
     retrait: s.retrait,
@@ -148,8 +164,8 @@ export function arreterClavier() {
     pasMotif: avant?.pas ?? longueurDefaut(section),
     duree: dureeNote.peek(),
   });
-  if (notes.length && modifier((x) => poserNotes(x, s.idSection, notes))) {
-    const apres = motifMelodie(morceau.peek()!, s.idSection);
+  if (notes.length && modifier((x) => poserNotes(x, s.idSection, notes, s.piste))) {
+    const apres = motifMelodie(morceau.peek()!, s.idSection, s.piste);
     const n = (apres?.notes.length ?? 0) - (avant?.notes.length ?? 0);
     afficherToast(T.melodie.posees(n), 5000, { label: T.annuler, agir: annulerAction });
   } else afficherToast(T.melodie.aucunePosee);

@@ -1,0 +1,225 @@
+/* Panneaux de R (C3) : effets de fin, looper, confort. Au pouce : cibles de 44 px au moins. */
+
+.r-bloc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid var(--bord);
+}
+.r-bloc:first-of-type {
+  border-top: none;
+}
+.r-bloc h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--texte);
+}
+.r-ligne {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.r-defile {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 0 calc(-1 * var(--marge));
+  padding: 2px var(--marge) 4px;
+  scrollbar-width: none;
+}
+.r-defile::-webkit-scrollbar {
+  display: none;
+}
+.r-pastilles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+}
+.r-pastille {
+  min-height: 56px;
+  padding: 8px 12px;
+  border-radius: var(--r);
+  border: 1px solid var(--bord-fort);
+  background: var(--fond-creux);
+  color: var(--texte);
+  font: inherit;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.r-pastille small {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--texte-doux);
+}
+.r-pastille[aria-pressed='true'] {
+  border-color: transparent;
+  background: var(--degrade);
+}
+.r-pastille[aria-pressed='true'] small {
+  color: #fff;
+}
+.r-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.r-liste li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 4px 0 12px;
+  border-radius: var(--r-petit);
+  background: var(--surface);
+}
+.r-liste li > span:first-child {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.r-liste button.r-etape {
+  flex: 1;
+  min-height: 44px;
+  border: none;
+  background: none;
+  color: var(--texte);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.r-liste li[data-position='0'] {
+  background: var(--violet-voile);
+  font-weight: 700;
+}
+.r-liste li[data-futur='1'] {
+  opacity: 0.55;
+}
+.r-historique {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+/* Looper : une ligne par piste, des cases qu'on touche. */
+.r-grille {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.r-piste {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.r-piste-nom {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--texte-doux);
+}
+.r-cases {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+  gap: 6px;
+}
+.r-case {
+  min-height: 56px;
+  border-radius: var(--r-petit);
+  border: 1px solid var(--bord-fort);
+  background: var(--surface-2);
+  color: var(--texte);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.r-case[data-etat='joue'] {
+  border-color: transparent;
+  background: var(--degrade);
+  color: #fff;
+}
+.r-case[data-etat='attente'] {
+  border-color: var(--magenta);
+  border-style: dashed;
+  animation: r-clignote 0.6s ease-in-out infinite alternate;
+}
+.r-case-stop {
+  background: var(--fond-creux);
+  color: var(--texte-doux);
+}
+@keyframes r-clignote {
+  to {
+    background: var(--magenta-voile);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .r-case[data-etat='attente'] {
+    animation: none;
+    background: var(--magenta-voile);
+  }
+}
+.r-transport {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-items: center;
+}
+.r-mesure {
+  font-variant-numeric: tabular-nums;
+  color: var(--texte-doux);
+  font-size: 14px;
+}
+.btn.r-enr[aria-pressed='true'] {
+  background: var(--rouge);
+  border-color: var(--rouge);
+  color: #fff;
+}
+
+/* Confort */
+.r-tap {
+  min-height: 72px;
+  font-size: 18px;
+}
+.r-volume {
+  width: 100%;
+  min-height: 44px;
+  accent-color: var(--violet);
+}
+.r-touches {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 12px;
+  margin: 0;
+  font-size: 14px;
+}
+.r-touches dt {
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  color: var(--violet-clair);
+}
+.r-touches dd {
+  margin: 0;
+  color: var(--texte-doux);
+}
+.r-champ {
+  flex: 1;
+  min-width: 0;
+  min-height: 40px;
+  border: none;
+  background: none;
+  color: var(--texte);
+  font: inherit;
+}

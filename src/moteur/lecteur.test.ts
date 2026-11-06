@@ -54,7 +54,8 @@ vi.mock('./graphe', () => ({
     programmerFondu: (o: number) => appels.fondus.push(o),
     annulerFondu: () => appels.annulerFondu++,
     entendre: () => {},
-    entendreNote: (son: string, midi: number) => appels.notes.push([son, midi]),
+    muettes: 0,
+    entendreNote: (piste: string, midi: number) => appels.notes.push([piste, midi]),
     comparer: (sans: boolean, c: number) => appels.comparer.push([sans, c]),
     relayer: async (quand: number) => void appels.relais.push(quand),
     arreter: () => appels.arreter++,
@@ -213,10 +214,11 @@ describe('lecteur : notes, latence, A/B et sons importés', () => {
   it('entendreNote passe au graphe ; comparer aussi (compensation 0 par défaut)', async () => {
     const l = creerLecteur();
     await l.charger(nouveauMorceau('trap'));
-    l.entendreNote('pluck', 72);
+    l.entendreNote('melodie', 72);
     l.comparer(true, -1.5);
     l.comparer(false);
-    expect(appels.notes).toEqual([['pluck', 72]]);
+    expect(appels.notes).toEqual([['melodie', 72]]);
+    expect(l.notesMuettes).toBe(0);
     expect(appels.comparer).toEqual([[true, -1.5], [false, 0]]);
     l.detruire();
   });

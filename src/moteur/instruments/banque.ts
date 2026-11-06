@@ -3,7 +3,8 @@
 // Pendant la lecture, le graphe ne fait que LIRE ce cache : un son pas prêt est sauté et compté (`sautees`).
 // Les tampons d'un graphe vivant sont épinglés : le LRU ne les jette jamais.
 
-import type { InstrumentBatterie, SonMelodie } from '../../morceau/types';
+import type { InstrumentBatterie } from '../../morceau/types';
+import { metronomeChoisi, signalClic, volumeMetronome } from '../confort';
 import { commander } from '../synthese/atelier';
 import { executer, type Travail } from '../synthese/travaux';
 
@@ -37,7 +38,12 @@ export function dureeBasse(duree: number): number {
 export const cles = {
   frappe: (kit: string, instrument: InstrumentBatterie) => `f|${kit}|${instrument}`,
   basse: (style: string, midi: number, duree: number, cible?: number) => `b|${style}|${midi}|${dureeBasse(duree)}|${cible ?? ''}`,
-  note: (son: SonMelodie, variante: string, midi: number) => `n|${son}|${variante}|${midi}`,
+  /** `reglages` : empreinte des réglages d'un synthé (empreinteReglages ; '' = défauts : clé d'avant C3). */
+  note: (son: string, variante: string, midi: number, reglages = '') => `n|${son}|${variante}|${midi}${reglages ? `|${reglages}` : ''}`,
+  /** C3 — passage d'un motif d'un synthé « motif » (303) : empreinte des notes, de la durée et des réglages. */
+  motif: (son: string, empreinte: string) => `s|${son}|${empreinte}`,
+  /** C3 — passage gelé (effet de performance, gel d'une piste) : clé donnée par le fournisseur du gel. */
+  gel: (cle: string) => `g|${cle}`,
   prise: (fichier: string) => `v|${fichier}`,
   pad: (fichier: string, crete: number) => `p|${fichier}|${crete}`,
   boucle: (fichier: string, longueur: number | null) => `l|${fichier}|${longueur ?? ''}`,
@@ -175,16 +181,14 @@ export class Banque {
     if (!this.fixes.has(cle)) this.fixes.set(cle, this.versTampon(r.canaux));
   }
 
-  /** Clic de métronome (aigu sur le 1er temps) : 30 ms, calculé une fois. */
+  /** Clic de métronome (aigu sur le 1er temps), calculé une fois par son : le son choisi par R (confort.ts, C3). */
   clic(fort: boolean): AudioBuffer {
-    const cle = `m|${fort}`;
+    const son = metronomeChoisi();
+    const volume = volumeMetronome();
+    const cle = `m|${fort}|${son}|${volume}`;
     let b = this.fixes.get(cle);
     if (!b) {
-      const sr = this.ctx.sampleRate;
-      const s = new Float32Array(Math.round(0.03 * sr));
-      const f = fort ? 1800 : 1200;
-      for (let i = 0; i < s.length; i++) s[i] = 0.5 * Math.sin((2 * Math.PI * f * i) / sr) * Math.exp(-i / (0.006 * sr));
-      b = this.versTampon([s]);
+      b = this.versTampon([signalClic(fort, this.ctx.sampleRate, son)]);
       this.fixes.set(cle, b);
     }
     return b;

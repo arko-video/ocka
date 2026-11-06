@@ -1,0 +1,93 @@
+{
+ "id": "vsco-tuba",
+ "source": {
+  "type": "vsco",
+  "sfz": "TubaSus"
+ },
+ "fichiers": [
+  {
+   "fichier": "z029-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_F0_v1_rr1_Mid.wav",
+   "sha256": "cfcf1705f2e5ead3e0e5a95a046b29412c7037865c823583285ff72541286d2c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z032-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_A#0_v3_rr1_Mid.wav",
+   "sha256": "13617e024fcfc70d3b93430909d96e2a2c551505eb8c0a94b0de63b2612bc74d",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z035-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_A#0_v3_rr1_Mid.wav",
+   "sha256": "13617e024fcfc70d3b93430909d96e2a2c551505eb8c0a94b0de63b2612bc74d",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z038-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_D#1_v3_rr1_Mid.wav",
+   "sha256": "c267f4e366f2521b4a00b3e99de648441928fa84998f882d31aa80be30f4a360",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z041-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_F1_v3_rr1_Mid.wav",
+   "sha256": "f1e7a7834d7e1bc906cad605507d83876b52becc707cb0d77ef3dbd629ffe4cf",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_A#1_v3_rr1_Mid.wav",
+   "sha256": "b69c9899debceb9f37ada54bc85f5fba9df5e7c8dc85356e5c01091383b77a0a",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_A#1_v3_rr1_Mid.wav",
+   "sha256": "b69c9899debceb9f37ada54bc85f5fba9df5e7c8dc85356e5c01091383b77a0a",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_D2_v3_rr1_Mid.wav",
+   "sha256": "714f93eab4ac32aaa88b1265ac12261d39bd97798cea0a81e7fd20afd977af81",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_F2_v3_rr1_Mid.wav",
+   "sha256": "0d60f5d3dd72d4a1b79d6f1366249a1b834e19f38a87b04645cad3bbf5982c0a",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z055-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_F2_v3_rr1_Mid.wav",
+   "sha256": "0d60f5d3dd72d4a1b79d6f1366249a1b834e19f38a87b04645cad3bbf5982c0a",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z058-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_A#2_v3_rr1_Mid.wav",
+   "sha256": "6c527d8ded1c71114971b60c718fb3a533b4a66c75ebfe69519d36b0ec7bda05",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z061-v1.ogg",
+   "source": "Brass/Tuba/sus/Tuba3_sus_D3_v1_rr1_Mid.wav",
+   "sha256": "8f2bc8f32c619d25955c397ed9bfa5b2bb78f702688d952ae48764bf6f8f68b1",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

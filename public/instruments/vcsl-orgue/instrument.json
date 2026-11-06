@@ -1,0 +1,375 @@
+{
+ "id": "vcsl-orgue@1",
+ "nom": "Orgue d'église",
+ "famille": "Claviers",
+ "licence": {
+  "nom": "CC0-1.0",
+  "url": "https://github.com/sgossner/VCSL",
+  "auteur": "Versilian Studios LLC (Sam Gossner et contributeurs)",
+  "sha256": [
+   "02ad4cf4038e4934a6de35ce9e9a6928bb2191e2e23a7ceddce0a2e0f83be532",
+   "03e8a7f44599f0df9975566fff56ece53990d61851f9051f264fa6506f1e075e",
+   "0fccf2e5ad86e2ef4ea2475a69fdb4d6c2687e69f83a15d06cbae03e34ac5eee",
+   "1524a5631561e898617154a2f1b6bdc6fbdacb383549255d78d14eb53b588f8b",
+   "4b58d8b01067b740b6170e6a3900bd27adb7cf2ace7d48033759826a6e4b2316",
+   "5ac10b40fb5cb026e3e487e05e24a1b0aeda35fa8df956d48f8c9d9fd18bff38",
+   "5b0043d88777245103c73f04a5569b9e4e2cd143e21eeebdffd8b3684eec9df6",
+   "6377903ce83e54cd8032308bc8fc1a3d7351af807b720b0c74fa97076b2eeb91",
+   "655578ef565eb845785935baca41600ca620f19dae8ba0c102ef53d4128febd4",
+   "6a45ea670fd525c8d9c6e26c2d0c0cf5248972b3aa9cc98521b826208aba03c7",
+   "7ce6ac35c8f951d36a1ebe66043f5a3e1ae3ca6bb3c45c1e74d1a3f64834fa5c",
+   "92185a77cd3f976715bc0dcd88719b7369235d2bab082441ad3d66176a0ba01d",
+   "9f3b80ef47d908b8acae4d6e7898a28e8179c3e090d6ee1ff4c326d35ea1d945",
+   "abcfa8821cd0ff1279f427b71cfad6467d39b0a56481fda4f164880df8f6ddcc",
+   "aeb0fb90c0b8f8c34bb71c998b63ef485e43522071aa39085045b7f50179bb33",
+   "bc9f4e8f0f20484a7b8eb1e35c2800c3658b59a1d8d28a8fc2f88b0ab788e28d",
+   "c8eb1bff00e0261bb403d6a245f54087808c3cb77c03914e97d0f606205895c7",
+   "cd5305ad957832c8f87d3676ba3fe47751de3817a793d676362438509a415268",
+   "d0c1af924435e9b9c31801888e3f3f62b14f05c0d29dc2b5c69b1d700105fad3",
+   "dc5ad93f22d343ea345d3964e7c7cf1d62a3229f8a2660c12a035473743470b2",
+   "fcb7ed9e78012eab036f89dfd9529852ba11193afa2f224fd4536fe427f8292b"
+  ]
+ },
+ "canaux": 1,
+ "gainDb": 0.0,
+ "relache": 0.3,
+ "budgetS": 58.855,
+ "zones": [
+  {
+   "fichier": "z036-v1.ogg",
+   "racine": 36,
+   "cents": 3.9,
+   "bas": 36,
+   "haut": 37,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -7.0,
+   "debut": 0,
+   "fin": 135011,
+   "boucle": {
+    "debut": 19728,
+    "fin": 130915
+   }
+  },
+  {
+   "fichier": "z039-v1.ogg",
+   "racine": 39,
+   "cents": 16.4,
+   "bas": 38,
+   "haut": 40,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.3,
+   "debut": 0,
+   "fin": 134440,
+   "boucle": {
+    "debut": 14400,
+    "fin": 130344
+   }
+  },
+  {
+   "fichier": "z042-v1.ogg",
+   "racine": 42,
+   "cents": 11.4,
+   "bas": 41,
+   "haut": 43,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.1,
+   "debut": 0,
+   "fin": 136264,
+   "boucle": {
+    "debut": 23280,
+    "fin": 132168
+   }
+  },
+  {
+   "fichier": "z045-v1.ogg",
+   "racine": 45,
+   "cents": -12.3,
+   "bas": 44,
+   "haut": 46,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.7,
+   "debut": 0,
+   "fin": 132263,
+   "boucle": {
+    "debut": 14400,
+    "fin": 128167
+   }
+  },
+  {
+   "fichier": "z048-v1.ogg",
+   "racine": 48,
+   "cents": 9.3,
+   "bas": 47,
+   "haut": 49,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.4,
+   "debut": 0,
+   "fin": 132401,
+   "boucle": {
+    "debut": 14400,
+    "fin": 128305
+   }
+  },
+  {
+   "fichier": "z051-v1.ogg",
+   "racine": 51,
+   "cents": 6.2,
+   "bas": 50,
+   "haut": 52,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -7.6,
+   "debut": 0,
+   "fin": 136356,
+   "boucle": {
+    "debut": 14400,
+    "fin": 132260
+   }
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "racine": 54,
+   "cents": 7.9,
+   "bas": 53,
+   "haut": 55,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.6,
+   "debut": 0,
+   "fin": 135757,
+   "boucle": {
+    "debut": 14400,
+    "fin": 131661
+   }
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "racine": 57,
+   "cents": 1.8,
+   "bas": 56,
+   "haut": 58,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.1,
+   "debut": 0,
+   "fin": 132312,
+   "boucle": {
+    "debut": 14400,
+    "fin": 128216
+   }
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "racine": 60,
+   "cents": -4.0,
+   "bas": 59,
+   "haut": 61,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.6,
+   "debut": 0,
+   "fin": 132319,
+   "boucle": {
+    "debut": 14400,
+    "fin": 128223
+   }
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "racine": 63,
+   "cents": -0.1,
+   "bas": 62,
+   "haut": 64,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.0,
+   "debut": 0,
+   "fin": 134536,
+   "boucle": {
+    "debut": 14400,
+    "fin": 130440
+   }
+  },
+  {
+   "fichier": "z066-v1.ogg",
+   "racine": 66,
+   "cents": -0.3,
+   "bas": 65,
+   "haut": 67,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.8,
+   "debut": 0,
+   "fin": 134912,
+   "boucle": {
+    "debut": 14400,
+    "fin": 130816
+   }
+  },
+  {
+   "fichier": "z069-v1.ogg",
+   "racine": 69,
+   "cents": -1.5,
+   "bas": 68,
+   "haut": 70,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.3,
+   "debut": 0,
+   "fin": 136630,
+   "boucle": {
+    "debut": 14400,
+    "fin": 132534
+   }
+  },
+  {
+   "fichier": "z072-v1.ogg",
+   "racine": 72,
+   "cents": -0.7,
+   "bas": 71,
+   "haut": 73,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.7,
+   "debut": 0,
+   "fin": 134061,
+   "boucle": {
+    "debut": 14400,
+    "fin": 129965
+   }
+  },
+  {
+   "fichier": "z075-v1.ogg",
+   "racine": 75,
+   "cents": -2.3,
+   "bas": 74,
+   "haut": 76,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.6,
+   "debut": 0,
+   "fin": 136064,
+   "boucle": {
+    "debut": 14400,
+    "fin": 131968
+   }
+  },
+  {
+   "fichier": "z078-v1.ogg",
+   "racine": 78,
+   "cents": -0.2,
+   "bas": 77,
+   "haut": 79,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.8,
+   "debut": 0,
+   "fin": 136687,
+   "boucle": {
+    "debut": 14400,
+    "fin": 132591
+   }
+  },
+  {
+   "fichier": "z081-v1.ogg",
+   "racine": 81,
+   "cents": 1.6,
+   "bas": 80,
+   "haut": 82,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.6,
+   "debut": 0,
+   "fin": 132008,
+   "boucle": {
+    "debut": 14400,
+    "fin": 127912
+   }
+  },
+  {
+   "fichier": "z084-v1.ogg",
+   "racine": 84,
+   "cents": -0.3,
+   "bas": 83,
+   "haut": 85,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.4,
+   "debut": 0,
+   "fin": 136786,
+   "boucle": {
+    "debut": 14400,
+    "fin": 132690
+   }
+  },
+  {
+   "fichier": "z087-v1.ogg",
+   "racine": 87,
+   "cents": 1.2,
+   "bas": 86,
+   "haut": 88,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.6,
+   "debut": 0,
+   "fin": 135307,
+   "boucle": {
+    "debut": 14400,
+    "fin": 131211
+   }
+  },
+  {
+   "fichier": "z090-v1.ogg",
+   "racine": 90,
+   "cents": 0.0,
+   "bas": 89,
+   "haut": 91,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -12.3,
+   "debut": 0,
+   "fin": 132010,
+   "boucle": {
+    "debut": 14400,
+    "fin": 127914
+   }
+  },
+  {
+   "fichier": "z093-v1.ogg",
+   "racine": 93,
+   "cents": -3.2,
+   "bas": 92,
+   "haut": 94,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.6,
+   "debut": 0,
+   "fin": 134457,
+   "boucle": {
+    "debut": 14400,
+    "fin": 130361
+   }
+  },
+  {
+   "fichier": "z096-v1.ogg",
+   "racine": 96,
+   "cents": -3.9,
+   "bas": 95,
+   "haut": 96,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -13.2,
+   "debut": 0,
+   "fin": 134458,
+   "boucle": {
+    "debut": 14400,
+    "fin": 130362
+   }
+  }
+ ]
+}

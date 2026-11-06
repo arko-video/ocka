@@ -8,7 +8,7 @@ Tout se passe sur ton appareil : tes prises de voix et tes morceaux ne sont jama
 
 En ligne : <https://arko-video.github.io/ocka/> · Code : <https://github.com/arko-video/ocka>
 
-## Ce que fait OCKA (phases 0 à 6)
+## Ce que fait OCKA (v1 : phases 0 à 6)
 
 1. **Choisis un style** : trap, drill, lo-fi, **phonk** (cloche 808 accordée), **pop** ou **boom bap**. Un morceau
    complet est prêt (intro, couplets, refrains, outro), avec son kit de batterie, sa 808 et ses accords. **« Au hasard »** tire le style, le tempo, la tonalité, les accords, la batterie et une
@@ -52,9 +52,82 @@ En ligne : <https://arko-video.github.io/ocka/> · Code : <https://github.com/ar
    « Continue mon idée » et « Aide aux paroles » sont déclarés **« aide de l'IA »**. Les styles, « Au hasard » et les
    Boucles OCKA ne sont pas de l'IA : ce sont des règles.
 
+## Nouveau dans la v2 (vague C1)
+
+- **Des pistes d'instruments, autant qu'il en faut** (jusqu'à 16, en plus de la batterie, de la 808, des accords, des
+  sons et de la voix). Beat → **Batterie | Instruments** : une carte par piste (muet, solo, volume, renommer,
+  dupliquer, déplacer, supprimer avec Annuler) et **« + Piste »** pour choisir un instrument par famille, avec la
+  recherche et l'écoute avant de choisir.
+- **41 instruments enregistrés**, tous libres de droits (CC0) : pianos (à queue, droit, doux, bastringue, électrique
+  FM), orgues, clavecin, guitares (nylon, électrique claire et saturée), ukulélé, basses, contrebasse, cordes (tenues,
+  staccato, pizzicato, violon, violoncelles), vents et cuivres, marimba, vibraphone, xylophone, glockenspiel, kalimba,
+  cloches, batteries (acoustique, balais, jazz) et percussions. Ils se téléchargent quand tu les choisis (environ
+  0,2 à 1 Mo chacun), puis restent sur le téléphone pour marcher sans réseau : **« Gérer les instruments »** montre la
+  place prise. Avant un export, OCKA télécharge ce qui manque ; sans réseau, il le dit clairement (jamais de piste
+  muette). Les 6 sons de la v1 restent là, toujours jouables.
+- **Piano roll** plein écran (toucher une piste) : poser, glisser, allonger, vélocité, quantification, copier/coller,
+  **accords en un toucher** dans la tonalité du morceau, « Rester dans la gamme », et le mode **Simple** (les 8 pads).
+- **Structure → Frise** : une ligne par piste, un clip par passage de section ; un motif joué dans plusieurs sections
+  le dit, et **« Rendre unique »** en fait une copie pour une seule section.
+- **Son → mélangeur** : une tranche par piste (muet/solo, volume, panoramique), **« Effets (n) »** (égaliseur, filtres,
+  saturation, écho, chorus/flanger, compresseur, bitcrusher, envois de réverbe et d'écho ; 6 par piste, préréglages)
+  et **« Pompe »** (sidechain calé sur le kick). Les **pistes séparées** sortent un fichier par piste.
+- **Réglage « Avancé »** (Son → Réglages avancés, désactivé par défaut) : les réglages fins de chaque effet, et les
+  couloirs d'**automation** (volume, panoramique, réglages d'effets, dessinés au doigt section par section) et de
+  **LFO** dans la frise. Ce réglage est gardé avec tes autres réglages.
+- Les morceaux de la v1 s'ouvrent sans changer de son (la mélodie devient une piste « Mélodie »).
+
 Et partout : **Annuler / Rétablir**, sauvegarde automatique, et OCKA marche **hors ligne** une fois installé.
 
 Tout reste sur ton appareil (stockage du navigateur). Pense à « Exporter le projet » de temps en temps : c'est ta copie.
+
+## Nouveau dans la v2 (vague C2)
+
+- **35 styles**, rangés en 5 familles sur l'écran du choix (avec la recherche, sans accents, et « Au hasard ») :
+  - **Rap** : trap, drill, UK drill, lo-fi, boom bap, phonk, Memphis, plugg, cloud, rage, jersey club, afro trap,
+    rap mélodique, jazz rap ;
+  - **Électro** : house, techno, drum & bass, UK garage, synthwave, hyperpop ;
+  - **Monde** : afrobeats, amapiano, reggaeton, reggae, bossa nova ;
+  - **Pop, rock et jazz** : pop, R&B, K-pop, rock, pop-punk, funk, gospel, jazz ;
+  - **Cinéma et ambiance** : orchestral, ambient.
+
+  Chaque style a son tempo, son groove, son kit, sa 808 et ses instruments de départ (piano droit et contrebasse en
+  jazz rap, guitare nylon en bossa nova, batterie enregistrée en rock, cordes et cuivres en orchestral…), parfois
+  avec leurs effets (réverbe en cloud, compresseur sur la contrebasse du jazz rap). « Au hasard » change la tonalité
+  et les accords : les instruments suivent.
+- **Autotune avancé** (Voix → carte « Autotune » de la prise gardée) : préréglages **Naturel, Pop, Robot,
+  Hyperpop**, la gamme détectée dans ta voix (ou celle du morceau, ou une autre), la vitesse de correction, la force,
+  « Humaniser » et les formants. **« Corriger tout seul »** (sans réseau) ou **« Avec l'IA »** (seule la liste des
+  notes part, jamais ta voix ; la déclaration « voix : aide de l'IA » est notée pour la sortie). En « Avancé »,
+  **l'éditeur de notes** : la courbe de ta voix sur un piano roll, des blocs de notes à déplacer, couper, fusionner,
+  avec justesse et vibrato. Ce que tu entends est ce qui est exporté.
+- **Ta voix → instrument (« Chanter »)** : chante, la piste joue ta mélodie en direct (roue des 12 notes, gamme du
+  morceau, accords en un geste), puis enregistre une section et la mélodie est posée en notes dans le piano roll.
+  **Casque obligatoire** ; il y a 100 à 200 ms de retard en direct sur Android (plus en Bluetooth : OCKA prévient),
+  mais l'enregistrement est recalé.
+- **Beatbox** (Beat → Batterie) : apprends à OCKA tes sons (5 exemples de « boum », « ka », « ts »), puis fais le beat
+  à la bouche : le kit joue en direct et tes frappes sont posées dans le motif de batterie.
+
+## Nouveau dans la v2 (vague C3)
+
+- **Piano roll malin** (Complet → Outils) : arpège, strum, humaniser, glissé, swing par piste, « riff machine »
+  (graine, gamme, style, densité) et, en « Avancé », les **notes fantômes** des autres pistes en gris.
+- **MIDI** : importer et exporter des `.mid`, jouer et enregistrer avec un **clavier MIDI** USB (Web MIDI : la note
+  tient tant que la touche est enfoncée).
+- **Sons** : découpe d'un son en tranches (aux attaques ou à parts égales) posées sur les pads, éditeur (couper,
+  fondu, normaliser, inverser), étirement **WSOLA** (±20 %), détection du **BPM** (avec le double et la moitié) et de
+  la tonalité ; **SoundFonts** `.sf2` (32 Mo au plus), gardées avec le projet exporté.
+- **12 synthés fabriqués par le code** : 303 (accents, slides), chiptune NES, onde dessinée au doigt, supersaw,
+  chœurs, log drum, cuivres en section, Rhodes, Wurlitzer, piano jouet, célesta, steel drum ; et « Fabriquer un
+  son » : **kick** sur mesure et **bruitages** façon sfxr (pièce, laser, saut…). Les styles s'en servent : supersaw
+  en rage et hyperpop, chœurs en gospel, log drum en amapiano, cuivres en funk, K-pop et orchestral, Rhodes en R&B et
+  lo-fi, Wurlitzer en funk.
+- **Performance** : effets de fin sur une section (bégaiement, demi-tempo, arrêt cassette, coupures, à l'envers),
+  **looper** (« Jouer en direct », lancement à la mesure, « Enregistrer ce que je joue »), tap tempo, son et volume
+  du métronome, historique d'Annuler, modèles de pistes, repères, raccourcis clavier.
+- **Voix avancée** : punch-in, comping, nettoyeur (porte, réduction du souffle, désesseur), doublage, 6 chaînes de
+  voix prêtes (dont « Grosse réverbe »), **morceau de référence** (A/B au même volume perçu) et **gel** d'une piste
+  (badge « gelée » sur sa carte) pour soulager le téléphone.
 
 ## Mon Hub
 
@@ -74,7 +147,9 @@ npm run dev
 ```bash
 npm run verif     # types + tests rapides
 npm run e2e       # parcours dans Chrome : mélodie, sortie Spotify, projet, M4A, pistes, aide, IA, autotune,
-                  # sonie des styles, captures
+                  # sonie des styles, piano roll, frise et mélangeur, morceau complet v2, choix du style,
+                  # autotune avancé, Chanter et Beatbox (faux micro), session v2, captures, et C3 : outils de
+                  # notes et MIDI, sons avancés, synthés, performance et looper, voix avancée
 npx vite --port 5198 --strictPort   # (dans un autre terminal) serveur de dev, pour 4 scénarios QA
 npx playwright test -c tests/qa/playwright.qa.config.ts   # relecture QA (voir tests/qa/RAPPORT-QA.md)
 ```
@@ -83,13 +158,13 @@ Les tests e2e et QA utilisent Google Chrome (`channel: 'chrome'`), ainsi que `ff
 
 ## Documents
 
-- `docs/` : la passation et les décisions de conception (phases 0 à 6).
+- `docs/` : la passation (v1, vagues C1, C2 et C3 de la v2), les décisions de conception et les contrats des vagues.
 - `CONTRIBUTING.md` : comment proposer une idée ou du code.
 - `SECURITY.md` : ce qu'OCKA protège, et comment signaler une faille.
 - `CREDITS.md` : les projets libres utilisés et leurs licences.
 
 ## Licence
 
-OCKA est sous licence **MIT** (voir `LICENSE`). Tous les sons d'OCKA (batteries, basse, accords, mélodies, boucles) sont
-**fabriqués par son code** et sont dans le domaine public (CC0) : un morceau fait avec OCKA t'appartient, tu peux le
-publier et le vendre. Voir `CREDITS.md`.
+OCKA est sous licence **MIT** (voir `LICENSE`). Les sons de base d'OCKA (batteries, basse, accords, mélodies, boucles)
+sont **fabriqués par son code**, et les instruments enregistrés viennent uniquement de banques en **CC0** : tout est
+dans le domaine public, un morceau fait avec OCKA t'appartient, tu peux le publier et le vendre. Voir `CREDITS.md`.

@@ -1,0 +1,184 @@
+{
+ "id": "vcsl-harpe",
+ "source": {
+  "type": "vcsl",
+  "sfz": "Chordophones/Composite Chordophones/Concert Harp"
+ },
+ "fichiers": [
+  {
+   "fichier": "z029-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_E1_f1.wav",
+   "sha256": "af372f9d4b218455884cb37201a6a14664f9cc7cf3016bfc28f36146915a370a",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z032-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_G1_f1.wav",
+   "sha256": "47a5ea6c3ec629e9f7f40410b36e6dad15213aa660f5f53b436d484cd2e9319d",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z035-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_B1_f1.wav",
+   "sha256": "3ffa4eefa4113c132c376afbc38d1d6765cd516f15ee61b3e4980005f0436124",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z038-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_D2_f1.wav",
+   "sha256": "2c9a8cf6b68ddd24ae012624bd5b02436ccfa76443204f2b3d580f8e05bdeb62",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z041-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_F2_f1.wav",
+   "sha256": "e41629bbb8d3fce5068234e9fa488348fc639dbf952e458321262dddba2d855c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_A2_f1.wav",
+   "sha256": "c58aae0c0eec982c4cb45034d63b00567266fdbb9351354f916703ac4bc51b4e",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_C3_f2.wav",
+   "sha256": "706e586007e07771a97ef97888c23c99aed163503b38878ac5b8ffa437bed5a0",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_C3_f2.wav",
+   "sha256": "706e586007e07771a97ef97888c23c99aed163503b38878ac5b8ffa437bed5a0",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_E3_f1.wav",
+   "sha256": "8a803bd6b96a121e83b4ad7e2e0ed40d9b93540f530e89d1a454957121b95f72",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_G3_f1.wav",
+   "sha256": "90f1db1b266b37d2fa991cddb4c077b45f3fddf1be628a16be2fd833e5d32ebd",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_B3_f1.wav",
+   "sha256": "f4e218e04bd27b3e56edb8bb34d41cb5b9960b21acaafb2a8553bea2b402ef66",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_D4_mf1.wav",
+   "sha256": "ebfde8aab4411019e37e3426f4dd88d6a52a38c2d0261d7f10ec63d8ff584dc7",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_F4_f1.wav",
+   "sha256": "990a38119a68a4b84166080be13027cfbbb4eb17333f8914c9e1a89884521155",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_A4_f1.wav",
+   "sha256": "dd5cc854f4e7a01b9903cc49645e54905b06ed844a5164c0693224b60a862833",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_C5_f1.wav",
+   "sha256": "52a002ae0359257f02b972a62f05e86a4bdbeed272820f934c356408e100cda8",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_C5_f1.wav",
+   "sha256": "52a002ae0359257f02b972a62f05e86a4bdbeed272820f934c356408e100cda8",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_E5_f1.wav",
+   "sha256": "354bd7ee7d468171593adb6c48a735c4666ec8b2b8c88f611247ac3aa5ce9060",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_G5_f1.wav",
+   "sha256": "32ad10059918ed0f60d40c1c35c28031d19e4356edceacf1dcf539279ac822c1",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_B5_f1.wav",
+   "sha256": "f9433c5820187b1b9ad2ad347cbc4a5db4fa0fa8f36be010b650ee9e3edc6dd1",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z086-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_D6_f1.wav",
+   "sha256": "40828e75a36574f0ac1ddb57da3fc18355a5ee5f88c2b1fa397412034985055d",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z089-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_F6_f1.wav",
+   "sha256": "66d37fe819ca6088966a88c018b50febf76f68edd76f137d40ec89ef5057251b",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z092-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_A6_f1.wav",
+   "sha256": "60fd5298274faabdbcda48f3ccf05de5a5abaaa037e337d88f1b583ea421e929",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z095-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_B6_f1.wav",
+   "sha256": "0130701b9f7344b18938def457ccc1f91e2e11b00a65ffe141ed199642ac4331",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z098-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_D7_f1.wav",
+   "sha256": "682b95338233c09889f50e6b71429780dabe0314fb11638cbdd04a735323dfd1",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z101-v1.ogg",
+   "source": "Chordophones/Composite Chordophones/Concert Harp/KSHarp_F7_f1.wav",
+   "sha256": "638b40d6c6c674257daa89b0b1e5108973ccbf13d7cc282e21266d3fb71500c5",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

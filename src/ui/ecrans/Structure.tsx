@@ -1,15 +1,18 @@
-// Étape 2 — Structure : l'arrangement (sections dans l'ordre), durée totale, ajout de sections, boucles de tes sons.
+// Étape 2 — Structure : bascule « Sections | Frise » (v2). Sections : l'arrangement (sections dans l'ordre), durée
+// totale, ajout de sections, boucles de tes sons. Frise : une ligne par piste, un clip par passage de section (U2).
 
+import { EntreesStructure } from '../composants/EntreesC3';
 import { useState } from 'preact/hooks';
 import { dureeMorceau } from '../../moteur/api';
 import { T } from '../../textes-fr';
 import { ajouterSection, NOMS_SECTIONS, repeterSection } from '../edition/sections';
-import { modifier, morceau, panneau, sectionCourante } from '../etat';
+import { modifier, morceau, panneau, sectionCourante, vueStructure } from '../etat';
 import { mmss } from '../format';
 import { fermerPanneau, ouvrirPanneau } from '../navigation';
 import { IconePlus } from '../composants/Icones';
 import { Panneau } from '../composants/Panneau';
 import { CarteSection } from '../composants/structure/CarteSection';
+import { Frise } from '../composants/frise/Frise';
 import { PanneauBoucle } from '../composants/structure/PanneauBoucle';
 
 export function Structure() {
@@ -26,8 +29,22 @@ export function Structure() {
     sectionCourante.value = morceau.peek()?.ordre[n - 1] ?? null;
   };
 
+  const vue = vueStructure.value;
+  const ouvrirBoucle = (id: string) => {
+    setBoucleDe(id);
+    ouvrirPanneau('boucle');
+  };
+
   return (
     <div class="etape-structure">
+      <div class="bascule-vue bascule-structure" role="group" aria-label={T.frise.vue}>
+        {(['sections', 'frise'] as const).map((v) => (
+          <button key={v} type="button" class="bascule-vue-bouton" aria-pressed={vue === v} onClick={() => (vueStructure.value = v)} data-testid={`vue-${v}`}>
+            {v === 'sections' ? T.frise.sections : T.frise.frise}
+          </button>
+        ))}
+      </div>
+
       <div class="resume-structure">
         <div>
           <span class="aide">{T.structure.duree}</span>
@@ -46,6 +63,9 @@ export function Structure() {
         </button>
       </div>
 
+      {vue === 'frise' ? (
+        <Frise m={m} ouvrirBoucle={ouvrirBoucle} />
+      ) : (
       <ol class="liste-sections" aria-label={T.structure.titre} data-testid="liste-sections">
         {m.ordre.map((id, i) => {
           const s = m.sections.find((x) => x.id === id);
@@ -61,14 +81,12 @@ export function Structure() {
                 setOuverte(ouverte === i ? null : i);
                 sectionCourante.value = id;
               }}
-              ouvrirBoucle={() => {
-                setBoucleDe(id);
-                ouvrirPanneau('boucle');
-              }}
+              ouvrirBoucle={() => ouvrirBoucle(id)}
             />
           );
         })}
       </ol>
+      )}
 
       {panneau.value === 'boucle' && boucleDe && <PanneauBoucle idSection={boucleDe} />}
 
@@ -104,6 +122,10 @@ export function Structure() {
           </div>
         </Panneau>
       )}
+      {/* C3 (R) : en bas de l'écran, pour ne rien déplacer au-dessus (frise, couloirs d'automation). */}
+      <div class="pr-choix">
+        <EntreesStructure />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,79 @@
+{
+ "id": "vcsl-glockenspiel",
+ "source": {
+  "type": "vcsl",
+  "sfz": "Idiophones/Struck Idiophones/Glockenspiel"
+ },
+ "fichiers": [
+  {
+   "fichier": "z068-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Glockenspiel/glock_loud_G4_01.wav",
+   "sha256": "be0bf94731720c0094276fea5646e75ff3a8a646b3c828258e9aaab6a8ef6c49",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Glockenspiel/glock_loud_C5_01.wav",
+   "sha256": "b28baea01b6028e061e5cc978fca70f9062af6a59d155b0fe55e54ec89f42c07",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Glockenspiel/glock_loud_C5_01.wav",
+   "sha256": "b28baea01b6028e061e5cc978fca70f9062af6a59d155b0fe55e54ec89f42c07",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Glockenspiel/glock_loud_G5_01.wav",
+   "sha256": "8aaf97481ef2582c14ef0382ec54c17c1b0a2f901a42976c332bac20fadd74a2",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Glockenspiel/glock_loud_G5_01.wav",
+   "sha256": "8aaf97481ef2582c14ef0382ec54c17c1b0a2f901a42976c332bac20fadd74a2",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Glockenspiel/glock_loud_C6_01.wav",
+   "sha256": "7ca228de549d54770f90bb125e23edcd1dc06cec2b9e1f452661720262f0ecd0",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z086-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Glockenspiel/glock_loud_C6_01.wav",
+   "sha256": "7ca228de549d54770f90bb125e23edcd1dc06cec2b9e1f452661720262f0ecd0",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z089-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Glockenspiel/glock_medium_G6_01.wav",
+   "sha256": "a2ba94e59119cd5272c1161fc8b8fbfb94c7b44de45a9a6cc5973b1c332103af",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z092-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Glockenspiel/glock_loud_G#6_01.wav",
+   "sha256": "7649dda2c67decfcf7a8b98b5225c1b2693a191713d4bb83d4e0afa8b88e51c6",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z095-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Glockenspiel/glock_loud_C7_01.wav",
+   "sha256": "d9410b4cd52c1b5eb458098d9f8e7685d6dc12d512ee32db378f19d04f2b1f4b",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

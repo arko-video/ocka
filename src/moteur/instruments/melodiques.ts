@@ -2,6 +2,7 @@
 // (piano électrique doux en FM, nappe de scies désaccordées, cloche FM), SANS durée : voir notes.ts.
 // Synthèse JS pure, une note à la fois, à appeler dans avecFrequence(ctx.sampleRate, …) (fil principal ou Worker).
 
+import { reglages808 } from '../../morceau/styles/index';
 import { frequenceMidi } from '../../morceau/theorie';
 import { FREQ, nbEchantillons, oscillateur } from '../synthese/briques';
 import { filtrer, saturer } from '../synthese/effets';
@@ -9,31 +10,13 @@ import { filtrer, saturer } from '../synthese/effets';
 /** Durée du relâchement à la fin d'une note de 808 (évite le clic, garde la note « tenue »). */
 const RELACHE_808 = 0.03;
 
-interface Reglages808 {
-  /** Temps (s) pour que le niveau soit divisé par e : grand = 808 longue. */
-  tau: number;
-  /** Saturation : ajoute des harmoniques pour que la 808 s'entende sur un téléphone. */
-  force: number;
-  passeBas: number;
-  /** Durée du glissé vers la note suivante (drill). */
-  glisse: number;
-}
-const R808: Record<string, Reglages808> = {
-  trap: { tau: 1.6, force: 2.0, passeBas: 2200, glisse: 0.09 },
-  drill: { tau: 1.4, force: 2.6, passeBas: 2600, glisse: 0.11 },
-  lofi: { tau: 0.7, force: 1.3, passeBas: 900, glisse: 0.08 },
-  // Vague B. Phonk : très saturée et longue ; pop : ronde, propre ; boom bap : courte et sourde (comme une contrebasse).
-  phonk: { tau: 2.6, force: 4.5, passeBas: 3200, glisse: 0.1 },
-  pop: { tau: 1.0, force: 1.5, passeBas: 1500, glisse: 0.08 },
-  boombap: { tau: 0.55, force: 1.5, passeBas: 750, glisse: 0.08 },
-};
-
 /**
  * Une note de 808 : un sinus grave qui commence un peu plus haut (le « punch »), tenu longtemps, saturé.
  * `cible` : note MIDI vers laquelle la fin de la note glisse (808 drill). Crête ≈ 0,9.
  */
 export function synthetiser808(style: string, midi: number, duree: number, cible?: number): Float32Array {
-  const r = R808[style] ?? R808.trap!;
+  // Réglages dans le fichier du style (morceau/styles/<id>.ts) ; style inconnu : la 808 de la trap.
+  const r = reglages808(style);
   const total = duree + RELACHE_808;
   const n = nbEchantillons(total);
   const f = frequenceMidi(midi);

@@ -1,0 +1,232 @@
+{
+ "id": "karoryfer-batterie-balais",
+ "source": {
+  "type": "fichiers-zip",
+  "banque": "karoryfer",
+  "url": "https://github.com/sfzinstruments/karoryfer.swirly-drums/releases/download/v1.104/Swirly.Drums_1104.zip"
+ },
+ "fichiers": [
+  {
+   "fichier": "n036-v1.ogg",
+   "source": "Samples/marching_kick/marching_kick_vl7_rr1_beater.wav + Samples/marching_kick/marching_kick_vl7_rr1_reso.wav",
+   "sha256": [
+    "83f15ca771f01f80c0aba945a295880c3dca1d5a67b29408dd743c38c78e3bb2",
+    "04d5a521991cffc0d21e6c2c596723405a503ceb1ea6f464b631f9356ab7964f"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n036-v2.ogg",
+   "source": "Samples/marching_kick/marching_kick_vl12_rr1_beater.wav + Samples/marching_kick/marching_kick_vl12_rr1_reso.wav",
+   "sha256": [
+    "4773bce4533ebab35ee0eb0a5ff7956c279ffa978f3af59ebcd94cd6c92a68eb",
+    "55d16fe7c80c799c0b46f6ffe988593af01bf731fcfdda703fdf1df8370759d6"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n038-v1.ogg",
+   "source": "Samples/snare_main/snare_hit_vl6_rr1_top.wav + Samples/snare_main/snare_hit_vl6_rr1_btm.wav",
+   "sha256": [
+    "3c818bd26cec3cdd6c2ac674bb1c2721175add8db3ffdd7025ea5f7565fb463b",
+    "f42afa89c7b7e9d666ea4488a9ee53c841b1cc841d4491262549c4c3d466866e"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n038-v2.ogg",
+   "source": "Samples/snare_main/snare_hit_vl11_rr1_top.wav + Samples/snare_main/snare_hit_vl11_rr1_btm.wav",
+   "sha256": [
+    "6df5def990884c9d995fd734f817d4e7c988de777568cfbff5bebd0dac902ac1",
+    "c48e11c8ad09f1972c898285d0be4f20f856d08c33ae96a515d2c4753a9e274f"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n040-v1.ogg",
+   "source": "Samples/snare_edge/snare_edge_vl5_rr1_top.wav + Samples/snare_edge/snare_edge_vl5_rr1_btm.wav",
+   "sha256": [
+    "9d54610f6e8b3c107c1920caab344ea3515d64ed67d3818172eb9ebbe67cd9d2",
+    "491c8c47e7b4748af5d8cd7a6b512ea2ac1446c698dec093cd03b586f983dcf1"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n040-v2.ogg",
+   "source": "Samples/snare_edge/snare_edge_vl9_rr1_top.wav + Samples/snare_edge/snare_edge_vl9_rr1_btm.wav",
+   "sha256": [
+    "c608ee9e307b4555e1a07f75017920858e6c1ab7f7219fbdd53eba599ddab7e3",
+    "655213929a8f3e982c03e17d97bd3b433cb5ba8221d742bf3bcb92b818467428"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n042-v1.ogg",
+   "source": "Samples/hat_tight/hh_tight_vl8_rr1.wav",
+   "sha256": [
+    "7a7a6858afc9e476a1d3a78c1e49f9a8df379edf6a8ca89f1a95b55f185b081b"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n042-v2.ogg",
+   "source": "Samples/hat_tight/hh_tight_vl14_rr1.wav",
+   "sha256": [
+    "8d3b5a2b897e69429e3689a29089784a712711d487a12820e8c690e69ceb86d0"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n044-v1.ogg",
+   "source": "Samples/hat_foot/hh_foot_vl5_rr1.wav",
+   "sha256": [
+    "b07a97ba0afe294450724cd09696becb26b9b90de7884cc352bedf0ae60b7570"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n044-v2.ogg",
+   "source": "Samples/hat_foot/hh_foot_vl8_rr1.wav",
+   "sha256": [
+    "860ab2e9a1785178bfbac3e0312ca08e44aa1263db174ea0ac209151b4bbb111"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n046-v1.ogg",
+   "source": "Samples/hat_open/hh_open_vl8_rr1.wav",
+   "sha256": [
+    "a65388325cb14f6e757dae101debaeae7cf2536ed3de494741a9444a4f6435c8"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n046-v2.ogg",
+   "source": "Samples/hat_open/hh_open_vl13_rr1.wav",
+   "sha256": [
+    "eb165ad222ff234f464fae0a5ad35a01130da8800f19e150051b135708302c88"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n043-v1.ogg",
+   "source": "Samples/tom_floor/tom_floor_vl7_rr1.wav",
+   "sha256": [
+    "38dd25c71adcd49295b26605ae8ee1d025ce8870065b7ddc2ce019035b2c2ccb"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n043-v2.ogg",
+   "source": "Samples/tom_floor/tom_floor_vl11_rr1.wav",
+   "sha256": [
+    "2a593a323086fee1bd9956810c2ae903732bf987ca0bd6805fdce2f8b135c4b5"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n047-v1.ogg",
+   "source": "Samples/tom_mlow/tom_mlow_vl7_rr1.wav",
+   "sha256": [
+    "2d8e55009a1b9284e6ea3a61419509a5f8ad9fb35c8b10bcc6eef17e0b1efb9a"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n047-v2.ogg",
+   "source": "Samples/tom_mlow/tom_mlow_vl11_rr1.wav",
+   "sha256": [
+    "884a4ecc2f288b5dc0d85f8a787ac660aa9acd86c144a70f4ee1138a7fc8efcc"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n050-v1.ogg",
+   "source": "Samples/tom_mhi/tom_mhi_vl6_rr1.wav",
+   "sha256": [
+    "4fe9c51b25c095c4d76390ae90963c13d162545f4ad392dc6cddbc752fc73a72"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n050-v2.ogg",
+   "source": "Samples/tom_mhi/tom_mhi_vl9_rr1.wav",
+   "sha256": [
+    "3b16ec5b38e777d9ab611f377cc119ba5204dea6d453747078515a65fc13d648"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n049-v1.ogg",
+   "source": "Samples/crash/crash_vl7_rr1.wav",
+   "sha256": [
+    "032148e2623acb34ca25d7a7569abe4258c3dd05543bbe0b1a9e0ca3adfe77b4"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n049-v2.ogg",
+   "source": "Samples/crash/crash_vl11_rr1.wav",
+   "sha256": [
+    "7dd92ad67f371a2f0e72f07b6a6b371064f41980289fcddcbd7b6571cc67e5e6"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n051-v1.ogg",
+   "source": "Samples/ride/ride_vl8_rr1.wav",
+   "sha256": [
+    "e1dc40ba3c4b799b9a8f3267175472435ed435ac242c2a6a8d7af1756b2b44bb"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n051-v2.ogg",
+   "source": "Samples/ride/ride_vl14_rr1.wav",
+   "sha256": [
+    "bb18acdc5982b62d91305b7f66cba711af2db975a88ba0733671870ac8125c2f"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n056-v1.ogg",
+   "source": "Samples/cowbell/cowbell_vl5_rr1.wav",
+   "sha256": [
+    "180177f3ba58b1cff708830c74efe8653309b415c00c5b90ef17baa0d0b46eb6"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n056-v2.ogg",
+   "source": "Samples/cowbell/cowbell_vl8_rr1.wav",
+   "sha256": [
+    "f4a3b375948eed176fd19e41ac4f196c56007e77e4fd8ac3428ea6f39a9289d1"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

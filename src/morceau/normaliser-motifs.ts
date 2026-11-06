@@ -1,4 +1,5 @@
-// Normalisation des motifs (batterie, basse, accords, mélodie). Corrige au lieu de rejeter.
+// Normalisation des motifs (batterie, basse, accords, notes). Corrige au lieu de rejeter. Un ancien motif
+// « melodie » (format /2, écrit par une IA par exemple) est lu comme un motif « notes » (son ignoré : il est à la piste).
 // Le dictionnaire des motifs est créé sans prototype (Object.create(null)) et les ids passent par `Ids` :
 // un motif nommé « __proto__ » ou « constructor » est renommé, jamais branché sur Object.prototype.
 
@@ -14,22 +15,24 @@ import {
   lireChoix,
   lireNombre,
   lireNombreBrut,
+  lirePas24,
   verifierCles,
   type Objet,
 } from './normaliser-outils';
 import { lireDegre } from './theorie';
 import {
+  BORNES_NOTE,
+  GRILLE_PAS,
   INSTRUMENTS_BATTERIE,
   PLAFONDS,
-  SONS_MELODIE,
   type InstrumentBatterie,
   type Motif,
   type MotifAccords,
   type MotifBasse,
   type MotifBatterie,
-  type MotifMelodie,
+  type MotifNotes,
+  type Note,
   type NoteBasse,
-  type NoteMelodie,
 } from './types';
 
 /** Instruments de batterie connus (perso1 à perso4 compris). */
@@ -153,30 +156,31 @@ function normaliserAccords(o: Objet, chemin: string, journal: Journal, mineur: b
   return motif;
 }
 
-function normaliserMelodie(o: Objet, chemin: string, journal: Journal): MotifMelodie {
-  verifierCles(o, ['type', 'pas', 'notes', 'son'], chemin, journal);
-  const pas = lirePas(o.pas, `${chemin}.pas`, journal, 64);
-  const notes: NoteMelodie[] = [];
+function normaliserNotes(o: Objet, chemin: string, journal: Journal): MotifNotes {
+  verifierCles(o, ['type', 'pas', 'notes', ...(o.type === 'melodie' ? ['son'] : [])], chemin, journal);
+  const pas = lirePas(o.pas, `${chemin}.pas`, journal, PLAFONDS.pasMotifNotes);
+  const notes: Note[] = [];
   const vues = new Set<string>();
-  liste(o.notes, PLAFONDS.notesParMotif, `${chemin}.notes`, journal).forEach((b, i) => {
+  const unPas = 1 / GRILLE_PAS;
+  liste(o.notes, PLAFONDS.notesParMotifNotes, `${chemin}.notes`, journal).forEach((b, i) => {
     const c = `${chemin}.notes[${i}]`;
     if (!estObjet(b)) return journal.ignore(c, 'Cette note n’est pas un objet : ignorée.');
-    verifierCles(b, ['pas', 'duree', 'midi', 'vel'], c, journal);
-    const debut = lireNombre(b.pas, `${c}.pas`, journal, { defaut: 0, min: 0, max: pas - 1, nom: 'le pas de départ', entier: true });
-    const note: NoteMelodie = {
+    verifierCles(b, ['pas', 'duree', 'midi', 'vel', 'glisse'], c, journal);
+    const debut = lirePas24(b.pas, `${c}.pas`, journal, { defaut: 0, min: 0, max: pas - unPas, nom: 'le pas de départ' }, GRILLE_PAS);
+    const note: Note = {
       pas: debut,
-      duree: lireNombre(b.duree, `${c}.duree`, journal, { defaut: 1, min: 1, max: pas - debut, nom: 'la durée', entier: true }),
-      midi: lireNombre(b.midi, `${c}.midi`, journal, { defaut: 60, min: 24, max: 108, nom: 'la hauteur (MIDI)', entier: true }),
+      duree: lirePas24(b.duree, `${c}.duree`, journal, { defaut: 1, min: unPas, max: pas - debut, nom: 'la durée' }, GRILLE_PAS),
+      midi: lireNombre(b.midi, `${c}.midi`, journal, { defaut: 60, min: BORNES_NOTE.midiMin, max: BORNES_NOTE.midiMax, nom: 'la hauteur (MIDI)', entier: true }),
+      vel: lireNombre(b.vel, `${c}.vel`, journal, { defaut: 1, min: BORNES_NOTE.velMin, max: BORNES_NOTE.velMax, nom: 'la vélocité' }),
     };
-    if (b.vel !== undefined) note.vel = lireNombre(b.vel, `${c}.vel`, journal, { defaut: 1, min: 0.1, max: 1, nom: 'la vélocité' });
+    if (b.glisse !== undefined && lireBooleen(b.glisse, false, `${c}.glisse`, journal)) note.glisse = true;
     const cle = `${note.pas}|${note.midi}`;
     if (vues.has(cle)) return journal.corrige(c, 'Deux notes au même pas et à la même hauteur : la seconde est retirée.');
     vues.add(cle);
     notes.push(note);
   });
   notes.sort((a, b) => a.pas - b.pas || a.midi - b.midi);
-  const son = lireChoix(o.son, SONS_MELODIE, 'piano', `${chemin}.son`, journal, 'le son');
-  return { type: 'melodie', pas, notes, son };
+  return { type: 'notes', pas, notes };
 }
 
 /** Normalise tous les motifs (64 au plus). Ceux dont le type est inconnu sont retirés. */
@@ -202,9 +206,12 @@ export function normaliserMotifs(v: unknown, journal: Journal, mineur: boolean):
     if (m.type === 'batterie') motif = normaliserBatterie(m, chemin, journal);
     else if (m.type === 'basse') motif = normaliserBasse(m, chemin, journal);
     else if (m.type === 'accords') motif = normaliserAccords(m, chemin, journal, mineur);
-    else if (m.type === 'melodie') motif = normaliserMelodie(m, chemin, journal);
-    else {
-      journal.ignore(`${chemin}.type`, `Type de motif « ${apercu(m.type)} » inconnu (batterie, basse, accords ou melodie) : motif ignoré.`);
+    else if (m.type === 'notes') motif = normaliserNotes(m, chemin, journal);
+    else if (m.type === 'melodie') {
+      journal.corrige(`${chemin}.type`, 'Ancien motif de mélodie : lu comme un motif de notes (le son se choisit sur la piste).');
+      motif = normaliserNotes(m, chemin, journal);
+    } else {
+      journal.ignore(`${chemin}.type`, `Type de motif « ${apercu(m.type)} » inconnu (batterie, basse, accords ou notes) : motif ignoré.`);
       continue;
     }
     motifs[ids.donner(brut, i, chemin, journal)] = motif;

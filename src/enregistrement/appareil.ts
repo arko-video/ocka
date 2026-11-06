@@ -2,9 +2,9 @@
 // et écoute des branchements (devicechange) pour proposer un nouveau calibrage.
 import { choisirAppareil, latenceMemorisee, signatureAppareil } from './latence';
 
-/** Vrai si un nom d'appareil ressemble à un casque Bluetooth. */
+/** Vrai si un nom d'appareil ressemble à un casque Bluetooth (« buds » : Galaxy Buds, Pixel Buds…). */
 export function ressembleBluetooth(nom: string): boolean {
-  return /bluetooth|hands[- ]?free|airpods|\bbt\b/i.test(nom);
+  return /bluetooth|hands[- ]?free|airpods|buds|\bbt\b/i.test(nom);
 }
 
 /** Conseil affiché quand un casque Bluetooth est détecté (on prévient, on ne bloque pas). */

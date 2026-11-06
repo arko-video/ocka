@@ -6,77 +6,14 @@
 import { bruit, courbeExpo, expo, FREQ, melanger, mulberry32, multiplier, oscillateur } from '../synthese/briques';
 import { filtrer, saturer } from '../synthese/effets';
 import type { InstrumentBatterie } from '../../morceau/types';
+import { reglagesKit, type ReglagesKit } from '../../morceau/styles/index';
 
-/** Réglages d'un kit : chaque style a son caractère. */
-interface Kit {
-  kick: { de: number; a: number; glisse: number; tau: number; duree: number; clic: number; force: number };
-  snare: { corps: [number, number]; tauCorps: number; tauBruit: number; passeHaut: number; passeBas: number; force: number };
-  charley: { passeHaut: number; tauFerme: number; tauOuvert: number; passeBas: number };
-  /** Passe-bas final de tout le kit (lo-fi : un peu étouffé). */
-  sourdine: number;
-  // Réglages facultatifs (kits de la vague B) : absents, le son des kits trap@1, drill@1 et lofi@1 ne bouge pas.
-  /** Saturation « de bande » après la sourdine (boom bap : son poussiéreux). */
-  bande?: number;
-  /** Passe-haut final (boom bap : moins de sub, comme un vieux sample). */
-  coupeBas?: number;
-  /** Cloche 808 plus dure : fréquences des deux carrés, durée (tau) et saturation (phonk). */
-  cowbell?: { f1: number; f2: number; tau: number; force: number };
-  /** Le pad « perc » joue un bruit de vinyle (craquements et souffle) au lieu d'un « tok » (boom bap). */
-  vinyle?: boolean;
-  /** Crêtes propres au kit (sinon CRETES). */
-  cretes?: Partial<Record<InstrumentBatterie, number>>;
-}
+/** Réglages d'un kit : chaque style a son caractère. Ils sont dans le fichier du style (morceau/styles/<id>.ts). */
+type Kit = ReglagesKit;
 
-const KITS: Record<string, Kit> = {
-  'trap@1': {
-    kick: { de: 230, a: 52, glisse: 0.04, tau: 0.11, duree: 0.42, clic: 0.5, force: 1.8 },
-    snare: { corps: [190, 340], tauCorps: 0.045, tauBruit: 0.11, passeHaut: 1500, passeBas: 11000, force: 1.6 },
-    charley: { passeHaut: 7500, tauFerme: 0.022, tauOuvert: 0.28, passeBas: 16000 },
-    sourdine: 20000,
-  },
-  'drill@1': {
-    kick: { de: 260, a: 55, glisse: 0.03, tau: 0.08, duree: 0.32, clic: 0.65, force: 2.2 },
-    snare: { corps: [230, 410], tauCorps: 0.035, tauBruit: 0.085, passeHaut: 2200, passeBas: 13000, force: 2.0 },
-    charley: { passeHaut: 8500, tauFerme: 0.018, tauOuvert: 0.22, passeBas: 17000 },
-    sourdine: 20000,
-  },
-  'lofi@1': {
-    kick: { de: 160, a: 48, glisse: 0.05, tau: 0.14, duree: 0.45, clic: 0.2, force: 1.4 },
-    snare: { corps: [175, 310], tauCorps: 0.06, tauBruit: 0.14, passeHaut: 900, passeBas: 6500, force: 1.3 },
-    charley: { passeHaut: 6000, tauFerme: 0.03, tauOuvert: 0.3, passeBas: 9000 },
-    sourdine: 7500,
-  },
-  // Phonk : kick saturé qui claque, caisse claire SÈCHE (courte), charley fin et court, cloche 808 dure.
-  'phonk@1': {
-    kick: { de: 210, a: 50, glisse: 0.035, tau: 0.1, duree: 0.4, clic: 0.7, force: 3.2 },
-    snare: { corps: [210, 380], tauCorps: 0.028, tauBruit: 0.05, passeHaut: 1800, passeBas: 12000, force: 2.4 },
-    charley: { passeHaut: 8000, tauFerme: 0.016, tauOuvert: 0.2, passeBas: 16000 },
-    sourdine: 20000,
-    cowbell: { f1: 562, f2: 845, tau: 0.09, force: 2.5 },
-  },
-  // Pop : kick franc et court, clap bien net, charley clair.
-  'pop@1': {
-    kick: { de: 190, a: 52, glisse: 0.03, tau: 0.085, duree: 0.34, clic: 0.8, force: 1.7 },
-    snare: { corps: [200, 360], tauCorps: 0.04, tauBruit: 0.12, passeHaut: 1300, passeBas: 12000, force: 1.6 },
-    charley: { passeHaut: 7000, tauFerme: 0.03, tauOuvert: 0.3, passeBas: 15000 },
-    sourdine: 20000,
-  },
-  // Boom bap : kick et caisse claire « poussiéreux » (filtrés, saturation de bande), vinyle sur le pad perc.
-  'boombap@1': {
-    kick: { de: 150, a: 50, glisse: 0.045, tau: 0.12, duree: 0.38, clic: 0.4, force: 1.9 },
-    snare: { corps: [185, 330], tauCorps: 0.055, tauBruit: 0.15, passeHaut: 900, passeBas: 8000, force: 2.0 },
-    charley: { passeHaut: 6500, tauFerme: 0.028, tauOuvert: 0.32, passeBas: 10000 },
-    sourdine: 8500,
-    bande: 1.8,
-    coupeBas: 45,
-    vinyle: true,
-    cretes: { perc: 0.3 },
-  },
-};
-
-/** Le kit demandé, ou celui du même style en version 1, ou trap@1. */
+/** Le kit demandé, ou celui du même style en version 1, ou trap@1 (registre des styles). */
 function kitDe(nom: string): Kit {
-  return KITS[nom] ?? KITS[`${nom.split('@')[0]}@1`] ?? KITS['trap@1']!;
+  return reglagesKit(nom);
 }
 
 /** Ramène la crête d'un son à `crete` (les niveaux relatifs du kit sont réglés ici). */
@@ -142,10 +79,10 @@ function rim(graine: number): Float32Array {
   return saturer(toc, 1.5);
 }
 
-/** Perc : un petit « tok » boisé qui descend un peu. */
-function perc(graine: number, style: string): Float32Array {
+/** Perc : un petit « tok » boisé qui descend un peu (hauteur du kit : drill 1150 Hz, lo-fi 640 Hz, sinon 880 Hz). */
+function perc(graine: number, hauteur = 880): Float32Array {
   const d = 0.2;
-  const f = style === 'drill' ? 1150 : style === 'lofi' ? 640 : 880;
+  const f = hauteur;
   const tok = multiplier(oscillateur('sinus', d, courbeExpo(f * 1.25, f, 0.02)), expo(d, 0.035, 0.0005));
   const grain = multiplier(filtrer(bruit(d, graine), 'passe-bande', f * 3, 2), expo(d, 0.008, 0.0003));
   return melanger(d, [{ signal: tok }, { signal: grain, gain: 0.35 }]);
@@ -208,7 +145,6 @@ export const CRETES: Record<InstrumentBatterie, number> = {
 /** Synthétise un son de batterie d'un kit (signal mono à la fréquence des briques). */
 export function synthetiserFrappe(nomKit: string, instrument: InstrumentBatterie): Float32Array {
   const kit = kitDe(nomKit);
-  const style = nomKit.split('@')[0] ?? 'trap';
   const graine = 1000 + Object.keys(CRETES).indexOf(instrument) * 17;
   let s: Float32Array;
   switch (instrument) {
@@ -218,7 +154,7 @@ export function synthetiserFrappe(nomKit: string, instrument: InstrumentBatterie
     case 'charley': s = charley(kit.charley, false, graine); break;
     case 'charleyOuvert': s = charley(kit.charley, true, graine); break;
     case 'rim': s = rim(graine); break;
-    case 'perc': s = kit.vinyle ? vinyle(graine) : perc(graine, style); break;
+    case 'perc': s = kit.vinyle ? vinyle(graine) : perc(graine, kit.perc); break;
     case 'cowbell': s = kit.cowbell ? cowbellAccordee(kit.cowbell.f1, 0.45, kit.cowbell.tau, kit.cowbell.force) : cowbell(); break;
     // perso1 à perso4 jouent le son importé du pad (importes.ts), jamais un son synthétisé.
     default: s = new Float32Array(Math.round(0.01 * FREQ)); break;

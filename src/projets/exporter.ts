@@ -1,6 +1,7 @@
 // « Exporter le projet » : .ocka (un morceau) et .ocka-sortie (une sortie), en flux dans OPFS. Propriétaire : A2.
 // Format : voir commun.ts. Les prises et les sons sont recopiés en WAV 32 bits flottants (lisibles par n'importe
-// quel logiciel de musique), par morceaux de 1 Mio : jamais tout un fichier en mémoire.
+// quel logiciel de musique), par morceaux de 1 Mio : jamais tout un fichier en mémoire. Les SoundFonts (C3) sont
+// recopiées telles quelles (.sf2), en flux.
 
 import { nouvelId } from '../enregistrement/contexte';
 import { fichierPrise } from '../enregistrement/fichiers-opfs';
@@ -15,19 +16,20 @@ import { ouvrirMorceau } from '../stockage/morceaux';
 import { ouvrirSortie } from '../stockage/sorties';
 import { creerZip } from '../zip/ecrire';
 import type { EcrivainFlux } from '../zip/types';
-import { json, nomProjet, nomZipMorceau, nomZipPrise, nomZipSon, verifierAnnulation, VERSION_PROJET } from './commun';
+import { json, nomProjet, nomZipMorceau, nomZipPrise, nomZipSf2, nomZipSon, verifierAnnulation, VERSION_PROJET } from './commun';
 
 const MORCEAU_LU = 1 << 20; // 1 Mio
 
 interface Contenu {
   prises: { cle: string; f: File; frequence: number }[];
   sons: { son: SonImporte; f: File }[];
+  sf2: { fichier: string; f: File }[];
   octets: number;
 }
 
 /** Les fichiers d'un morceau qui existent encore (une prise sans fichier est simplement laissée de côté). */
 async function contenu(m: Morceau): Promise<Contenu> {
-  const c: Contenu = { prises: [], sons: [], octets: 4096 };
+  const c: Contenu = { prises: [], sons: [], sf2: [], octets: 4096 };
   const vues = new Set<string>();
   for (const p of m.prises) {
     if (vues.has(p.fichier)) continue;
@@ -39,8 +41,21 @@ async function contenu(m: Morceau): Promise<Contenu> {
     const f = await fichierSon(son.fichier);
     if (f) c.sons.push({ son, f });
   }
-  for (const x of [...c.prises, ...c.sons]) c.octets += x.f.size + TAILLE_ENTETE_FLOTTANT + 200;
+  for (const s of m.soundfonts ?? []) {
+    const f = await fichierSf2(s.fichier);
+    if (f) c.sf2.push({ fichier: s.fichier, f });
+  }
+  for (const x of [...c.prises, ...c.sons, ...c.sf2]) c.octets += x.f.size + TAILLE_ENTETE_FLOTTANT + 200;
   return c;
+}
+
+/** Le fichier d'une SoundFont rangée (ocka-sf2), ou null s'il n'est plus là. */
+async function fichierSf2(cle: string): Promise<File | null> {
+  try {
+    return await (await (await dossierOpfs('sf2')).getFileHandle(cle)).getFile();
+  } catch {
+    return null;
+  }
 }
 
 /** Recopie `b` dans `e` par morceaux (progression en octets, annulation). Stéréo planaire → entrelacé. */
@@ -93,6 +108,11 @@ async function ecrireProjet(m: Morceau, dossier: NomDossier, nom: string, c: Con
       await e.ecrire(enTeteWavFlottant(Math.floor(f.size / 4 / son.canaux), son.canaux, son.frequence));
       await verser(e, f, son.canaux, options, avancer);
       await e.fermer();
+    }
+    for (const { fichier, f } of c.sf2) {
+      verifierAnnulation(options.signal);
+      await zip.ajouter(nomZipSf2(fichier), f);
+      avancer(f.size);
     }
     return await zip.terminer();
   } catch (e) {

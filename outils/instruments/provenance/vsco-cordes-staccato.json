@@ -1,0 +1,272 @@
+{
+ "id": "vsco-cordes-staccato",
+ "source": null,
+ "fichiers": [
+  {
+   "fichier": "z037-v1.ogg",
+   "source": "Strings/Cello Section/spic/spic_C1_v1_RR1.wav",
+   "sha256": "3c583eb33a74d04a51a12a933bc9c6b8cf5af0d828f14d374791d8a5c98a06d5",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z040-v1.ogg",
+   "source": "Strings/Cello Section/spic/spic_E1_v1_RR1.wav",
+   "sha256": "c826628be6c5270374fd6ccda92dcc3c1da98aaadcde324839d5e83ba16483b0",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z043-v1.ogg",
+   "source": "Strings/Cello Section/spic/spic_G1_v1_RR1.wav",
+   "sha256": "62ad206529cfa2ea5630042f2d23f6442afd1f008435a2c5e79f1b8bc924d3ec",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "source": "Strings/Cello Section/spic/spic_G1_v1_RR1.wav",
+   "sha256": "62ad206529cfa2ea5630042f2d23f6442afd1f008435a2c5e79f1b8bc924d3ec",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v1.ogg",
+   "source": "Strings/Cello Section/spic/spic_B1_v1_RR1.wav",
+   "sha256": "f0c46e179f8b76c07097ff6ae1fe7582b05865cdbb6ff3bba9bec51c68fcb99f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "source": "Strings/Cello Section/spic/spic_D2_v1_RR1.wav",
+   "sha256": "6fe41bb3cf9212480ce2e856b5da3971267f75d64b629e90224cc9c6deeb1cb2",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v1.ogg",
+   "source": "Strings/Cello Section/spic/spic_F2_v1_RR1.wav",
+   "sha256": "3ca1e1707f47e375f525f2862deba0fef9bd75e95299d029612560a9382a8aee",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v1.ogg",
+   "source": "Strings/Cello Section/spic/spic_A2_v1_RR1.wav",
+   "sha256": "9d7cde1e9785f468091783946954c390556b72f1e80098f69b0cab38fd64ed08",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v1.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_B2_v1_rr1.wav",
+   "sha256": "1fce12df9044e8d1d297d1da19f4e51c46bdbdf980523063bb338cd06b6ecc1f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_D3_v1_rr1.wav",
+   "sha256": "d94e088560784d6ecd6a927e8101d7e460e6d79168ab9eb52842c58891fae8da",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_F#3_v1_rr1.wav",
+   "sha256": "ea4dca06c96de2c0f5fd88c4dcd75ecc505898b648b2847810bf1a0817333de8",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_F#3_v1_rr1.wav",
+   "sha256": "ea4dca06c96de2c0f5fd88c4dcd75ecc505898b648b2847810bf1a0817333de8",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z070-v1.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_A3_v1_rr1.wav",
+   "sha256": "63ac2de6113b1f12822ea84a30a49c4a326e89027139b8a5e0369542ce6f74ad",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_C4_v1_rr1.wav",
+   "sha256": "b734950875dff1dd7cda7c4721901516560b99f5655c3ffd40b6dc43c16e9c2f",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z076-v1.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_E4_v1_rr1.wav",
+   "sha256": "67314bb58fcf351654874664f253257c66d5d4e0ef5a3f36d7249c472faf85d3",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z079-v1.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_G4_v1_rr1.wav",
+   "sha256": "ae748a8421f32e0e490fbf298b6bc32ec5534c2210ba2d6d9f65fd77726e1107",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z082-v1.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_B4_v1_rr1.wav",
+   "sha256": "353576c3522c85181ecb77fb116580553f4b49c0851afc6bb4ae1eb655b743a4",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z084-v1.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_B4_v1_rr1.wav",
+   "sha256": "353576c3522c85181ecb77fb116580553f4b49c0851afc6bb4ae1eb655b743a4",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z087-v1.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_D5_v1_rr1.wav",
+   "sha256": "32775e9472faeb816701b633949ce7870a405b7ef24ff6ec28023eb441f2b9c6",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z037-v2.ogg",
+   "source": "Strings/Cello Section/spic/spic_C1_v2_RR1.wav",
+   "sha256": "92de035cdbfab6e41f94115b2c23716a9e93554a4c23c1cc4b946f7492d9c927",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z040-v2.ogg",
+   "source": "Strings/Cello Section/spic/spic_E1_v2_RR1.wav",
+   "sha256": "c7fec3551d21e326c2478ce9073cf8239485de835042c01e34c85fd692bf1ff4",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z043-v2.ogg",
+   "source": "Strings/Cello Section/spic/spic_G1_v2_RR1.wav",
+   "sha256": "7f536c013e9e24c0cde3577416bf27111b741fd331a0d041ff75e53eaa6102fa",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v2.ogg",
+   "source": "Strings/Cello Section/spic/spic_G1_v2_RR1.wav",
+   "sha256": "7f536c013e9e24c0cde3577416bf27111b741fd331a0d041ff75e53eaa6102fa",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v2.ogg",
+   "source": "Strings/Cello Section/spic/spic_B1_v2_RR1.wav",
+   "sha256": "3883a65c6d301bf6f61b21d5ec6e27f9740ba219b5b022a9e5f3a67c62aeaa2a",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v2.ogg",
+   "source": "Strings/Cello Section/spic/spic_D2_v2_RR1.wav",
+   "sha256": "c647723304b5f4b2d3af02739017e38bc4e85244c15355ebd6f8443c1445b5ab",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v2.ogg",
+   "source": "Strings/Cello Section/spic/spic_F2_v2_RR1.wav",
+   "sha256": "840ea94753ece4334d62da823cd74a83c3fc8ff28166ff8a71f589d75fc6e591",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v2.ogg",
+   "source": "Strings/Cello Section/spic/spic_A2_v2_RR1.wav",
+   "sha256": "a0f0d6a225e5a31debd902b518b96987b322e064bd38c29f891196c06ed4b7be",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v2.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_B2_v2_rr1.wav",
+   "sha256": "ee4aa779919171e33053b71c02691f026fd0b13c299da86f84c066e52ce3a4ec",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v2.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_D3_v2_rr1.wav",
+   "sha256": "36105c7bc208181a10b41a468aab1e8ca4f31a9eae43834dd90d8d533a48e650",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v2.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_F#3_v2_rr1.wav",
+   "sha256": "b24b5f833660b73c9ea8beade5faa73989a7016916cf5f1bece93bdb4938b221",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z067-v2.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_F#3_v2_rr1.wav",
+   "sha256": "b24b5f833660b73c9ea8beade5faa73989a7016916cf5f1bece93bdb4938b221",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z070-v2.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_A3_v2_rr1.wav",
+   "sha256": "ce5d025e7c2ac71e220a3f6487c5a2ce431a150e808c93276570f19536568a5e",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v2.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_C4_v2_rr1.wav",
+   "sha256": "a14e9795677e0c418f1e18f7b640bc27b8cb3aef4cfef766e18caf38549ffe56",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z076-v2.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_E4_v2_rr1.wav",
+   "sha256": "db063e7e21abb2d3271d0e96068601fbb48a91f2f0bfde8dea773ce1a6bacfb0",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z079-v2.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_G4_v2_rr1.wav",
+   "sha256": "3345451be62b9bdfbbf6bb03f22f410484abb75585992336d530215fc4df7141",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z082-v2.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_B4_v2_rr1.wav",
+   "sha256": "d1495f4eaff7b3e4bd8d86b886dc81ccb52b113fb93630e8f68792ed452dc822",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z084-v2.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_B4_v2_rr1.wav",
+   "sha256": "d1495f4eaff7b3e4bd8d86b886dc81ccb52b113fb93630e8f68792ed452dc822",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z087-v2.ogg",
+   "source": "Strings/Violin Section/Spic/VlnEns_Spic_D5_v2_rr1.wav",
+   "sha256": "959a93165a9271657b4bc97c75eded62deab37b03128f71f0f1f4c8903e50b84",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

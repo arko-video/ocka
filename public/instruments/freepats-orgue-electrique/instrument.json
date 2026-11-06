@@ -1,0 +1,355 @@
+{
+ "id": "freepats-orgue-electrique@1",
+ "nom": "Orgue électrique",
+ "famille": "Claviers",
+ "licence": {
+  "nom": "CC0-1.0",
+  "url": "https://freepats.zenvoid.org/Organ/electric-organ.html",
+  "auteur": "Roberto (roberto@zenvoid.org), FreePats",
+  "sha256": [
+   "e2da18b0a4d13be7020037e18e4a719387433357e7603d0773990e794dcf5d0f"
+  ]
+ },
+ "canaux": 1,
+ "gainDb": 0.0,
+ "relache": 0.1,
+ "budgetS": 59.022,
+ "zones": [
+  {
+   "fichier": "z037-v1.ogg",
+   "racine": 25,
+   "cents": -0.2,
+   "bas": 24,
+   "haut": 26,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.2,
+   "debut": 0,
+   "fin": 132926,
+   "boucle": {
+    "debut": 13775,
+    "fin": 128831
+   }
+  },
+  {
+   "fichier": "z040-v1.ogg",
+   "racine": 28,
+   "cents": -3.7,
+   "bas": 27,
+   "haut": 29,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.3,
+   "debut": 0,
+   "fin": 136653,
+   "boucle": {
+    "debut": 12000,
+    "fin": 132558
+   }
+  },
+  {
+   "fichier": "z043-v1.ogg",
+   "racine": 31,
+   "cents": -5.2,
+   "bas": 30,
+   "haut": 31,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.0,
+   "debut": 0,
+   "fin": 136100,
+   "boucle": {
+    "debut": 12000,
+    "fin": 132004
+   }
+  },
+  {
+   "fichier": "z045-v1.ogg",
+   "racine": 33,
+   "cents": -3.9,
+   "bas": 32,
+   "haut": 34,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.9,
+   "debut": 0,
+   "fin": 136652,
+   "boucle": {
+    "debut": 12000,
+    "fin": 132556
+   }
+  },
+  {
+   "fichier": "z048-v1.ogg",
+   "racine": 36,
+   "cents": -0.9,
+   "bas": 35,
+   "haut": 37,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.4,
+   "debut": 0,
+   "fin": 132711,
+   "boucle": {
+    "debut": 15552,
+    "fin": 128615
+   }
+  },
+  {
+   "fichier": "z051-v1.ogg",
+   "racine": 39,
+   "cents": -1.3,
+   "bas": 38,
+   "haut": 40,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.5,
+   "debut": 0,
+   "fin": 135777,
+   "boucle": {
+    "debut": 12000,
+    "fin": 131681
+   }
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "racine": 42,
+   "cents": -1.8,
+   "bas": 41,
+   "haut": 43,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.3,
+   "debut": 0,
+   "fin": 134550,
+   "boucle": {
+    "debut": 17328,
+    "fin": 130454
+   }
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "racine": 45,
+   "cents": -1.1,
+   "bas": 44,
+   "haut": 46,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.8,
+   "debut": 0,
+   "fin": 136576,
+   "boucle": {
+    "debut": 12000,
+    "fin": 132480
+   }
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "racine": 48,
+   "cents": -0.7,
+   "bas": 47,
+   "haut": 49,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.6,
+   "debut": 0,
+   "fin": 133541,
+   "boucle": {
+    "debut": 12000,
+    "fin": 129445
+   }
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "racine": 51,
+   "cents": -0.8,
+   "bas": 50,
+   "haut": 51,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.2,
+   "debut": 0,
+   "fin": 136762,
+   "boucle": {
+    "debut": 12000,
+    "fin": 132666
+   }
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "racine": 53,
+   "cents": -0.7,
+   "bas": 52,
+   "haut": 54,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.0,
+   "debut": 0,
+   "fin": 133760,
+   "boucle": {
+    "debut": 12000,
+    "fin": 129664
+   }
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "racine": 56,
+   "cents": -0.8,
+   "bas": 55,
+   "haut": 57,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.2,
+   "debut": 0,
+   "fin": 135626,
+   "boucle": {
+    "debut": 12000,
+    "fin": 131530
+   }
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "racine": 59,
+   "cents": 0.0,
+   "bas": 58,
+   "haut": 60,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.8,
+   "debut": 0,
+   "fin": 136654,
+   "boucle": {
+    "debut": 12000,
+    "fin": 132558
+   }
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "racine": 62,
+   "cents": 0.1,
+   "bas": 61,
+   "haut": 63,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.4,
+   "debut": 0,
+   "fin": 136601,
+   "boucle": {
+    "debut": 12000,
+    "fin": 132505
+   }
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "racine": 65,
+   "cents": -0.2,
+   "bas": 64,
+   "haut": 66,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.7,
+   "debut": 0,
+   "fin": 133067,
+   "boucle": {
+    "debut": 12000,
+    "fin": 128971
+   }
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "racine": 68,
+   "cents": -1.5,
+   "bas": 67,
+   "haut": 69,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.7,
+   "debut": 0,
+   "fin": 132103,
+   "boucle": {
+    "debut": 12000,
+    "fin": 128007
+   }
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "racine": 71,
+   "cents": 0.3,
+   "bas": 70,
+   "haut": 72,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.0,
+   "debut": 0,
+   "fin": 133587,
+   "boucle": {
+    "debut": 12000,
+    "fin": 129491
+   }
+  },
+  {
+   "fichier": "z086-v1.ogg",
+   "racine": 74,
+   "cents": 0.3,
+   "bas": 73,
+   "haut": 75,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.8,
+   "debut": 0,
+   "fin": 136753,
+   "boucle": {
+    "debut": 12000,
+    "fin": 132657
+   }
+  },
+  {
+   "fichier": "z089-v1.ogg",
+   "racine": 77,
+   "cents": -1.2,
+   "bas": 76,
+   "haut": 78,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.4,
+   "debut": 0,
+   "fin": 134135,
+   "boucle": {
+    "debut": 12000,
+    "fin": 130039
+   }
+  },
+  {
+   "fichier": "z092-v1.ogg",
+   "racine": 80,
+   "cents": -1.5,
+   "bas": 79,
+   "haut": 81,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.0,
+   "debut": 0,
+   "fin": 134620,
+   "boucle": {
+    "debut": 12000,
+    "fin": 130524
+   }
+  },
+  {
+   "fichier": "z095-v1.ogg",
+   "racine": 83,
+   "cents": -0.9,
+   "bas": 82,
+   "haut": 84,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -12.3,
+   "debut": 0,
+   "fin": 133924,
+   "boucle": {
+    "debut": 12000,
+    "fin": 129828
+   }
+  }
+ ]
+}

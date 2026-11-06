@@ -1,0 +1,98 @@
+/* Couloirs d'automation (frise, « Avancé ») et panneau des LFO — propriétaire : U2. */
+
+/* Couloir d'automation. */
+.frise-couloir {
+  background: var(--fond);
+}
+.frise-nom-couloir {
+  background: var(--fond-creux);
+  padding-left: 6px;
+}
+.frise-cible {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 4px;
+  border: none;
+  background: transparent;
+  color: var(--violet-clair);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: left;
+  text-decoration: underline dotted;
+  cursor: pointer;
+}
+.frise-lfo {
+  display: block;
+  color: var(--magenta);
+  font-size: 10px;
+  text-decoration: none;
+}
+.frise-retirer {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--erreur-bord);
+  background: var(--erreur-fond);
+  color: var(--erreur-texte);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+.couloir {
+  flex: none;
+  display: block;
+  border-left: 1px solid var(--bord);
+  touch-action: none;
+  cursor: crosshair;
+}
+.couloir-fond {
+  fill: transparent;
+}
+.couloir-grille {
+  stroke: var(--bord);
+  stroke-width: 1;
+}
+.couloir-neutre {
+  stroke: var(--texte-faible);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+.couloir-courbe {
+  fill: none;
+  stroke: var(--c);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+.couloir-point {
+  fill: var(--fond);
+  stroke: var(--c);
+  stroke-width: 2.5;
+}
+.couloir-point[data-choisi='1'] {
+  fill: var(--c);
+  stroke: #fff;
+}
+
+/* Panneau d'automation : LFO. */
+.lfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+.lfo-tete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lfo-tete h4 {
+  margin: 0;
+}
+.champ-lfo {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+}

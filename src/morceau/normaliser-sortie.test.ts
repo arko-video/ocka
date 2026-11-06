@@ -63,4 +63,9 @@ describe('normaliserReglages', () => {
     });
     expect(normaliserReglages(null)).toEqual({});
   });
+  it('garde le réglage « Avancé » seulement s’il est vrai', () => {
+    expect(normaliserReglages({ avance: true })).toEqual({ avance: true });
+    expect(normaliserReglages({ avance: false })).toEqual({});
+    expect(normaliserReglages({ avance: '1' })).toEqual({});
+  });
 });

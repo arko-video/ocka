@@ -1,0 +1,123 @@
+{
+ "id": "freepats-guitare-saturee",
+ "source": {
+  "type": "archive",
+  "banque": "freepats",
+  "url": "https://github.com/freepats/electric-guitar-FSBS-dist2/releases/download/2022-09-11/EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+  "sfz": "EGuitarFSBS-dist2 bridge 20220911.sfz"
+ },
+ "fichiers": [
+  {
+   "fichier": "z041-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z052-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z055-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z058-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z061-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z064-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z070-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z076-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z079-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z082-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z085-v1.ogg",
+   "source": "EGuitarFSBS-dist2-SFZ+FLAC-20220911.7z",
+   "sha256": "fee513712e10b31c78e45c7263c2860882c8e462d1733a7876a0d97d14303f4c",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

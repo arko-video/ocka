@@ -1,6 +1,7 @@
 // Format d'un projet OCKA (ZIP « stocké ») — partagé par l'export et l'import. Propriétaire : A2.
 //   Titre.ocka         : ocka.json { type: 'morceau', version: 1 }, morceau.json,
-//                        prises/<clé>.wav (WAV 32 bits flottants, mono), sons/<clé>.wav (1 ou 2 canaux)
+//                        prises/<clé>.wav (WAV 32 bits flottants, mono), sons/<clé>.wav (1 ou 2 canaux),
+//                        soundfonts/sf2-<id>.sf2 (C3 : la SoundFont telle quelle, au plus 64 Mo)
 //   Titre.ocka-sortie  : ocka.json { type: 'sortie', version: 1 }, sortie.json, pochette.jpg,
 //                        morceaux/<id>.ocka (un projet complet par titre, imbriqué, lu par File.slice)
 // Les noms des fichiers dans le ZIP viennent des clés OPFS (« prise-x.f32 » → « prises/prise-x.wav ») : ils ne
@@ -15,13 +16,14 @@ const MAX_JSON = 2 * 1024 * 1024;
 const PRISE = /^prises\/prise-[A-Za-z0-9_-]{1,40}\.wav$/;
 const SON = /^sons\/son-[A-Za-z0-9_-]{1,40}\.wav$/;
 const MORCEAU = /^morceaux\/[A-Za-z0-9_-]{1,40}\.ocka$/;
+const SF2 = /^soundfonts\/sf2-[A-Za-z0-9_-]{1,40}\.sf2$/;
 
 export const REGLES_MORCEAU: ReglesLectureZip = {
   tailleMax: 1e9,
-  noms: ['ocka.json', 'morceau.json', PRISE, SON],
+  noms: ['ocka.json', 'morceau.json', PRISE, SON, SF2],
   deflate: ['ocka.json', 'morceau.json'],
   maxDeflate: MAX_JSON,
-  maxEntrees: 2 + PLAFONDS.prises + PLAFONDS.sons,
+  maxEntrees: 2 + PLAFONDS.prises + PLAFONDS.sons + PLAFONDS.soundfonts,
 };
 
 export const REGLES_SORTIE: ReglesLectureZip = {
@@ -44,6 +46,7 @@ export const REGLES_TOUT: ReglesLectureZip = {
 export const nomZipPrise = (cle: string) => `prises/${cle.replace(/\.f32$/, '')}.wav`;
 export const nomZipSon = (cle: string) => `sons/${cle.replace(/\.f32$/, '')}.wav`;
 export const nomZipMorceau = (id: string) => `morceaux/${id}.ocka`;
+export const nomZipSf2 = (fichier: string) => `soundfonts/${fichier}`;
 
 /** « Mon titre.ocka » : nom de fichier propre (ni « / », ni « : », ni caractère de contrôle). */
 export function nomProjet(titre: string, extension: 'ocka' | 'ocka-sortie'): string {

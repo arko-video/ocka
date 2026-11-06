@@ -1,0 +1,199 @@
+{
+ "id": "freepats-guitare-nylon@1",
+ "nom": "Guitare nylon",
+ "famille": "Guitares",
+ "licence": {
+  "nom": "CC0-1.0",
+  "url": "https://freepats.zenvoid.org/Guitar/acoustic-guitar.html",
+  "auteur": "Roberto (roberto@zenvoid.org), FreePats",
+  "sha256": [
+   "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e"
+  ]
+ },
+ "canaux": 1,
+ "gainDb": 0.0,
+ "relache": 0.25,
+ "budgetS": 37.104,
+ "zones": [
+  {
+   "fichier": "z041-v1.ogg",
+   "racine": 41,
+   "cents": 9.3,
+   "bas": 40,
+   "haut": 42,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.0,
+   "debut": 0,
+   "fin": 192000
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "racine": 44,
+   "cents": 10.3,
+   "bas": 43,
+   "haut": 45,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.5,
+   "debut": 0,
+   "fin": 192000
+  },
+  {
+   "fichier": "z047-v1.ogg",
+   "racine": 47,
+   "cents": 7.4,
+   "bas": 46,
+   "haut": 48,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -5.9,
+   "debut": 0,
+   "fin": 168960
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "racine": 50,
+   "cents": 5.3,
+   "bas": 49,
+   "haut": 51,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.6,
+   "debut": 0,
+   "fin": 192000
+  },
+  {
+   "fichier": "z053-v1.ogg",
+   "racine": 53,
+   "cents": 4.5,
+   "bas": 52,
+   "haut": 54,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -7.9,
+   "debut": 0,
+   "fin": 172544
+  },
+  {
+   "fichier": "z056-v1.ogg",
+   "racine": 56,
+   "cents": 7.5,
+   "bas": 55,
+   "haut": 57,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.6,
+   "debut": 0,
+   "fin": 129280
+  },
+  {
+   "fichier": "z059-v1.ogg",
+   "racine": 59,
+   "cents": 14.2,
+   "bas": 58,
+   "haut": 60,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.4,
+   "debut": 0,
+   "fin": 99072
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "racine": 62,
+   "cents": 7.7,
+   "bas": 61,
+   "haut": 63,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -7.1,
+   "debut": 0,
+   "fin": 130048
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "racine": 65,
+   "cents": 3.0,
+   "bas": 64,
+   "haut": 66,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.4,
+   "debut": 0,
+   "fin": 135168
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "racine": 68,
+   "cents": 3.3,
+   "bas": 67,
+   "haut": 69,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -7.3,
+   "debut": 0,
+   "fin": 97536
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "racine": 71,
+   "cents": 14.3,
+   "bas": 70,
+   "haut": 72,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -7.3,
+   "debut": 0,
+   "fin": 75776
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "racine": 74,
+   "cents": 10.7,
+   "bas": 73,
+   "haut": 75,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -7.2,
+   "debut": 0,
+   "fin": 56320
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "racine": 77,
+   "cents": -1.2,
+   "bas": 76,
+   "haut": 78,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.2,
+   "debut": 0,
+   "fin": 62208
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "racine": 80,
+   "cents": -2.6,
+   "bas": 79,
+   "haut": 81,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.1,
+   "debut": 0,
+   "fin": 37888
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "racine": 83,
+   "cents": 3.4,
+   "bas": 82,
+   "haut": 84,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -3.3,
+   "debut": 0,
+   "fin": 40192
+  }
+ ]
+}

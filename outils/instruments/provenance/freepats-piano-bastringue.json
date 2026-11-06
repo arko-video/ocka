@@ -1,0 +1,221 @@
+{
+ "id": "freepats-piano-bastringue",
+ "source": {
+  "type": "archive",
+  "banque": "freepats",
+  "url": "https://github.com/freepats/old-piano-FB/releases/download/2020-04-01/PianoFB-SFZ+FLAC-20200401.7z",
+  "sfz": "PianoFB 20200401.sfz"
+ },
+ "fichiers": [
+  {
+   "fichier": "z021-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z024-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z027-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z030-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z033-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z036-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z038-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z041-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z086-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z089-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z092-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z095-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z098-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z101-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z104-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z107-v1.ogg",
+   "source": "PianoFB-SFZ+FLAC-20200401.7z",
+   "sha256": "da35c93967c421b17f7219c12a37830ffd2b19f54f8a0a71203fc6161b079b45",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

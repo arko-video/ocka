@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { normaliserMorceau } from './normaliser';
 import { MAX_PROBLEMES } from './normaliser-outils';
 import { nouveauMorceau } from './styles';
-import { FORMAT_MORCEAU, PLAFONDS, STYLES, type MotifBatterie, type MotifMelodie } from './types';
+import { FORMAT_MORCEAU, PLAFONDS, STYLES, type MotifBatterie, type MotifNotes, type PisteFixe } from './types';
 
 /** Un morceau de la phase 1, tel qu'il est rangé sur le téléphone (version 1, 4 pistes, sans chaîne, avec « album »). */
 function morceauV1(): Record<string, unknown> {
@@ -29,8 +29,8 @@ function idempotent(brut: unknown) {
   return a;
 }
 
-describe('format 2 : lecture des morceaux de la phase 1', () => {
-  it('v1 → v2 : pistes melodie et sons ajoutées (0,8 ; 0), chaîne 1, « album » oublié, rien d’autre ne change', () => {
+describe('format 2 (puis 3) : lecture des morceaux de la phase 1', () => {
+  it('v1 → v3 : piste instrument melodie (piano, 0,8 ; 0) et piste sons ajoutées, chaîne 1, « album » oublié, rien d’autre ne change', () => {
     const v1 = morceauV1();
     const r = normaliserMorceau(v1);
     expect(r.problemes).toEqual([]);
@@ -39,7 +39,7 @@ describe('format 2 : lecture des morceaux de la phase 1', () => {
     expect(m.master).toEqual({ preset: 'chaud', niveau: 'fort', chaine: 1 });
     expect('album' in m).toBe(false);
     expect(m.pistes.map((p) => p.id)).toEqual(['batterie', 'basse', 'accords', 'melodie', 'sons', 'voix']);
-    expect(m.pistes.find((p) => p.id === 'melodie')).toEqual({ id: 'melodie', volume: 0.8, pan: 0, muet: false, solo: false });
+    expect(m.pistes.find((p) => p.id === 'melodie')).toEqual({ id: 'melodie', genre: 'instrument', nom: 'Mélodie', instrument: 'ocka-piano@1', volume: 0.8, pan: 0, muet: false, solo: false });
     expect(m.pistes.find((p) => p.id === 'sons')).toEqual({ id: 'sons', volume: 0.8, pan: 0, muet: false, solo: false });
     expect(m.pistes.filter((p) => !['melodie', 'sons'].includes(p.id))).toEqual(v1.pistes);
     expect({ ...m.motifs }).toEqual(v1.motifs);
@@ -50,12 +50,12 @@ describe('format 2 : lecture des morceaux de la phase 1', () => {
   it('un vieil onglet de la phase 1 refuse la version 2 (sa règle : version > 1 → bloquant)', () => {
     const regleV1 = (format: string) => /^ocka\.morceau\/(\d+)$/.test(format) && Number(format.split('/')[1]) > 1;
     expect(regleV1(nouveauMorceau('trap').format)).toBe(true);
-    expect(normaliserMorceau({ ...nouveauMorceau('trap'), format: 'ocka.morceau/3' }).problemes[0]?.niveau).toBe('bloquant');
+    expect(normaliserMorceau({ ...nouveauMorceau('trap'), format: 'ocka.morceau/4' }).problemes[0]?.niveau).toBe('bloquant');
   });
-  it('nouveauMorceau : version 2, chaîne 2, déjà normalisé, pour les 6 styles (3 provisoires)', () => {
+  it('nouveauMorceau : version 3, chaîne 2, déjà normalisé, pour les 6 styles', () => {
     for (const s of STYLES) {
       const m = nouveauMorceau(s);
-      expect(m.format).toBe('ocka.morceau/2');
+      expect(m.format).toBe('ocka.morceau/3');
       expect(m.master.chaine).toBe(2);
       expect(m.kit).toBe(`${s}@1`);
       const r = normaliserMorceau(m);
@@ -72,13 +72,12 @@ describe('format 2 : lecture des morceaux de la phase 1', () => {
 });
 
 describe('ajouts de la version 2', () => {
-  it('mélodie : longueur ≤ 64, notes bornées, triées, sans doublon, son par défaut', () => {
-    const notes = [{ pas: 70, duree: 9, midi: 200 }, { pas: 0, duree: 2, midi: 60, vel: 3 }, { pas: 0, duree: 4, midi: 60 }, { pas: 4, duree: 1, midi: 55.4 }];
-    const r = idempotent({ ...nouveauMorceau('trap'), motifs: { ...nouveauMorceau('trap').motifs, m: { type: 'melodie', pas: 80, notes } } });
-    const mel = r.morceau.motifs.m as MotifMelodie;
-    expect(mel.pas).toBe(64);
-    expect(mel.son).toBe('piano');
-    expect(mel.notes).toEqual([{ pas: 0, duree: 2, midi: 60, vel: 1 }, { pas: 4, duree: 1, midi: 55 }, { pas: 63, duree: 1, midi: 108 }]);
+  it('motif de notes (/3) : longueur ≤ 128, notes bornées, triées, sans doublon, vélocité écrite', () => {
+    const notes = [{ pas: 140, duree: 9, midi: 200 }, { pas: 0, duree: 2, midi: 60, vel: 3 }, { pas: 0, duree: 4, midi: 60 }, { pas: 4, duree: 1, midi: 55.4 }];
+    const r = idempotent({ ...nouveauMorceau('trap'), motifs: { ...nouveauMorceau('trap').motifs, m: { type: 'notes', pas: 200, notes } } });
+    const mel = r.morceau.motifs.m as MotifNotes;
+    expect(mel.pas).toBe(128);
+    expect(mel.notes).toEqual([{ pas: 0, duree: 2, midi: 60, vel: 1 }, { pas: 4, duree: 1, midi: 55, vel: 1 }, { pas: 127 + 23 / 24, duree: 1 / 24, midi: 120, vel: 1 }]);
   });
   it('sections : motif de mélodie référencé, boucle vers un son existant (mesures 1/2/4/8)', () => {
     const base = nouveauMorceau('lofi');
@@ -99,8 +98,8 @@ describe('ajouts de la version 2', () => {
   it('effets de voix (voix seulement), autotune au dixième', () => {
     const pistes = [{ id: 'voix', volume: 1, pan: 0, muet: false, solo: false, effets: { reverbe: 2, echo: 0.3, radio: 'oui', autotune: 0.66, bruit: 1 } }, { id: 'basse', volume: 1, pan: 0, muet: false, solo: false, effets: { echo: 1 } }];
     const r = idempotent({ ...nouveauMorceau('trap'), pistes });
-    expect(r.morceau.pistes.find((p) => p.id === 'voix')!.effets).toEqual({ reverbe: 1, echo: 0.3, radio: true, autotune: 0.7 });
-    expect(r.morceau.pistes.find((p) => p.id === 'basse')!.effets).toBeUndefined();
+    expect((r.morceau.pistes.find((p) => p.id === 'voix') as PisteFixe).effets).toEqual({ reverbe: 1, echo: 0.3, radio: true, autotune: 0.7 });
+    expect((r.morceau.pistes.find((p) => p.id === 'basse') as PisteFixe).effets).toBeUndefined();
   });
   it('infos du titre : langue, crédits, ISRC, IA', () => {
     const infos = { explicite: 'oui', langue: 'PT_br', credits: [{ nom: '  Romain Dupont ', role: 'compositeur' }, { nom: '', role: 'auteur' }, { nom: 'X', role: 'DJ' }], featuring: ' Léa ', isrc: 'fr-ab1-24-00001', ia: { musique: 'aide' } };
@@ -148,7 +147,7 @@ describe('durcissement', () => {
   });
   it('plafonds : motifs, sections, ordre, notes, prises, sons', () => {
     const motifs: Record<string, unknown> = {};
-    for (let i = 0; i < 100; i++) motifs[`b${i}`] = { type: 'basse', pas: 16, notes: Array.from({ length: 600 }, (_, k) => ({ pas: k % 16, duree: 1, degre: 0 })) };
+    for (let i = 0; i < PLAFONDS.motifs + 20; i++) motifs[`b${i}`] = { type: 'basse', pas: 16, notes: Array.from({ length: 600 }, (_, k) => ({ pas: k % 16, duree: 1, degre: 0 })) };
     const sections = Array.from({ length: 100 }, (_, i) => ({ id: `s${i}`, nom: 'S', mesures: 1, motifs: {} }));
     const r = idempotent({
       motifs,

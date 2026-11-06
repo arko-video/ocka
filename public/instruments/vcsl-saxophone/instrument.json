@@ -1,0 +1,274 @@
+{
+ "id": "vcsl-saxophone@1",
+ "nom": "Saxophone ténor",
+ "famille": "Vents",
+ "licence": {
+  "nom": "CC0-1.0",
+  "url": "https://github.com/sgossner/VCSL",
+  "auteur": "Versilian Studios LLC (Sam Gossner et contributeurs)",
+  "sha256": [
+   "0ac3e91d353722129473be15132e996bd109709cfbd7cce81dd2f6d4fbbda430",
+   "0b8964637191e7f51b1501bed1e1d461cc986547fc2d6227ac41910be59d4998",
+   "1c7ffe33a2fd8007340464c39ba4fe586c90321e7d79d0d0714ac2d6aad7b3c1",
+   "20edadeef91e2c480c8a924bbd4b6c38d41f547f3e0e95a2f0f5a982bf216185",
+   "3af58ad97bfaddf59a0303f658a36dfd74e829ed3360ed24d96dc7c521b53e7f",
+   "4375f5c5041751d8b8b4e977476785e58e09035182bca2462160258990e46abe",
+   "479e0f48e92c78c002f24fefe05d21bcc6c60b27363549ff9b108c91eb8ee704",
+   "4d3c3a9c9bfb9d7630d2edcccb65a78df52c1c8542a1079717a71e6b45c97ee6",
+   "5c7cfda8d55eacbfa206b6d66b98c682dc2f48891c0848078544a47f407994cc",
+   "747909b44c5759c447f6741b842ffacffbcfa92579c2b625786f4e67c9323c21",
+   "7d8103f766fcc3979e0fbb62d248e2ee2d6d7890ce3daf22518e06a11a9728a2",
+   "7dfc6ddb457baf07c1973348ede1bcfe2c580758b60667109d0850b3e5336891",
+   "aa45c3cbb1a375fc52005c9837c958f3fd610e7f755eabf4e7f60e2491f1500e",
+   "ad68f912ec92fb83e297e4ce1066a6c41189dfa3f1bd099db930330693e2accc",
+   "d7a308a74ed3dc30b9baf4c50fe207eb409dda43548fd5081f4f5c5c61ca0e5b"
+  ]
+ },
+ "canaux": 1,
+ "gainDb": 0.0,
+ "relache": 0.3,
+ "budgetS": 58.48,
+ "zones": [
+  {
+   "fichier": "z045-v1.ogg",
+   "racine": 45,
+   "cents": -9.5,
+   "bas": 44,
+   "haut": 46,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.2,
+   "debut": 0,
+   "fin": 189372,
+   "boucle": {
+    "debut": 19200,
+    "fin": 185276
+   }
+  },
+  {
+   "fichier": "z048-v1.ogg",
+   "racine": 48,
+   "cents": 3.4,
+   "bas": 47,
+   "haut": 49,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.9,
+   "debut": 0,
+   "fin": 189121,
+   "boucle": {
+    "debut": 20976,
+    "fin": 185025
+   }
+  },
+  {
+   "fichier": "z051-v1.ogg",
+   "racine": 51,
+   "cents": 6.7,
+   "bas": 50,
+   "haut": 52,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.0,
+   "debut": 0,
+   "fin": 186456,
+   "boucle": {
+    "debut": 19200,
+    "fin": 182360
+   }
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "racine": 54,
+   "cents": 0.4,
+   "bas": 53,
+   "haut": 55,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.4,
+   "debut": 0,
+   "fin": 189296,
+   "boucle": {
+    "debut": 20976,
+    "fin": 185200
+   }
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "racine": 57,
+   "cents": -9.1,
+   "bas": 56,
+   "haut": 58,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.5,
+   "debut": 0,
+   "fin": 187116,
+   "boucle": {
+    "debut": 20976,
+    "fin": 183020
+   }
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "racine": 60,
+   "cents": -3.0,
+   "bas": 59,
+   "haut": 60,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -12.4,
+   "debut": 0,
+   "fin": 187500,
+   "boucle": {
+    "debut": 19200,
+    "fin": 183404
+   }
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "racine": 62,
+   "cents": 7.9,
+   "bas": 61,
+   "haut": 62,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -12.3,
+   "debut": 0,
+   "fin": 186452,
+   "boucle": {
+    "debut": 19200,
+    "fin": 182356
+   }
+  },
+  {
+   "fichier": "z064-v1.ogg",
+   "racine": 64,
+   "cents": 9.2,
+   "bas": 63,
+   "haut": 65,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -13.6,
+   "debut": 0,
+   "fin": 186594,
+   "boucle": {
+    "debut": 20976,
+    "fin": 182498
+   }
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "racine": 67,
+   "cents": -10.0,
+   "bas": 66,
+   "haut": 68,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -12.3,
+   "debut": 0,
+   "fin": 186498,
+   "boucle": {
+    "debut": 22752,
+    "fin": 182402
+   }
+  },
+  {
+   "fichier": "z070-v1.ogg",
+   "racine": 70,
+   "cents": -5.8,
+   "bas": 69,
+   "haut": 71,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.8,
+   "debut": 0,
+   "fin": 191092,
+   "boucle": {
+    "debut": 19200,
+    "fin": 186996
+   }
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "racine": 73,
+   "cents": -5.1,
+   "bas": 72,
+   "haut": 74,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.9,
+   "debut": 0,
+   "fin": 189786,
+   "boucle": {
+    "debut": 19200,
+    "fin": 185690
+   }
+  },
+  {
+   "fichier": "z076-v1.ogg",
+   "racine": 76,
+   "cents": -2.5,
+   "bas": 75,
+   "haut": 77,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -13.0,
+   "debut": 0,
+   "fin": 186436,
+   "boucle": {
+    "debut": 19200,
+    "fin": 182340
+   }
+  },
+  {
+   "fichier": "z079-v1.ogg",
+   "racine": 79,
+   "cents": 2.5,
+   "bas": 78,
+   "haut": 80,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -12.5,
+   "debut": 0,
+   "fin": 185494,
+   "boucle": {
+    "debut": 19200,
+    "fin": 181398
+   }
+  },
+  {
+   "fichier": "z082-v1.ogg",
+   "racine": 82,
+   "cents": -2.6,
+   "bas": 81,
+   "haut": 83,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -13.1,
+   "debut": 0,
+   "fin": 186464,
+   "boucle": {
+    "debut": 19200,
+    "fin": 182368
+   }
+  },
+  {
+   "fichier": "z085-v1.ogg",
+   "racine": 85,
+   "cents": 8.0,
+   "bas": 84,
+   "haut": 86,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -12.8,
+   "debut": 0,
+   "fin": 179357,
+   "boucle": {
+    "debut": 19200,
+    "fin": 175261
+   }
+  }
+ ],
+ "mono": true
+}

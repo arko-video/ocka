@@ -1,65 +1,88 @@
 // Préréglages de style : un nouveau morceau complet, prêt à enregistrer, et les suites d'accords proposées.
+// Tout vient du registre des styles (styles/index.ts) : un style = un fichier styles/<id>.ts.
 
 import { ecrireBoucle } from '../aller-vite/boucles';
-import { BASSES, BATTERIES, SUITES } from './styles-motifs';
-import { FORMAT_MORCEAU, type Master, type Mode, type Morceau, type MotifAccords, type Piste, type Section, type Style, type Tonique } from './types';
+import { motifsAvec } from './acces';
+import { DEFINITIONS_STYLES, definitionStyle, type DefinitionStyle, type ReglagesStyle } from './styles/index';
+import type { InstrumentDefaut } from './styles/definition';
+import { FORMAT_MORCEAU, type Morceau, type MotifAccords, type MotifNotes, type Piste, type PisteInstrument, type Section, type Style } from './types';
 
 export { varier } from './varier';
 
-interface Reglages {
-  tempo: number;
-  /** Plage de tempo du style (« Au hasard » tire dedans). */
-  plage: [number, number];
-  swing: number;
-  tonique: Tonique;
-  mode: Mode;
-  son: NonNullable<MotifAccords['son']>;
-  /** Couleur du master au départ. */
-  preset: Master['preset'];
-}
-
-/** Tempo, swing, tonalité, son d'accords et couleur de chaque style. */
-export const REGLAGES_STYLE: Record<Style, Reglages> = {
-  trap: { tempo: 140, plage: [130, 150], swing: 0, tonique: 'F', mode: 'mineur', son: 'nappe', preset: 'neutre' },
-  drill: { tempo: 142, plage: [138, 146], swing: 0, tonique: 'C#', mode: 'mineur', son: 'nappe', preset: 'neutre' },
-  lofi: { tempo: 85, plage: [72, 92], swing: 0.25, tonique: 'F', mode: 'majeur', son: 'piano', preset: 'lofi' },
-  phonk: { tempo: 135, plage: [125, 145], swing: 0, tonique: 'F#', mode: 'mineur', son: 'nappe', preset: 'neutre' },
-  pop: { tempo: 110, plage: [98, 122], swing: 0, tonique: 'C', mode: 'majeur', son: 'piano', preset: 'clair' },
-  boombap: { tempo: 90, plage: [84, 96], swing: 0.2, tonique: 'D', mode: 'mineur', son: 'piano', preset: 'chaud' },
-};
-
-/** Volumes de départ propres à un style (les autres pistes gardent ceux de pistesParDefaut). */
-const VOLUMES_STYLE: Partial<Record<Style, Partial<Record<Piste['id'], number>>>> = {
-  // Phonk : 808 très saturée et kick saturé, plus denses : un peu plus bas pour garder le niveau de la trap.
-  phonk: { batterie: 0.75, basse: 0.68 },
-};
+/** Tempo, plage, swing, tonalité, son d'accords, couleur et kit de chaque style (lus dans le registre). */
+export const REGLAGES_STYLE: Readonly<Record<Style, ReglagesStyle>> = Object.fromEntries(
+  Object.values(DEFINITIONS_STYLES).map((d) => [d.id, d.reglages]),
+) as Record<Style, ReglagesStyle>;
 
 /** Fabrique le motif d'accords d'une suite (1 accord par mesure). */
 function motifAccords(degres: string[], son: MotifAccords['son']): MotifAccords {
   return { type: 'accords', pas: degres.length * 16, accords: degres.map((degre, i) => ({ pas: i * 16, duree: 16, degre })), son };
 }
 
-/** Les 3 suites d'accords proposées pour un style (pour le choix dans l'étape Beat). */
+/** Les 3 suites d'accords proposées pour un style (pour le choix dans l'étape Beat). Style inconnu : la trap. */
 export function suitesAccords(style: Style): { nom: string; motif: MotifAccords }[] {
-  const connu = Object.hasOwn(REGLAGES_STYLE, style);
-  const r = connu ? REGLAGES_STYLE[style] : REGLAGES_STYLE.trap;
-  return (connu ? SUITES[style] : SUITES.trap).map((s) => ({ nom: s.nom, motif: motifAccords(s.degres, r.son) }));
+  const d = definitionStyle(style);
+  return d.suites.map((s) => ({ nom: s.nom, motif: motifAccords(s.degres, d.reglages.son) }));
 }
 
 /**
- * Pistes par défaut, dans l'ordre de IDS_PISTES (toutes au centre, voix au réglage « naturel »).
- * `melodie` et `sons` (version 2) : volume 0,8, panoramique 0. Les panoramiques par défaut de la chaîne 2
- * (charley, perc, mélodie, accords) sont appliqués dans le graphe, pas écrits ici.
+ * Pistes par défaut (format /3) : batterie, basse, accords, la piste instrument « melodie » (piano d'OCKA, celle des
+ * 8 pads « Simple »), sons, voix — toutes au centre, voix au réglage « naturel ». Les panoramiques par défaut de la
+ * chaîne 2 (charley, perc, mélodie, accords) sont appliqués dans le graphe, pas écrits ici.
  */
 export function pistesParDefaut(): Piste[] {
   return [
     { id: 'batterie', volume: 0.85, pan: 0, muet: false, solo: false },
     { id: 'basse', volume: 0.8, pan: 0, muet: false, solo: false },
     { id: 'accords', volume: 0.4, pan: 0, muet: false, solo: false },
-    { id: 'melodie', volume: 0.8, pan: 0, muet: false, solo: false },
+    { id: 'melodie', genre: 'instrument', nom: 'Mélodie', instrument: 'ocka-piano@1', volume: 0.8, pan: 0, muet: false, solo: false },
     { id: 'sons', volume: 0.8, pan: 0, muet: false, solo: false },
     { id: 'voix', volume: 0.9, pan: 0, muet: false, solo: false, preset: 'naturel' },
   ];
+}
+
+/** Les pistes d'un style : fixes, puis ses instruments par défaut (à la place de « melodie »), volumes et muettes. */
+function pistesDuStyle(d: DefinitionStyle): Piste[] {
+  const fixes = pistesParDefaut().filter((p) => p.genre !== 'instrument');
+  const instruments: PisteInstrument[] = d.instrumentsParDefaut.map((i) => ({
+    id: i.id,
+    genre: 'instrument',
+    nom: i.nom,
+    instrument: i.instrument,
+    volume: i.volume ?? 0.8,
+    pan: i.pan ?? 0,
+    muet: false,
+    solo: false,
+    // Effets de départ du style (copie neuve ; réglages en dictionnaire sans prototype, comme le normaliseur).
+    ...(i.tranche?.inserts?.length
+      ? { inserts: i.tranche.inserts.map((x) => ({ ...x, params: Object.assign(Object.create(null) as Record<string, number>, x.params) })) }
+      : {}),
+  }));
+  const volumes = d.reglages.volumes ?? {};
+  const muettes = d.reglages.muettes ?? [];
+  return [...fixes.slice(0, 3), ...instruments, ...fixes.slice(3)].map((p) => {
+    let q = p;
+    if (volumes[p.id] !== undefined) q = { ...q, volume: volumes[p.id]! };
+    if (muettes.includes(p.id)) q = { ...q, muet: true };
+    return q;
+  });
+}
+
+/** Les notes de départ d'un instrument du style, écrites sur la tonalité et les accords ACTUELS du morceau. */
+function notesDeDepart(m: Morceau, notes: NonNullable<InstrumentDefaut['notes']>): MotifNotes {
+  const depuis = notes.depuis ?? 'refrain';
+  return typeof notes.ecrire === 'function' ? notes.ecrire(m, depuis) : ecrireBoucle(m, notes.ecrire, depuis);
+}
+
+/** Pose les notes de départ des pistes instrument (motif partagé par les sections choisies). */
+function poserNotesDeDepart(m: Morceau, d: DefinitionStyle): Morceau {
+  for (const i of d.instrumentsParDefaut) {
+    if (!i.notes) continue;
+    const { sections, idMotif } = i.notes;
+    m.motifs[idMotif] = notesDeDepart(m, i.notes);
+    m.sections = m.sections.map((x) => (sections.includes(x.id) ? { ...x, motifs: motifsAvec(x, i.id, idMotif) } : x));
+  }
+  return m;
 }
 
 /**
@@ -67,12 +90,11 @@ export function pistesParDefaut(): Piste[] {
  * avec 4 motifs de batterie (intro, couplet, refrain, pont), la 808, les accords, des fills et des coupures.
  */
 export function nouveauMorceau(style: Style, titre = 'Mon morceau'): Morceau {
-  const s: Style = Object.hasOwn(REGLAGES_STYLE, style) ? style : 'trap';
-  const r = REGLAGES_STYLE[s];
-  const bat = BATTERIES[s]();
-  const basse = BASSES[s]();
-  const volumes = VOLUMES_STYLE[s] ?? {};
-  const pistes = pistesParDefaut().map((p) => (volumes[p.id] !== undefined ? { ...p, volume: volumes[p.id]! } : p));
+  const d = definitionStyle(style);
+  const s = d.id;
+  const r = d.reglages;
+  const bat = d.batterie();
+  const basse = d.basse();
   const sections: Section[] = [
     // Intro : accords et charley seuls ; un fill annonce le couplet.
     { id: 'intro', nom: 'Intro', mesures: 4, motifs: { batterie: 'bat-intro', accords: 'accords' }, fill: true, coupure: 'aucune', paroles: '' },
@@ -90,7 +112,7 @@ export function nouveauMorceau(style: Style, titre = 'Mon morceau'): Morceau {
     tempo: r.tempo,
     swing: r.swing,
     tonalite: { tonique: r.tonique, mode: r.mode },
-    kit: `${s}@1`,
+    kit: r.kit,
     fondu: 3,
     motifs: {
       'bat-intro': bat.intro,
@@ -103,15 +125,23 @@ export function nouveauMorceau(style: Style, titre = 'Mon morceau'): Morceau {
     },
     sections,
     ordre: ['intro', 'couplet', 'refrain', 'couplet', 'refrain', 'outro'],
-    pistes,
+    pistes: pistesDuStyle(d),
     prises: [],
     // Nouveau morceau : chaîne 2 (avec la colle).
     master: { preset: r.preset, niveau: 'standard', chaine: 2 },
   };
-  // Phonk : la cloche mélodique (accordée sur la tonalité) joue dans l'intro et le refrain.
-  if (s === 'phonk') {
-    m.motifs['mel-cloche'] = ecrireBoucle(m, 'cloche', 'cloche', 'refrain');
-    for (const x of m.sections) if (x.id === 'intro' || x.id === 'refrain') x.motifs.melodie = 'mel-cloche';
+  return poserNotesDeDepart(m, d);
+}
+
+/**
+ * Réécrit les notes de départ des pistes instrument du style (mêmes motifs `idMotif`) avec la tonalité et les
+ * accords ACTUELS du morceau : à appeler après avoir changé la tonalité ou la suite d'un morceau neuf
+ * (« Au hasard »), sinon la guitare ou le piano jouent dans l'ancienne tonalité. Pure.
+ */
+export function reecrireNotesDeDepart(m: Morceau): Morceau {
+  const motifs = Object.assign(Object.create(null) as Morceau['motifs'], m.motifs);
+  for (const i of definitionStyle(m.style).instrumentsParDefaut) {
+    if (i.notes && motifs[i.notes.idMotif]?.type === 'notes') motifs[i.notes.idMotif] = notesDeDepart(m, i.notes);
   }
-  return m;
+  return { ...m, motifs };
 }

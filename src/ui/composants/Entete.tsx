@@ -3,6 +3,7 @@
 import { T } from '../../textes-fr';
 import { annulerAction, ecran, ETAPES, etatSauvegarde, historique, morceau, retablirAction, type Etape } from '../etat';
 import { BoutonAide } from '../aide/BoutonAide';
+import { EntreeConfort } from './EntreesC3';
 import { allerA, allerAccueil } from '../navigation';
 import { IconeAnnuler, IconeCoche, IconeRetablir, IconeRetour } from './Icones';
 
@@ -49,6 +50,7 @@ export function EnteteStudio() {
       >
         <IconeRetablir />
       </button>
+      <EntreeConfort />
       <BoutonAide />
     </header>
   );

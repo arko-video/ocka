@@ -9,8 +9,9 @@ export default defineConfig({
   plugins: [
     // Prefresh (HMR) ne doit pas toucher aux modules des AudioWorklets : le code qu'il injecte (import.meta.hot,
     // $RefreshReg$…) n'existe pas dans un AudioWorkletGlobalScope, et le processeur ne s'enregistre jamais en dev.
-    // crete.ts est importé par le worklet du master (master-flux.ts) : exclu aussi.
-    preact({ exclude: [/node_modules/, /\/src\/moteur\/audio\//, /\.worklet\.ts(\?|$)/, /\/src\/moteur\/crete\.ts$/] }),
+    // crete.ts est importé par le worklet du master (master-flux.ts) : exclu aussi. src/dubler/ : le worklet de
+    // « Ta voix → instrument » importe le détecteur (YIN, stabilité) de ce dossier, qui n'a aucun composant.
+    preact({ exclude: [/node_modules/, /\/src\/moteur\/audio\//, /\.worklet\.ts(\?|$)/, /\/src\/moteur\/crete\.ts$/, /\/src\/dubler\//] }),
     VitePWA({
       registerType: 'prompt',
       manifest: {
@@ -30,9 +31,10 @@ export default defineConfig({
           { src: 'icones/icone-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
-      workbox: { globPatterns: ['**/*.{js,css,html,woff2,png,svg}'], maximumFileSizeToCacheInBytes: 6 * 1024 * 1024 },
+      // Les instruments (public/instruments, v2) sont téléchargés à la demande dans le cache « ocka-instruments » : jamais précachés.
+      workbox: { globPatterns: ['**/*.{js,css,html,woff2,png,svg}'], globIgnores: ['instruments/**'], maximumFileSizeToCacheInBytes: 6 * 1024 * 1024 },
     }),
   ],
   worker: { format: 'es' },
-  test: { include: ['src/**/*.test.ts'], environment: 'node' },
+  test: { include: ['src/**/*.test.ts'], environment: 'node', setupFiles: ['src/instruments/preparer-tests.ts'] },
 });

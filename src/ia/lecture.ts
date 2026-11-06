@@ -5,7 +5,8 @@
 import { dictionnaire } from '../morceau/normaliser-outils';
 import { normaliserMorceau } from '../morceau/normaliser';
 import { pistesParDefaut } from '../morceau/styles';
-import { FORMAT_MORCEAU, PLAFONDS, type Morceau, type Motif, type Section } from '../morceau/types';
+import { idMotifDe, motifParId, pisteMelodie } from '../morceau/acces';
+import { PLAFONDS, type Morceau, type Motif, type Section } from '../morceau/types';
 import { ErreurOcka } from '../moteur/erreur';
 import { extraireObjet } from './fournisseurs/extraire-json';
 import { marquerIa } from './infos-ia';
@@ -13,6 +14,7 @@ import { estObjet, filtrerBeat, filtrerMotifs, filtrerSection, texte, type Filtr
 import type { GenreSuite } from './requetes';
 import { compterSyllabes } from './syllabes';
 
+/** Pistes que l'IA écrit (format compact /2 : « melodie » = la piste mélodie du morceau). */
 const PISTES = ['batterie', 'basse', 'accords', 'melodie'] as const;
 
 function invalide(message: string): ErreurOcka {
@@ -33,7 +35,7 @@ function sonne(mo: Motif | undefined): boolean {
   return mo.notes.length > 0;
 }
 
-const sectionSonne = (m: Morceau, s: Section) => PISTES.some((p) => sonne(s.motifs[p] ? m.motifs[s.motifs[p]!] : undefined));
+const sectionSonne = (m: Morceau, s: Section) => Object.keys(s.motifs).some((p) => sonne(motifParId(m, idMotifDe(s, p))));
 
 /* ------------------------------------------------------------ « Lance-moi un beat » */
 
@@ -47,11 +49,12 @@ export interface BeatLu {
 export function lireBeat(reponse: string): BeatLu {
   const f: Filtre = { ignores: [] };
   const compact = filtrerBeat(objetDe(reponse), f);
+  // Écrit au format compact /2 (motifs « melodie » avec leur son) : la migration /3 en fait la piste « melodie ».
   const candidat = {
     ...compact,
-    format: FORMAT_MORCEAU,
+    format: 'ocka.morceau/2',
     fondu: 3,
-    pistes: pistesParDefaut(),
+    pistes: pistesParDefaut().filter((p) => p.genre !== 'instrument'),
     prises: [],
     master: { preset: compact.style === 'lofi' ? 'lofi' : 'neutre', niveau: 'standard', chaine: 2 },
   };
@@ -105,15 +108,20 @@ export function lireSuite(m: Morceau, sectionId: string, index: number, genre: G
     carte.set(id, neuf);
   }
   const refs = estObjet(section.motifs) ? section.motifs : {};
-  const motifsSection: Record<string, string> = {};
+  const motifsSection = dictionnaire<string>();
+  const melodie = pisteMelodie(m)?.id;
   for (const p of PISTES) {
     const ref = refs[p];
     if (typeof ref !== 'string') continue;
     // Un nouveau motif du bon type d'abord, sinon un motif existant du bon type (l'IA peut réutiliser un id).
+    // « melodie » : un motif de notes (l'ancien type « melodie » est lu par le normaliseur), sur la piste mélodie.
     const neuf = carte.get(ref);
     const typeNeuf = neuf && estObjet(nouveaux[ref]) ? nouveaux[ref].type : undefined;
-    const cible = neuf && typeNeuf === p ? neuf : Object.hasOwn(m.motifs, ref) && m.motifs[ref]!.type === p ? ref : undefined;
-    if (cible) motifsSection[p] = cible;
+    const attendu = p === 'melodie' ? ['melodie', 'notes'] : [p];
+    const existant = Object.hasOwn(m.motifs, ref) && (p === 'melodie' ? m.motifs[ref]!.type === 'notes' : m.motifs[ref]!.type === p);
+    const cible = neuf && attendu.includes(String(typeNeuf)) ? neuf : existant ? ref : undefined;
+    const piste = p === 'melodie' ? melodie : p;
+    if (cible && piste) motifsSection[piste] = cible;
   }
   const idSection = idLibre(typeof section.nom === 'string' ? section.nom : genre, (x) => m.sections.some((s) => s.id === x));
   const position = m.ordre[index] === sectionId ? index : m.ordre.lastIndexOf(sectionId);

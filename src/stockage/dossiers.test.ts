@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { ErreurOcka } from '../moteur/erreur';
-import { BASES_IDB, DOSSIERS_OPFS, demanderPersistance, enErreurOcka, estimerPlace, formaterOctets, verifierPlace } from './dossiers';
+import { BASES_IDB, CACHES, DOSSIERS_OPFS, demanderPersistance, enErreurOcka, estimerPlace, formaterOctets, verifierPlace } from './dossiers';
 
 /** Remplace navigator.storage le temps d'un test. */
 function stockage(s: Partial<StorageManager>) {
@@ -11,7 +11,9 @@ afterEach(() => vi.unstubAllGlobals());
 
 describe('dossiers et bases', () => {
   it('tout est préfixé « ocka- » (même origine qu’Arko)', () => {
-    for (const nom of [...Object.values(DOSSIERS_OPFS), ...Object.values(BASES_IDB)]) expect(nom).toMatch(/^ocka-[a-z]+(-[a-z]+)*$/);
+    for (const nom of [...Object.values(DOSSIERS_OPFS), ...Object.values(BASES_IDB), ...Object.values(CACHES)]) expect(nom).toMatch(/^ocka-[a-z0-9]+(-[a-z]+)*$/);
+    expect(DOSSIERS_OPFS.sf2).toBe('ocka-sf2');
+    expect(CACHES.instruments).toBe('ocka-instruments');
   });
 });
 

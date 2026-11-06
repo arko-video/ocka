@@ -1,0 +1,205 @@
+{
+ "id": "vcsl-xylophone",
+ "source": {
+  "type": "vcsl",
+  "sfz": "Idiophones/Struck Idiophones/Xylophone - Medium Mallets"
+ },
+ "fichiers": [
+  {
+   "fichier": "z056-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G3_pp_01_far.wav",
+   "sha256": "71aed638f20118b13a1e0e282cc77b51fa45c63ab83f08142d6f258521adc581",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C4_pp_01_far.wav",
+   "sha256": "bea188b7a606c5e75ce78fb5d2b81643899caa7634e9b44afe326257261bb7ec",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C4_pp_01_far.wav",
+   "sha256": "bea188b7a606c5e75ce78fb5d2b81643899caa7634e9b44afe326257261bb7ec",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G4_pp_01_far.wav",
+   "sha256": "32157b9952f62c45db97546734e2a31069de29397702694cb1f6664b231803df",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G4_pp_01_far.wav",
+   "sha256": "32157b9952f62c45db97546734e2a31069de29397702694cb1f6664b231803df",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C5_pp_01_far.wav",
+   "sha256": "cd9c4e1400e26d1e69806989b1b69b8d49f93466cca7c26dc370bfabcbf031f5",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C5_pp_01_far.wav",
+   "sha256": "cd9c4e1400e26d1e69806989b1b69b8d49f93466cca7c26dc370bfabcbf031f5",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G5_pp_01_far.wav",
+   "sha256": "74c7cf3c4ddba750a89ca168cb748aec24229ff5154bc212ce1fb6d424697814",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G5_pp_01_far.wav",
+   "sha256": "74c7cf3c4ddba750a89ca168cb748aec24229ff5154bc212ce1fb6d424697814",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C6_pp_01_far.wav",
+   "sha256": "cd255a44972d733dd8d21a0244297e1ff1ca0482a828474923a25ddadd695c45",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z086-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C6_pp_01_far.wav",
+   "sha256": "cd255a44972d733dd8d21a0244297e1ff1ca0482a828474923a25ddadd695c45",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z089-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G6_pp_01_far.wav",
+   "sha256": "cf9d1796ab4a2cb182d1325af53e4090d77970d2d552cb448be13b97ee6e5bbf",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z092-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G6_pp_01_far.wav",
+   "sha256": "cf9d1796ab4a2cb182d1325af53e4090d77970d2d552cb448be13b97ee6e5bbf",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z095-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C7_pp_01_far.wav",
+   "sha256": "158cad742278f85a1e76b2fc6abc5a6415fd8427c380eb896b8c1cac54fea31e",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G3_ff_01_far.wav",
+   "sha256": "7fd42d4a659886367b7a54275e4050328385294e680de33eba5ee0007e53eb7c",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C4_ff_01_far.wav",
+   "sha256": "ef8650516f0734369c5f409f726315db13544e508f59cb82cf46f4206c10518d",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C4_ff_01_far.wav",
+   "sha256": "ef8650516f0734369c5f409f726315db13544e508f59cb82cf46f4206c10518d",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G4_ff_01_far.wav",
+   "sha256": "f7e72d629db9b1f7d37b050cc1abf18bbde9629d616c91647d7abe5d7fb249b8",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z068-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G4_ff_01_far.wav",
+   "sha256": "f7e72d629db9b1f7d37b050cc1abf18bbde9629d616c91647d7abe5d7fb249b8",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C5_ff_01_far.wav",
+   "sha256": "b2ceeb64877d9975afbdf2fafb8892c416ac760c63bb2bc544007ef2331d35fd",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z074-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C5_ff_01_far.wav",
+   "sha256": "b2ceeb64877d9975afbdf2fafb8892c416ac760c63bb2bc544007ef2331d35fd",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z077-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G5_ff_01_far.wav",
+   "sha256": "d5b45edd0c164356c0425b663b9307bbb77a647ba7554423c6a8aa455ac8b2b3",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z080-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G5_ff_01_far.wav",
+   "sha256": "d5b45edd0c164356c0425b663b9307bbb77a647ba7554423c6a8aa455ac8b2b3",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z083-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C6_ff_01_far.wav",
+   "sha256": "183d04381c44705f65c3750383f28695f4b2576311ace8fdbe567134f416ff27",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z086-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C6_ff_01_far.wav",
+   "sha256": "183d04381c44705f65c3750383f28695f4b2576311ace8fdbe567134f416ff27",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z089-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G6_ff_01_far.wav",
+   "sha256": "8d46e7cb1d2f61f466458f042bd20ce6086802a2396cfc1dab13a5d72232d8bf",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z092-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_G6_ff_01_far.wav",
+   "sha256": "8d46e7cb1d2f61f466458f042bd20ce6086802a2396cfc1dab13a5d72232d8bf",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z095-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Xylophone/Medium Mallets/Xylo_Medium_C7_ff_01_far.wav",
+   "sha256": "f922a9ca996341c3cd6d54d3f3c569812e5c4c3325b1bb19de503b113b9a9197",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

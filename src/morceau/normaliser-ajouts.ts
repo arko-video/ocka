@@ -1,7 +1,8 @@
-// Normalisation des ajouts de la version 2 : sons importés, pads perso et infos du titre (sortie).
+// Normalisation des ajouts de la version 2 : sons importés (avec, en /3, recette et découpes), pads perso et infos du titre.
 // Tous facultatifs : un champ absent reste absent, un champ présent ressort propre.
 
 import { apercu, estObjet, Ids, Journal, lireBooleen, lireChoix, lireNombre, lireTexte, verifierCles } from './normaliser-outils';
+import { normaliserDecoupes, normaliserRecette } from './normaliser-v3';
 import {
   NIVEAUX_IA,
   PADS_PERSO,
@@ -30,7 +31,7 @@ export function normaliserSons(v: unknown, journal: Journal): { sons: SonImporte
   v.slice(0, PLAFONDS.sons).forEach((b, i) => {
     const c = `sons[${i}]`;
     if (!estObjet(b)) return journal.ignore(c, 'Ce son n’est pas un objet : ignoré.');
-    verifierCles(b, ['id', 'nom', 'fichier', 'frequence', 'duree', 'canaux'], c, journal);
+    verifierCles(b, ['id', 'nom', 'fichier', 'frequence', 'duree', 'canaux', 'recette', 'tranches'], c, journal);
     if (typeof b.fichier !== 'string' || !REGLE_CLE_SON.test(b.fichier)) {
       return journal.ignore(`${c}.fichier`, `Le fichier de ce son (« ${apercu(b.fichier)} ») n'est pas un fichier d'OCKA : son ignoré.`);
     }
@@ -40,14 +41,23 @@ export function normaliserSons(v: unknown, journal: Journal): { sons: SonImporte
     }
     total += duree;
     const canaux = lireNombre(b.canaux, `${c}.canaux`, journal, { defaut: 1, min: 1, max: 2, nom: 'le nombre de canaux', entier: true });
-    sons.push({
+    const son: SonImporte = {
       id: ids.donner(b.id, i, `${c}.id`, journal),
       nom: lireTexte(b.nom, `Son ${i + 1}`, `${c}.nom`, journal, 60),
       fichier: b.fichier,
       frequence: lireNombre(b.frequence, `${c}.frequence`, journal, { defaut: 48000, min: 8000, max: 192000, nom: 'la fréquence', entier: true }),
       duree,
       canaux: canaux === 2 ? 2 : 1,
-    });
+    };
+    if (b.recette !== undefined && b.recette !== null) {
+      const r = normaliserRecette(b.recette, `${c}.recette`, journal);
+      if (r) son.recette = r;
+    }
+    if (b.tranches !== undefined && b.tranches !== null) {
+      const t = normaliserDecoupes(b.tranches, duree, `${c}.tranches`, journal);
+      if (t.length > 0) son.tranches = t;
+    }
+    sons.push(son);
   });
   return { sons, ids };
 }

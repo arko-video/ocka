@@ -2,9 +2,9 @@
 // Le lecteur est créé au premier geste (Lecture, toucher un pad) : l'audio du navigateur l'exige.
 
 import { effect, signal } from '@preact/signals';
-import { creerLecteur, ErreurOcka, mesurerEcartAB, type Lecteur } from '../moteur/api';
+import { creerLecteur, ErreurOcka, mesurerEcartAB, surGels, type Lecteur, type OptionsNote } from '../moteur/api';
 import { occurrenceAuPas, secondesVersPas } from '../morceau/temps';
-import type { Morceau, SonMelodie } from '../morceau/types';
+import type { Morceau } from '../morceau/types';
 import { T } from '../textes-fr';
 import { afficherToast, messageErreur, morceau, sectionCourante } from './etat';
 
@@ -18,6 +18,26 @@ let lecteur: Lecteur | null = null;
 let prevenu = false;
 let pret: Promise<void> = Promise.resolve();
 let minuteurCharge: ReturnType<typeof setTimeout> | undefined;
+
+/**
+ * C3 : pendant le looper, c'est LUI qui charge le lecteur (ses propres morceaux de passage) : ni un gel prêt ni une
+ * modification ne doivent y recharger le morceau. Le looper recharge le morceau en se fermant (PanneauLooper).
+ */
+let looperActif = false;
+export function reserverLecteurAuLooper(actif: boolean): void {
+  looperActif = actif;
+  if (!actif) clearTimeout(minuteurCharge);
+}
+
+/** C3 : change à chaque gel prêt ou retiré (badges « gelée » des cartes). */
+export const versionGels = signal(0);
+
+// C3 : un gel (effet de performance, piste gelée) calculé en tâche de fond est prêt : le lecteur recharge.
+surGels(() => {
+  versionGels.value++;
+  const m = morceau.peek();
+  if (lecteur && m && !looperActif) void lecteur.charger(m).catch((e: unknown) => console.error(e));
+});
 
 /** Le lecteur (créé au besoin), ou null si le moteur n'est pas disponible. */
 export function obtenirLecteur(): Lecteur | null {
@@ -103,10 +123,13 @@ export function entendre(instrument: string) {
 
 let derniereErreurNote = 0;
 
-/** Joue une note de mélodie tout de suite (pads de la gamme, grille). Erreur : un toast toutes les 8 s au plus. */
-export function entendreNote(son: SonMelodie, midi: number) {
+/**
+ * Joue une note tout de suite sur une piste instrument (pads de la gamme, grille, piano roll ; `options.instrument` :
+ * écouter un autre instrument). Erreur : un toast toutes les 8 s au plus.
+ */
+export function entendreNote(piste: string, midi: number, options?: OptionsNote) {
   try {
-    obtenirLecteur()?.entendreNote(son, midi);
+    obtenirLecteur()?.entendreNote(piste, midi, options);
   } catch (e) {
     const maintenant = Date.now();
     if (maintenant - derniereErreurNote > 8000) toastErreur(e);
@@ -186,10 +209,11 @@ export function detruireLecteur() {
 export function suivreMorceau() {
   effect(() => {
     const m = morceau.value;
-    if (!m || !lecteur) return;
+    if (!m || !lecteur || looperActif) return;
     const l = lecteur;
     clearTimeout(minuteurCharge);
     minuteurCharge = setTimeout(() => {
+      if (looperActif) return;
       pret = l.charger(m);
       pret.catch((e: unknown) => console.error(e));
     }, 120);

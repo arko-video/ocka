@@ -16,7 +16,7 @@ import {
   type Enregistreur,
 } from '../moteur/api';
 import { positionAncre } from '../morceau/temps';
-import type { Morceau, Piste, Prise } from '../morceau/types';
+import type { Morceau, PisteFixe, Prise } from '../morceau/types';
 import { T } from '../textes-fr';
 import { afficherToast, annulerAction, modifier, morceau } from './etat';
 import { ajouterPrise, garderPrise, retirerPrise } from './edition/reglages';
@@ -237,12 +237,13 @@ surAutotune(() => {
 
 /** Écrit la force de l'autotune sur la piste voix (undefined = éteint). */
 function ecrireAutotune(m: Morceau, force: number | undefined): Morceau {
-  const p = m.pistes.find((x) => x.id === 'voix');
-  const base: Piste = p ?? { id: 'voix', volume: 1, pan: 0, muet: false, solo: false, preset: 'naturel' };
+  const trouvee = m.pistes.find((x) => x.id === 'voix');
+  const p = trouvee && trouvee.genre !== 'instrument' ? trouvee : undefined;
+  const base: PisteFixe = p ?? { id: 'voix', volume: 1, pan: 0, muet: false, solo: false, preset: 'naturel' };
   const effets = { ...base.effets };
   if (force === undefined) delete effets.autotune;
   else effets.autotune = Math.round(Math.min(1, Math.max(0.1, force)) * 10) / 10;
-  const n: Piste = { ...base, effets };
+  const n: PisteFixe = { ...base, effets };
   if (Object.keys(effets).length === 0) delete n.effets;
   return { ...m, pistes: p ? m.pistes.map((x) => (x.id === 'voix' ? n : x)) : [...m.pistes, n] };
 }

@@ -1,0 +1,114 @@
+{
+ "id": "vsco-violon",
+ "source": {
+  "type": "vsco",
+  "sfz": "SViolinVib"
+ },
+ "fichiers": [
+  {
+   "fichier": "z055-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G3_f.wav",
+   "sha256": "80bae3776b0ccd3d4774f47429e829c7764f5fe6061ff844a8affc6ac68b7899",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z058-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A3_f.wav",
+   "sha256": "76934f3a85e4ba3b6518132c2fe6effa340c33fbb02f94e88c60b00073dc722f",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z061-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C4_f.wav",
+   "sha256": "4169605b51a72454f11bc2c34efc66c1d9993fd2b7d5f097a025ef9d3a2dbdfa",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z064-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E4_f.wav",
+   "sha256": "418512905f3294a23cf999f0587bf8e04d60192fe317ea8c80c150a85670eda2",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G4_f.wav",
+   "sha256": "14e3ea3d5172722d4d2686bae5da3d603800a7a474fa295d98275a9410913822",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z069-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A4_f.wav",
+   "sha256": "19e5374658351508a9e2c929e871a43caff41e62d5e3363ead6f88428a9ab863",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z072-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C5_f.wav",
+   "sha256": "af72f852ef2892233699851dacf5f8d97d446822d8eb4ce9e0ec27d5a721b118",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z075-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E5_f.wav",
+   "sha256": "5c278e263fd59650190fc58294945cd291906eb1abd8293f728a96a878d1d478",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z078-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G5_f.wav",
+   "sha256": "b5bb27541d6187e6eeb20baf50625ca35fc9d44c7f113936a9369bc7ce490a68",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z081-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A5_f.wav",
+   "sha256": "0558d79d23db55c710e664e6283b62619f5a582ce261a5c082700a0d01536627",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z084-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C6_f.wav",
+   "sha256": "7ec8e0c2dde75282a4aaacccc713c84faa3e84daa9cf43df45ffc0e209964d46",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z087-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_E6_f.wav",
+   "sha256": "8d1712f5659274a83aa90807132084559633e4817027c8a5b5f40826b3d9bc84",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z090-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_G6_f.wav",
+   "sha256": "68c49e55565810ea822866e3d39e51c1a5ad53cfa1a67bc25836ca7feac3fe0c",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z093-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_A6_f.wav",
+   "sha256": "37f6cc2f12b1b443a77d3ee370178da4a002a2ac3b6529663cc7ee002728ddcf",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z096-v1.ogg",
+   "source": "Strings/Solo Violin/Arco Vib/LLVln_ArcoVib_C7_f.wav",
+   "sha256": "f8223aed62911ef3f6937111bf3cdcc36fc25a636d4f99480b97029c4d28f393",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { REGLE_ID, type MotifMelodie } from '../../morceau/types';
+import { idMotifDe } from '../../morceau/acces';
+import { REGLE_ID, type MotifNotes } from '../../morceau/types';
 import { exempleMorceau } from './exemple';
 import {
   basculerNote,
@@ -13,6 +14,7 @@ import {
   notesHorsVue,
   notesPerdues,
   poserNotes,
+  sonMelodie,
 } from './melodie';
 
 describe('gamme de la mélodie', () => {
@@ -36,9 +38,11 @@ describe('motif de mélodie', () => {
     const id = idMelodie(m1, 'refrain')!;
     expect(id).toMatch(REGLE_ID);
     expect(id.length).toBeLessThanOrEqual(36);
-    expect(motifMelodie(m1, 'refrain')).toEqual({ type: 'melodie', pas: 32, notes: [], son: 'piano' });
+    expect(motifMelodie(m1, 'refrain')).toEqual({ type: 'notes', pas: 32, notes: [] });
+    // Format /3 : la piste instrument « melodie » (piano d'OCKA) est créée au premier geste.
+    expect(m1.pistes.find((p) => p.id === 'melodie')).toMatchObject({ genre: 'instrument', instrument: 'ocka-piano@1' });
     expect(idMelodie(m1, 'couplet')).toBeNull();
-    expect(m.sections.find((s) => s.id === 'refrain')!.motifs.melodie).toBeUndefined();
+    expect(idMotifDe(m.sections.find((s) => s.id === 'refrain'), 'melodie')).toBeUndefined();
     expect(creerMelodie(m1, 'refrain')).toBe(m1);
     expect(creerMelodie(m, 'inconnue')).toBe(m);
   });
@@ -46,7 +50,7 @@ describe('motif de mélodie', () => {
   it('poser puis effacer une note dans la grille', () => {
     const m = exempleMorceau();
     const m1 = basculerNote(m, 'couplet', 4, 72, 2);
-    expect(motifMelodie(m1, 'couplet')!.notes).toEqual([{ pas: 4, duree: 2, midi: 72 }]);
+    expect(motifMelodie(m1, 'couplet')!.notes).toEqual([{ pas: 4, duree: 2, midi: 72, vel: 1 }]);
     // toucher la suite de la note l'efface aussi
     const m2 = basculerNote(m1, 'couplet', 5, 72, 2);
     expect(motifMelodie(m2, 'couplet')!.notes).toEqual([]);
@@ -54,7 +58,7 @@ describe('motif de mélodie', () => {
 
   it('une note ne dépasse ni la fin du motif ni la note suivante de même hauteur', () => {
     let m = basculerNote(exempleMorceau(), 'couplet', 30, 72, 8);
-    expect(motifMelodie(m, 'couplet')!.notes[0]).toEqual({ pas: 30, duree: 2, midi: 72 });
+    expect(motifMelodie(m, 'couplet')!.notes[0]).toEqual({ pas: 30, duree: 2, midi: 72, vel: 1 });
     m = basculerNote(m, 'couplet', 26, 72, 8);
     expect(motifMelodie(m, 'couplet')!.notes.map((n) => [n.pas, n.duree])).toEqual([
       [26, 4],
@@ -85,12 +89,15 @@ describe('motif de mélodie', () => {
   });
 
   it('son de la mélodie et « Effacer la mélodie »', () => {
+    // Format /3 : le son est l'instrument « ocka-<son>@1 » de la piste mélodie (toutes les sections).
     let m = choisirSon(exempleMorceau(), 'intro', 'lead');
-    expect(motifMelodie(m, 'intro')!.son).toBe('lead');
+    expect(sonMelodie(m)).toBe('lead');
+    expect(m.pistes.find((p) => p.id === 'melodie')).toMatchObject({ instrument: 'ocka-lead@1' });
     expect(choisirSon(m, 'intro', 'lead')).toBe(m);
     m = basculerNote(m, 'intro', 0, 69, 4);
     const vide = effacerMelodie(m, 'intro');
-    expect(motifMelodie(vide, 'intro')).toMatchObject({ son: 'lead', notes: [] });
+    expect(motifMelodie(vide, 'intro')).toMatchObject({ notes: [] });
+    expect(sonMelodie(vide)).toBe('lead');
     expect(effacerMelodie(vide, 'intro')).toBe(vide);
   });
 
@@ -104,9 +111,9 @@ describe('motif de mélodie', () => {
       { pas: 6, duree: 4, midi: 74 },
     ]);
     expect(motifMelodie(m1, 'refrain')!.notes).toEqual([
-      { pas: 0, duree: 4, midi: 69 },
-      { pas: 6, duree: 4, midi: 74 },
-      { pas: 8, duree: 2, midi: 72 },
+      { pas: 0, duree: 4, midi: 69, vel: 1 },
+      { pas: 6, duree: 4, midi: 74, vel: 1 },
+      { pas: 8, duree: 2, midi: 72, vel: 1 },
     ]);
     expect(poserNotes(m1, 'refrain', [])).toBe(m1);
     // sans note gardée, le motif n'est même pas créé
@@ -120,7 +127,7 @@ describe('motif de mélodie', () => {
   });
 
   it('compte les notes hors des 8 lignes affichées', () => {
-    const motif: MotifMelodie = { type: 'melodie', pas: 16, son: 'piano', notes: [{ pas: 0, duree: 1, midi: 60 }, { pas: 1, duree: 1, midi: 84 }] };
+    const motif: MotifNotes = { type: 'notes', pas: 16, notes: [{ pas: 0, duree: 1, midi: 60, vel: 1 }, { pas: 1, duree: 1, midi: 84, vel: 1 }] };
     expect(notesHorsVue(motif, notesGamme({ tonique: 'C', mode: 'majeur' }, 0))).toBe(1);
   });
 });

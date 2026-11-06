@@ -68,6 +68,7 @@ export class LecteurFactice implements Lecteur {
   entendre(): void {}
   entendreNote(): void {}
   readonly latenceSortie = 0;
+  readonly notesMuettes = 0;
   comparer(): void {}
   metronome(actif: boolean): void {
     this.metronomeActif = actif;

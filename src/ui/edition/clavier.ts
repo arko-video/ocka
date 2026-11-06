@@ -3,7 +3,10 @@
 // dans le casque) + ~25 ms (délai du toucher), puis on arrondit à la double-croche la plus proche.
 
 import { dureePas, secondesVersPas } from '../../morceau/temps';
-import type { NoteMelodie } from '../../morceau/types';
+import type { Note } from '../../morceau/types';
+
+/** Note calée au clavier (sans vélocité : 1 quand elle est posée). */
+export type NoteCalee = Omit<Note, 'vel'> & { vel?: number };
 
 /** Délai moyen entre le doigt qui touche l'écran et l'évènement reçu (s). */
 export const DELAI_TOUCHER = 0.025;
@@ -34,11 +37,11 @@ export interface OptionsCalage {
  * tombent hors du motif (au-delà de sa longueur dans la section), les hauteurs impossibles, les doublons.
  * Une frappe juste avant la fin de la boucle compte pour le 1er pas du tour suivant.
  */
-export function calerFrappes(frappes: readonly Frappe[], o: OptionsCalage): NoteMelodie[] {
+export function calerFrappes(frappes: readonly Frappe[], o: OptionsCalage): NoteCalee[] {
   const d = dureePas(o.tempo);
   const tour = o.pasSection * d; // une paire de pas dure toujours 2 d, swing ou pas
   const vues = new Set<string>();
-  const notes: NoteMelodie[] = [];
+  const notes: NoteCalee[] = [];
   if (!(tour > 0) || o.pasMotif <= 0) return notes;
   for (const f of frappes) {
     if (!Number.isInteger(f.midi) || f.midi < 24 || f.midi > 108 || !Number.isFinite(f.heure)) continue;

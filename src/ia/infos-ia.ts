@@ -1,7 +1,8 @@
 // Déclaration de l'IA pour le distributeur (`infos.ia`), mise à jour par OCKA (jamais par l'IA elle-même) :
 // - « Lance-moi un beat » : le morceau est ENTIÈREMENT écrit par l'IA → musique « ia » (et paroles « ia » s'il y en a) ;
 // - « Continue mon idée » (l'IA a écrit des notes dans ton morceau) → musique « aide » ;
-// - « Aide aux paroles » → paroles « aide ».
+// - « Aide aux paroles » → paroles « aide » ;
+// - l'autotune réglé par l'IA (conseil appliqué) → voix « aide ».
 // On ne baisse jamais un niveau déjà déclaré (« ia » reste « ia »). Fonctions pures.
 
 import type { InfosTitre, Morceau, NiveauIa } from '../morceau/types';
@@ -14,14 +15,14 @@ type Usage = boolean | Exclude<NiveauIa, 'aucune'>;
 const relever = (avant: NiveauIa, u: Usage | undefined): NiveauIa => (u ? plusHaut(avant, u === true ? 'aide' : u) : avant);
 
 /** Renvoie le morceau avec `infos.ia` relevé pour ce qui a servi (le même objet si rien ne change). */
-export function marquerIa(m: Morceau, quoi: { musique?: Usage; paroles?: Usage }): Morceau {
+export function marquerIa(m: Morceau, quoi: { musique?: Usage; paroles?: Usage; voix?: Usage }): Morceau {
   const avant = m.infos?.ia ?? { paroles: 'aucune', musique: 'aucune', voix: 'aucune' };
   const ia: NonNullable<InfosTitre['ia']> = {
     paroles: relever(avant.paroles, quoi.paroles),
     musique: relever(avant.musique, quoi.musique),
-    voix: avant.voix,
+    voix: relever(avant.voix, quoi.voix),
   };
-  if (m.infos?.ia && ia.paroles === avant.paroles && ia.musique === avant.musique) return m;
+  if (m.infos?.ia && ia.paroles === avant.paroles && ia.musique === avant.musique && ia.voix === avant.voix) return m;
   return { ...m, infos: { ...m.infos, ia } };
 }
 

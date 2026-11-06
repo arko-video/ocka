@@ -3,22 +3,23 @@
 
 import { autreIdeeBatterie, poserBatterie } from '../../../moteur/api';
 import { nombreIdees, noterIdee, prochaineGraine, remettreIdee, reprendreIdee } from '../../idees';
+import { reglagesKit } from '../../../morceau/styles/index';
 import type { InstrumentBatterie, Morceau, MotifBatterie } from '../../../morceau/types';
 import { T } from '../../../textes-fr';
 import { motifBatterie, motifsBatterie, nomMotif } from '../../edition/batterie';
 import { estPadPerso, instrumentsDuMorceau, sonDuPad } from '../../edition/sons';
 import { afficherToast, annulerAction, instrumentEdite, modifier, motifEdite, panneau, sectionCourante } from '../../etat';
 import { entendre } from '../../lecture';
-import { ouvrirPanneau } from '../../navigation';
-import { IconeDe, IconePlus, IconeRetour } from '../Icones';
+import { ouvrirBeatbox, ouvrirPanneau } from '../../navigation';
+import { IconeDe, IconeMicro, IconePlus, IconeRetour } from '../Icones';
 import { PanneauTonSon } from '../sons/PanneauTonSon';
 import { Pads } from './Pads';
 import { ReglagesBeat } from './ReglagesBeat';
 import { VueEnsemble } from './VueEnsemble';
 
-/** Nom affiché d'un instrument : pour un pad perso, le nom de ton son ; le perc du kit boom bap est un vinyle. */
+/** Nom affiché d'un instrument : pour un pad perso, le nom de ton son ; le perc d'un kit « vinyle » (boom bap) est un vinyle. */
 export function nomInstrument(m: Morceau, i: InstrumentBatterie): string {
-  if (i === 'perc' && m.kit.startsWith('boombap@')) return T.allerVite.vinyle;
+  if (i === 'perc' && reglagesKit(m.kit).vinyle) return T.allerVite.vinyle;
   return (estPadPerso(i) && sonDuPad(m, i)?.nom) || T.instruments[i];
 }
 
@@ -125,6 +126,10 @@ export function VueBatterie({ m }: { m: Morceau }) {
               data-testid="ton-son"
             >
               <IconePlus taille={18} /> {T.tesSons.ajouter}
+            </button>
+            {/* C2 (D) : la bouche joue la batterie. */}
+            <button type="button" class="puce puce-ajout" aria-haspopup="dialog" title={T.beatbox.ouvrirAide} onClick={ouvrirBeatbox} data-testid="beatbox">
+              <IconeMicro taille={18} /> {T.beatbox.ouvrir}
             </button>
           </div>
 

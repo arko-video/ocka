@@ -6,7 +6,8 @@ import { CONSIGNES_BEAT, CONSIGNES_PAROLES, CONSIGNES_SUITE, donnees } from './c
 import { INSTRUMENTS_IA } from './liste-blanche';
 
 export interface Requete {
-  action: 'beat' | 'suite' | 'paroles';
+  /** « autotune » : contrat C2 (A1, ia/autotune.ts). */
+  action: 'beat' | 'suite' | 'paroles' | 'autotune';
   systeme: string;
   message: string;
   /** Tokens maximum de la réponse. */

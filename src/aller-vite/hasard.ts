@@ -3,9 +3,10 @@
 //   - varierMelodie / autreIdeeMelodie : une variation de la mélodie d'une section (toujours dans la gamme) ;
 //   - poserMelodie / poserBatterie : posent un motif dans le morceau (une seule étape d'Annuler côté interface).
 
-import { nouveauMorceau, REGLAGES_STYLE, suitesAccords } from '../morceau/styles';
+import { nouveauMorceau, reecrireNotesDeDepart, REGLAGES_STYLE, suitesAccords } from '../morceau/styles';
 import { demiTonsDegre, hauteurTonique, TONIQUES } from '../morceau/theorie';
-import { STYLES, type Morceau, type Motif, type MotifBatterie, type MotifMelodie, type NoteMelodie, type Style, type Tonique } from '../morceau/types';
+import { avecMotifSection, avecPisteMelodie, idMotifDe, motifNotesDe, pisteMelodie, sectionDe, sonOcka } from '../morceau/acces';
+import { STYLES, type Morceau, type Motif, type MotifBatterie, type MotifNotes, type Note, type SonMelodie, type Style, type Tonique } from '../morceau/types';
 import { hasardGraine, varier } from '../morceau/varier';
 import { ecrireBoucle, sonConseille, TYPES_BOUCLES, type TypeBoucle } from './boucles';
 
@@ -41,18 +42,22 @@ function idLibre(m: Morceau, base: string): string {
   for (let k = 2; ; k++) if (!Object.hasOwn(m.motifs, `${base}-${k}`)) return `${base}-${k}`;
 }
 
-/** Pose une mélodie sur une section (remplace son motif de mélodie, ou en crée un). Renvoie le même morceau si rien ne change. */
-export function poserMelodie(m: Morceau, idSection: string, motif: MotifMelodie): Morceau {
-  const s = m.sections.find((x) => x.id === idSection);
+/**
+ * Pose une mélodie sur une section, sur la piste de la mélodie (remplace son motif, ou en crée un). `son` : son de
+ * la boucle (instrument de la piste). Renvoie le même morceau si rien ne change.
+ */
+export function poserMelodie(m: Morceau, idSection: string, motif: MotifNotes, son?: SonMelodie): Morceau {
+  const s = sectionDe(m, idSection);
   if (!s) return m;
-  const actuel = s.motifs.melodie;
-  if (actuel && m.motifs[actuel]?.type === 'melodie') {
-    if (JSON.stringify(m.motifs[actuel]) === JSON.stringify(motif)) return m;
-    return avecMotif(m, actuel, structuredClone(motif));
+  const { m: m1, id: piste } = avecPisteMelodie(m, son);
+  const idActuel = idMotifDe(s, piste);
+  const actuel = motifNotesDe(m1, s, piste);
+  if (idActuel && actuel) {
+    if (JSON.stringify(actuel) === JSON.stringify(motif)) return m1;
+    return avecMotif(m1, idActuel, structuredClone(motif));
   }
-  const id = idLibre(m, `mel-${idSection}`.slice(0, 40));
-  const avec = avecMotif(m, id, structuredClone(motif));
-  return { ...avec, sections: m.sections.map((x) => (x.id === idSection ? { ...x, motifs: { ...x.motifs, melodie: id } } : x)) };
+  const id = idLibre(m1, `mel-${idSection}`.slice(0, 40));
+  return avecMotifSection(avecMotif(m1, id, structuredClone(motif)), idSection, piste, id);
 }
 
 /** Remplace un motif de batterie existant. */
@@ -82,10 +87,10 @@ function marche(gamme: Set<number>, midi: number, pas: number): number {
  * Variation d'une mélodie : quelques notes montent ou descendent d'une note de la gamme, changent d'octave,
  * se coupent en deux ou disparaissent. Le rythme général et la gamme sont gardés. Même graine → même résultat.
  */
-export function varierMelodie(motif: MotifMelodie, graine: number, m: Morceau): MotifMelodie {
+export function varierMelodie(motif: MotifNotes, graine: number, m: Morceau): MotifNotes {
   const h = hasardGraine(graine * 40503 + 7);
   const gamme = classesGamme(m);
-  const sortie: NoteMelodie[] = [];
+  const sortie: Note[] = [];
   for (const n of motif.notes) {
     const r = h();
     if (r < 0.1 && motif.notes.length > 3) continue; // retirée
@@ -106,21 +111,21 @@ export function varierMelodie(motif: MotifMelodie, graine: number, m: Morceau): 
 }
 
 /** Une boucle tirée au hasard pour une section (type et variante choisis par la graine). */
-export function boucleAuHasard(m: Morceau, idSection: string, graine: number, son?: MotifMelodie['son']): { type: TypeBoucle; motif: MotifMelodie } {
+export function boucleAuHasard(m: Morceau, idSection: string, graine: number, son?: SonMelodie): { type: TypeBoucle; motif: MotifNotes; son: SonMelodie } {
   const h = hasardGraine(graine * 2246822519 + 3);
   const type = TYPES_BOUCLES[Math.floor(h() * TYPES_BOUCLES.length)]!;
-  return { type, motif: ecrireBoucle(m, type, son ?? sonConseille(m.style, type), idSection, graine) };
+  return { type, motif: ecrireBoucle(m, type, idSection, graine), son: son ?? sonConseille(m.style, type) };
 }
 
 /**
  * « Une autre idée » dans Mélodie : une variation de la mélodie de la section, ou, si elle est vide,
  * une boucle tirée au hasard (au son déjà choisi s'il y en a un).
  */
-export function autreIdeeMelodie(m: Morceau, idSection: string, graine: number): MotifMelodie {
-  const id = m.sections.find((x) => x.id === idSection)?.motifs.melodie;
-  const actuel = id ? m.motifs[id] : undefined;
-  if (actuel?.type === 'melodie' && actuel.notes.length > 0) return varierMelodie(actuel, graine, m);
-  return boucleAuHasard(m, idSection, graine, actuel?.type === 'melodie' ? actuel.son : undefined).motif;
+export function autreIdeeMelodie(m: Morceau, idSection: string, graine: number): MotifNotes {
+  const p = pisteMelodie(m);
+  const actuel = p ? motifNotesDe(m, idSection, p.id) : null;
+  if (actuel && actuel.notes.length > 0) return varierMelodie(actuel, graine, m);
+  return boucleAuHasard(m, idSection, graine, (p && sonOcka(p.instrument)) ?? undefined).motif;
 }
 
 /** « Une autre idée » dans Batterie : une variation du motif (règles de varier.ts). */
@@ -143,6 +148,8 @@ export function ideeAuHasard(graine: number, style?: Style, titre?: string): Ide
   const suite = suites[Math.floor(h() * suites.length)]!;
   m = { ...m, tempo, tonalite: { tonique, mode: r.mode } };
   m = avecMotif(m, 'accords', suite.motif);
+  // Les instruments par défaut (guitare, piano, contrebasse…) suivent la nouvelle tonalité et la nouvelle suite.
+  m = reecrireNotesDeDepart(m);
   // Variation de batterie : couplet et refrain (l'intro et le pont gardent leur sobriété).
   for (const id of ['bat-couplet', 'bat-refrain']) {
     const b = m.motifs[id];
@@ -152,11 +159,11 @@ export function ideeAuHasard(graine: number, style?: Style, titre?: string): Ide
   const graineMel = Math.floor(h() * 1e9);
   let boucle: TypeBoucle = 'cloche';
   if (m.motifs['mel-cloche']) {
-    m = avecMotif(m, 'mel-cloche', ecrireBoucle(m, 'cloche', 'cloche', 'refrain', graineMel));
+    m = avecMotif(m, 'mel-cloche', ecrireBoucle(m, 'cloche', 'refrain', graineMel));
   } else {
     const mel = boucleAuHasard(m, 'refrain', graineMel);
     boucle = mel.type;
-    m = poserMelodie(m, 'refrain', mel.motif);
+    m = poserMelodie(m, 'refrain', mel.motif, mel.son);
   }
   return { graine, style: s, tempo, tonique, mode: r.mode, suite: suite.nom, boucle, morceau: m };
 }

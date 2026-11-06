@@ -80,6 +80,24 @@ describe('projet .ocka', () => {
     expect(racine.noms('ocka-prises')).toContain(p.fichier.replace('.f32', '.json'));
   });
 
+  it('SoundFont (C3) : recopiée telle quelle, id neuf, instruments des pistes réécrits', async () => {
+    const m = nouveauMorceau('trap', 'Avec SF2');
+    const sf2 = new Uint8Array([...new TextEncoder().encode('RIFF'), 4, 0, 0, 0, ...new TextEncoder().encode('sfbk'), 1, 2, 3, 4]);
+    racine.poser('ocka-sf2', 'sf2-vieille.sf2', sf2);
+    m.soundfonts = [{ id: 'vieille', nom: 'Ma SF2', fichier: 'sf2-vieille.sf2', taille: sf2.length, sha256: 'a'.repeat(64) }];
+    m.pistes = [...m.pistes, { id: 'gm', genre: 'instrument', nom: 'GM', instrument: 'sf2-vieille-0-24@1', volume: 0.8, pan: 0, muet: false, solo: false }];
+    const id = await sauverMorceau(m);
+    const f = await exporterProjet(id);
+    const z = await lireZip(f, REGLES_MORCEAU);
+    expect(z.entrees.map((e) => e.nom)).toContain('soundfonts/sf2-vieille.sf2');
+    const m2 = (await ouvrirMorceau((await importerProjet(f)).id))!;
+    const s = m2.soundfonts![0]!;
+    expect(s.id).not.toBe('vieille');
+    expect(s.fichier).toBe(`sf2-${s.id}.sf2`);
+    expect(m2.pistes.find((p) => p.id === 'gm')).toMatchObject({ instrument: `sf2-${s.id}-0-24@1` });
+    expect(contenu('ocka-sf2', s.fichier)).toEqual(sf2);
+  });
+
   it('tout ou rien : disque plein pendant la copie → aucun morceau, aucun fichier neuf', async () => {
     const { id } = await preparer();
     const f = await exporterProjet(id);

@@ -1,0 +1,182 @@
+/* Piano roll (U1) : « Complet » — règle, clavier de 32 px, grille, notes, poignée, pas joué. */
+
+.pr-complet {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.pr-regle {
+  flex-shrink: 0;
+  display: flex;
+  height: 20px;
+  font-size: 11px;
+  color: var(--texte-doux);
+}
+.pr-regle-coin {
+  flex-shrink: 0;
+  width: 32px;
+}
+.pr-regle-bande {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.pr-marque {
+  position: absolute;
+  bottom: 0;
+  height: 6px;
+  border-left: 1px solid var(--pr-temps);
+}
+.pr-marque[data-mesure='1'] {
+  height: 20px;
+  padding-left: 3px;
+  border-left-color: var(--pr-mesure);
+  line-height: 14px;
+}
+.pr-milieu {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+.pr-clavier {
+  flex-shrink: 0;
+  width: 32px;
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+  border-right: 1px solid var(--bord-fort);
+  touch-action: none;
+  user-select: none;
+}
+.pr-touche {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--fond);
+  background: #d9d3e6;
+  cursor: pointer;
+}
+.pr-touche[data-noire='1'] {
+  background: #2a2338;
+}
+.pr-touche[data-couleur='gamme'] {
+  background: #c9b2f2;
+}
+.pr-touche[data-couleur='gamme'][data-noire='1'] {
+  background: #6c4fa0;
+}
+.pr-touche[data-couleur='tonique'] {
+  background: var(--magenta);
+}
+.pr-touche-nom {
+  width: 100%;
+  font-size: 9px;
+  font-weight: 700;
+  text-align: center;
+  color: #1a1524;
+  letter-spacing: -0.02em;
+}
+.pr-touche[data-noire='1'] .pr-touche-nom,
+.pr-touche[data-couleur='tonique'] .pr-touche-nom {
+  color: #fff;
+}
+.pr-grille {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--fond-creux);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: crosshair;
+}
+.pr-rangee {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid rgba(244, 242, 248, 0.05);
+}
+.pr-rangee[data-couleur='hors'] {
+  background: rgba(0, 0, 0, 0.28);
+}
+.pr-rangee[data-couleur='tonique'] {
+  background: rgba(236, 72, 153, 0.08);
+}
+.pr-rangee[data-do='1'] {
+  border-bottom-color: rgba(244, 242, 248, 0.16);
+}
+.pr-traits {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--pr-mesure) 1px, transparent 1px),
+    linear-gradient(to right, var(--pr-temps) 1px, transparent 1px),
+    linear-gradient(to right, var(--pr-pas) 1px, transparent 1px);
+}
+.pr-hors-motif {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: repeating-linear-gradient(135deg, rgba(14, 11, 20, 0.85) 0 8px, rgba(14, 11, 20, 0.7) 8px 16px);
+  pointer-events: none;
+}
+.pr-note {
+  position: absolute;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #a855f7, #c084fc);
+  opacity: calc(0.55 + 0.45 * var(--vel, 1));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  cursor: grab;
+}
+.pr-fantome {
+  position: absolute;
+  border-radius: 5px;
+  background: rgba(148, 163, 184, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.5);
+  pointer-events: none;
+}
+.pr-note[data-hors='1'] {
+  background: repeating-linear-gradient(135deg, #a855f7 0 4px, #7e3bd0 4px 8px);
+}
+.pr-note[data-choisie='1'] {
+  background: var(--degrade);
+  opacity: 1;
+  box-shadow:
+    0 0 0 2px #fff,
+    0 4px 12px rgba(236, 72, 153, 0.5);
+  z-index: 2;
+}
+.pr-poignee {
+  position: absolute;
+  z-index: 3;
+  width: 28px;
+  height: 24px;
+  border-radius: 0 0 8px 8px;
+  background: #fff;
+  cursor: ew-resize;
+}
+.pr-poignee::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 8px;
+  height: 8px;
+  border-left: 2px solid var(--violet);
+  border-right: 2px solid var(--violet);
+}
+.pr-tete {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  background: rgba(236, 72, 153, 0.25);
+  border-left: 2px solid var(--magenta);
+  pointer-events: none;
+}

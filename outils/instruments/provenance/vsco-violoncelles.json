@@ -1,0 +1,107 @@
+{
+ "id": "vsco-violoncelles",
+ "source": {
+  "type": "vsco",
+  "sfz": "CelloEnsSusVib"
+ },
+ "fichiers": [
+  {
+   "fichier": "z037-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_C1_v3_1.wav",
+   "sha256": "19195ab85ab71626bd11e7100febdaeeba1c237ff5887b934fd0ffd8dfad82cb",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z040-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_E1_v3_1.wav",
+   "sha256": "ee190b95be4f2416b9f41d248d255a4d7067b722f9b21482b30bc9872a9bb0d1",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z043-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_G1_v3_1.wav",
+   "sha256": "e4c61d4ab855ec20ddb69ff608a1c066ff8a779ddd08d1dfe1d534d3a4563ad0",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z046-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_B1_v3_1.wav",
+   "sha256": "8331a0e13f41243efab111f9b5e9185524c27ee48631269acecafc954ab7eaa8",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z049-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_D2_v3_1.wav",
+   "sha256": "fc946615cd6550570c8f05d61c0d59b9079bf9daba8bf25be7943487fea5a7ae",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z052-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_F2_v3_1.wav",
+   "sha256": "d965197faf2e6ab8675f1d65505e5ba934a5ab769412d314bad94133e18f24d0",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z055-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_F2_v3_1.wav",
+   "sha256": "d965197faf2e6ab8675f1d65505e5ba934a5ab769412d314bad94133e18f24d0",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z058-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_A2_v3_1.wav",
+   "sha256": "b7f226f19b9616abe5fa4a27ef50116667e19eb0127f30eacfa6d1a83e9149f0",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z061-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_C3_v3_1.wav",
+   "sha256": "51e884d54eea3bf4ba7ee35289a09f15ddb6a52cd849248d01bf18477ccbd07b",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z064-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_E3_v3_1.wav",
+   "sha256": "24a7ffdc23087026c4ef2d421441253c71490df9cf0757e93ffb14b4e61481ef",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_G3_v3_1.wav",
+   "sha256": "17df597c259a849870aa25e9fbfa6093371851f83ba7b9deb9cb9e1ec11463a7",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z070-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_B3_v3_1.wav",
+   "sha256": "1c8b571516ac503df871bbea74756dfc3813b4bc10a76921d231afb0175cdbf1",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_D4_v3_1.wav",
+   "sha256": "2ea7f580738dbcf143b9c9f72703071aa7a8f6bfa33cdd2c2e5da961df1805bb",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z076-v1.ogg",
+   "source": "Strings/Cello Section/susvib/susvib_F4_v3_1.wav",
+   "sha256": "24ea4a0f892cb60c4a52d6a5b1ef8281e4e9a9f78b5f938e078da7cbbfd5ba19",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

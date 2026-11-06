@@ -2,15 +2,33 @@
 // L'interface n'importe QUE depuis ce fichier et src/morceau. Erreurs pour l'utilisateur : ErreurOcka
 // (message déjà en français, `code` stable). Les développeurs implémentent ces fonctions sans changer leurs signatures.
 // Vague A : les nouvelles fonctions sont dans api-sorties.ts (A1), api-fichiers.ts (A2) et api-effets.ts (M2),
-// ré-exportées ici. Leur type y est FIGÉ : une implémentation qui s'en écarte ne compile plus.
+// ré-exportées ici. Contrat C0 (v2) : api-instruments.ts (BQ), api-effets.ts complété (M2), Lecteur.entendreNote
+// sur une piste (M1) ; édition pure des notes, pistes, mixage, automation : src/ui/edition/api-edition.ts (U1, U2). Leur type y est FIGÉ : une implémentation qui s'en écarte ne compile plus.
 // Entre modules du moteur, importer directement le fichier du propriétaire (pas ce fichier) : moins de boucles.
 
-import type { Morceau, Prise, SonMelodie, Style } from '../morceau/types';
+import type { IdPiste, Morceau, Prise, Style } from '../morceau/types';
+import type { OptionsNote } from './types-moteur';
+
+export type { OptionsNote, PcmSon } from './types-moteur';
 
 export { ErreurOcka, bientot, type CodeErreur } from './erreur';
 export * from './api-sorties';
 export * from './api-fichiers';
 export * from './api-effets';
+export * from './api-instruments';
+// Contrat C2 : autotune avancé (A1 ; interface A2) et Ta voix → instrument / beatbox (D).
+export * from '../autotune/api-autotune';
+export * from '../dubler/api-dubler';
+// Contrat C3 : piano roll malin et MIDI (P : l'édition des notes est dans ui/edition/api-outils-notes.ts), sons
+// avancés et SoundFonts (S), synthés (L), performance, looper et confort (R), voix avancée, référence et gel (V).
+export * from '../midi/api-midi';
+export * from '../sons/api-sons-avances';
+export * from '../sf2/api-sf2';
+export * from './api-synthes';
+export * from './api-performance';
+export * from '../enregistrement/api-voix-avancee';
+/** C3 : un gel calculé en tâche de fond est prêt (l'interface recharge le lecteur). */
+export { surGels } from './gels';
 
 /* ------------------------------------------------------------ morceau */
 
@@ -38,10 +56,13 @@ export interface Lecteur {
    */
   entendre(instrument: string): void;
   /**
-   * VAGUE A (M1) — Joue une note de mélodie seule, tout de suite (pads de la gamme, clavier), sur la piste mélodie.
-   * `midi` : 24 à 108. Ne lève pas si la note n'est pas encore prête (elle est sautée). Bouchon : ErreurOcka « pas_encore ».
+   * C0 (v2, M1) — Joue une note seule, tout de suite (pads, clavier, piano roll), sur une PISTE INSTRUMENT, avec son
+   * instrument (ou `options.instrument` : écouter un instrument avant de le choisir). `midi` : BORNES_NOTE.
+   * Ne lève jamais : une note pas prête est sautée (et préparée) ; un instrument pas encore jouable est muet.
    */
-  entendreNote(son: SonMelodie, midi: number): void;
+  entendreNote(piste: IdPiste, midi: number, options?: OptionsNote): void;
+  /** C3 — Relâche une note jouée avec `{ tenue: true }` (note-off du clavier MIDI). Rien si elle n'est pas tenue. */
+  relacherNote?(piste: IdPiste, midi: number): void;
   /**
    * VAGUE A (M1) — Latence de sortie du contexte (s) : `outputLatency` (ou `baseLatency`). L'enregistrement au clavier
    * retire latenceSortie + ~25 ms (délai du toucher) avant de caler à la double-croche. Bouchon : 0.
@@ -54,6 +75,11 @@ export interface Lecteur {
    */
   comparer(sans: boolean, compensationDb?: number): void;
   metronome(actif: boolean): void;
+  /**
+   * C0 (v2, M1) — Notes muettes depuis le dernier `charger` : instrument que ce moteur ne sait pas (encore) jouer, ou
+   * pas encore téléchargé. L'interface propose « Télécharger » quand ce nombre n'est pas nul.
+   */
+  readonly notesMuettes: number;
   readonly temps: number;
   readonly duree: number;
   readonly enLecture: boolean;
@@ -146,6 +172,8 @@ export { ajustementLatence } from '../enregistrement/latence';
 export { avertissementCalibrage } from '../enregistrement/calibrage';
 export type { OptionsCalibrage } from '../enregistrement/calibrage';
 export { surChangementAppareil } from '../enregistrement/appareil';
+/** Vrai si le micro, la sortie ou la latence de sortie trahissent un casque Bluetooth (Chanter, Beatbox : D). */
+export { bluetoothDetecte } from '../enregistrement/appareil';
 export { lirePrise } from '../enregistrement/prises';
 export { placerPrise } from '../enregistrement/alignement';
 
@@ -224,6 +252,10 @@ export {
   type Proposition,
   appliquerParoles,
   marquerIa,
+  // Autotune avec l'IA (A1) : la liste des notes seulement, jamais la voix.
+  lireAutotune,
+  MAX_NOTES_IA,
+  requeteAutotune,
 } from '../ia';
 
 /* ------------------------------------------------------------ sons importés (M1) */

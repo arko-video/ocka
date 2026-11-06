@@ -3,7 +3,9 @@ import { describe, expect, it } from 'vitest';
 import { normaliserMorceau } from '../morceau/normaliser';
 import { nouveauMorceau, REGLAGES_STYLE, suitesAccords } from '../morceau/styles';
 import { demiTonsDegre, hauteurTonique, TONIQUES } from '../morceau/theorie';
-import { STYLES, type Morceau, type MotifMelodie } from '../morceau/types';
+import { idMotifDe, motifNotesDe } from '../morceau/acces';
+import { STYLES, type Morceau, type MotifNotes } from '../morceau/types';
+import { definitionStyle } from '../morceau/styles/index';
 import { boucles, TYPES_BOUCLES } from './boucles';
 import { autreIdeeMelodie, ideeAuHasard, poserMelodie, varierMelodie } from './hasard';
 
@@ -11,7 +13,7 @@ const gamme = (m: Morceau) => {
   const t = hauteurTonique(m.tonalite.tonique);
   return new Set(Array.from({ length: 7 }, (_, d) => (t + demiTonsDegre(m.tonalite.mode, d)) % 12));
 };
-const horsGamme = (m: Morceau, motif: MotifMelodie) => motif.notes.filter((n) => !gamme(m).has(n.midi % 12));
+const horsGamme = (m: Morceau, motif: MotifNotes) => motif.notes.filter((n) => !gamme(m).has(n.midi % 12));
 
 describe('Boucles OCKA', () => {
   for (const s of STYLES) {
@@ -35,14 +37,14 @@ describe('Boucles OCKA', () => {
   it('une boucle posée donne un morceau valide (normaliseur sans problème), en une seule opération', () => {
     const m = nouveauMorceau('pop');
     for (const b of boucles(m, 'couplet')) {
-      const avec = poserMelodie(m, 'couplet', b.motif);
+      const avec = poserMelodie(m, 'couplet', b.motif, b.son);
       expect(avec).not.toBe(m);
-      expect(m.sections.find((x) => x.id === 'couplet')!.motifs.melodie).toBeUndefined(); // l'original ne bouge pas
+      expect(idMotifDe(m.sections.find((x) => x.id === 'couplet'), 'melodie')).toBeUndefined(); // l'original ne bouge pas
       const r = normaliserMorceau(avec);
       expect(r.problemes).toEqual([]);
-      const id = avec.sections.find((x) => x.id === 'couplet')!.motifs.melodie!;
-      expect(r.morceau.motifs[id]).toEqual(b.motif);
-      expect(poserMelodie(avec, 'couplet', b.motif)).toBe(avec); // même boucle : rien ne change
+      expect(motifNotesDe(r.morceau, 'couplet', 'melodie')).toEqual(b.motif);
+      expect(r.morceau.pistes.find((p) => p.id === 'melodie')).toMatchObject({ instrument: `ocka-${b.son}@1` });
+      expect(poserMelodie(avec, 'couplet', b.motif, b.son)).toBe(avec); // même boucle : rien ne change
     }
   });
   it('mêmes accords → mêmes boucles ; les boucles suivent les accords de la section', () => {
@@ -72,19 +74,40 @@ describe('Idée au hasard', () => {
       expect(i.morceau.tonalite).toEqual({ tonique: i.tonique, mode: REGLAGES_STYLE[i.style].mode });
       const r = normaliserMorceau(i.morceau);
       expect(r.problemes, `graine ${g}`).toEqual([]);
-      const mels = Object.values(i.morceau.motifs).filter((x): x is MotifMelodie => x.type === 'melodie');
+      // La piste mélodie seulement : les autres instruments des styles C2 ont des percussions (notes GM) et des
+      // notes chromatiques voulues (approches de la contrebasse, accords empruntés) ; voir le test suivant.
+      const mels = i.morceau.sections.map((x) => motifNotesDe(i.morceau, x, 'melodie')).filter((x): x is MotifNotes => !!x);
       expect(mels.length).toBeGreaterThan(0);
       for (const mel of mels) expect(horsGamme(i.morceau, mel)).toEqual([]);
     }
-    expect(vus.size).toBe(6);
+    // 35 styles (C2) : 60 graines en tirent beaucoup (6 au moins, comme avant la vague C2).
+    expect(vus.size).toBeGreaterThan(6);
+  });
+  it('les instruments par défaut suivent la tonalité et la suite tirées (reecrireNotesDeDepart)', () => {
+    let changes = 0;
+    for (const s of STYLES) {
+      const neuf = nouveauMorceau(s);
+      const i = ideeAuHasard(3, s);
+      for (const inst of definitionStyle(s).instrumentsParDefaut) {
+        // La mélodie est réécrite ensuite (boucle au hasard ou cloche du phonk) : hors de ce test.
+        if (!inst.notes || inst.id === 'melodie') continue;
+        const { ecrire, idMotif, depuis = 'refrain' } = inst.notes;
+        const apres = i.morceau.motifs[idMotif] as MotifNotes;
+        // Exactement ce que le style écrit pour la tonalité et les accords de l'idée ; une Boucle OCKA : dans la gamme.
+        if (typeof ecrire === 'function') expect(apres, `${s} : ${inst.id}`).toEqual(ecrire(i.morceau, depuis));
+        else expect(horsGamme(i.morceau, apres), `${s} : ${inst.id}`).toEqual([]);
+        if (JSON.stringify(apres) !== JSON.stringify(neuf.motifs[idMotif])) changes++;
+      }
+    }
+    // Avant la correction, aucun instrument ne changeait (ils jouaient dans la tonalité du morceau neuf).
+    expect(changes).toBeGreaterThan(30);
   });
   it('style imposé : il est gardé', () => {
     for (const s of STYLES) expect(ideeAuHasard(9, s).style).toBe(s);
   });
   it('« Une autre idée » (mélodie) : reproductible, dans la gamme, et autre chose que l’originale', () => {
     const m = ideeAuHasard(5, 'lofi').morceau;
-    const id = m.sections.find((s) => s.id === 'refrain')!.motifs.melodie!;
-    const motif = m.motifs[id] as MotifMelodie;
+    const motif = motifNotesDe(m, 'refrain', 'melodie')!;
     const a = varierMelodie(motif, 77, m);
     expect(a).toEqual(varierMelodie(motif, 77, m));
     expect(horsGamme(m, a)).toEqual([]);

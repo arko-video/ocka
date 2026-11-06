@@ -1,0 +1,114 @@
+{
+ "id": "vcsl-saxophone",
+ "source": {
+  "type": "vcsl",
+  "sfz": "Aerophones/Reed Aerophones/Tenor Saxophone - Vibrato"
+ },
+ "fichiers": [
+  {
+   "fichier": "z045-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_A#1_var2.wav",
+   "sha256": "747909b44c5759c447f6741b842ffacffbcfa92579c2b625786f4e67c9323c21",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z048-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_C2_var4.wav",
+   "sha256": "7dfc6ddb457baf07c1973348ede1bcfe2c580758b60667109d0850b3e5336891",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z051-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_D2_var2.wav",
+   "sha256": "4d3c3a9c9bfb9d7630d2edcccb65a78df52c1c8542a1079717a71e6b45c97ee6",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_F#2_var3.wav",
+   "sha256": "1c7ffe33a2fd8007340464c39ba4fe586c90321e7d79d0d0714ac2d6aad7b3c1",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_A#2_var4.wav",
+   "sha256": "ad68f912ec92fb83e297e4ce1066a6c41189dfa3f1bd099db930330693e2accc",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_C3_var1.wav",
+   "sha256": "20edadeef91e2c480c8a924bbd4b6c38d41f547f3e0e95a2f0f5a982bf216185",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_D3_var1.wav",
+   "sha256": "4375f5c5041751d8b8b4e977476785e58e09035182bca2462160258990e46abe",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z064-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_E3_var3.wav",
+   "sha256": "0b8964637191e7f51b1501bed1e1d461cc986547fc2d6227ac41910be59d4998",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_F#3_var2.wav",
+   "sha256": "5c7cfda8d55eacbfa206b6d66b98c682dc2f48891c0848078544a47f407994cc",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z070-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_A#3_var3.wav",
+   "sha256": "479e0f48e92c78c002f24fefe05d21bcc6c60b27363549ff9b108c91eb8ee704",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_C4_var2.wav",
+   "sha256": "3af58ad97bfaddf59a0303f658a36dfd74e829ed3360ed24d96dc7c521b53e7f",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z076-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_E4_var4.wav",
+   "sha256": "d7a308a74ed3dc30b9baf4c50fe207eb409dda43548fd5081f4f5c5c61ca0e5b",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z079-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_G4_var3.wav",
+   "sha256": "aa45c3cbb1a375fc52005c9837c958f3fd610e7f755eabf4e7f60e2491f1500e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z082-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_A#4_var2.wav",
+   "sha256": "7d8103f766fcc3979e0fbb62d248e2ee2d6d7890ce3daf22518e06a11a9728a2",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z085-v1.ogg",
+   "source": "Aerophones/Reed Aerophones/Tenor Saxophone/Vibrato/BrettTenor_Vib_Main_C5_var2.wav",
+   "sha256": "0ac3e91d353722129473be15132e996bd109709cfbd7cce81dd2f6d4fbbda430",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

@@ -1,0 +1,221 @@
+{
+ "id": "vsco-trombone@1",
+ "nom": "Trombone",
+ "famille": "Vents",
+ "licence": {
+  "nom": "CC0-1.0",
+  "url": "https://github.com/sgossner/VSCO-2-CE",
+  "auteur": "Versilian Studios LLC (Sam Gossner) et Ivy Audio (Simon Dalzell)",
+  "sha256": [
+   "289630ed8e777ff4f2542b010654e2aad372b8f4addb4635ef21ee1536eec615",
+   "675abd9954c0bb01bd6049cb7f5dcf908f627c673668ac9393226a09ba0fad2a",
+   "6f27199604f9f14254ae2fca7368b08cb17039f7401402fa95b9d9e2b7943420",
+   "7993b96b4a0643f413332cd1321ce992c31a883343a992511d343b9b6ff979b6",
+   "9385dcf9b1a1b32db2d29b696d051fe8fe00aac9bfbd81270ff3570c57970d39",
+   "aad670ae4e1c97487c000c7e8b47f90486d1b835e6244de4ddad18e06b70465b",
+   "b957256f8057fef478fb8d713dd284ad9a1aa57f720ef9f18a4e0d1d59bbe65e",
+   "ba3760e74edf6c25f96a0deb526bf87eba2bf74be94ba76bf31d0d6592efe687",
+   "c8192572a34ba0c410cb77a33fe200a5850b334e1763b2ebc91ab5292978a0d4",
+   "dd2e358d7994ae2b3fce9ccdc902f53f22393294d6b0408821a2a916f3c42d3a"
+  ]
+ },
+ "canaux": 1,
+ "gainDb": 0.0,
+ "relache": 0.3,
+ "budgetS": 47.609,
+ "zones": [
+  {
+   "fichier": "z034-v1.ogg",
+   "racine": 34,
+   "cents": -2.2,
+   "bas": 34,
+   "haut": 35,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -2.7,
+   "debut": 0,
+   "fin": 171279,
+   "boucle": {
+    "debut": 20976,
+    "fin": 167183
+   }
+  },
+  {
+   "fichier": "z037-v1.ogg",
+   "racine": 37,
+   "cents": -0.1,
+   "bas": 36,
+   "haut": 38,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -5.1,
+   "debut": 0,
+   "fin": 193546,
+   "boucle": {
+    "debut": 24528,
+    "fin": 189450
+   }
+  },
+  {
+   "fichier": "z040-v1.ogg",
+   "racine": 40,
+   "cents": -0.2,
+   "bas": 39,
+   "haut": 41,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.2,
+   "debut": 0,
+   "fin": 193044,
+   "boucle": {
+    "debut": 19200,
+    "fin": 188948
+   }
+  },
+  {
+   "fichier": "z043-v1.ogg",
+   "racine": 43,
+   "cents": -0.7,
+   "bas": 42,
+   "haut": 44,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.9,
+   "debut": 0,
+   "fin": 192288,
+   "boucle": {
+    "debut": 19200,
+    "fin": 188192
+   }
+  },
+  {
+   "fichier": "z046-v1.ogg",
+   "racine": 46,
+   "cents": 0.1,
+   "bas": 45,
+   "haut": 47,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -3.4,
+   "debut": 0,
+   "fin": 192559,
+   "boucle": {
+    "debut": 19200,
+    "fin": 188463
+   }
+  },
+  {
+   "fichier": "z049-v1.ogg",
+   "racine": 49,
+   "cents": 0.3,
+   "bas": 48,
+   "haut": 50,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.2,
+   "debut": 0,
+   "fin": 193003,
+   "boucle": {
+    "debut": 19200,
+    "fin": 188907
+   }
+  },
+  {
+   "fichier": "z052-v1.ogg",
+   "racine": 52,
+   "cents": 0.1,
+   "bas": 51,
+   "haut": 53,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.9,
+   "debut": 0,
+   "fin": 190178,
+   "boucle": {
+    "debut": 19200,
+    "fin": 186082
+   }
+  },
+  {
+   "fichier": "z055-v1.ogg",
+   "racine": 55,
+   "cents": 0.0,
+   "bas": 54,
+   "haut": 56,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.1,
+   "debut": 0,
+   "fin": 190074,
+   "boucle": {
+    "debut": 19200,
+    "fin": 185978
+   }
+  },
+  {
+   "fichier": "z058-v1.ogg",
+   "racine": 58,
+   "cents": 0.1,
+   "bas": 57,
+   "haut": 58,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.6,
+   "debut": 0,
+   "fin": 192784,
+   "boucle": {
+    "debut": 19200,
+    "fin": 188688
+   }
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "racine": 60,
+   "cents": 0.3,
+   "bas": 59,
+   "haut": 61,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -6.7,
+   "debut": 0,
+   "fin": 190439,
+   "boucle": {
+    "debut": 19200,
+    "fin": 186343
+   }
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "racine": 63,
+   "cents": 0.2,
+   "bas": 62,
+   "haut": 64,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -12.0,
+   "debut": 0,
+   "fin": 191766,
+   "boucle": {
+    "debut": 19200,
+    "fin": 187670
+   }
+  },
+  {
+   "fichier": "z066-v1.ogg",
+   "racine": 66,
+   "cents": 0.0,
+   "bas": 65,
+   "haut": 67,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.4,
+   "debut": 0,
+   "fin": 194287,
+   "boucle": {
+    "debut": 19200,
+    "fin": 190191
+   }
+  }
+ ],
+ "mono": true
+}

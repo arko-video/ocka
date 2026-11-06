@@ -1,37 +1,34 @@
 // Autotune, côté page : qui corrige quoi, où sont les fichiers, et le PCM que le graphe doit jouer.
-// - Réglage : Piste.effets.autotune de la piste voix (0 à 1, au dixième ; 0 ou absent = pas d'autotune), gamme =
-//   Morceau.tonalite. Calcul dans un Worker (autotune.worker.ts), un par prise, fermé après.
-// - Fichiers dans OPFS ocka-prises : « auto-<clé de la prise sans .f32>-<force>-<tonalité>.f32 » (PCM corrigé, même
-//   format et même longueur que la prise) puis sa description « …json » { voisees, applique }, écrite EN DERNIER
-//   (elle dit que le travail est fini). Repli (moins de 60 % de trames voisées) : la description seule.
+// - Réglage simple : Piste.effets.autotune de la piste voix (0 à 1, au dixième ; 0 ou absent = pas d'autotune),
+//   gamme = Morceau.tonalite. Calcul dans un Worker (autotune.worker.ts), un par prise, fermé après.
+// - Réglage avancé (C2) : Prise.autotune, qui l'emporte pour SA prise dès qu'il existe (avance.ts, rendreAutotune).
+// - Fichiers dans OPFS ocka-prises : simple « auto-<clé de la prise sans .f32>-<force>-<tonalité>.f32 », avancé
+//   « auto-<clé de la prise sans .f32>-av<empreinte des réglages>.f32 » (même format et même longueur que la prise),
+//   puis leur description « …json » { voisees, applique }, écrite EN DERNIER (etats.ts). Repli : la description seule.
 //   Le ramasse-miettes (stockage/menage.ts) garde ceux qu'un morceau sauvé utilise (fichiersAutotune) et efface les autres.
 // - Écoute : le PCM corrigé s'il est prêt, sinon la prise brute (et le calcul part) ; l'export, lui, attend.
 
-import { ecrireTexte, lireFichier, nomDescription, ouvrirEcriture } from '../enregistrement/fichiers-opfs';
+import { ecrireTexte, nomDescription, ouvrirEcriture } from '../enregistrement/fichiers-opfs';
+import { crochetPrise } from '../enregistrement/crochets-prise';
 import { lirePrise } from '../enregistrement/prises';
 import type { Morceau, Prise } from '../morceau/types';
+import { pcmAvance, rendrePlusTard } from './avance';
 import { corrigerVoix, type ResultatAutotune } from './correction';
+import { etatAutotune, lireFait, noter, type EtatAutotune, type PcmVoix } from './etats';
 import { nomTonalite } from './gamme';
+import { nomRenduAutotune } from './reglages';
 
-/** PCM d'une prise pour le graphe ; `version` = fichier corrigé joué (absent = la prise brute). */
-export interface PcmVoix {
-  frequence: number;
-  pcm: Float32Array;
-  version?: string;
-}
-
-export type EtatAutotune = { etat: 'calcul' | 'pret' | 'repli' | 'erreur'; voisees: number };
+export { etatAutotune, surAutotune, type EtatAutotune, type PcmVoix } from './etats';
 
 /** Temps (ms) du dernier calcul dans le Worker (QA). */
 export const mesuresAutotune = { dernierMs: 0 };
 
-const etats = new Map<string, EtatAutotune>();
-const abonnes = new Set<(nom: string) => void>();
 const enCours = new Map<string, Promise<PcmVoix | null>>();
 
 /** Force de l'autotune d'un morceau (0 à 1, au dixième ; 0 = éteint). Tolère un morceau brut (ménage). */
 export function forceAutotune(m: Morceau): number {
-  const v = m.pistes?.find((p) => p.id === 'voix')?.effets?.autotune;
+  const p = m.pistes?.find((x) => x.id === 'voix');
+  const v = p && p.genre !== 'instrument' ? p.effets?.autotune : undefined;
   return typeof v === 'number' && Number.isFinite(v) ? Math.round(Math.min(1, Math.max(0, v)) * 10) / 10 : 0;
 }
 
@@ -40,41 +37,20 @@ export function nomAutotune(fichier: string, force: number, tonalite: Morceau['t
   return `auto-${fichier.replace(/\.f32$/, '')}-${force.toFixed(1)}-${nomTonalite(tonalite)}.f32`;
 }
 
-/** Fichiers corrigés qu'un morceau utilise (prises choisies, autotune allumé). */
+/** Fichiers corrigés qu'un morceau utilise (prises choisies : réglage avancé de la prise, sinon le simple). */
 export function fichiersAutotune(m: Morceau): string[] {
   const force = forceAutotune(m);
-  if (force <= 0 || !m.tonalite) return [];
-  return (m.prises ?? []).filter((p) => p?.choisie && p.fichier).map((p) => nomAutotune(p.fichier, force, m.tonalite));
-}
-
-export const etatAutotune = (nom: string): EtatAutotune | undefined => etats.get(nom);
-
-/** Prévient `fn` à chaque changement d'état d'un fichier corrigé ; renvoie de quoi se désabonner. */
-export function surAutotune(fn: (nom: string) => void): () => void {
-  abonnes.add(fn);
-  return () => abonnes.delete(fn);
-}
-
-function noter(nom: string, e: EtatAutotune) {
-  etats.set(nom, e);
-  for (const f of abonnes) f(nom);
-}
-
-/** Le travail déjà fait (description lue), ou null s'il n'existe pas encore. */
-async function lireFait(nom: string, frequence: number): Promise<PcmVoix | 'repli' | null> {
-  const desc = await lireFichier(nomDescription(nom));
-  if (!desc) return null;
-  try {
-    const d = JSON.parse(new TextDecoder().decode(desc)) as { voisees?: number; applique?: boolean };
-    const voisees = Number(d.voisees) || 0;
-    if (!d.applique) return (noter(nom, { etat: 'repli', voisees }), 'repli');
-    const o = await lireFichier(nom);
-    if (!o) return null;
-    noter(nom, { etat: 'pret', voisees });
-    return { frequence, pcm: new Float32Array(o, 0, Math.floor(o.byteLength / 4)), version: nom };
-  } catch {
-    return null;
+  const out: string[] = [];
+  for (const p of m.prises ?? []) {
+    if (!p?.choisie || !p.fichier) continue;
+    try {
+      if (p.autotune) out.push(nomRenduAutotune(p, p.autotune, m.tonalite));
+      else if (force > 0 && m.tonalite) out.push(nomAutotune(p.fichier, force, m.tonalite));
+    } catch {
+      // morceau brut mal formé (ménage) : rien à garder pour cette prise
+    }
   }
+  return out;
 }
 
 /** Corrige dans un Worker (sur le fil principal sans Worker : tests). */
@@ -143,15 +119,22 @@ function plusTard(prise: Prise, force: number, tonalite: Morceau['tonalite']): v
 /**
  * Le PCM qu'un graphe doit jouer pour une prise. `attendre` (export) : attend la correction. Sinon (écoute) : le
  * corrigé s'il est prêt, sinon la prise brute, et la correction part en tâche de fond (surAutotune prévient).
- * `deja` : ce que le lecteur a en cache (gardé s'il est encore le bon).
+ * `deja` : ce que le lecteur a en cache (gardé s'il est encore le bon). Contrat C3 : le résultat passe ensuite par le
+ * crochet des prises (enregistrement/crochets-prise.ts, V), à l'écoute comme à l'export.
  */
 export async function lirePcmVoix(prise: Prise, m: Morceau, attendre: boolean, deja?: PcmVoix): Promise<PcmVoix | null> {
+  const pcm = await lireCorrige(prise, m, attendre, deja);
+  return pcm ? crochetPrise(prise, m, pcm, attendre) : pcm;
+}
+
+async function lireCorrige(prise: Prise, m: Morceau, attendre: boolean, deja?: PcmVoix): Promise<PcmVoix | null> {
+  if (prise.autotune) return pcmAvance(prise, m, attendre, () => Promise.resolve(deja && !deja.version ? deja : lirePrise(prise)), deja);
   const force = forceAutotune(m);
   if (force <= 0) return deja && !deja.version ? deja : lirePrise(prise);
   const nom = nomAutotune(prise.fichier, force, m.tonalite);
   if (deja?.version === nom) return deja;
   if (attendre) return (await preparerAutotune(prise, force, m.tonalite)) ?? (deja && !deja.version ? deja : lirePrise(prise));
-  const etat = etats.get(nom)?.etat;
+  const etat = etatAutotune(nom)?.etat;
   if (etat === 'pret' || etat === undefined) {
     const fait = await lireFait(nom, prise.frequence);
     if (fait && fait !== 'repli') return fait;
@@ -163,8 +146,11 @@ export async function lirePcmVoix(prise: Prise, m: Morceau, attendre: boolean, d
 /** Lance la correction des prises choisies d'un morceau (autotune allumé), sans attendre. */
 export function preparerAutotuneMorceau(m: Morceau): void {
   const force = forceAutotune(m);
-  if (force <= 0) return;
-  for (const p of m.prises) if (p.choisie) plusTard(p, force, m.tonalite);
+  for (const p of m.prises) {
+    if (!p.choisie) continue;
+    if (p.autotune) rendrePlusTard(p, m.tonalite);
+    else if (force > 0) plusTard(p, force, m.tonalite);
+  }
 }
 
 /** État de l'autotune pour les prises choisies d'un morceau : le pire (calcul > erreur > repli > prêt), ou null. */
@@ -172,7 +158,7 @@ export function resumeAutotune(m: Morceau): EtatAutotune | null {
   const ordre = ['calcul', 'erreur', 'repli', 'pret'] as const;
   let pire: EtatAutotune | null = null;
   for (const nom of fichiersAutotune(m)) {
-    const e = etats.get(nom) ?? { etat: 'calcul' as const, voisees: 0 };
+    const e = etatAutotune(nom) ?? { etat: 'calcul' as const, voisees: 0 };
     if (!pire || ordre.indexOf(e.etat) < ordre.indexOf(pire.etat)) pire = e;
   }
   return pire;

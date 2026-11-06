@@ -7,6 +7,7 @@ import { del, entries, get, set, values } from 'idb-keyval';
 import { nouvelId } from '../enregistrement/contexte';
 import { ErreurOcka } from '../moteur/erreur';
 import { dateParDefaut, normaliserSortie } from '../morceau/normaliser-sortie';
+import { DEFINITIONS_STYLES } from '../morceau/styles/index';
 import { REGLE_ID, type Morceau, type Style } from '../morceau/types';
 import { nettoyerPochettes } from '../sortie/pochette';
 import { typeSortie } from '../sortie/regles';
@@ -18,15 +19,10 @@ import { lireReglages } from './reglages';
 const ERREUR_LECTURE = { message: 'Impossible de lire tes sorties.', code: 'stockage' };
 const ERREUR_ECRITURE = { message: 'La sortie n’a pas pu être sauvée.', code: 'stockage' };
 
-/** Genre proposé d'après le style du morceau (valeur des listes des distributeurs). */
-export const GENRE_PAR_STYLE: Record<Style, string> = {
-  trap: 'Hip-Hop/Rap',
-  drill: 'Hip-Hop/Rap',
-  lofi: 'Hip-Hop/Rap',
-  phonk: 'Hip-Hop/Rap',
-  boombap: 'Hip-Hop/Rap',
-  pop: 'Pop',
-};
+/** Genre proposé d'après le style du morceau (valeur des listes des distributeurs ; dans le fichier du style). */
+export const GENRE_PAR_STYLE: Readonly<Record<Style, string>> = Object.fromEntries(
+  Object.values(DEFINITIONS_STYLES).map((d) => [d.id, d.genre]),
+) as Record<Style, string>;
 
 /**
  * Une sortie neuve (pure) : artiste, lien et distributeur repris des réglages, label = artiste,
@@ -40,7 +36,7 @@ export function sortieNeuve(reglages: Reglages, morceau: Morceau | null, idMorce
     titre: morceau?.titre.trim() ?? '',
     artiste,
     dateSortie: dateParDefaut(maintenant),
-    genre: morceau ? GENRE_PAR_STYLE[morceau.style] : 'Hip-Hop/Rap',
+    genre: morceau ? (GENRE_PAR_STYLE[morceau.style] ?? 'Hip-Hop/Rap') : 'Hip-Hop/Rap',
     langue: 'fr',
     titres: morceau && idMorceau ? [idMorceau] : [],
     distributeur: reglages.distributeur ?? 'routenote',

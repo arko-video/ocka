@@ -46,9 +46,9 @@ test('captures des vues de la vague B', async ({ page }) => {
   await page.goBack();
   await page.goBack();
 
-  // Choix du style : 6 styles + Au hasard.
+  // Choix du style : Au hasard, la recherche, puis les 35 styles par familles (vague C2).
   await page.getByTestId('nouveau-morceau').click();
-  await expect(page.locator('.carte-style')).toHaveCount(6);
+  await expect(page.locator('.carte-style')).toHaveCount(35);
   await capturer(page, '04-styles');
   await page.mouse.wheel(0, 1200);
   await capturer(page, '05-styles-bas');

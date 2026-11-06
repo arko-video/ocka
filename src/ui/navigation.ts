@@ -2,7 +2,8 @@
 // le bouton Retour d'Android ferme le panneau, puis revient à l'étape précédente, puis à « Mes morceaux ».
 
 import { T } from '../textes-fr';
-import { afficherToast, ecran, ECRANS_SORTIE, ETAPES, historique, ongletAccueil, panneau, sortieEditee, type Ecran } from './etat';
+// prettier-ignore
+import { afficherToast, ecran, ECRANS_SORTIE, ETAPES, historique, modePianoRoll, ongletAccueil, PANNEAUX, panneau, pisteEditee, priseEditee, sectionCourante, sonEdite, sortieEditee, type Ecran } from './etat';
 import { exportEnCours, oublierExport } from './exportation';
 import { arreterLecture } from './lecture';
 import { quitterMorceau } from './mes-morceaux';
@@ -85,6 +86,101 @@ export function fermerPanneau() {
   if (panneau.peek()) history.back();
 }
 
+/* ------------------------------------------------------------ v2 : piano roll, choix d'instrument, effets */
+
+/** Ouvre le piano roll en plein écran sur une piste instrument (Retour le ferme). */
+export function ouvrirPianoRoll(idPiste: string, mode: 'simple' | 'complet' = modePianoRoll.peek()) {
+  pisteEditee.value = idPiste;
+  modePianoRoll.value = mode;
+  ouvrirPanneau(PANNEAUX.pianoRoll);
+}
+
+/** Ouvre « Effets (n) » d'une piste (fixe ou instrument). */
+export function ouvrirEffets(idPiste: string) {
+  pisteEditee.value = idPiste;
+  ouvrirPanneau(PANNEAUX.effetsPiste);
+}
+
+/* ------------------------------------------------------------ C2 : autotune, Chanter, Beatbox */
+
+/** Ouvre l'éditeur de notes de l'autotune sur une prise (Voix, « Avancé » ; A2). */
+export function ouvrirEditeurAutotune(idPrise: string) {
+  priseEditee.value = idPrise;
+  ouvrirPanneau(PANNEAUX.editeurAutotune);
+}
+
+/** Ouvre « Chanter » sur une piste instrument (depuis le piano roll ou la vue Pistes ; D). Retour y ramène. */
+export function ouvrirChanter(idPiste: string) {
+  pisteEditee.value = idPiste;
+  ouvrirPanneau(PANNEAUX.chanter);
+}
+
+/** Ouvre « Beatbox » (depuis la vue Batterie ; D). */
+export function ouvrirBeatbox() {
+  ouvrirPanneau(PANNEAUX.beatbox);
+}
+
+/* ------------------------------------------------------------ C3 : panneaux des développeurs P, S, L, R, V */
+
+/** Panneaux qui gardent `pisteEditee` (Retour y ramène sans perdre la piste). */
+const GARDENT_PISTE: readonly string[] = [PANNEAUX.pianoRoll, PANNEAUX.effetsPiste, PANNEAUX.chanter, PANNEAUX.outilsNotes, PANNEAUX.midi, PANNEAUX.synthe];
+
+/** Outils malins du piano roll sur une piste instrument (P). */
+export function ouvrirOutilsNotes(idPiste: string) {
+  pisteEditee.value = idPiste;
+  ouvrirPanneau(PANNEAUX.outilsNotes);
+}
+
+/** MIDI (P) : fichiers .mid et clavier ; `idPiste` = la piste jouée au clavier (sinon la 1re piste instrument). */
+export function ouvrirMidi(idPiste: string | null = null) {
+  if (idPiste !== null) pisteEditee.value = idPiste;
+  ouvrirPanneau(PANNEAUX.midi);
+}
+
+/** Découpe et éditeur d'un son importé (S). */
+export function ouvrirEditeurSon(idSon: string | null) {
+  sonEdite.value = idSon;
+  ouvrirPanneau(PANNEAUX.editeurSon);
+}
+
+/** Réglages du synthé d'une piste instrument (L). */
+export function ouvrirSynthe(idPiste: string) {
+  pisteEditee.value = idPiste;
+  ouvrirPanneau(PANNEAUX.synthe);
+}
+
+/** Sons courts fabriqués : kick, bruitages (L). */
+export function ouvrirSonsCourts() {
+  ouvrirPanneau(PANNEAUX.sonsCourts);
+}
+
+/** Looper, « Jouer en direct » (R). */
+export function ouvrirLooper() {
+  ouvrirPanneau(PANNEAUX.looper);
+}
+
+/** Effets de performance d'une section (R) : elle devient la section courante. */
+export function ouvrirPerformance(idSection: string | null) {
+  if (idSection !== null) sectionCourante.value = idSection;
+  ouvrirPanneau(PANNEAUX.performance);
+}
+
+/** Confort : tap tempo, métronome, historique, modèles, marqueurs, raccourcis (R). */
+export function ouvrirConfort() {
+  ouvrirPanneau(PANNEAUX.confort);
+}
+
+/** Voix avancée (V) ; `idPrise` facultative (la prise choisie de la section sinon). */
+export function ouvrirVoixAvancee(idPrise: string | null = null) {
+  if (idPrise !== null) priseEditee.value = idPrise;
+  ouvrirPanneau(PANNEAUX.voixAvancee);
+}
+
+/** Écoute de référence (V). */
+export function ouvrirReference() {
+  ouvrirPanneau(PANNEAUX.reference);
+}
+
 /* ------------------------------------------------------------ aide (B3) */
 
 /** Le panneau de l'aide s'appelle « aide:<page> ». Chaque page ouverte ajoute une entrée d'historique. */
@@ -153,6 +249,11 @@ export function initialiserNavigation() {
     if (!sortieEditee.peek() && estSortie(cible)) cible = 'sorties';
     const nouveau = etat?.panneau ?? null;
     profondeurAide = estPanneauAide(nouveau) ? Math.max(1, profondeurAide - 1) : 0;
+    // Le piano roll, les effets, « Chanter » (et les panneaux C3 d'une piste) fermés : plus de piste éditée ;
+    // l'éditeur d'autotune et la voix avancée : plus de prise ; l'éditeur de son : plus de son.
+    if (nouveau === null || !GARDENT_PISTE.includes(nouveau)) pisteEditee.value = null;
+    if (nouveau !== PANNEAUX.editeurAutotune && nouveau !== PANNEAUX.voixAvancee) priseEditee.value = null;
+    if (nouveau !== PANNEAUX.editeurSon) sonEdite.value = null;
     panneau.value = nouveau;
     afficher(cible);
   });

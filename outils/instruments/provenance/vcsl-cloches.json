@@ -1,0 +1,51 @@
+{
+ "id": "vcsl-cloches",
+ "source": {
+  "type": "vcsl",
+  "sfz": "Idiophones/Struck Idiophones/Tubular Bells 1"
+ },
+ "fichiers": [
+  {
+   "fichier": "z061-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Tubular Bells 1/chimes_C3_f_rr1.wav",
+   "sha256": "76d51955e61e70e7a6b46a05865cd0f06f4948aaab97b1925f0f06f193f717f5",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z064-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Tubular Bells 1/chimes_E3_ff_rr2.wav",
+   "sha256": "086a46cb560dae926014c0494965034aeecdffade7a1d6f54feda13274775a11",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z067-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Tubular Bells 1/chimes_F#3_fff_rr1.wav",
+   "sha256": "4664366c705496c3dc5ba9de75ffcd6739610dc669391cadda34a63cbcfa1251",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z070-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Tubular Bells 1/chimes_A#3_ff_rr1.wav",
+   "sha256": "55fcfdb825026629670e3486f47762e6a3c4a89e138990fbd0e65c3f0a1d6a79",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Tubular Bells 1/chimes_C4_ff_rr2.wav",
+   "sha256": "50d2c2bff54396a684ce9b29346bb8d43bb55d5d9adb9d736bdd5a713adc424a",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z076-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Tubular Bells 1/chimes_E4_ff_rr2.wav",
+   "sha256": "1bec82ee61186bf12863842251b1ec726322a649bc90f50f7bca423d30b345ac",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

@@ -1,0 +1,258 @@
+{
+ "id": "virtuosity-batterie-jazz",
+ "source": {
+  "type": "fichiers-zip",
+  "banque": "virtuosity",
+  "url": "https://versilian-studios.com/Distro/Virtuosity_Drums_v0.925.zip"
+ },
+ "fichiers": [
+  {
+   "fichier": "n036-v1.ogg",
+   "source": "Samples/kickmic/kick/kickmic_kick_snon_vl2_rr1.flac + Samples/oh/kick/oh_kick_snon_vl2_rr1.flac + Samples/room/kick/room_kick_snon_vl2_rr1.flac",
+   "sha256": [
+    "5f816bb152f879e09399edb86b8862509360702103a1f9c08ef794a2296c2290",
+    "72d67008439ced422b6ef952efcc6ed66979f1319a56ef82ab0a531485741dee",
+    "3ccec3716a7fa679e412d04c693aa643398c0ef0e23ef2c945a3e0dee515f769"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n036-v2.ogg",
+   "source": "Samples/kickmic/kick/kickmic_kick_snon_vl4_rr1.flac + Samples/oh/kick/oh_kick_snon_vl4_rr1.flac + Samples/room/kick/room_kick_snon_vl4_rr1.flac",
+   "sha256": [
+    "3b9026557c757edeccd26467ff420fceb787902dd94f7f9b2b12b2581faa17e5",
+    "48254fc11d8daab4601283205f0c0b7dcb6374f120aff4bda2191462ce2dde2d",
+    "629d465d7c94f44281793d86a85df4f5560aa8edf2555213e70d88d3147e4a54"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n037-v1.ogg",
+   "source": "Samples/snaremic/snare/snaremic_snare_crossstick_vl8.flac + Samples/oh/snare/oh_snare_crossstick_vl8.flac + Samples/room/snare/room_snare_crossstick_vl8.flac",
+   "sha256": [
+    "72213f5ffaadf7641e06de28ac9d8d7bfc1d0b2c9e2a1d4e68db219b5fb26359",
+    "e27b19b9d4db53ee5fa21b4018c85d7d3010cb0f38b904f153c830f551bd1b7c",
+    "0f0a58938ff0adbbc65694fa9c4384bf8c4e7ce8a4d3cb7ad89a02fd6d929858"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n037-v2.ogg",
+   "source": "Samples/snaremic/snare/snaremic_snare_crossstick_vl14.flac + Samples/oh/snare/oh_snare_crossstick_vl14.flac + Samples/room/snare/room_snare_crossstick_vl14.flac",
+   "sha256": [
+    "e12c2d9e137229810c1749ce2502415acc4c203ea05d7ab1a79876d6513da014",
+    "c2f3991d7664ad735f43c9d6b54bd363bc822f54bfe7ee9b3cab2b7de5935bce",
+    "b09fe02b5d5de7d2a465c9cc57d08fd86e049b24f92d6cda2ec3295d937e85ce"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n038-v1.ogg",
+   "source": "Samples/snaremic/snare/snaremic_snare_center_vl18.flac + Samples/oh/snare/oh_snare_center_vl18.flac + Samples/room/snare/room_snare_center_vl18.flac",
+   "sha256": [
+    "faea7e6bc82a4f71d769329edc780023f19bd90905427c787bc623b271f13f4d",
+    "cf4246fc66188e635c046f1ff5fa2adebb1a5075945280790a3533455fcb64ae",
+    "09fa8d9314e5a95d90f198b3c4515573ac0eb9c606cedcc73f8592a1304a9b49"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n038-v2.ogg",
+   "source": "Samples/snaremic/snare/snaremic_snare_center_vl32.flac + Samples/oh/snare/oh_snare_center_vl32.flac + Samples/room/snare/room_snare_center_vl32.flac",
+   "sha256": [
+    "f33ca11f2dda160abb341af53de01633f5221491ab075ffa663aca3e924e915a",
+    "a11dd921b45416ab511a59953ceb70d12a5c2afd416eec2278063d725a3d0fd0",
+    "b8aa780d2e0a4fe127774f070ddea5cc811cc3119bb5b6acbe6943a5da5a8441"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n040-v1.ogg",
+   "source": "Samples/snaremic/snare/snaremic_snare_rimshot_vl6.flac + Samples/oh/snare/oh_snare_rimshot_vl6.flac + Samples/room/snare/room_snare_rimshot_vl6.flac",
+   "sha256": [
+    "d9df20f9a93de2637c70ac087687bf49762e404702c93e1ef36564b6fdef59ae",
+    "94d6579d56938d10fc388cba756c9af8cf086be6f4f03d839e882fa6ba1258fe",
+    "abeba73e2bb6f90fbd43364c03ca65f637490409d06835352b15b442fa02c908"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n040-v2.ogg",
+   "source": "Samples/snaremic/snare/snaremic_snare_rimshot_vl11.flac + Samples/oh/snare/oh_snare_rimshot_vl11.flac + Samples/room/snare/room_snare_rimshot_vl11.flac",
+   "sha256": [
+    "e996ebbcf7e375437a01dfdef6dee544b94a5344c1adcd920ab0c1d04ce682e9",
+    "2b8593e3b171a479022a83e5a4a3645b88af970228f2805dab7e7664e4deb5b7",
+    "393f9c4f16ef6884f9e562082649324278530a9ec827683f2e68679aef104275"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n042-v1.ogg",
+   "source": "Samples/oh/hh/oh_hh_closed_vl2_rr1.flac + Samples/room/hh/room_hh_closed_vl2_rr1.flac",
+   "sha256": [
+    "466a0dac394ae52abea418ca62c27614986159cd6c7127cb25b4991a9cb614df",
+    "32dd22c972dfaccdcb31bd37fa203fa9dbb2d517463b4f67c1b16de611610697"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n042-v2.ogg",
+   "source": "Samples/oh/hh/oh_hh_closed_vl4_rr1.flac + Samples/room/hh/room_hh_closed_vl4_rr1.flac",
+   "sha256": [
+    "163b306f52ebe55017e46a7b664b8438458bd7becc01553309a2f441c0bd452b",
+    "d9ef9631e5c7d590937ab2b11a2782e5b27818f53a729757d75d0a30da07f444"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n044-v1.ogg",
+   "source": "Samples/oh/hh/oh_hh_pedal_vl2_rr1.flac + Samples/room/hh/room_hh_pedal_vl2_rr1.flac",
+   "sha256": [
+    "8e7cf653e07bb6773e835e3fa7502bc199c23ee6e94d44cf3b6fda783ac309b0",
+    "38391396ee6ffb1c692744c2d558878deeda7b51d47a2a733a208a0153d7f919"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n044-v2.ogg",
+   "source": "Samples/oh/hh/oh_hh_pedal_vl3_rr1.flac + Samples/room/hh/room_hh_pedal_vl3_rr1.flac",
+   "sha256": [
+    "5311c752a8852e48a05be2d5841bbccb5dedce5b606f49ad8168cc8c52b22235",
+    "83c2e2810faf0baf971e552e890559eb95bde2b20d00a7cbc3ee78368fc98193"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n046-v1.ogg",
+   "source": "Samples/oh/hh/oh_hh_open_vl2_rr1.flac + Samples/room/hh/room_hh_open_vl2_rr1.flac",
+   "sha256": [
+    "70974258a4b6b702b4d9ce3ef0f6668d0b0d211e0481253d4408d9acf848d012",
+    "17430d1ebf4b2d8b6e05aec2e2cd4d4d7f791216043f5af70e3f7c1abd77bd59"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n046-v2.ogg",
+   "source": "Samples/oh/hh/oh_hh_open_vl4_rr1.flac + Samples/room/hh/room_hh_open_vl4_rr1.flac",
+   "sha256": [
+    "784687e70ed0adf17229a38f4347674ac4283a0dd85def26c556a5e9be3b1ffc",
+    "79563c6c6e707bed32ccc564cbea87333738d121ab4fa8b27412d47fbf758c28"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n043-v1.ogg",
+   "source": "Samples/oh/ltom/oh_ltom_center_vl8.flac + Samples/room/ltom/room_ltom_center_vl8.flac",
+   "sha256": [
+    "57e2cbfb2a0e63451bf01bc469ba16c8ae99e38a6d53690ab2ff0e68a26a81c9",
+    "e5f3fa935af283c3683fe64caefc1bb3815766a6603b83ac85051f9a04894c39"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n043-v2.ogg",
+   "source": "Samples/oh/ltom/oh_ltom_center_vl14.flac + Samples/room/ltom/room_ltom_center_vl14.flac",
+   "sha256": [
+    "0fbe3d0b63418a0a3641e1ed21e815931c47ef966eead407d1fcdd1d9ecb9287",
+    "6655cc0f865c1a1327d0cbcc802a6b03c4ff4c0c86613d11b234d87f8621021d"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n048-v1.ogg",
+   "source": "Samples/oh/htom/oh_htom_center_vl8.flac + Samples/room/htom/room_htom_center_vl8.flac",
+   "sha256": [
+    "c68daba8574ee466c0871f1da699fc9de5472f2ae9c1a2c8bb61df3763b6c76a",
+    "32bd3d075d037af949f36e89f2beecce5c90929cf0fe0f4275a9919ef710a60c"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n048-v2.ogg",
+   "source": "Samples/oh/htom/oh_htom_center_vl14.flac + Samples/room/htom/room_htom_center_vl14.flac",
+   "sha256": [
+    "767b825f16c4ecef0d6892307fec691fd946edc52b3f9e30293dcb11ceabe755",
+    "3042c6ae61a346a68ee3541c044b113c78d004247583c3ec0aceaa0a48e42357"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n049-v1.ogg",
+   "source": "Samples/oh/crash/oh_crash_crash_vl2_rr1.flac + Samples/room/crash/room_crash_crash_vl2_rr1.flac",
+   "sha256": [
+    "2eb8c5bddc510bb56a48f325d9cdcc54ea52d926645df9180b206a820638fce1",
+    "81d3627408aca7e8ef8fbfd5eb46566d70755d7b57fb543d9ee0549162a0ca9e"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n049-v2.ogg",
+   "source": "Samples/oh/crash/oh_crash_crash_vl3_rr1.flac + Samples/room/crash/room_crash_crash_vl3_rr1.flac",
+   "sha256": [
+    "28ac4dc5c130175555ef54009f9186e418a664c544c1f996058b5acd3b85ccb9",
+    "dac4d63573007d3df56b0073f4efe1e59862cad50c42d3fed6afc419144d5a48"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n051-v1.ogg",
+   "source": "Samples/oh/ride/oh_ride_ride_vl2_rr1.flac + Samples/room/ride/room_ride_ride_vl2_rr1.flac",
+   "sha256": [
+    "56481c1109ac7baba9ab4b049cacfbc5050cf29d59951c654e7316595385eeaa",
+    "4e97594a4df3e65dbc9749ef0f28cc0b3d12dddf9a4e2472b58e61f4c411dc5e"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n051-v2.ogg",
+   "source": "Samples/oh/ride/oh_ride_ride_vl3_rr1.flac + Samples/room/ride/room_ride_ride_vl3_rr1.flac",
+   "sha256": [
+    "855f22d2408439f7944c056dab306003b8fc172310c92b37b63a6aef21aa4f5c",
+    "a57744b91cbbda610fffc0b3dee89567dace9c995ebcf1f40a03cf51a0e14fae"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n053-v1.ogg",
+   "source": "Samples/oh/ride/oh_ride_bell_vl2_rr1.flac + Samples/room/ride/room_ride_bell_vl2_rr1.flac",
+   "sha256": [
+    "36930c1702ff868d84e1bf58fad899c9559b0312b6393bb1b7a4c5d5e91e28aa",
+    "9f278b938d69752e775c4ce74b672b934b42b17628d94c0e98ad0aa256f5da03"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n053-v2.ogg",
+   "source": "Samples/oh/ride/oh_ride_bell_vl3_rr1.flac + Samples/room/ride/room_ride_bell_vl3_rr1.flac",
+   "sha256": [
+    "e9d367cb70b15377fcec2299a15b6590a93e2b8b0d789511616bcb7b8345281d",
+    "0062ad85fd56339cc29e75288ba7fc174b2dde7b8f40c2b83c31b8eccc1dc6cb"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

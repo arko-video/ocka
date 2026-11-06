@@ -1,0 +1,116 @@
+{
+ "id": "freepats-guitare-nylon",
+ "source": {
+  "type": "archive",
+  "banque": "freepats",
+  "sfz": "SpanishClassicalGuitar-20190618.sfz",
+  "url": "https://freepats.zenvoid.org/Guitar/SpanishClassicalGuitar/SpanishClassicalGuitar-SFZ+FLAC-20190618.7z"
+ },
+ "fichiers": [
+  {
+   "fichier": "z041-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "source": "SpanishClassicalGuitar-SFZ+FLAC-20190618.7z",
+   "sha256": "903916921a21662d2237ade7f0e98e55de93cb7b86da219e4e10f4ad385b8f5e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

@@ -16,6 +16,6 @@ describe('textes', () => {
     expect(ancien).toBe(T);
     expect(T.accueil.titre).toBe('Mes morceaux');
     expect(T.instruments.perso1).toBe('Ton son 1');
-    expect(T.son.noms.melodie).toBe('Mélodie');
+    expect(T.son.noms.sons).toBe('Tes sons');
   });
 });

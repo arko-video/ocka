@@ -1,8 +1,10 @@
 // Édition pure de l'arrangement : ajouter, répéter, dupliquer, déplacer, supprimer, renommer, régler.
 // Les prises de voix sont ancrées sur {section, occurrence} : on garde leurs occurrences justes.
 
-import type { Morceau, NomSection, Prise, Section } from '../../morceau/types';
+import { avecMotifSection, idMotifDe, motifParId, sectionDe } from '../../morceau/acces';
+import { PLAFONDS, type Morceau, type Motif, type NomSection, type Prise, type Section } from '../../morceau/types';
 import { idLibre } from './ids';
+import { rendreUniqueMotif } from './notes-motif';
 
 export const NOMS_SECTIONS: NomSection[] = ['Intro', 'Couplet', 'Refrain', 'Pont', 'Outro'];
 export type PisteInstrument = 'batterie' | 'basse' | 'accords';
@@ -147,4 +149,88 @@ export function choisirMotifSection(m: Morceau, id: string, piste: PisteInstrume
 /** Durée d'une section en secondes (4 temps par mesure). */
 export function dureeSection(m: Morceau, s: Section): number {
   return (s.mesures * 4 * 60) / m.tempo;
+}
+
+/* ------------------------------------------------------------ frise : clips (U2, v2) */
+
+/** Nombre d'endroits (section, piste) qui jouent ce motif. */
+export function usagesMotif(m: Morceau, idMotif: string): number {
+  let n = 0;
+  for (const s of m.sections) for (const v of Object.values(s.motifs)) if (v === idMotif) n++;
+  return n;
+}
+
+/** Copie profonde d'un motif (JSON : un motif n'a que des nombres, des textes, des listes et des booléens). */
+function copieMotif(x: Motif): Motif {
+  return JSON.parse(JSON.stringify(x)) as Motif;
+}
+
+/** Ajoute une copie du motif `idMotif` sous un id libre (« <id>-2 »…) ; null au-delà du plafond. */
+function avecCopie(m: Morceau, idMotif: string): { m: Morceau; id: string } | null {
+  const x = motifParId(m, idMotif);
+  if (!x || Object.keys(m.motifs).length >= PLAFONDS.motifs) return null;
+  const id = idLibre(idMotif, [...Object.keys(m.motifs), ...m.sections.map((s) => s.id)], 'motif');
+  const motifs = Object.create(null) as Record<string, Motif>;
+  Object.assign(motifs, m.motifs);
+  motifs[id] = copieMotif(x);
+  return { m: { ...m, motifs }, id };
+}
+
+/**
+ * « Rendre unique » : la piste joue dans cette section une COPIE de son motif (nouvel id), les autres sections (et
+ * les autres pistes) gardent l'original. Même morceau si le motif ne sert qu'ici, ou au-delà de 256 motifs.
+ */
+export function rendreUnique(m: Morceau, idSection: string, idPiste: string): Morceau {
+  const id = idMotifDe(sectionDe(m, idSection), idPiste);
+  if (id === undefined || usagesMotif(m, id) <= 1) return m;
+  // Motif de notes : la même fonction que le piano roll (U1), sous le plafond de motifs.
+  if (motifParId(m, id)?.type === 'notes') return Object.keys(m.motifs).length >= PLAFONDS.motifs ? m : rendreUniqueMotif(m, idSection, idPiste);
+  const c = avecCopie(m, id);
+  return c ? avecMotifSection(c.m, idSection, idPiste, c.id) : m;
+}
+
+/** « Vider » : la piste se tait dans cette section (le motif reste gardé s'il sert ailleurs ; sinon il est retiré). */
+export function viderClip(m: Morceau, idSection: string, idPiste: string): Morceau {
+  const id = idMotifDe(sectionDe(m, idSection), idPiste);
+  if (id === undefined) return m;
+  const n = avecMotifSection(m, idSection, idPiste, null);
+  if (usagesMotif(n, id) > 0) return n;
+  const motifs = Object.create(null) as Record<string, Motif>;
+  for (const [k, v] of Object.entries(n.motifs)) if (k !== id) motifs[k] = v;
+  return { ...n, motifs };
+}
+
+/**
+ * « Copier le motif depuis… » : la piste joue dans `idSection` une copie du motif qu'elle joue dans `depuis`
+ * (au-delà de 256 motifs : le même motif, partagé). Même morceau si la source n'a rien ou si c'est déjà ce motif.
+ */
+export function copierMotifDepuis(m: Morceau, idSection: string, idPiste: string, depuis: string): Morceau {
+  const source = idMotifDe(sectionDe(m, depuis), idPiste);
+  const cible = sectionDe(m, idSection);
+  if (source === undefined || !cible || idMotifDe(cible, idPiste) === source) return m;
+  const avant = idMotifDe(cible, idPiste);
+  const c = avecCopie(m, source);
+  const n = c ? avecMotifSection(c.m, idSection, idPiste, c.id) : avecMotifSection(m, idSection, idPiste, source);
+  // L'ancien motif de la cellule, s'il ne sert plus nulle part, est retiré.
+  if (avant === undefined || usagesMotif(n, avant) > 0) return n;
+  const motifs = Object.create(null) as Record<string, Motif>;
+  for (const [k, v] of Object.entries(n.motifs)) if (k !== avant) motifs[k] = v;
+  return { ...n, motifs };
+}
+
+/** Sections (dans l'ordre de l'arrangement) où la piste joue un AUTRE motif que dans `idSection` (une par motif). */
+export function sourcesCopie(m: Morceau, idSection: string, idPiste: string): string[] {
+  const ici = idMotifDe(sectionDe(m, idSection), idPiste);
+  const vues = new Set<string>();
+  const motifs = new Set<string>();
+  const res: string[] = [];
+  for (const id of [...m.ordre, ...m.sections.map((s) => s.id)]) {
+    if (vues.has(id) || id === idSection) continue;
+    vues.add(id);
+    const x = idMotifDe(sectionDe(m, id), idPiste);
+    if (x === undefined || x === ici || motifs.has(x)) continue;
+    motifs.add(x);
+    res.push(id);
+  }
+  return res;
 }

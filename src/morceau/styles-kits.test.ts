@@ -55,18 +55,22 @@ describe('kits de la vague B', () => {
     it(`${s}@1 : chaque son est fini, borné, différent de trap@1, et reproductible`, () => {
       for (const i of INSTRUMENTS_BATTERIE.filter((x) => !x.startsWith('perso'))) {
         const a = avecFrequence(48000, () => synthetiserFrappe(`${s}@1`, i));
+        // Une seule assertion par son (pas une par échantillon : des centaines de milliers d'`expect`, trop lents
+        // quand toute la suite tourne en parallèle) ; mêmes exigences.
         let max = 0;
+        let nonFinis = 0;
         for (const v of a) {
-          expect(Number.isFinite(v)).toBe(true);
-          max = Math.max(max, Math.abs(v));
+          if (!Number.isFinite(v)) nonFinis++;
+          else max = Math.max(max, Math.abs(v));
         }
+        expect(nonFinis, `${s} ${i}`).toBe(0);
         expect(max).toBeGreaterThan(0.1);
         expect(max).toBeLessThanOrEqual(1.0001);
         expect(fnv(1, a)).toBe(fnv(1, avecFrequence(48000, () => synthetiserFrappe(`${s}@1`, i))));
       }
       expect(empreinteKit(`${s}@1`, 48000)).not.toBe(AVANT['kit|trap|48000']);
       expect(empreinte808(s, 48000)).not.toBe(AVANT['808|trap|48000']);
-    });
+    }, 30_000);
   }
   it('cloche accordée : sa fondamentale est bien la note demandée (énergie à f bien plus forte qu’à f × 0,75)', () => {
     const f = 440;

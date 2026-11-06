@@ -1,0 +1,152 @@
+/* Mélangeur (écran Son) : tranches compactes, chaîne d'inserts — propriétaire : U2. Mobile d'abord (360 px). */
+
+.son-entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.son-entete .sous-titre {
+  margin: 0;
+}
+.son-entete .btn-bascule {
+  max-width: none;
+  white-space: nowrap;
+}
+
+.tranche {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 8px 10px 6px 14px;
+  border-radius: var(--r);
+  box-shadow: inset 3px 0 0 var(--c, transparent);
+}
+.tranche[data-muet='1'] {
+  opacity: 0.6;
+}
+.tranche-tete {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tranche-nom {
+  flex: 1;
+  margin: 0;
+  font-family: var(--police-titre);
+  font-size: 16px;
+  font-weight: 700;
+}
+.tranche-effets {
+  max-width: none;
+  font-size: 12px;
+}
+.tranche-effets[data-actif='1'] {
+  border-color: var(--violet);
+  color: var(--violet-clair);
+}
+.tranche-ligne {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+}
+.tranche-pan {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tranche-label {
+  flex: 0 0 30px;
+  font-size: 12px;
+  color: var(--texte-doux);
+}
+.tranche-label-large {
+  flex-basis: 88px;
+}
+.tranche-valeur {
+  flex: 0 0 30px;
+  text-align: right;
+  font-size: 12px;
+  color: var(--texte-doux);
+}
+.tranche-ligne .curseur,
+.tranche-pan .curseur {
+  flex: 1;
+  min-width: 0;
+}
+.tranche-pompe {
+  font-size: 12px;
+}
+.tranche-pompe[aria-pressed='true'] {
+  border-color: var(--magenta);
+  background: var(--magenta-voile);
+}
+
+/* Chaîne d'inserts. */
+.chaine {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.chaine .sous-titre {
+  margin: 8px 0 0;
+}
+.liste-inserts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.liste-inserts:empty {
+  display: none;
+}
+.insert {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px;
+}
+.insert[data-actif='0'] .insert-nom {
+  color: var(--texte-faible);
+  text-decoration: line-through;
+}
+.insert-tete {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.insert-rang {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--surface-3);
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+}
+.insert-nom {
+  flex: 1;
+  font-weight: 700;
+}
+.insert-tete .btn-bascule svg {
+  width: 18px;
+  height: 18px;
+}
+.insert-actif {
+  min-height: 40px;
+}
+.params-insert {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4px;
+  border-top: 1px solid var(--bord);
+}
+.params-insert .puces {
+  padding: 6px 0;
+}

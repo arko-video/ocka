@@ -1,42 +1,35 @@
 // Le graphe audio d'un morceau, LE MÊME pour l'écoute (AudioContext) et l'export (OfflineAudioContext).
 //   sources → piste (Gain → Gain → StereoPanner) → bus master PERSISTANT (instruments/bus.ts) → sortie.
-// Rien n'est synthétisé ici : les tampons sont calculés AVANT par le Worker de synthèse (instruments/banque.ts) ;
-// un son pas prêt au moment de le jouer est sauté et compté. planifier(de, a, origine) joue ce qui commence
+// Rien n'est calculé ici : tampons du Worker de synthèse (instruments/banque.ts) et zones des instruments échantillonnés
+// (instruments/pistes-echantillonnees.ts) sont prêts AVANT ; un son pas prêt au moment de le jouer est sauté et compté. planifier(de, a, origine) joue ce qui commence
 // entre `de` et `a` (temps du morceau), le temps 0 du morceau tombant à `origine` (temps du contexte).
 
 import { dureeMorceau } from '../morceau/temps';
-import type { InstrumentBatterie, Morceau, SonMelodie } from '../morceau/types';
+import type { InstrumentBatterie, Morceau, ReglagesSynthe } from '../morceau/types';
 import { fonduFin } from './audio/master-hors-ligne';
 import type { ChainePiste } from './chaines';
 import { banqueDe, cles, type Pret } from './instruments/banque';
 import { busDe } from './instruments/bus';
-
-/** Gain de pré-master (−3 dB), appliqué dans le bus persistant (instruments/bus.ts). */
-export { PRE_MASTER } from './instruments/bus';
-import { RELACHES, SONS_TENUS, sonAccord, varianteNote } from './instruments/notes';
-import { creerMelangeur, lireSons } from './instruments/pistes';
-import { besoins, cleBoucle, clePad, demandeNote, estPad } from './instruments/preparation';
+import { gelsDuMorceau } from './gels';
+import { creerJeuGels, demandesGels, pistesGeleesEntieres, pisteEvenement } from './instruments/jeu-gels';
+import { creerEntendreNote } from './instruments/note-seule';
+import { relacheSon, sonAccord } from './instruments/notes';
+import { creerMelangeur, lireSons, preparerEffets } from './instruments/pistes';
+import { creerJeuEchantillonne } from './instruments/pistes-echantillonnees';
+import { besoins, cleBoucle, clePad, demandeNote, estPad, gamme } from './instruments/preparation';
 import { RELAIS, Sources, tenir, type Active } from './instruments/sources';
 import { calculerPlanning, evenementsEntre, GAIN_NOTE, type Evenement } from './planning';
 import type { OptionsGraphe } from './types-moteur';
-import type { Graphe } from './instruments/graphe-type';
+import type { Graphe, PcmPrise } from './instruments/graphe-type';
 
-/** Le son d'une prise, tel que donné par lirePrise (mono, à sa fréquence d'enregistrement). */
-export interface PcmPrise {
-  frequence: number;
-  pcm: Float32Array;
-  /** Fichier corrigé par l'autotune (src/autotune) que ce PCM contient ; absent = la prise brute. */
-  version?: string;
-}
+/** Gain de pré-master (−3 dB), appliqué dans le bus persistant (instruments/bus.ts). */
+export { PRE_MASTER } from './instruments/bus';
 
-export type { Graphe };
+export type { Graphe, PcmPrise };
 
-/** Graphes construits et pas encore détruits (tests de fuite : 50 rechargements ne doivent rien laisser). */
-export const graphesVivants = { nombre: 0 };
+export const graphesVivants = { nombre: 0 }; // graphes pas encore détruits (tests de fuite)
 /** Secondes de musique prêtes avant de rendre la main (`debut`) ; fondus d'entrée (s) d'une reprise et d'une boucle. */
-const SECONDES_DEBUT = 8;
-const FONDU_REPRISE = 0.005;
-const FONDU_BOUCLE = 0.003;
+const [SECONDES_DEBUT, FONDU_REPRISE, FONDU_BOUCLE] = [8, 0.005, 0.003];
 
 /**
  * Construit le graphe d'un morceau ET attend que tous ses sons soient prêts (export, stems, A/B).
@@ -54,19 +47,10 @@ export async function construireGraphe(
   return graphe;
 }
 
-/**
- * Comme construireGraphe, mais ne prépare QUE les sons joués dans [de, a[ (s) : rendu court (A/B de M2).
- * Planifier hors de cette fenêtre fait sauter les sons pas prêts (comptés).
- */
-export async function construireGrapheFenetre(
-  ctx: BaseAudioContext,
-  morceau: Morceau,
-  prises: Map<string, PcmPrise>,
-  de: number,
-  a: number,
-  destination: AudioNode = ctx.destination,
-  options: OptionsGraphe = {},
-): Promise<Graphe> {
+/** Comme construireGraphe, mais ne prépare QUE les sons joués dans [de, a[ (s) : A/B de M2 (le reste est sauté, compté). */
+// prettier-ignore
+export async function construireGrapheFenetre(ctx: BaseAudioContext, morceau: Morceau, prises: Map<string, PcmPrise>, de: number, a: number,
+  destination: AudioNode = ctx.destination, options: OptionsGraphe = {}): Promise<Graphe> {
   const graphe = await preparerGraphe(ctx, morceau, prises, destination, options, de, [de, a]);
   await graphe.pret;
   return graphe;
@@ -90,25 +74,37 @@ export async function preparerGraphe(
   const sons = options.sons ?? (await lireSons(morceau));
   const style = morceau.kit.split('@')[0] ?? morceau.style;
   const duree = dureeMorceau(morceau);
-  const planning = calculerPlanning(morceau);
   const enDirect = !('startRendering' in ctx);
-  const mel = creerMelangeur(ctx, morceau, prises, bus, banque, options);
+  // C3 : passages gelés (effets de performance, gel d'une piste) ; une piste gelée en entier ne joue plus ses notes.
+  const gels = options.gels === false ? [] : (options.gels ?? (await gelsDuMorceau(morceau, { frequence: ctx.sampleRate, attendre: !enDirect })));
+  const entieres = pistesGeleesEntieres(gels, duree);
+  const planning = calculerPlanning(morceau).filter((ev) => entieres.size === 0 || !entieres.has(pisteEvenement(ev)));
+  await preparerEffets(ctx, morceau, prises, sons, fenetre?.[0] ?? 0); // inserts JS de M2 (worklet ou passe A)
+  const mel = creerMelangeur(ctx, morceau, prises, bus, banque, options, new Set(gels.map((g) => g.piste)));
   graphesVivants.nombre++;
-  const { pistes, placees } = mel;
+  const { pistes } = mel;
+  const placees = entieres.has('voix') ? [] : mel.placees;
 
   // Préparation (Worker) de tout ce que le morceau joue ; épinglé tant que le graphe vit.
   const dans = (t: number, d: number) => !fenetre || (t < fenetre[1] && t + d > fenetre[0]);
   const aJouer = fenetre ? planning.filter((ev) => dans(ev.t, ev.type === 'frappe' ? 1 : ev.duree)) : planning;
-  const prisesUtiles = mel.aPreparer.filter((x) => dans(x.debut, Infinity));
+  const prisesUtiles = (entieres.has('voix') ? [] : mel.aPreparer).filter((x) => dans(x.debut, Infinity));
   const demandes = besoins(morceau, aJouer, prisesUtiles, sons, ctx.sampleRate, position, !fenetre);
+  for (const d of demandesGels(gels)) if (dans(d.priorite, Infinity)) demandes.set(d.cle, d);
   const epingles = new Set(demandes.keys());
   banque.epingler(epingles);
-  const pret = banque.preparer(demandes.values());
-  const debut = banque.preparer([...demandes.values()].filter((d) => d.priorite < SECONDES_DEBUT));
+  const sources = new Sources(ctx, enDirect ? () => banque.retards++ : null);
+  // Pistes échantillonnées (banque de BQ) : zones jouées décodées avant la lecture ; export : instrument absent = erreur.
+  const jeu = creerJeuEchantillonne(ctx, morceau, aJouer, sources, fenetre ? null : gamme(morceau));
+  const pret = Promise.all([banque.preparer(demandes.values()), jeu.pret]).then(() => undefined);
+  const debut = Promise.all([banque.preparer([...demandes.values()].filter((d) => d.priorite < SECONDES_DEBUT)), jeu.pret.catch(() => {})]).then(() => undefined);
 
   let sautees = 0;
+  let muettes = 0; // notes d'un instrument absent ou inconnu : muettes, comptées (contrat C0)
   const sauter = () => void (sautees++, banque.sautees++);
-  const sources = new Sources(ctx, enDirect ? () => banque.retards++ : null);
+  const jeuGels = creerJeuGels(ctx, gels, banque, sources, mel.portes, mel.sorties, sauter);
+  // prettier-ignore
+  const entendreNote = creerEntendreNote({ ctx, morceau, style, pistes, bus, jeu, banque, epingles, sources, sauter, muette: () => void muettes++ });
   let ouvert: { gain: GainNode; t: number } | null = null;
   const derniersPads = new Map<InstrumentBatterie, Active>();
   let detruit = false;
@@ -144,14 +140,15 @@ export async function preparerGraphe(
     if (i === 'charleyOuvert') ouvert = { gain: a.g, t: quand };
   }
 
-  function note(son: SonMelodie, midi: number, ev: { t: number; duree: number; vel: number }, piste: ChainePiste, origine: number, retard: number, fondu?: number) {
-    const p = lire(cles.note(son, varianteNote(son, style), midi));
-    if (!p) return;
+  // prettier-ignore
+  function note(son: string, midi: number, ev: { t: number; duree: number; vel: number; reglages?: ReglagesSynthe }, piste: ChainePiste | undefined, origine: number, retard: number, fondu?: number) {
+    const p = piste ? lire(demandeNote(son, style, midi, 0, ev.reglages).cle) : undefined;
+    if (!p || !piste) return;
     sources.jouer(p.buffer, origine + ev.t + retard, ev.vel, [piste.entree], {
       decalage: retard,
       boucle: p.boucle,
       finNote: origine + ev.t + ev.duree,
-      relache: RELACHES[son],
+      relache: relacheSon(son),
       stereo: p.buffer.numberOfChannels === 1,
       genre: 'long',
       fonduEntree: fondu,
@@ -159,21 +156,35 @@ export async function preparerGraphe(
   }
 
   function jouerEvenement(ev: Evenement, origine: number, retard: number, fondu?: number) {
+    // Reprise : calée sur la grille d'échantillons du son (même sous-échantillon qu'à l'export : écoute = export).
+    if (retard > 0) retard = Math.ceil(retard * ctx.sampleRate - 1e-6) / ctx.sampleRate;
     const quand = origine + ev.t + retard;
     if (ev.type === 'frappe') frappe(ev.instrument, quand, ev.vel, true);
     else if (ev.type === 'basse') {
       const p = lire(cles.basse(style, ev.midi, ev.duree, ev.cible));
-      if (p) sources.jouer(p.buffer, quand, ev.vel, [pistes.basse.entree], { decalage: retard, genre: 'long', fin: origine + ev.t + ev.duree, fonduEntree: fondu });
+      if (p) sources.jouer(p.buffer, quand, ev.vel, [pistes.basse!.entree], { decalage: retard, genre: 'long', fin: origine + ev.t + ev.duree, fonduEntree: fondu });
     } else if (ev.type === 'accord') {
       for (const n of ev.notes) note(sonAccord(ev.son), n, ev, pistes.accords, origine, retard, fondu);
+    } else if (ev.type === 'motif') {
+      // C3 : passage d'un synthé « motif » (303), un seul tampon, joué comme une boucle de son importé.
+      const piste = pistes[ev.piste];
+      const p = piste ? lire(cles.motif(ev.son, ev.cle)) : undefined;
+      if (!p || !piste || p.buffer.duration - retard <= 0.004) return;
+      sources.jouer(p.buffer, quand, GAIN_NOTE, [piste.entree], { decalage: retard, genre: 'long', fonduEntree: fondu ?? FONDU_BOUCLE, arret: origine + ev.t + ev.duree });
     } else if (ev.type === 'note') {
-      note(ev.son, ev.midi, ev, pistes.melodie, origine, retard, fondu);
+      const piste = pistes[ev.piste];
+      if (ev.son !== null) note(ev.son, ev.midi, ev, piste, origine, retard, fondu);
+      else {
+        const r = piste ? jeu.jouer(ev, quand, retard, piste.entree, fondu) : 'muette';
+        if (r === 'muette') muettes++;
+        else if (r === 'sautee') sauter();
+      }
     } else {
       const p = lire(cleBoucle(morceau, ev, ctx.sampleRate, sons));
       const reste = p ? p.buffer.duration - retard : 0;
       if (!p || reste <= 0.004) return;
       const arret = Math.min(origine + ev.t + ev.duree, quand + reste);
-      sources.jouer(p.buffer, quand, 1, [pistes.sons.entree], { decalage: retard, genre: 'long', fonduEntree: fondu ?? FONDU_BOUCLE, arret });
+      sources.jouer(p.buffer, quand, 1, [pistes.sons!.entree], { decalage: retard, genre: 'long', fonduEntree: fondu ?? FONDU_BOUCLE, arret });
     }
   }
 
@@ -182,20 +193,24 @@ export async function preparerGraphe(
     latence: bus.chaine.latence,
     pret,
     debut,
-    get sautees() {
-      return sautees;
-    },
+    get sautees() { return sautees; }, // prettier-ignore
+    get muettes() { return muettes; }, // prettier-ignore
+    instrumentsManquants: jeu.manquants,
+    hauteurs: jeu.hauteurs,
 
     planifier(de, a, origine, reprise = false, relais = false) {
       if (detruit) return;
       mel.brancherRetour(relais ? origine + de : null);
+      mel.planifier(de, a, origine, jeu.hauteurs); // inserts, sidechain, automation, LFO, pitch bend (M2)
+      jeuGels.planifier(de, a, origine, reprise); // C3 : portes et rendus gelés
       for (const ev of evenementsEntre(planning, de, a)) jouerEvenement(ev, origine, 0);
       const fondu = relais ? RELAIS : FONDU_REPRISE;
       if (reprise) {
-        // Sons tenus déjà commencés : on les joue à partir du bon endroit.
+        // Sons tenus déjà commencés : repris au bon endroit (après un saut, avec la queue des notes échantillonnées).
         for (const ev of planning) {
           if (ev.t >= de) break;
-          if (ev.type !== 'frappe' && ev.t + ev.duree > de + 0.01) jouerEvenement(ev, origine, de - ev.t, fondu);
+          const queue = !relais && ev.type === 'note' && ev.son === null ? jeu.queue(ev.piste) : 0;
+          if (ev.type !== 'frappe' && ev.t + ev.duree + queue > de + 0.01) jouerEvenement(ev, origine, de - ev.t, fondu);
         }
       }
       for (const x of placees) {
@@ -230,27 +245,8 @@ export async function preparerGraphe(
       if (!detruit) frappe(instrument, ctx.currentTime + 0.005, 0.9, false);
     },
 
-    entendreNote(son, midi) {
-      if (detruit) return;
-      const d = demandeNote(son, style, midi, -100);
-      const p = banque.lire(d.cle);
-      if (!p) {
-        // Pas prête : sautée (comptée) et préparée tout de suite, pour la prochaine fois.
-        sauter();
-        if (!epingles.has(d.cle)) {
-          epingles.add(d.cle);
-          banque.epingler([d.cle]);
-        }
-        void banque.preparer([d]);
-        return;
-      }
-      const quand = ctx.currentTime;
-      sources.jouer(p.buffer, quand, GAIN_NOTE, [pistes.melodie.entree], {
-        boucle: p.boucle,
-        finNote: quand + (SONS_TENUS.has(son) ? 0.5 : 1.2),
-        relache: RELACHES[son],
-        stereo: p.buffer.numberOfChannels === 1,
-      });
+    entendreNote(idPiste, midi, options) {
+      if (!detruit) entendreNote(idPiste, midi, options);
     },
 
     comparer(sans, compensationDb) {
@@ -290,6 +286,7 @@ export async function preparerGraphe(
       sources.surVide = null;
       sources.arreter();
       mel.debrancher();
+      jeu.liberer();
       banque.liberer(epingles);
       finRelais?.();
     },

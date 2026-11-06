@@ -10,6 +10,7 @@ import { nombre } from '../../format';
 import { entendre } from '../../lecture';
 import { fermerPanneau } from '../../navigation';
 import { Panneau } from '../Panneau';
+import { EntreesSons } from '../EntreesC3';
 import { ImporterSon } from './ImporterSon';
 
 export function PanneauTonSon() {
@@ -32,6 +33,7 @@ export function PanneauTonSon() {
   return (
     <Panneau id="ton-son" titre={T.tesSons.titre}>
       <ImporterSon surImport={(s) => setChoisi(s.id)} />
+      <EntreesSons idSon={son?.id ?? null} />
 
       {sons.length > 0 && (
         <div class="reglage">

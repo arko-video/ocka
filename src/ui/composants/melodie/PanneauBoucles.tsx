@@ -4,6 +4,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { boucles, poserMelodie, preparerEcoute, type Boucle, type Ecoute } from '../../../moteur/api';
+import { motifAccordsDe } from '../../../morceau/acces';
 import type { Morceau } from '../../../morceau/types';
 import { T } from '../../../textes-fr';
 import { afficherToast, annulerAction, modifier } from '../../etat';
@@ -20,18 +21,39 @@ function Apercu({ b }: { b: Boucle }) {
   const bas = Math.min(...notes.map((n) => n.midi));
   const haut = Math.max(...notes.map((n) => n.midi), bas + 1);
   return (
-    <svg class="boucle-apercu" viewBox={`0 0 ${b.motif.pas} 10`} preserveAspectRatio="none" aria-hidden="true">
+    <svg
+      class="boucle-apercu"
+      viewBox={`0 0 ${b.motif.pas} 10`}
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
       {notes.map((n, i) => (
-        <rect key={i} x={n.pas} y={8.5 - (7.5 * (n.midi - bas)) / (haut - bas)} width={Math.max(0.6, n.duree - 0.3)} height="1.5" rx="0.5" fill="currentColor" />
+        <rect
+          key={i}
+          x={n.pas}
+          y={8.5 - (7.5 * (n.midi - bas)) / (haut - bas)}
+          width={Math.max(0.6, n.duree - 0.3)}
+          height="1.5"
+          rx="0.5"
+          fill="currentColor"
+        />
       ))}
     </svg>
   );
 }
 
-export function PanneauBoucles({ m, idSection, nomSection }: { m: Morceau; idSection: string; nomSection: string }) {
+export function PanneauBoucles({
+  m,
+  idSection,
+  nomSection,
+}: {
+  m: Morceau;
+  idSection: string;
+  nomSection: string;
+}) {
   // Les boucles dépendent des accords, de la gamme et de la longueur de la section (pas des autres réglages).
   const section = m.sections.find((s) => s.id === idSection);
-  const cle = JSON.stringify([m.tonalite, m.style, section?.mesures, section?.motifs.accords && m.motifs[section.motifs.accords]]);
+  const cle = JSON.stringify([m.tonalite, m.style, section?.mesures, section && motifAccordsDe(m, section)]);
   const liste = useMemo(() => boucles(m, idSection), [cle, idSection]);
   const [ecoute, setEcoute] = useState<Ecoute | null>(null);
   const [etat, setEtat] = useState<'preparation' | 'prete' | 'erreur'>('preparation');
@@ -43,7 +65,7 @@ export function PanneauBoucles({ m, idSection, nomSection }: { m: Morceau; idSec
     setEtat('preparation');
     setJoue(-1);
     // Le morceau tel qu'il est à l'ouverture (tempo, kit, volumes) : la préparation n'est pas refaite à chaque geste.
-    preparerEcoute(m, idSection, liste.map((b) => b.motif), controle.signal)
+    preparerEcoute(m, idSection, liste, controle.signal)
       .then((e) => {
         if (controle.signal.aborted) return e.detruire();
         ecouteRef.current = e;
@@ -77,7 +99,8 @@ export function PanneauBoucles({ m, idSection, nomSection }: { m: Morceau; idSec
   const utiliser = (b: Boucle) => {
     ecoute?.arreter();
     const nom = T.allerVite.nomsBoucles[b.type];
-    if (modifier((x) => poserMelodie(x, idSection, b.motif))) afficherToast(T.allerVite.posee(nom), 5000, { label: T.annuler, agir: annulerAction });
+    if (modifier((x) => poserMelodie(x, idSection, b.motif, b.son)))
+      afficherToast(T.allerVite.posee(nom), 5000, { label: T.annuler, agir: annulerAction });
     fermerPanneau();
   };
 
@@ -93,7 +116,12 @@ export function PanneauBoucles({ m, idSection, nomSection }: { m: Morceau; idSec
         {liste.map((b, k) => {
           const nom = T.allerVite.nomsBoucles[b.type];
           return (
-            <li key={b.type} class="boucle" data-joue={joue === k ? '1' : '0'} data-testid={`boucle-${b.type}`}>
+            <li
+              key={b.type}
+              class="boucle"
+              data-joue={joue === k ? '1' : '0'}
+              data-testid={`boucle-${b.type}`}
+            >
               <button
                 type="button"
                 class="boucle-ecouter"

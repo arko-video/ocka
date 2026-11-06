@@ -1,6 +1,7 @@
 // Édition pure des réglages : tempo, swing, accords, basse, mélange, master, titre et prises.
 
-import type { IdPiste, Master, Morceau, MotifAccords, Piste, Prise } from '../../morceau/types';
+import { estIdFixe } from '../../morceau/acces';
+import type { IdFixe, IdPiste, Master, Morceau, MotifAccords, Piste, PisteFixe, Prise } from '../../morceau/types';
 
 const borner = (x: number, min: number, max: number) => Math.min(max, Math.max(min, x));
 
@@ -77,11 +78,14 @@ export function activerBasse(m: Morceau, actif: boolean): Morceau {
 export function reglerPiste(
   m: Morceau,
   id: IdPiste,
-  c: Partial<Pick<Piste, 'volume' | 'pan' | 'muet' | 'solo' | 'preset'>>,
+  c: Partial<Pick<PisteFixe, 'volume' | 'pan' | 'muet' | 'solo' | 'preset'>>,
 ): Morceau {
   const p = m.pistes.find((x) => x.id === id);
-  const base: Piste = p ?? { id, volume: 0.8, pan: 0, muet: false, solo: false };
-  const n: Piste = { ...base, ...c };
+  if (!p && !estIdFixe(id)) return m; // une piste instrument absente n'est jamais créée ici
+  const { preset, ...tranche } = c;
+  const base: Piste = p ?? { id: id as IdFixe, volume: 0.8, pan: 0, muet: false, solo: false };
+  const n: Piste = { ...base, ...tranche };
+  if (preset !== undefined && n.genre !== 'instrument') n.preset = preset;
   n.volume = Math.round(borner(n.volume, 0, 1.5) * 100) / 100;
   n.pan = Math.round(borner(n.pan, -1, 1) * 100) / 100;
   if (p && JSON.stringify(n) === JSON.stringify(p)) return m;

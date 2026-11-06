@@ -1,0 +1,93 @@
+{
+ "id": "vsco-hautbois",
+ "source": {
+  "type": "vsco",
+  "sfz": "OboeSusVib"
+ },
+ "fichiers": [
+  {
+   "fichier": "z059-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_A#2_v3_Main.wav",
+   "sha256": "713a7e20c4ae920ec871107e3b5fdabd0f8ed0539e0a1fe25f19bdc4aeb18434",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_D3_v3_Main.wav",
+   "sha256": "cdadc95ca70469fe22ab8fce3c42bdb689d1341129efdefb61eca184ab4aa0e5",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_F3_v3_Main.wav",
+   "sha256": "72ca108efbe96d7e19cb93c5ad2532e91e3372be02afce92dbae5bccc640745f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_A#3_v3_Main.wav",
+   "sha256": "2cd7ec2634bd595fc5398a3f2d3c3f4035f685972a680632a829f6665a2d09ce",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_A#3_v3_Main.wav",
+   "sha256": "2cd7ec2634bd595fc5398a3f2d3c3f4035f685972a680632a829f6665a2d09ce",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_D4_v3_Main.wav",
+   "sha256": "3d45ff8573ad67eb27406c44d5b2056f7892ecdf35f0aac791a988daf5b70e0f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_F4_v3_Main.wav",
+   "sha256": "ba2b452b415683cbbd6b39ba1cd87b3c42834bb3177721b0fecbebbd87f3ddc4",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_A#4_v3_Main.wav",
+   "sha256": "37ebac8c277c1cee48758448bddbaddc1b2f1664f4c30232eeb74d361e9afdf7",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_A#4_v3_Main.wav",
+   "sha256": "37ebac8c277c1cee48758448bddbaddc1b2f1664f4c30232eeb74d361e9afdf7",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z086-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_D5_v3_Main.wav",
+   "sha256": "1edd84fb5a1827d786d172e5fc76ea2ebff88cfc1ee2acc43ab8fd75a4b9151b",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z089-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_F5_v3_Main.wav",
+   "sha256": "7251e53c56181f2b4eb38cb0b04e557d7909e4a42a1d6a70aa050cd78da6eb97",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z090-v1.ogg",
+   "source": "Woodwinds/Oboe/Vib/Oboe_Vib_F5_v3_Main.wav",
+   "sha256": "7251e53c56181f2b4eb38cb0b04e557d7909e4a42a1d6a70aa050cd78da6eb97",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

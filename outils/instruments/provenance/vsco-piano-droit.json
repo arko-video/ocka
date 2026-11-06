@@ -1,0 +1,219 @@
+{
+ "id": "vsco-piano-droit",
+ "source": {
+  "type": "vsco",
+  "sfz": "UprightPiano"
+ },
+ "fichiers": [
+  {
+   "fichier": "z022-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_000.wav",
+   "sha256": "32f3cda282b64a65c6b2b071c91d98019514e8ffe80154a915431fa03443ee93",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z025-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_002.wav",
+   "sha256": "2ba9838d073b9dec7ed19a4b2b3ba608f62a8a1c89694d7ef1f1afd47406683f",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z028-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_004.wav",
+   "sha256": "ea7f8c8e997794656422b9c19f3a96f8ba03a0282ee664b97437c13b5ed2865c",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z030-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_004.wav",
+   "sha256": "ea7f8c8e997794656422b9c19f3a96f8ba03a0282ee664b97437c13b5ed2865c",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z033-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_006.wav",
+   "sha256": "80ade36a6030d83d868b6abbd1e9ab6f85ec2494cfe25d2affffd88f453e81e0",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z036-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_008.wav",
+   "sha256": "52be11ac2a57389f2d12cbd82df9b175da7b60e423d8a1154e1d7fc3340ecd6e",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z039-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_008.wav",
+   "sha256": "52be11ac2a57389f2d12cbd82df9b175da7b60e423d8a1154e1d7fc3340ecd6e",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z042-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_010.wav",
+   "sha256": "324c53abf03b2b32ff74f52886806ab5d4a7a37f6eb9c746558799037d7e12da",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z045-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_012.wav",
+   "sha256": "9accd92b779985736589d7bf25b93f1d6d508830d2f2aad3e76a481549cc1ca2",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z048-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_014.wav",
+   "sha256": "0bdf66b89c2cd8042118b2cf9898aab334820fff7538b8553655a3d11d2ba107",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_014.wav",
+   "sha256": "0bdf66b89c2cd8042118b2cf9898aab334820fff7538b8553655a3d11d2ba107",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_016.wav",
+   "sha256": "87b90b8161b5ddac5f1e81cce7895c726aff220e735586059c7ed684a5ae82dc",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_018.wav",
+   "sha256": "fb39ae501f7dde4aa3626d2e382b3709962cbe5d48b6c001ba7c911d1ffb6aeb",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_018.wav",
+   "sha256": "fb39ae501f7dde4aa3626d2e382b3709962cbe5d48b6c001ba7c911d1ffb6aeb",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_020.wav",
+   "sha256": "dc314226819e7af0768cd7fc08933f5e5b550083145e05af630fd7556f4d3913",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_022.wav",
+   "sha256": "9a4e03fa389b7e59ea6b3a6719eef52be8d607844283c7163662030f57b60942",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_024.wav",
+   "sha256": "a00ae1a2b2a78c154b067a9709afc1ce2d3be9f08d9f4ad3c9c869a7db80eb75",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_024.wav",
+   "sha256": "a00ae1a2b2a78c154b067a9709afc1ce2d3be9f08d9f4ad3c9c869a7db80eb75",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_026.wav",
+   "sha256": "4e668e75c3922c79ef06bd46806224dbf8dbfa0be1569847a1cd17e573a967ec",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_028.wav",
+   "sha256": "84fe87bd24dc93d354213f730517a29f485c40715d5959af97976b364110b70a",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_030.wav",
+   "sha256": "4b558995c108f7f1dcede12c7e0444caa2658205fea34a314abf485dc6b7e710",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_030.wav",
+   "sha256": "4b558995c108f7f1dcede12c7e0444caa2658205fea34a314abf485dc6b7e710",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z086-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_032.wav",
+   "sha256": "8a4b127b8420c276d8935495d13b4e493c3eaa8f8aaef75bbc4f74d6437160f2",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z089-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_034.wav",
+   "sha256": "c5305eb820902b66b0a55768733956ff21d98692810d6e2cec24d68879ef5fcd",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z092-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_036.wav",
+   "sha256": "87ef3cb2e7f234b56ca70ff323e2714bccd80d771fc6ac02dfef3405c217085c",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z095-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_036.wav",
+   "sha256": "87ef3cb2e7f234b56ca70ff323e2714bccd80d771fc6ac02dfef3405c217085c",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z098-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_038.wav",
+   "sha256": "ace4ec29aa6ae232566174c6b74ae861ce24e38e2cb3ab1d1ea5cf8e145ebdbd",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z101-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_040.wav",
+   "sha256": "25028a985a79b059659b785ecb29388bb8c173cf3a1b2e185fb8c64491d0f476",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z104-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_042.wav",
+   "sha256": "11dce969f3f159c10fbcdf4a743e4f18937b59e5e259fc24d197965fc241514d",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z107-v1.ogg",
+   "source": "Keys/Upright Piano/Player_dyn2_rr1_044.wav",
+   "sha256": "8dbeca4e4254bd3635fdb7be54bbe57cddd751a3d0a0bda64e85baf02a4de999",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

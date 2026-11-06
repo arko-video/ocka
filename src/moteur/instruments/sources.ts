@@ -56,6 +56,11 @@ export interface OptionsJeu {
    * la piste batterie (mono) en stéréo : +3 dB. En phase 1, la batterie revenait à −3 dB dès la fin de la queue.
    */
   debrancher?: boolean;
+  /** Échantillonneur : hauteur de lecture (cents, k-rate) et glissé (rampe linéaire de `debut` à `fin`, heures). */
+  detune?: number;
+  rampeDetune?: { debut: number; fin: number; vers: number };
+  /** Pitch bend de la piste (cents) : ajouté au `detune` de la source (ConstantSourceNode branché dessus). */
+  hauteur?: AudioNode;
 }
 
 export class Sources {
@@ -71,6 +76,8 @@ export class Sources {
 
   jouer(buffer: AudioBuffer, quand: number, vel: number, vers: AudioNode[], o: OptionsJeu = {}): Active {
     const ctx = this.ctx;
+    // Une reprise calculée (−début + t) + (début − t) vaut parfois −5e-16 s : Web Audio refuse les heures négatives.
+    quand = Math.max(0, quand);
     const src = ctx.createBufferSource();
     src.buffer = buffer;
     const g = ctx.createGain();
@@ -78,6 +85,12 @@ export class Sources {
       g.channelCount = 2;
       g.channelCountMode = 'explicit';
     }
+    if (o.detune) src.detune.value = o.detune;
+    if (o.rampeDetune) {
+      src.detune.setValueAtTime(o.detune ?? 0, Math.max(0, o.rampeDetune.debut));
+      src.detune.linearRampToValueAtTime(o.rampeDetune.vers, o.rampeDetune.fin);
+    }
+    if (o.hauteur) o.hauteur.connect(src.detune);
     let decalage = o.decalage ?? 0;
     if (o.boucle) {
       src.loop = true;
@@ -105,7 +118,7 @@ export class Sources {
     }
     if (o.arret !== undefined) {
       const sortie = Math.min(o.fonduSortie ?? 0.003, Math.max(0, o.arret - quand - entree));
-      g.gain.setValueAtTime(vel, o.arret - sortie);
+      g.gain.setValueAtTime(vel, Math.max(0, o.arret - sortie));
       g.gain.linearRampToValueAtTime(0, o.arret);
       src.stop(o.arret);
       fin = o.arret;
@@ -118,6 +131,7 @@ export class Sources {
       // Hors ligne, onended arrive à un moment quelconque du rendu : débrancher ici rendrait deux exports
       // différents. On ne débranche qu'en direct ; hors ligne, tout part avec le contexte à la fin du rendu.
       if (this.enRetard || o.debrancher) g.disconnect();
+      if (o.hauteur && this.enRetard) o.hauteur.disconnect(src.detune);
       if (this.actives.size === 0) this.surVide?.();
     };
     return a;

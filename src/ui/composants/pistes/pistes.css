@@ -1,0 +1,277 @@
+/* Vue Pistes (cartes des pistes instrument), choix d'instrument et « Gérer les instruments ». Propriétaire : U1. */
+
+.pistes {
+  gap: 12px;
+}
+.pistes-tete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.pistes-tete .btn {
+  margin-right: -8px;
+  padding: 0 8px;
+  font-size: 13px;
+}
+/* C2 : « Chanter » à côté de « Gérer ». */
+.pistes-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.pistes-actions .btn-contour {
+  margin-right: 0;
+}
+.pistes-section {
+  font-family: var(--police);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--texte-doux);
+}
+.pistes-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pistes-ajouter {
+  width: 100%;
+  border-style: dashed;
+}
+.pistes-rapide-titre {
+  margin: 8px 0 -4px;
+  font-family: var(--police-titre);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------ carte d'une piste */
+.pc {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 10px 2px;
+  border-radius: var(--r);
+  background: var(--fond-creux);
+  border: 1px solid var(--bord);
+}
+.pc[data-muet='1'] .pc-apercu,
+.pc[data-muet='1'] .pc-pastille {
+  opacity: 0.45;
+}
+.pc-tete {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.pc-pastille {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: var(--degrade);
+  color: #fff;
+  font-family: var(--police-titre);
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.pc-titres {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.pc-nom,
+.pc-instrument {
+  max-width: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pc-nom {
+  min-height: 24px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.pc-instrument {
+  min-height: 22px;
+  font-size: 13px;
+  color: var(--violet-clair);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.pc-nom-champ {
+  min-height: 40px;
+  padding: 6px 10px;
+}
+.pc-ms {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--bord-fort);
+  background: var(--surface);
+  font-family: var(--police-titre);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+.pc-ms[aria-pressed='true'] {
+  border-color: var(--violet);
+  background: var(--violet-voile);
+  color: var(--violet-clair);
+}
+.pc-ms[data-solo='1'][aria-pressed='true'] {
+  border-color: #facc15;
+  background: rgba(250, 204, 21, 0.18);
+  color: #fde68a;
+}
+.pc-plus {
+  width: 40px;
+  height: 40px;
+  margin-right: -4px;
+}
+.pc-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--surface);
+}
+.pc-menu .btn {
+  padding: 0 10px;
+}
+.pc-apercu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 4px 8px;
+  border: 1px solid var(--bord);
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(168, 85, 247, 0.12), rgba(236, 72, 153, 0.06));
+  color: var(--violet-clair);
+  cursor: pointer;
+}
+.pc-apercu-svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+.pc-apercu-mesure {
+  fill: var(--bord-fort);
+}
+.pc-apercu-vide {
+  font-size: 13px;
+  color: var(--texte-faible);
+}
+.pc-compte {
+  position: absolute;
+  right: 6px;
+  top: 2px;
+  font-size: 11px;
+  color: var(--texte-doux);
+}
+.pc-volume {
+  height: 36px;
+}
+
+/* ------------------------------------------------------------ choix d'instrument */
+.instr-recherche {
+  margin-top: 4px;
+}
+.instr-familles {
+  margin: 0 calc(-1 * var(--marge));
+  padding: 0 var(--marge);
+}
+.instr-famille-titre {
+  margin: 8px 0 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--texte-doux);
+}
+.instr-liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.instr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  border-bottom: 1px solid var(--bord);
+}
+.instr[data-actuel='1'] .instr-nom::after {
+  content: ' ✓';
+  color: var(--vert);
+}
+.instr-ecouter {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--violet);
+  background: var(--fond-creux);
+  color: var(--violet-clair);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.instr-ecouter:disabled {
+  opacity: 0.4;
+}
+.instr-texte {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.instr-nom {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.instr-etat {
+  font-size: 12px;
+  color: var(--texte-doux);
+}
+.instr-barre {
+  display: block;
+  height: 4px;
+  margin-top: 4px;
+  border-radius: 2px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+.instr-barre span {
+  display: block;
+  height: 100%;
+  background: var(--degrade);
+  transition: width 0.15s;
+}
+.instr-gerer {
+  align-self: center;
+  margin-top: 8px;
+}

@@ -1,0 +1,220 @@
+{
+ "id": "vsco-hautbois@1",
+ "nom": "Hautbois",
+ "famille": "Vents",
+ "licence": {
+  "nom": "CC0-1.0",
+  "url": "https://github.com/sgossner/VSCO-2-CE",
+  "auteur": "Versilian Studios LLC (Sam Gossner) et Ivy Audio (Simon Dalzell)",
+  "sha256": [
+   "1edd84fb5a1827d786d172e5fc76ea2ebff88cfc1ee2acc43ab8fd75a4b9151b",
+   "2cd7ec2634bd595fc5398a3f2d3c3f4035f685972a680632a829f6665a2d09ce",
+   "37ebac8c277c1cee48758448bddbaddc1b2f1664f4c30232eeb74d361e9afdf7",
+   "3d45ff8573ad67eb27406c44d5b2056f7892ecdf35f0aac791a988daf5b70e0f",
+   "713a7e20c4ae920ec871107e3b5fdabd0f8ed0539e0a1fe25f19bdc4aeb18434",
+   "7251e53c56181f2b4eb38cb0b04e557d7909e4a42a1d6a70aa050cd78da6eb97",
+   "72ca108efbe96d7e19cb93c5ad2532e91e3372be02afce92dbae5bccc640745f",
+   "ba2b452b415683cbbd6b39ba1cd87b3c42834bb3177721b0fecbebbd87f3ddc4",
+   "cdadc95ca70469fe22ab8fce3c42bdb689d1341129efdefb61eca184ab4aa0e5"
+  ]
+ },
+ "canaux": 1,
+ "gainDb": 0.0,
+ "relache": 0.3,
+ "budgetS": 48.105,
+ "zones": [
+  {
+   "fichier": "z059-v1.ogg",
+   "racine": 59,
+   "cents": 4.1,
+   "bas": 58,
+   "haut": 60,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -8.1,
+   "debut": 0,
+   "fin": 194266,
+   "boucle": {
+    "debut": 19200,
+    "fin": 190170
+   }
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "racine": 62,
+   "cents": 1.8,
+   "bas": 61,
+   "haut": 63,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.6,
+   "debut": 0,
+   "fin": 194291,
+   "boucle": {
+    "debut": 19200,
+    "fin": 190195
+   }
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "racine": 65,
+   "cents": -1.9,
+   "bas": 64,
+   "haut": 66,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -12.8,
+   "debut": 0,
+   "fin": 193146,
+   "boucle": {
+    "debut": 19200,
+    "fin": 189050
+   }
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "racine": 68,
+   "cents": 2.3,
+   "bas": 67,
+   "haut": 69,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.4,
+   "debut": 0,
+   "fin": 190018,
+   "boucle": {
+    "debut": 19200,
+    "fin": 185922
+   }
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "racine": 71,
+   "cents": -1.6,
+   "bas": 70,
+   "haut": 72,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -11.8,
+   "debut": 0,
+   "fin": 193527,
+   "boucle": {
+    "debut": 19200,
+    "fin": 189431
+   }
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "racine": 74,
+   "cents": -0.4,
+   "bas": 73,
+   "haut": 75,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -9.0,
+   "debut": 0,
+   "fin": 189608,
+   "boucle": {
+    "debut": 19200,
+    "fin": 185512
+   }
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "racine": 77,
+   "cents": 0.6,
+   "bas": 76,
+   "haut": 78,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -13.8,
+   "debut": 0,
+   "fin": 191285,
+   "boucle": {
+    "debut": 19200,
+    "fin": 187189
+   }
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "racine": 80,
+   "cents": -2.1,
+   "bas": 79,
+   "haut": 81,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.5,
+   "debut": 0,
+   "fin": 192106,
+   "boucle": {
+    "debut": 19200,
+    "fin": 188010
+   }
+  },
+  {
+   "fichier": "z083-v1.ogg",
+   "racine": 83,
+   "cents": -4.9,
+   "bas": 82,
+   "haut": 84,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -10.6,
+   "debut": 0,
+   "fin": 194331,
+   "boucle": {
+    "debut": 19200,
+    "fin": 190235
+   }
+  },
+  {
+   "fichier": "z086-v1.ogg",
+   "racine": 86,
+   "cents": -10.1,
+   "bas": 85,
+   "haut": 87,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -13.2,
+   "debut": 0,
+   "fin": 194238,
+   "boucle": {
+    "debut": 19200,
+    "fin": 190142
+   }
+  },
+  {
+   "fichier": "z089-v1.ogg",
+   "racine": 89,
+   "cents": -5.8,
+   "bas": 88,
+   "haut": 89,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -13.9,
+   "debut": 0,
+   "fin": 191137,
+   "boucle": {
+    "debut": 19200,
+    "fin": 187041
+   }
+  },
+  {
+   "fichier": "z090-v1.ogg",
+   "racine": 90,
+   "cents": -5.3,
+   "bas": 90,
+   "haut": 91,
+   "velBas": 1,
+   "velHaut": 127,
+   "gainDb": -14.1,
+   "debut": 0,
+   "fin": 191090,
+   "boucle": {
+    "debut": 19200,
+    "fin": 186994
+   }
+  }
+ ],
+ "mono": true
+}

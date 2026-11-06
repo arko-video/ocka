@@ -1,0 +1,276 @@
+{
+ "id": "vcsl-percussions-latines",
+ "source": null,
+ "fichiers": [
+  {
+   "fichier": "n039-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Claps/SoloClap_vl1.wav",
+   "sha256": [
+    "2a16d804adcb2fa3ed20a12579ca30aa3628a9b876a87476a9259a419cd3fd12"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n039-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Claps/SoloClap_vl4.wav",
+   "sha256": [
+    "6611570b169578e3f6be2c253c4148420396e4f8ec1ef3fc3c2df158484ce769"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n054-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Tambourine 1/Tamb1_Hit_v1_rr1_Mid.wav",
+   "sha256": [
+    "6fd5af9ec2d94c3b66fa871aecbc2e2844eea155a668fd0f15f07d59ae67dd40"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n054-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Tambourine 1/Tamb1_Hit_v2_rr1_Mid.wav",
+   "sha256": [
+    "885ebf1d70f8e888f576682e4e4112b92b69649162f392c83b3379c91a09cf41"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n056-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Cowbells/Cowbell1_Normal_v2_rr1_Mid.wav",
+   "sha256": [
+    "d1f89cb17fe60091deca7ae689009ff03ed79b061b74cd3f6ef5373b5999612c"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n056-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Cowbells/Cowbell1_Normal_v3_rr1_Mid.wav",
+   "sha256": [
+    "e212cc27b3490d7927d41508bd7e90d6e09b0b8da169f0357341d3057c4910c4"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n060-v1.ogg",
+   "source": "Membranophones/Struck Membranophones/Bongos/BongoH_Hit1_v1_rr1_Mid.wav",
+   "sha256": [
+    "7ebcd2149e8a75189446afba67c96b58f42757bf7aa355364f2e11cee705f33f"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n060-v2.ogg",
+   "source": "Membranophones/Struck Membranophones/Bongos/BongoH_Hit1_v3_rr1_Mid.wav",
+   "sha256": [
+    "e93ed5c0fbafc3f122ced7c56c3f08021d8616e96c81c42aa62c5f368111d001"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n061-v1.ogg",
+   "source": "Membranophones/Struck Membranophones/Bongos/BongoL_Hit1_v1_rr1_Mid.wav",
+   "sha256": [
+    "746f5c4d37cf956c083f0c98b74dd7b6f7daeda6405d7b1534bbc56f1b741e4a"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n061-v2.ogg",
+   "source": "Membranophones/Struck Membranophones/Bongos/BongoL_Hit1_v3_rr1_Mid.wav",
+   "sha256": [
+    "07986a1bc54b31dafd9c7dc250e42a613977b320b33b2e4652d21332064de4eb"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n062-v1.ogg",
+   "source": "Membranophones/Struck Membranophones/Conga/Quinto_HitFM1_v1_rr1_Sum.wav",
+   "sha256": [
+    "c316a657a46160ae7b41b4181d9941752606705a5f7d4fae24e18a9dc94ed7e4"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n062-v2.ogg",
+   "source": "Membranophones/Struck Membranophones/Conga/Quinto_HitFM1_v2_rr1_Sum.wav",
+   "sha256": [
+    "92f9d0ea6694eadedd1ee55495a794fba5a3fe9b228c7d7d5c787f3c03690051"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n063-v1.ogg",
+   "source": "Membranophones/Struck Membranophones/Conga/Quinto_HitN_v1_rr1_Sum.wav",
+   "sha256": [
+    "7ee442ad7d604433afebbb648e6dde63b7ca969973b2a215cfa26f104d597ed8"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n063-v2.ogg",
+   "source": "Membranophones/Struck Membranophones/Conga/Quinto_HitN_v3_rr1_Sum.wav",
+   "sha256": [
+    "07fe0922f97a57969a3cbb706126de2d09d23f42f6390a9a9adac027d7741c7e"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n064-v1.ogg",
+   "source": "Membranophones/Struck Membranophones/Conga/Tumba_HitN_v1_rr1_Sum.wav",
+   "sha256": [
+    "f02d803de1a48ecc3714bcd8b929683b2608f5756a451c9ae2f83a0f86c9b6a9"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n064-v2.ogg",
+   "source": "Membranophones/Struck Membranophones/Conga/Tumba_HitN_v4_rr1_Sum.wav",
+   "sha256": [
+    "5504101dba1a22e133efb77147084e96565a7ff64535f94f2f3d8934f2b2895b"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n067-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Agogo Bells/Agogo_High_v1_rr1_Mid.wav",
+   "sha256": [
+    "a319d68b2e38304d063531b2a152194871623bbce0dc55a870c0ab45570cbbdf"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n067-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Agogo Bells/Agogo_High_v3_rr1_Mid.wav",
+   "sha256": [
+    "c7f0d2b70c6cee34beea62d7566227da2687ca5c87d72d1245f444fbe2c76b43"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n068-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Agogo Bells/Agogo_Low_v1_rr1_Mid.wav",
+   "sha256": [
+    "7f113910f75c61825c56ee464b30cc582f915c795668e71058ede66cd842834c"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n068-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Agogo Bells/Agogo_Low_v2_rr1_Mid.wav",
+   "sha256": [
+    "36fb0e28c0ba39336082902d299a5b2d20b9f5f0cb448cb64e4b13837b896eea"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n069-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Cabasa/Cabasa1_Hit_rr1_Mid.wav",
+   "sha256": [
+    "0290fec6f2e39d3757c6d69562ef50d47c4ec7da2e2947110e7738896b4f378d"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n070-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Shaker, Small/Mid_Shaker_Slap_rr1.wav",
+   "sha256": [
+    "793c21eb3afdcd68535b3b1df45a097625fc02f26fb7bc86f1dc5b1e5b28e8db"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": -11
+  },
+  {
+   "fichier": "n073-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Guiro/Guiro_Hit_rr1_Mid.wav",
+   "sha256": [
+    "e7d4bf1c28521e3410d710688a576f2fe5f6c5339e754417ae3c1a46a386cf42"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n074-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Guiro/Guiro_Med_rr1_Mid.wav",
+   "sha256": [
+    "b32a7fd5b8a9971ebe85313df3e7be72134c2c1eaf243d21a28dc48b77deb44c"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n075-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Claves/Claves1_Hit_v1_rr1_Mid.wav",
+   "sha256": [
+    "19379cc794b9e50d4dc55200238e27091bedab63b7370eb625490c7a96631b34"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n075-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Claves/Claves1_Hit_v3_rr1_Mid.wav",
+   "sha256": [
+    "12285f65ed125f4140d1e8a86b2d6a08bf3283b7bf30c10d68290b8e8230a927"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n076-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Woodblock/wood_click3_vl1.wav",
+   "sha256": [
+    "b38a06f037de70bb2cf98fd89f06af8d104d4123773d2e625691189a67495be5"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n076-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Woodblock/wood_click3_vl2.wav",
+   "sha256": [
+    "eb93ee3fa02d66588a48b34d8b686638dd4e90433c8c75f2397a3dbc35c61d10"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n081-v1.ogg",
+   "source": "Idiophones/Struck Idiophones/Triangles/Triangle1_Hit_v1_rr1_Mid.wav",
+   "sha256": [
+    "0397199e59671937bde1e5d29fc2e74946e6c56889cc196e5053f33644f17ff7"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n081-v2.ogg",
+   "source": "Idiophones/Struck Idiophones/Triangles/Triangle1_Hit_v2_rr1_Mid.wav",
+   "sha256": [
+    "bec62db48c6a052bff1b54f88c11fc6cb6131b9633da2afb35636291754971af"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

@@ -12,6 +12,12 @@
  *   pochette_trop_petite, image_illisible
  * - fichiers : projet_illisible, projet_trop_gros, format_recent, son_illisible, son_trop_long, son_trop_gros,
  *   trop_de_sons, partage_impossible, format_impossible (le téléphone ne sait pas fabriquer ce format, ex. M4A)
+ * - instruments (v2, BQ) : hors_ligne, instrument_inconnu, instrument_corrompu, instrument_absent, instrument_invalide,
+ *   instrument_introuvable, catalogue_invalide
+ * - pistes (v2, U1) : trop_de_pistes
+ * - C2 : entrainement_incomplet (beatbox, D) ; reponse_ia_invalide (IA, déjà utilisé par ia/lecture.ts) ;
+ *   piste_introuvable (Chanter : la piste instrument jouée n'existe plus, D)
+ * - C3 : midi_illisible, midi_indisponible (P) ; sf2_illisible, sf2_trop_lourd (S) ; reference_illisible (V)
  */
 export type CodeErreur =
   | 'pas_encore'
@@ -49,7 +55,23 @@ export type CodeErreur =
   | 'son_trop_gros'
   | 'trop_de_sons'
   | 'partage_impossible'
-  | 'format_impossible';
+  | 'format_impossible'
+  | 'hors_ligne'
+  | 'instrument_inconnu'
+  | 'instrument_corrompu'
+  | 'instrument_absent'
+  | 'instrument_invalide'
+  | 'instrument_introuvable'
+  | 'catalogue_invalide'
+  | 'trop_de_pistes'
+  | 'entrainement_incomplet'
+  | 'reponse_ia_invalide'
+  | 'piste_introuvable'
+  | 'midi_illisible'
+  | 'midi_indisponible'
+  | 'sf2_illisible'
+  | 'sf2_trop_lourd'
+  | 'reference_illisible';
 
 export class ErreurOcka extends Error {
   constructor(

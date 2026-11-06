@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { expect, type Page } from '@playwright/test';
-import type { Style } from '../../src/morceau/types';
+import type { AutotunePrise, Style } from '../../src/morceau/types';
 
 export const SORTIES = join(dirname(fileURLToPath(import.meta.url)), 'sorties');
 
@@ -49,7 +49,7 @@ export interface MorceauIdb {
     ordre: string[];
     sections: { id: string; nom: string; mesures: number }[];
     pistes: { id: string; volume: number; muet: boolean; pan: number }[];
-    prises: { id: string; fichier: string; choisie: boolean; debutCoupe: number; finCoupe: number; decalage: number; frequence: number; ancre: { section: string; occurrence: number; mesure: number } }[];
+    prises: { id: string; fichier: string; choisie: boolean; debutCoupe: number; finCoupe: number; decalage: number; frequence: number; ancre: { section: string; occurrence: number; mesure: number }; autotune?: AutotunePrise }[];
     master: { niveau: string };
   };
 }

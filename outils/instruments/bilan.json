@@ -1,0 +1,5242 @@
+{
+ "toleranceCents": 5.0,
+ "toleranceClicDb": 6.0,
+ "instruments": [
+  {
+   "id": "vcsl-piano-queue@1",
+   "zones": [
+    {
+     "fichier": "z022-v1.ogg",
+     "racine": 22,
+     "justesse": 0.07
+    },
+    {
+     "fichier": "z025-v1.ogg",
+     "racine": 25,
+     "justesse": -0.2
+    },
+    {
+     "fichier": "z028-v1.ogg",
+     "racine": 28,
+     "justesse": 0.8
+    },
+    {
+     "fichier": "z031-v1.ogg",
+     "racine": 31,
+     "justesse": -3.17
+    },
+    {
+     "fichier": "z034-v1.ogg",
+     "racine": 34,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z036-v1.ogg",
+     "racine": 36,
+     "justesse": 0.18
+    },
+    {
+     "fichier": "z039-v1.ogg",
+     "racine": 39,
+     "justesse": 0.2
+    },
+    {
+     "fichier": "z042-v1.ogg",
+     "racine": 42,
+     "justesse": -0.21
+    },
+    {
+     "fichier": "z045-v1.ogg",
+     "racine": 45,
+     "justesse": 0.09
+    },
+    {
+     "fichier": "z048-v1.ogg",
+     "racine": 48,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z051-v1.ogg",
+     "racine": 51,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z054-v1.ogg",
+     "racine": 54,
+     "justesse": 0.16
+    },
+    {
+     "fichier": "z057-v1.ogg",
+     "racine": 57,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z060-v1.ogg",
+     "racine": 60,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z063-v1.ogg",
+     "racine": 63,
+     "justesse": 0.1
+    },
+    {
+     "fichier": "z066-v1.ogg",
+     "racine": 66,
+     "justesse": -0.12
+    },
+    {
+     "fichier": "z069-v1.ogg",
+     "racine": 69,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z072-v1.ogg",
+     "racine": 72,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z075-v1.ogg",
+     "racine": 75,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z078-v1.ogg",
+     "racine": 78,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z081-v1.ogg",
+     "racine": 81,
+     "justesse": -0.06
+    },
+    {
+     "fichier": "z084-v1.ogg",
+     "racine": 84,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z087-v1.ogg",
+     "racine": 87,
+     "justesse": 0.0
+    },
+    {
+     "fichier": "z090-v1.ogg",
+     "racine": 90,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z093-v1.ogg",
+     "racine": 93,
+     "justesse": -0.08
+    },
+    {
+     "fichier": "z096-v1.ogg",
+     "racine": 96,
+     "justesse": 0.1
+    },
+    {
+     "fichier": "z099-v1.ogg",
+     "racine": 99,
+     "justesse": 0.19
+    },
+    {
+     "fichier": "z102-v1.ogg",
+     "racine": 102,
+     "justesse": 0.12
+    },
+    {
+     "fichier": "z105-v1.ogg",
+     "racine": 105,
+     "justesse": 0.64
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.8,
+   "resume": {
+    "zones": 29,
+    "justesseMesuree": 29,
+    "pireEcartCents": 3.17,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vsco-piano-droit@1",
+   "zones": [
+    {
+     "fichier": "z022-v1.ogg",
+     "racine": 22,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z025-v1.ogg",
+     "racine": 25,
+     "justesse": -0.32
+    },
+    {
+     "fichier": "z028-v1.ogg",
+     "racine": 28,
+     "justesse": -2.39
+    },
+    {
+     "fichier": "z030-v1.ogg",
+     "racine": 30,
+     "justesse": -0.11
+    },
+    {
+     "fichier": "z033-v1.ogg",
+     "racine": 33,
+     "justesse": 0.17
+    },
+    {
+     "fichier": "z036-v1.ogg",
+     "racine": 36,
+     "justesse": 0.08
+    },
+    {
+     "fichier": "z039-v1.ogg",
+     "racine": 39,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z042-v1.ogg",
+     "racine": 42,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z045-v1.ogg",
+     "racine": 45,
+     "justesse": 0.16
+    },
+    {
+     "fichier": "z048-v1.ogg",
+     "racine": 48,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": -0.31
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z083-v1.ogg",
+     "racine": 83,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z086-v1.ogg",
+     "racine": 86,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z089-v1.ogg",
+     "racine": 89,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z092-v1.ogg",
+     "racine": 92,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z095-v1.ogg",
+     "racine": 95,
+     "justesse": 0.0
+    },
+    {
+     "fichier": "z098-v1.ogg",
+     "racine": 98,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z101-v1.ogg",
+     "racine": 101,
+     "justesse": 0.29
+    },
+    {
+     "fichier": "z104-v1.ogg",
+     "racine": 104,
+     "justesse": -0.07
+    },
+    {
+     "fichier": "z107-v1.ogg",
+     "racine": 107,
+     "justesse": -0.17
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.799,
+   "resume": {
+    "zones": 30,
+    "justesseMesuree": 30,
+    "pireEcartCents": 2.39,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "freepats-guitare-nylon@1",
+   "zones": [
+    {
+     "fichier": "z041-v1.ogg",
+     "racine": 41,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": 0.1
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": 0.09
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": -0.07
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": -0.11
+    },
+    {
+     "fichier": "z083-v1.ogg",
+     "racine": 83,
+     "justesse": 0.01
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 37.104,
+   "resume": {
+    "zones": 15,
+    "justesseMesuree": 15,
+    "pireEcartCents": 0.11,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "freepats-guitare-claire@1",
+   "zones": [
+    {
+     "fichier": "z041-v1.ogg",
+     "racine": 41,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z046-v1.ogg",
+     "racine": 46,
+     "justesse": -0.19
+    },
+    {
+     "fichier": "z049-v1.ogg",
+     "racine": 49,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z052-v1.ogg",
+     "racine": 52,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z055-v1.ogg",
+     "racine": 55,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z058-v1.ogg",
+     "racine": 58,
+     "justesse": -0.06
+    },
+    {
+     "fichier": "z061-v1.ogg",
+     "racine": 61,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z064-v1.ogg",
+     "racine": 64,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z067-v1.ogg",
+     "racine": 67,
+     "justesse": -0.08
+    },
+    {
+     "fichier": "z070-v1.ogg",
+     "racine": 70,
+     "justesse": -0.09
+    },
+    {
+     "fichier": "z073-v1.ogg",
+     "racine": 73,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z076-v1.ogg",
+     "racine": 76,
+     "justesse": -0.12
+    },
+    {
+     "fichier": "z079-v1.ogg",
+     "racine": 79,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z082-v1.ogg",
+     "racine": 82,
+     "justesse": -0.12
+    },
+    {
+     "fichier": "z085-v1.ogg",
+     "racine": 85,
+     "justesse": -0.07
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.8,
+   "resume": {
+    "zones": 16,
+    "justesseMesuree": 16,
+    "pireEcartCents": 0.19,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vsco-cordes@1",
+   "zones": [
+    {
+     "fichier": "z037-v1.ogg",
+     "racine": 37,
+     "justesse": 0.0,
+     "clicDb": 0.22
+    },
+    {
+     "fichier": "z040-v1.ogg",
+     "racine": 40,
+     "justesse": 0.07,
+     "clicDb": 2.14
+    },
+    {
+     "fichier": "z043-v1.ogg",
+     "racine": 43,
+     "justesse": 0.02,
+     "clicDb": 0.09
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": 0.26,
+     "clicDb": 0.53
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": 0.03,
+     "clicDb": 0.04
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": 0.01,
+     "clicDb": 0.28
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": -0.26,
+     "clicDb": 0.47
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": -0.08,
+     "clicDb": 0.11
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": 0.06,
+     "clicDb": 0.08
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": -0.08,
+     "clicDb": 0.08
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": 0.07,
+     "clicDb": -0.37
+    },
+    {
+     "fichier": "z067-v1.ogg",
+     "racine": 67,
+     "justesse": 0.06,
+     "clicDb": 0.13
+    },
+    {
+     "fichier": "z070-v1.ogg",
+     "racine": 70,
+     "justesse": 0.02,
+     "clicDb": -0.44
+    },
+    {
+     "fichier": "z073-v1.ogg",
+     "racine": 73,
+     "justesse": 0.02,
+     "clicDb": 0.1
+    },
+    {
+     "fichier": "z076-v1.ogg",
+     "racine": 76,
+     "justesse": 0.1,
+     "clicDb": 0.11
+    },
+    {
+     "fichier": "z079-v1.ogg",
+     "racine": 79,
+     "justesse": 0.21,
+     "clicDb": 0.15
+    },
+    {
+     "fichier": "z082-v1.ogg",
+     "racine": 82,
+     "justesse": -0.04,
+     "clicDb": 0.16
+    },
+    {
+     "fichier": "z084-v1.ogg",
+     "racine": 84,
+     "justesse": 0.19,
+     "clicDb": 0.09
+    },
+    {
+     "fichier": "z087-v1.ogg",
+     "racine": 87,
+     "justesse": -0.08,
+     "clicDb": 0.07
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.98,
+   "resume": {
+    "zones": 19,
+    "justesseMesuree": 19,
+    "pireEcartCents": 0.26,
+    "sansHauteur": null,
+    "boucles": 19,
+    "pireClicDb": 2.14
+   }
+  },
+  {
+   "id": "vsco-pizzicato@1",
+   "zones": [
+    {
+     "fichier": "z037-v1.ogg",
+     "racine": 37,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z040-v1.ogg",
+     "racine": 40,
+     "justesse": 1.03
+    },
+    {
+     "fichier": "z043-v1.ogg",
+     "racine": 43,
+     "justesse": -0.31
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": -0.29
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": 0.47
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": 0.29
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": 0.43
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": 0.1
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": 0.12
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": 0.28
+    },
+    {
+     "fichier": "z067-v1.ogg",
+     "racine": 67,
+     "justesse": 0.24
+    },
+    {
+     "fichier": "z070-v1.ogg",
+     "racine": 70,
+     "justesse": -0.17
+    },
+    {
+     "fichier": "z073-v1.ogg",
+     "racine": 73,
+     "justesse": -0.14
+    },
+    {
+     "fichier": "z076-v1.ogg",
+     "racine": 76,
+     "justesse": -0.3
+    },
+    {
+     "fichier": "z079-v1.ogg",
+     "racine": 79,
+     "justesse": -0.28
+    },
+    {
+     "fichier": "z082-v1.ogg",
+     "racine": 82,
+     "justesse": 0.12
+    },
+    {
+     "fichier": "z084-v1.ogg",
+     "racine": 84,
+     "justesse": -1.06
+    },
+    {
+     "fichier": "z087-v1.ogg",
+     "racine": 87,
+     "justesse": 0.12
+    },
+    {
+     "fichier": "z037-v2.ogg",
+     "racine": 37,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z040-v2.ogg",
+     "racine": 40,
+     "justesse": 0.0
+    },
+    {
+     "fichier": "z043-v2.ogg",
+     "racine": 43,
+     "justesse": -0.45
+    },
+    {
+     "fichier": "z044-v2.ogg",
+     "racine": 44,
+     "justesse": 1.15
+    },
+    {
+     "fichier": "z047-v2.ogg",
+     "racine": 47,
+     "justesse": 0.72
+    },
+    {
+     "fichier": "z050-v2.ogg",
+     "racine": 50,
+     "justesse": -0.14
+    },
+    {
+     "fichier": "z053-v2.ogg",
+     "racine": 53,
+     "justesse": 0.39
+    },
+    {
+     "fichier": "z056-v2.ogg",
+     "racine": 56,
+     "justesse": 0.19
+    },
+    {
+     "fichier": "z059-v2.ogg",
+     "racine": 59,
+     "justesse": 0.23
+    },
+    {
+     "fichier": "z062-v2.ogg",
+     "racine": 62,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z065-v2.ogg",
+     "racine": 65,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z067-v2.ogg",
+     "racine": 67,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z070-v2.ogg",
+     "racine": 70,
+     "justesse": 0.11
+    },
+    {
+     "fichier": "z073-v2.ogg",
+     "racine": 73,
+     "justesse": -1.52
+    },
+    {
+     "fichier": "z076-v2.ogg",
+     "racine": 76,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z079-v2.ogg",
+     "racine": 79,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z082-v2.ogg",
+     "racine": 82,
+     "justesse": -0.29
+    },
+    {
+     "fichier": "z084-v2.ogg",
+     "racine": 84,
+     "justesse": -0.27
+    },
+    {
+     "fichier": "z087-v2.ogg",
+     "racine": 87,
+     "justesse": -3.82
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 35.907,
+   "resume": {
+    "zones": 38,
+    "justesseMesuree": 38,
+    "pireEcartCents": 3.82,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vsco-flute@1",
+   "zones": [
+    {
+     "fichier": "z060-v1.ogg",
+     "racine": 60,
+     "justesse": -0.01,
+     "clicDb": -0.2
+    },
+    {
+     "fichier": "z063-v1.ogg",
+     "racine": 63,
+     "justesse": -0.1,
+     "clicDb": 0.03
+    },
+    {
+     "fichier": "z066-v1.ogg",
+     "racine": 66,
+     "justesse": -0.07,
+     "clicDb": 0.02
+    },
+    {
+     "fichier": "z069-v1.ogg",
+     "racine": 69,
+     "justesse": -0.06,
+     "clicDb": 0.04
+    },
+    {
+     "fichier": "z072-v1.ogg",
+     "racine": 72,
+     "justesse": 0.01,
+     "clicDb": -0.03
+    },
+    {
+     "fichier": "z075-v1.ogg",
+     "racine": 75,
+     "justesse": -0.03,
+     "clicDb": 0.16
+    },
+    {
+     "fichier": "z078-v1.ogg",
+     "racine": 78,
+     "justesse": -0.06,
+     "clicDb": 0.34
+    },
+    {
+     "fichier": "z081-v1.ogg",
+     "racine": 81,
+     "justesse": 0.08,
+     "clicDb": 0.02
+    },
+    {
+     "fichier": "z084-v1.ogg",
+     "racine": 84,
+     "justesse": 0.13,
+     "clicDb": 0.03
+    },
+    {
+     "fichier": "z087-v1.ogg",
+     "racine": 87,
+     "justesse": -0.01,
+     "clicDb": 0.04
+    },
+    {
+     "fichier": "z090-v1.ogg",
+     "racine": 90,
+     "justesse": -0.14,
+     "clicDb": -0.24
+    },
+    {
+     "fichier": "z093-v1.ogg",
+     "racine": 93,
+     "justesse": -0.04,
+     "clicDb": -0.14
+    },
+    {
+     "fichier": "z096-v1.ogg",
+     "racine": 96,
+     "justesse": -0.03,
+     "clicDb": 0.15
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 52.015,
+   "resume": {
+    "zones": 13,
+    "justesseMesuree": 13,
+    "pireEcartCents": 0.14,
+    "sansHauteur": null,
+    "boucles": 13,
+    "pireClicDb": 0.34
+   }
+  },
+  {
+   "id": "karoryfer-basse@1",
+   "zones": [
+    {
+     "fichier": "z024-v1.ogg",
+     "racine": 24,
+     "justesse": -0.44
+    },
+    {
+     "fichier": "z027-v1.ogg",
+     "racine": 27,
+     "justesse": -0.56
+    },
+    {
+     "fichier": "z030-v1.ogg",
+     "racine": 30,
+     "justesse": 0.07
+    },
+    {
+     "fichier": "z033-v1.ogg",
+     "racine": 33,
+     "justesse": 0.38
+    },
+    {
+     "fichier": "z036-v1.ogg",
+     "racine": 36,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z039-v1.ogg",
+     "racine": 39,
+     "justesse": 0.11
+    },
+    {
+     "fichier": "z042-v1.ogg",
+     "racine": 42,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z045-v1.ogg",
+     "racine": 45,
+     "justesse": 0.16
+    },
+    {
+     "fichier": "z048-v1.ogg",
+     "racine": 48,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z051-v1.ogg",
+     "racine": 51,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z054-v1.ogg",
+     "racine": 54,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z057-v1.ogg",
+     "racine": 57,
+     "justesse": 0.13
+    },
+    {
+     "fichier": "z058-v1.ogg",
+     "racine": 58,
+     "justesse": 0.12
+    },
+    {
+     "fichier": "z061-v1.ogg",
+     "racine": 61,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z063-v1.ogg",
+     "racine": 63,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z024-v2.ogg",
+     "racine": 24,
+     "justesse": -0.21
+    },
+    {
+     "fichier": "z027-v2.ogg",
+     "racine": 27,
+     "justesse": 0.41
+    },
+    {
+     "fichier": "z030-v2.ogg",
+     "racine": 30,
+     "justesse": -0.11
+    },
+    {
+     "fichier": "z033-v2.ogg",
+     "racine": 33,
+     "justesse": 0.23
+    },
+    {
+     "fichier": "z036-v2.ogg",
+     "racine": 36,
+     "justesse": 0.22
+    },
+    {
+     "fichier": "z039-v2.ogg",
+     "racine": 39,
+     "justesse": 0.15
+    },
+    {
+     "fichier": "z042-v2.ogg",
+     "racine": 42,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z045-v2.ogg",
+     "racine": 45,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z048-v2.ogg",
+     "racine": 48,
+     "justesse": 0.08
+    },
+    {
+     "fichier": "z051-v2.ogg",
+     "racine": 51,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z054-v2.ogg",
+     "racine": 54,
+     "justesse": 0.12
+    },
+    {
+     "fichier": "z057-v2.ogg",
+     "racine": 57,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z058-v2.ogg",
+     "racine": 58,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z061-v2.ogg",
+     "racine": 61,
+     "justesse": -0.11
+    },
+    {
+     "fichier": "z063-v2.ogg",
+     "racine": 63,
+     "justesse": 0.19
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.799,
+   "resume": {
+    "zones": 30,
+    "justesseMesuree": 30,
+    "pireEcartCents": 0.56,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "karoryfer-contrebasse@1",
+   "zones": [
+    {
+     "fichier": "z024-v1.ogg",
+     "racine": 24,
+     "justesse": -0.16
+    },
+    {
+     "fichier": "z027-v1.ogg",
+     "racine": 27,
+     "justesse": -0.1
+    },
+    {
+     "fichier": "z030-v1.ogg",
+     "racine": 30,
+     "justesse": -1.39
+    },
+    {
+     "fichier": "z033-v1.ogg",
+     "racine": 33,
+     "justesse": -0.23
+    },
+    {
+     "fichier": "z036-v1.ogg",
+     "racine": 36,
+     "justesse": 0.24
+    },
+    {
+     "fichier": "z039-v1.ogg",
+     "racine": 39,
+     "justesse": -0.28
+    },
+    {
+     "fichier": "z042-v1.ogg",
+     "racine": 42,
+     "justesse": -0.17
+    },
+    {
+     "fichier": "z045-v1.ogg",
+     "racine": 45,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z048-v1.ogg",
+     "racine": 48,
+     "justesse": -0.41
+    },
+    {
+     "fichier": "z051-v1.ogg",
+     "racine": 51,
+     "justesse": -0.33
+    },
+    {
+     "fichier": "z054-v1.ogg",
+     "racine": 54,
+     "justesse": -0.29
+    },
+    {
+     "fichier": "z057-v1.ogg",
+     "racine": 57,
+     "justesse": 0.16
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": 0.26
+    },
+    {
+     "fichier": "z024-v2.ogg",
+     "racine": 24,
+     "justesse": 0.37
+    },
+    {
+     "fichier": "z027-v2.ogg",
+     "racine": 27,
+     "justesse": -0.36
+    },
+    {
+     "fichier": "z030-v2.ogg",
+     "racine": 30,
+     "justesse": 0.72
+    },
+    {
+     "fichier": "z033-v2.ogg",
+     "racine": 33,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z036-v2.ogg",
+     "racine": 36,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z039-v2.ogg",
+     "racine": 39,
+     "justesse": -0.07
+    },
+    {
+     "fichier": "z042-v2.ogg",
+     "racine": 42,
+     "justesse": 0.5
+    },
+    {
+     "fichier": "z045-v2.ogg",
+     "racine": 45,
+     "justesse": -0.18
+    },
+    {
+     "fichier": "z048-v2.ogg",
+     "racine": 48,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z051-v2.ogg",
+     "racine": 51,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z054-v2.ogg",
+     "racine": 54,
+     "justesse": -0.18
+    },
+    {
+     "fichier": "z057-v2.ogg",
+     "racine": 57,
+     "justesse": -0.33
+    },
+    {
+     "fichier": "z059-v2.ogg",
+     "racine": 59,
+     "justesse": -0.27
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 52.472,
+   "resume": {
+    "zones": 26,
+    "justesseMesuree": 26,
+    "pireEcartCents": 1.39,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vcsl-marimba@1",
+   "zones": [
+    {
+     "fichier": "z042-v1.ogg",
+     "racine": 42,
+     "justesse": 0.72
+    },
+    {
+     "fichier": "z045-v1.ogg",
+     "racine": 45,
+     "justesse": -0.17
+    },
+    {
+     "fichier": "z048-v1.ogg",
+     "racine": 48,
+     "justesse": -0.08
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": -0.3
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": -0.12
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": -0.06
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": -0.06
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": -0.07
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": 0.0
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z083-v1.ogg",
+     "racine": 83,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z086-v1.ogg",
+     "racine": 86,
+     "justesse": -0.08
+    },
+    {
+     "fichier": "z089-v1.ogg",
+     "racine": 89,
+     "justesse": -0.12
+    },
+    {
+     "fichier": "z092-v1.ogg",
+     "racine": 92,
+     "justesse": -0.07
+    },
+    {
+     "fichier": "z095-v1.ogg",
+     "racine": 95,
+     "justesse": -0.34
+    },
+    {
+     "fichier": "z042-v2.ogg",
+     "racine": 42,
+     "justesse": -0.54
+    },
+    {
+     "fichier": "z045-v2.ogg",
+     "racine": 45,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z048-v2.ogg",
+     "racine": 48,
+     "justesse": 0.07
+    },
+    {
+     "fichier": "z050-v2.ogg",
+     "racine": 50,
+     "justesse": 0.1
+    },
+    {
+     "fichier": "z053-v2.ogg",
+     "racine": 53,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z056-v2.ogg",
+     "racine": 56,
+     "justesse": -0.09
+    },
+    {
+     "fichier": "z059-v2.ogg",
+     "racine": 59,
+     "justesse": -0.2
+    },
+    {
+     "fichier": "z062-v2.ogg",
+     "racine": 62,
+     "justesse": -0.14
+    },
+    {
+     "fichier": "z065-v2.ogg",
+     "racine": 65,
+     "justesse": -0.08
+    },
+    {
+     "fichier": "z068-v2.ogg",
+     "racine": 68,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z071-v2.ogg",
+     "racine": 71,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z074-v2.ogg",
+     "racine": 74,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z077-v2.ogg",
+     "racine": 77,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z080-v2.ogg",
+     "racine": 80,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z083-v2.ogg",
+     "racine": 83,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z086-v2.ogg",
+     "racine": 86,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z089-v2.ogg",
+     "racine": 89,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z092-v2.ogg",
+     "racine": 92,
+     "justesse": 0.08
+    },
+    {
+     "fichier": "z095-v2.ogg",
+     "racine": 95,
+     "justesse": 0.16
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.8,
+   "resume": {
+    "zones": 38,
+    "justesseMesuree": 38,
+    "pireEcartCents": 0.72,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vcsl-vibraphone@1",
+   "zones": [
+    {
+     "fichier": "z054-v1.ogg",
+     "racine": 54,
+     "justesse": -0.15
+    },
+    {
+     "fichier": "z057-v1.ogg",
+     "racine": 57,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z060-v1.ogg",
+     "racine": 60,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z063-v1.ogg",
+     "racine": 63,
+     "justesse": -0.07
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": 0.0
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z082-v1.ogg",
+     "racine": 82,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z085-v1.ogg",
+     "racine": 85,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z088-v1.ogg",
+     "racine": 88,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z054-v2.ogg",
+     "racine": 54,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z057-v2.ogg",
+     "racine": 57,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z060-v2.ogg",
+     "racine": 60,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z063-v2.ogg",
+     "racine": 63,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z065-v2.ogg",
+     "racine": 65,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z068-v2.ogg",
+     "racine": 68,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z071-v2.ogg",
+     "racine": 71,
+     "justesse": 0.0
+    },
+    {
+     "fichier": "z074-v2.ogg",
+     "racine": 74,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z077-v2.ogg",
+     "racine": 77,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z080-v2.ogg",
+     "racine": 80,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z082-v2.ogg",
+     "racine": 82,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z085-v2.ogg",
+     "racine": 85,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z088-v2.ogg",
+     "racine": 88,
+     "justesse": 0.05
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.8,
+   "resume": {
+    "zones": 26,
+    "justesseMesuree": 26,
+    "pireEcartCents": 0.15,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "karoryfer-piano-doux@1",
+   "zones": [
+    {
+     "fichier": "z021-v1.ogg",
+     "racine": 21,
+     "justesse": -0.11
+    },
+    {
+     "fichier": "z023-v1.ogg",
+     "racine": 23,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z026-v1.ogg",
+     "racine": 26,
+     "justesse": 0.34
+    },
+    {
+     "fichier": "z029-v1.ogg",
+     "racine": 29,
+     "justesse": -1.08
+    },
+    {
+     "fichier": "z032-v1.ogg",
+     "racine": 32,
+     "justesse": 0.37
+    },
+    {
+     "fichier": "z035-v1.ogg",
+     "racine": 35,
+     "justesse": -0.24
+    },
+    {
+     "fichier": "z038-v1.ogg",
+     "racine": 38,
+     "justesse": -0.11
+    },
+    {
+     "fichier": "z041-v1.ogg",
+     "racine": 41,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": 0.16
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": 0.07
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": 0.13
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": 0.07
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": -0.07
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": -0.16
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": -0.06
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": 0.07
+    },
+    {
+     "fichier": "z083-v1.ogg",
+     "racine": 83,
+     "justesse": 0.11
+    },
+    {
+     "fichier": "z086-v1.ogg",
+     "racine": 86,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z089-v1.ogg",
+     "racine": 89,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z092-v1.ogg",
+     "racine": 92,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z095-v1.ogg",
+     "racine": 95,
+     "justesse": 0.08
+    },
+    {
+     "fichier": "z098-v1.ogg",
+     "racine": 98,
+     "justesse": 0.21
+    },
+    {
+     "fichier": "z101-v1.ogg",
+     "racine": 101,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z104-v1.ogg",
+     "racine": 104,
+     "justesse": null,
+     "pourquoi": "extrême aigu : période de quelques échantillons, YIN muet"
+    },
+    {
+     "fichier": "z107-v1.ogg",
+     "racine": 107,
+     "justesse": null,
+     "pourquoi": "extrême aigu : période de quelques échantillons, YIN muet"
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.8,
+   "resume": {
+    "zones": 30,
+    "justesseMesuree": 28,
+    "pireEcartCents": 1.08,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "freepats-piano-bastringue@1",
+   "zones": [
+    {
+     "fichier": "z021-v1.ogg",
+     "racine": 21,
+     "justesse": 1.33
+    },
+    {
+     "fichier": "z024-v1.ogg",
+     "racine": 24,
+     "justesse": -0.21
+    },
+    {
+     "fichier": "z027-v1.ogg",
+     "racine": 27,
+     "justesse": -0.18
+    },
+    {
+     "fichier": "z030-v1.ogg",
+     "racine": 30,
+     "justesse": -0.21
+    },
+    {
+     "fichier": "z033-v1.ogg",
+     "racine": 33,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z036-v1.ogg",
+     "racine": 36,
+     "justesse": 0.13
+    },
+    {
+     "fichier": "z038-v1.ogg",
+     "racine": 38,
+     "justesse": 0.13
+    },
+    {
+     "fichier": "z041-v1.ogg",
+     "racine": 41,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": -0.1
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": 0.15
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": -0.14
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": 0.08
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": 0.15
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": -0.08
+    },
+    {
+     "fichier": "z083-v1.ogg",
+     "racine": 83,
+     "justesse": -0.08
+    },
+    {
+     "fichier": "z086-v1.ogg",
+     "racine": 86,
+     "justesse": -0.09
+    },
+    {
+     "fichier": "z089-v1.ogg",
+     "racine": 89,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z092-v1.ogg",
+     "racine": 92,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z095-v1.ogg",
+     "racine": 95,
+     "justesse": -0.13
+    },
+    {
+     "fichier": "z098-v1.ogg",
+     "racine": 98,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z101-v1.ogg",
+     "racine": 101,
+     "justesse": -0.2
+    },
+    {
+     "fichier": "z104-v1.ogg",
+     "racine": 104,
+     "justesse": -0.13
+    },
+    {
+     "fichier": "z107-v1.ogg",
+     "racine": 107,
+     "justesse": -0.01
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.8,
+   "resume": {
+    "zones": 30,
+    "justesseMesuree": 30,
+    "pireEcartCents": 1.33,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "freepats-piano-fm@1",
+   "zones": [
+    {
+     "fichier": "z029-v1.ogg",
+     "racine": 29,
+     "justesse": 1.19
+    },
+    {
+     "fichier": "z032-v1.ogg",
+     "racine": 32,
+     "justesse": 0.45
+    },
+    {
+     "fichier": "z035-v1.ogg",
+     "racine": 35,
+     "justesse": 0.25
+    },
+    {
+     "fichier": "z038-v1.ogg",
+     "racine": 38,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z041-v1.ogg",
+     "racine": 41,
+     "justesse": -0.06
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": 0.15
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": -0.06
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": 0.1
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z073-v1.ogg",
+     "racine": 73,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z076-v1.ogg",
+     "racine": 76,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z079-v1.ogg",
+     "racine": 79,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z082-v1.ogg",
+     "racine": 82,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z085-v1.ogg",
+     "racine": 85,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z088-v1.ogg",
+     "racine": 88,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z091-v1.ogg",
+     "racine": 91,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z094-v1.ogg",
+     "racine": 94,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z097-v1.ogg",
+     "racine": 97,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z029-v2.ogg",
+     "racine": 29,
+     "justesse": 0.35
+    },
+    {
+     "fichier": "z032-v2.ogg",
+     "racine": 32,
+     "justesse": -2.06
+    },
+    {
+     "fichier": "z035-v2.ogg",
+     "racine": 35,
+     "justesse": 1.54
+    },
+    {
+     "fichier": "z038-v2.ogg",
+     "racine": 38,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z041-v2.ogg",
+     "racine": 41,
+     "justesse": 0.09
+    },
+    {
+     "fichier": "z044-v2.ogg",
+     "racine": 44,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z047-v2.ogg",
+     "racine": 47,
+     "justesse": 0.09
+    },
+    {
+     "fichier": "z050-v2.ogg",
+     "racine": 50,
+     "justesse": 0.08
+    },
+    {
+     "fichier": "z053-v2.ogg",
+     "racine": 53,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z056-v2.ogg",
+     "racine": 56,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z059-v2.ogg",
+     "racine": 59,
+     "justesse": -0.06
+    },
+    {
+     "fichier": "z062-v2.ogg",
+     "racine": 62,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z065-v2.ogg",
+     "racine": 65,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z068-v2.ogg",
+     "racine": 68,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z071-v2.ogg",
+     "racine": 71,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z073-v2.ogg",
+     "racine": 73,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z076-v2.ogg",
+     "racine": 76,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z079-v2.ogg",
+     "racine": 79,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z082-v2.ogg",
+     "racine": 82,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z085-v2.ogg",
+     "racine": 85,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z088-v2.ogg",
+     "racine": 88,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z091-v2.ogg",
+     "racine": 91,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z094-v2.ogg",
+     "racine": 94,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z097-v2.ogg",
+     "racine": 97,
+     "justesse": -0.03
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.8,
+   "resume": {
+    "zones": 48,
+    "justesseMesuree": 48,
+    "pireEcartCents": 2.06,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vcsl-orgue@1",
+   "zones": [
+    {
+     "fichier": "z036-v1.ogg",
+     "racine": 36,
+     "justesse": 0.44,
+     "clicDb": 0.18
+    },
+    {
+     "fichier": "z039-v1.ogg",
+     "racine": 39,
+     "justesse": 1.07,
+     "clicDb": 0.1
+    },
+    {
+     "fichier": "z042-v1.ogg",
+     "racine": 42,
+     "justesse": -1.37,
+     "clicDb": 0.03
+    },
+    {
+     "fichier": "z045-v1.ogg",
+     "racine": 45,
+     "justesse": 1.49,
+     "clicDb": 1.44
+    },
+    {
+     "fichier": "z048-v1.ogg",
+     "racine": 48,
+     "justesse": 0.1,
+     "clicDb": 1.76
+    },
+    {
+     "fichier": "z051-v1.ogg",
+     "racine": 51,
+     "justesse": 0.3,
+     "clicDb": -0.0
+    },
+    {
+     "fichier": "z054-v1.ogg",
+     "racine": 54,
+     "justesse": -0.38,
+     "clicDb": 0.32
+    },
+    {
+     "fichier": "z057-v1.ogg",
+     "racine": 57,
+     "justesse": -0.1,
+     "clicDb": 0.3
+    },
+    {
+     "fichier": "z060-v1.ogg",
+     "racine": 60,
+     "justesse": -0.04,
+     "clicDb": 0.21
+    },
+    {
+     "fichier": "z063-v1.ogg",
+     "racine": 63,
+     "justesse": 0.04,
+     "clicDb": 0.29
+    },
+    {
+     "fichier": "z066-v1.ogg",
+     "racine": 66,
+     "justesse": -0.0,
+     "clicDb": 0.11
+    },
+    {
+     "fichier": "z069-v1.ogg",
+     "racine": 69,
+     "justesse": 0.01,
+     "clicDb": 1.53
+    },
+    {
+     "fichier": "z072-v1.ogg",
+     "racine": 72,
+     "justesse": -0.08,
+     "clicDb": -0.06
+    },
+    {
+     "fichier": "z075-v1.ogg",
+     "racine": 75,
+     "justesse": -0.05,
+     "clicDb": -0.07
+    },
+    {
+     "fichier": "z078-v1.ogg",
+     "racine": 78,
+     "justesse": -0.09,
+     "clicDb": 0.15
+    },
+    {
+     "fichier": "z081-v1.ogg",
+     "racine": 81,
+     "justesse": 0.03,
+     "clicDb": -0.03
+    },
+    {
+     "fichier": "z084-v1.ogg",
+     "racine": 84,
+     "justesse": 0.12,
+     "clicDb": 0.07
+    },
+    {
+     "fichier": "z087-v1.ogg",
+     "racine": 87,
+     "justesse": -0.06,
+     "clicDb": -0.27
+    },
+    {
+     "fichier": "z090-v1.ogg",
+     "racine": 90,
+     "justesse": 0.03,
+     "clicDb": 0.23
+    },
+    {
+     "fichier": "z093-v1.ogg",
+     "racine": 93,
+     "justesse": 0.02,
+     "clicDb": 0.1
+    },
+    {
+     "fichier": "z096-v1.ogg",
+     "racine": 96,
+     "justesse": -0.03,
+     "clicDb": -0.13
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.855,
+   "resume": {
+    "zones": 21,
+    "justesseMesuree": 21,
+    "pireEcartCents": 1.49,
+    "sansHauteur": null,
+    "boucles": 21,
+    "pireClicDb": 1.76
+   }
+  },
+  {
+   "id": "freepats-orgue-electrique@1",
+   "zones": [
+    {
+     "fichier": "z037-v1.ogg",
+     "racine": 25,
+     "justesse": 0.02,
+     "clicDb": 1.18
+    },
+    {
+     "fichier": "z040-v1.ogg",
+     "racine": 28,
+     "justesse": 0.01,
+     "clicDb": 0.2
+    },
+    {
+     "fichier": "z043-v1.ogg",
+     "racine": 31,
+     "justesse": 0.02,
+     "clicDb": 0.56
+    },
+    {
+     "fichier": "z045-v1.ogg",
+     "racine": 33,
+     "justesse": -0.03,
+     "clicDb": 1.51
+    },
+    {
+     "fichier": "z048-v1.ogg",
+     "racine": 36,
+     "justesse": 0.03,
+     "clicDb": 3.37
+    },
+    {
+     "fichier": "z051-v1.ogg",
+     "racine": 39,
+     "justesse": 0.04,
+     "clicDb": 0.09
+    },
+    {
+     "fichier": "z054-v1.ogg",
+     "racine": 42,
+     "justesse": -0.03,
+     "clicDb": 0.24
+    },
+    {
+     "fichier": "z057-v1.ogg",
+     "racine": 45,
+     "justesse": -0.02,
+     "clicDb": 0.08
+    },
+    {
+     "fichier": "z060-v1.ogg",
+     "racine": 48,
+     "justesse": 0.02,
+     "clicDb": 0.32
+    },
+    {
+     "fichier": "z063-v1.ogg",
+     "racine": 51,
+     "justesse": -0.04,
+     "clicDb": 0.12
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 53,
+     "justesse": 0.04,
+     "clicDb": 0.07
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 56,
+     "justesse": -0.01,
+     "clicDb": 0.02
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 59,
+     "justesse": 0.02,
+     "clicDb": 0.14
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 62,
+     "justesse": 0.02,
+     "clicDb": -0.08
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 65,
+     "justesse": 0.02,
+     "clicDb": 0.37
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 68,
+     "justesse": -0.04,
+     "clicDb": 0.06
+    },
+    {
+     "fichier": "z083-v1.ogg",
+     "racine": 71,
+     "justesse": 0.04,
+     "clicDb": 0.13
+    },
+    {
+     "fichier": "z086-v1.ogg",
+     "racine": 74,
+     "justesse": 0.04,
+     "clicDb": -0.07
+    },
+    {
+     "fichier": "z089-v1.ogg",
+     "racine": 77,
+     "justesse": 0.03,
+     "clicDb": 0.02
+    },
+    {
+     "fichier": "z092-v1.ogg",
+     "racine": 80,
+     "justesse": 0.01,
+     "clicDb": 0.01
+    },
+    {
+     "fichier": "z095-v1.ogg",
+     "racine": 83,
+     "justesse": -0.03,
+     "clicDb": -0.02
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 59.022,
+   "resume": {
+    "zones": 21,
+    "justesseMesuree": 21,
+    "pireEcartCents": 0.04,
+    "sansHauteur": null,
+    "boucles": 21,
+    "pireClicDb": 3.37
+   }
+  },
+  {
+   "id": "freepats-accordeon@1",
+   "zones": [
+    {
+     "fichier": "z048-v1.ogg",
+     "racine": 48,
+     "justesse": -0.01,
+     "clicDb": 0.3
+    },
+    {
+     "fichier": "z051-v1.ogg",
+     "racine": 51,
+     "justesse": 0.16,
+     "clicDb": -0.36
+    },
+    {
+     "fichier": "z054-v1.ogg",
+     "racine": 54,
+     "justesse": 0.07,
+     "clicDb": -0.14
+    },
+    {
+     "fichier": "z057-v1.ogg",
+     "racine": 57,
+     "justesse": -0.06,
+     "clicDb": 0.1
+    },
+    {
+     "fichier": "z060-v1.ogg",
+     "racine": 60,
+     "justesse": 0.05,
+     "clicDb": 0.25
+    },
+    {
+     "fichier": "z063-v1.ogg",
+     "racine": 63,
+     "justesse": -0.03,
+     "clicDb": 0.15
+    },
+    {
+     "fichier": "z066-v1.ogg",
+     "racine": 66,
+     "justesse": 0.07,
+     "clicDb": -0.71
+    },
+    {
+     "fichier": "z069-v1.ogg",
+     "racine": 69,
+     "justesse": -0.02,
+     "clicDb": 0.2
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": 0.06,
+     "clicDb": 0.02
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": 0.02,
+     "clicDb": -0.2
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": -0.02,
+     "clicDb": 0.06
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": -0.04,
+     "clicDb": 0.25
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 19.964,
+   "resume": {
+    "zones": 12,
+    "justesseMesuree": 12,
+    "pireEcartCents": 0.16,
+    "sansHauteur": null,
+    "boucles": 12,
+    "pireClicDb": 0.3
+   }
+  },
+  {
+   "id": "vcsl-clavecin@1",
+   "zones": [
+    {
+     "fichier": "z034-v1.ogg",
+     "racine": 34,
+     "justesse": -0.38
+    },
+    {
+     "fichier": "z037-v1.ogg",
+     "racine": 37,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z040-v1.ogg",
+     "racine": 40,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z043-v1.ogg",
+     "racine": 43,
+     "justesse": 0.0
+    },
+    {
+     "fichier": "z046-v1.ogg",
+     "racine": 46,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z049-v1.ogg",
+     "racine": 49,
+     "justesse": -0.16
+    },
+    {
+     "fichier": "z052-v1.ogg",
+     "racine": 52,
+     "justesse": 0.0
+    },
+    {
+     "fichier": "z055-v1.ogg",
+     "racine": 55,
+     "justesse": 0.08
+    },
+    {
+     "fichier": "z058-v1.ogg",
+     "racine": 58,
+     "justesse": -0.06
+    },
+    {
+     "fichier": "z061-v1.ogg",
+     "racine": 61,
+     "justesse": 0.13
+    },
+    {
+     "fichier": "z064-v1.ogg",
+     "racine": 64,
+     "justesse": -0.12
+    },
+    {
+     "fichier": "z067-v1.ogg",
+     "racine": 67,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z070-v1.ogg",
+     "racine": 70,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z073-v1.ogg",
+     "racine": 73,
+     "justesse": -0.08
+    },
+    {
+     "fichier": "z076-v1.ogg",
+     "racine": 76,
+     "justesse": 0.09
+    },
+    {
+     "fichier": "z079-v1.ogg",
+     "racine": 79,
+     "justesse": 0.1
+    },
+    {
+     "fichier": "z082-v1.ogg",
+     "racine": 82,
+     "justesse": 0.07
+    },
+    {
+     "fichier": "z085-v1.ogg",
+     "racine": 85,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z088-v1.ogg",
+     "racine": 88,
+     "justesse": -0.0
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 54.363,
+   "resume": {
+    "zones": 19,
+    "justesseMesuree": 19,
+    "pireEcartCents": 0.38,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "freepats-guitare-saturee@1",
+   "zones": [
+    {
+     "fichier": "z041-v1.ogg",
+     "racine": 41,
+     "justesse": 0.18
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": -0.16
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z052-v1.ogg",
+     "racine": 52,
+     "justesse": 0.1
+    },
+    {
+     "fichier": "z055-v1.ogg",
+     "racine": 55,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z058-v1.ogg",
+     "racine": 58,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z061-v1.ogg",
+     "racine": 61,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z064-v1.ogg",
+     "racine": 64,
+     "justesse": 0.0
+    },
+    {
+     "fichier": "z067-v1.ogg",
+     "racine": 67,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z070-v1.ogg",
+     "racine": 70,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z073-v1.ogg",
+     "racine": 73,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z076-v1.ogg",
+     "racine": 76,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z079-v1.ogg",
+     "racine": 79,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z082-v1.ogg",
+     "racine": 82,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z085-v1.ogg",
+     "racine": 85,
+     "justesse": 0.04
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 47.715,
+   "resume": {
+    "zones": 16,
+    "justesseMesuree": 16,
+    "pireEcartCents": 0.18,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "freepats-ukulele@1",
+   "zones": [
+    {
+     "fichier": "z061-v1.ogg",
+     "racine": 61,
+     "justesse": -0.05
+    },
+    {
+     "fichier": "z064-v1.ogg",
+     "racine": 64,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z067-v1.ogg",
+     "racine": 67,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z070-v1.ogg",
+     "racine": 70,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z073-v1.ogg",
+     "racine": 73,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z075-v1.ogg",
+     "racine": 75,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z078-v1.ogg",
+     "racine": 78,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z081-v1.ogg",
+     "racine": 81,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z084-v1.ogg",
+     "racine": 84,
+     "justesse": 0.05
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 17.405,
+   "resume": {
+    "zones": 9,
+    "justesseMesuree": 9,
+    "pireEcartCents": 0.06,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vsco-violon@1",
+   "zones": [
+    {
+     "fichier": "z055-v1.ogg",
+     "racine": 55,
+     "justesse": 0.06,
+     "clicDb": 1.0
+    },
+    {
+     "fichier": "z058-v1.ogg",
+     "racine": 58,
+     "justesse": -0.03,
+     "clicDb": -0.26
+    },
+    {
+     "fichier": "z061-v1.ogg",
+     "racine": 61,
+     "justesse": 0.05,
+     "clicDb": -0.05
+    },
+    {
+     "fichier": "z064-v1.ogg",
+     "racine": 64,
+     "justesse": -0.05,
+     "clicDb": -0.55
+    },
+    {
+     "fichier": "z067-v1.ogg",
+     "racine": 67,
+     "justesse": -0.01,
+     "clicDb": -0.16
+    },
+    {
+     "fichier": "z069-v1.ogg",
+     "racine": 69,
+     "justesse": -0.11,
+     "clicDb": 0.22
+    },
+    {
+     "fichier": "z072-v1.ogg",
+     "racine": 72,
+     "justesse": -0.01,
+     "clicDb": 0.24
+    },
+    {
+     "fichier": "z075-v1.ogg",
+     "racine": 75,
+     "justesse": -0.04,
+     "clicDb": 0.15
+    },
+    {
+     "fichier": "z078-v1.ogg",
+     "racine": 78,
+     "justesse": -0.24,
+     "clicDb": -0.28
+    },
+    {
+     "fichier": "z081-v1.ogg",
+     "racine": 81,
+     "justesse": 0.24,
+     "clicDb": 0.06
+    },
+    {
+     "fichier": "z084-v1.ogg",
+     "racine": 84,
+     "justesse": -0.09,
+     "clicDb": 0.13
+    },
+    {
+     "fichier": "z087-v1.ogg",
+     "racine": 87,
+     "justesse": -0.0,
+     "clicDb": 0.17
+    },
+    {
+     "fichier": "z090-v1.ogg",
+     "racine": 90,
+     "justesse": 0.06,
+     "clicDb": 0.17
+    },
+    {
+     "fichier": "z093-v1.ogg",
+     "racine": 93,
+     "justesse": 0.05,
+     "clicDb": 0.48
+    },
+    {
+     "fichier": "z096-v1.ogg",
+     "racine": 96,
+     "justesse": 0.13,
+     "clicDb": 0.33
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.848,
+   "resume": {
+    "zones": 15,
+    "justesseMesuree": 15,
+    "pireEcartCents": 0.24,
+    "sansHauteur": null,
+    "boucles": 15,
+    "pireClicDb": 1.0
+   }
+  },
+  {
+   "id": "vsco-violoncelles@1",
+   "zones": [
+    {
+     "fichier": "z037-v1.ogg",
+     "racine": 37,
+     "justesse": 0.0,
+     "clicDb": 0.17
+    },
+    {
+     "fichier": "z040-v1.ogg",
+     "racine": 40,
+     "justesse": 0.07,
+     "clicDb": 0.18
+    },
+    {
+     "fichier": "z043-v1.ogg",
+     "racine": 43,
+     "justesse": 0.01,
+     "clicDb": 0.25
+    },
+    {
+     "fichier": "z046-v1.ogg",
+     "racine": 46,
+     "justesse": -0.11,
+     "clicDb": 0.21
+    },
+    {
+     "fichier": "z049-v1.ogg",
+     "racine": 49,
+     "justesse": -0.07,
+     "clicDb": 0.1
+    },
+    {
+     "fichier": "z052-v1.ogg",
+     "racine": 52,
+     "justesse": -0.18,
+     "clicDb": 0.16
+    },
+    {
+     "fichier": "z055-v1.ogg",
+     "racine": 55,
+     "justesse": -0.18,
+     "clicDb": 1.14
+    },
+    {
+     "fichier": "z058-v1.ogg",
+     "racine": 58,
+     "justesse": 0.06,
+     "clicDb": 0.2
+    },
+    {
+     "fichier": "z061-v1.ogg",
+     "racine": 61,
+     "justesse": 0.06,
+     "clicDb": 0.04
+    },
+    {
+     "fichier": "z064-v1.ogg",
+     "racine": 64,
+     "justesse": 0.08,
+     "clicDb": -0.08
+    },
+    {
+     "fichier": "z067-v1.ogg",
+     "racine": 67,
+     "justesse": -0.02,
+     "clicDb": 1.24
+    },
+    {
+     "fichier": "z070-v1.ogg",
+     "racine": 70,
+     "justesse": 0.12,
+     "clicDb": 0.68
+    },
+    {
+     "fichier": "z073-v1.ogg",
+     "racine": 73,
+     "justesse": -0.13,
+     "clicDb": 0.67
+    },
+    {
+     "fichier": "z076-v1.ogg",
+     "racine": 76,
+     "justesse": 0.09,
+     "clicDb": -0.45
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 55.96,
+   "resume": {
+    "zones": 14,
+    "justesseMesuree": 14,
+    "pireEcartCents": 0.18,
+    "sansHauteur": null,
+    "boucles": 14,
+    "pireClicDb": 1.24
+   }
+  },
+  {
+   "id": "vsco-cordes-staccato@1",
+   "zones": [
+    {
+     "fichier": "z037-v1.ogg",
+     "racine": 37,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z040-v1.ogg",
+     "racine": 40,
+     "justesse": 0.43
+    },
+    {
+     "fichier": "z043-v1.ogg",
+     "racine": 43,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": 0.1
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": 0.24
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": -0.09
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": 0.11
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": 0.1
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": -0.11
+    },
+    {
+     "fichier": "z067-v1.ogg",
+     "racine": 67,
+     "justesse": 0.29
+    },
+    {
+     "fichier": "z070-v1.ogg",
+     "racine": 70,
+     "justesse": -0.11
+    },
+    {
+     "fichier": "z073-v1.ogg",
+     "racine": 73,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z076-v1.ogg",
+     "racine": 76,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z079-v1.ogg",
+     "racine": 79,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z082-v1.ogg",
+     "racine": 82,
+     "justesse": -0.07
+    },
+    {
+     "fichier": "z084-v1.ogg",
+     "racine": 84,
+     "justesse": 0.1
+    },
+    {
+     "fichier": "z087-v1.ogg",
+     "racine": 87,
+     "justesse": 0.16
+    },
+    {
+     "fichier": "z037-v2.ogg",
+     "racine": 37,
+     "justesse": -0.19
+    },
+    {
+     "fichier": "z040-v2.ogg",
+     "racine": 40,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z043-v2.ogg",
+     "racine": 43,
+     "justesse": -0.15
+    },
+    {
+     "fichier": "z044-v2.ogg",
+     "racine": 44,
+     "justesse": -0.08
+    },
+    {
+     "fichier": "z047-v2.ogg",
+     "racine": 47,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z050-v2.ogg",
+     "racine": 50,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z053-v2.ogg",
+     "racine": 53,
+     "justesse": -0.15
+    },
+    {
+     "fichier": "z056-v2.ogg",
+     "racine": 56,
+     "justesse": -0.07
+    },
+    {
+     "fichier": "z059-v2.ogg",
+     "racine": 59,
+     "justesse": -0.07
+    },
+    {
+     "fichier": "z062-v2.ogg",
+     "racine": 62,
+     "justesse": 0.16
+    },
+    {
+     "fichier": "z065-v2.ogg",
+     "racine": 65,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z067-v2.ogg",
+     "racine": 67,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z070-v2.ogg",
+     "racine": 70,
+     "justesse": -0.13
+    },
+    {
+     "fichier": "z073-v2.ogg",
+     "racine": 73,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z076-v2.ogg",
+     "racine": 76,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z079-v2.ogg",
+     "racine": 79,
+     "justesse": -0.1
+    },
+    {
+     "fichier": "z082-v2.ogg",
+     "racine": 82,
+     "justesse": -0.09
+    },
+    {
+     "fichier": "z084-v2.ogg",
+     "racine": 84,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z087-v2.ogg",
+     "racine": 87,
+     "justesse": 0.2
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 25.963,
+   "resume": {
+    "zones": 38,
+    "justesseMesuree": 38,
+    "pireEcartCents": 0.43,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vcsl-harpe@1",
+   "zones": [
+    {
+     "fichier": "z029-v1.ogg",
+     "racine": 29,
+     "justesse": -0.29
+    },
+    {
+     "fichier": "z032-v1.ogg",
+     "racine": 32,
+     "justesse": 0.25
+    },
+    {
+     "fichier": "z035-v1.ogg",
+     "racine": 35,
+     "justesse": -0.17
+    },
+    {
+     "fichier": "z038-v1.ogg",
+     "racine": 38,
+     "justesse": 0.18
+    },
+    {
+     "fichier": "z041-v1.ogg",
+     "racine": 41,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": -0.23
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": -0.06
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": -0.06
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": -0.14
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": 0.0
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z083-v1.ogg",
+     "racine": 83,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z086-v1.ogg",
+     "racine": 86,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z089-v1.ogg",
+     "racine": 89,
+     "justesse": 0.07
+    },
+    {
+     "fichier": "z092-v1.ogg",
+     "racine": 92,
+     "justesse": 0.09
+    },
+    {
+     "fichier": "z095-v1.ogg",
+     "racine": 95,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z098-v1.ogg",
+     "racine": 98,
+     "justesse": 0.08
+    },
+    {
+     "fichier": "z101-v1.ogg",
+     "racine": 101,
+     "justesse": -0.48
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.8,
+   "resume": {
+    "zones": 25,
+    "justesseMesuree": 25,
+    "pireEcartCents": 0.48,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vsco-clarinette@1",
+   "zones": [
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": 0.03,
+     "clicDb": -0.24
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": 0.02,
+     "clicDb": -0.15
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": -0.04,
+     "clicDb": 0.15
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": 0.02,
+     "clicDb": 0.36
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": -0.05,
+     "clicDb": 0.63
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": -0.02,
+     "clicDb": 0.04
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": 0.01,
+     "clicDb": 0.08
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": -0.05,
+     "clicDb": 0.07
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": -0.01,
+     "clicDb": 0.53
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": -0.02,
+     "clicDb": -0.03
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": -0.04,
+     "clicDb": 0.18
+    },
+    {
+     "fichier": "z083-v1.ogg",
+     "racine": 83,
+     "justesse": -0.03,
+     "clicDb": 0.12
+    },
+    {
+     "fichier": "z086-v1.ogg",
+     "racine": 86,
+     "justesse": -0.04,
+     "clicDb": 0.24
+    },
+    {
+     "fichier": "z089-v1.ogg",
+     "racine": 89,
+     "justesse": -0.01,
+     "clicDb": 0.25
+    },
+    {
+     "fichier": "z090-v1.ogg",
+     "racine": 90,
+     "justesse": -0.02,
+     "clicDb": 0.01
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.858,
+   "resume": {
+    "zones": 15,
+    "justesseMesuree": 15,
+    "pireEcartCents": 0.05,
+    "sansHauteur": null,
+    "boucles": 15,
+    "pireClicDb": 0.63
+   }
+  },
+  {
+   "id": "vsco-hautbois@1",
+   "zones": [
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": -0.06,
+     "clicDb": 0.64
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": -0.04,
+     "clicDb": 0.12
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": 0.04,
+     "clicDb": 0.23
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": 0.03,
+     "clicDb": 0.08
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": -0.13,
+     "clicDb": 0.23
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": 0.01,
+     "clicDb": 0.09
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": -0.04,
+     "clicDb": 0.82
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": -0.08,
+     "clicDb": -0.09
+    },
+    {
+     "fichier": "z083-v1.ogg",
+     "racine": 83,
+     "justesse": -0.02,
+     "clicDb": 0.31
+    },
+    {
+     "fichier": "z086-v1.ogg",
+     "racine": 86,
+     "justesse": 0.03,
+     "clicDb": 0.44
+    },
+    {
+     "fichier": "z089-v1.ogg",
+     "racine": 89,
+     "justesse": -0.13,
+     "clicDb": -0.04
+    },
+    {
+     "fichier": "z090-v1.ogg",
+     "racine": 90,
+     "justesse": -0.06,
+     "clicDb": 0.09
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 48.105,
+   "resume": {
+    "zones": 12,
+    "justesseMesuree": 12,
+    "pireEcartCents": 0.13,
+    "sansHauteur": null,
+    "boucles": 12,
+    "pireClicDb": 0.82
+   }
+  },
+  {
+   "id": "vsco-basson@1",
+   "zones": [
+    {
+     "fichier": "z035-v1.ogg",
+     "racine": 35,
+     "justesse": -0.03,
+     "clicDb": -0.05
+    },
+    {
+     "fichier": "z038-v1.ogg",
+     "racine": 38,
+     "justesse": 0.05,
+     "clicDb": -0.01
+    },
+    {
+     "fichier": "z041-v1.ogg",
+     "racine": 41,
+     "justesse": 0.04,
+     "clicDb": -0.37
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": 0.03,
+     "clicDb": 0.11
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": -0.03,
+     "clicDb": 0.03
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": -0.04,
+     "clicDb": -0.32
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": -0.03,
+     "clicDb": 0.35
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": -0.03,
+     "clicDb": 0.01
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": 0.0,
+     "clicDb": -0.01
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": 0.04,
+     "clicDb": 0.65
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": -0.02,
+     "clicDb": 0.01
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": 0.05,
+     "clicDb": 0.3
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": -0.01,
+     "clicDb": 0.11
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": 0.04,
+     "clicDb": -0.42
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 55.81,
+   "resume": {
+    "zones": 14,
+    "justesseMesuree": 14,
+    "pireEcartCents": 0.05,
+    "sansHauteur": null,
+    "boucles": 14,
+    "pireClicDb": 0.65
+   }
+  },
+  {
+   "id": "vsco-cor@1",
+   "zones": [
+    {
+     "fichier": "z036-v1.ogg",
+     "racine": 36,
+     "justesse": 0.09,
+     "clicDb": 0.8
+    },
+    {
+     "fichier": "z039-v1.ogg",
+     "racine": 39,
+     "justesse": 0.06,
+     "clicDb": 0.18
+    },
+    {
+     "fichier": "z042-v1.ogg",
+     "racine": 42,
+     "justesse": 0.1,
+     "clicDb": 5.28
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": 0.11,
+     "clicDb": 0.12
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": 0.02,
+     "clicDb": 2.19
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": 0.03,
+     "clicDb": 0.06
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": 0.11,
+     "clicDb": 0.01
+    },
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": 0.04,
+     "clicDb": 0.1
+    },
+    {
+     "fichier": "z058-v1.ogg",
+     "racine": 58,
+     "justesse": -0.06,
+     "clicDb": 0.04
+    },
+    {
+     "fichier": "z061-v1.ogg",
+     "racine": 61,
+     "justesse": 0.01,
+     "clicDb": 1.23
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 39.629,
+   "resume": {
+    "zones": 10,
+    "justesseMesuree": 10,
+    "pireEcartCents": 0.11,
+    "sansHauteur": null,
+    "boucles": 10,
+    "pireClicDb": 5.28
+   }
+  },
+  {
+   "id": "vsco-trompette@1",
+   "zones": [
+    {
+     "fichier": "z054-v1.ogg",
+     "racine": 54,
+     "justesse": -0.06,
+     "clicDb": 0.33
+    },
+    {
+     "fichier": "z057-v1.ogg",
+     "racine": 57,
+     "justesse": -0.08,
+     "clicDb": 1.73
+    },
+    {
+     "fichier": "z060-v1.ogg",
+     "racine": 60,
+     "justesse": -0.05,
+     "clicDb": 0.23
+    },
+    {
+     "fichier": "z063-v1.ogg",
+     "racine": 63,
+     "justesse": 0.1,
+     "clicDb": 0.05
+    },
+    {
+     "fichier": "z066-v1.ogg",
+     "racine": 66,
+     "justesse": 0.07,
+     "clicDb": 0.09
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": 0.0,
+     "clicDb": 0.02
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": -0.02,
+     "clicDb": 0.14
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": 0.03,
+     "clicDb": 0.57
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": -0.03,
+     "clicDb": 0.02
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": 0.09,
+     "clicDb": -0.07
+    },
+    {
+     "fichier": "z082-v1.ogg",
+     "racine": 82,
+     "justesse": 0.04,
+     "clicDb": 0.18
+    },
+    {
+     "fichier": "z085-v1.ogg",
+     "racine": 85,
+     "justesse": -0.04,
+     "clicDb": 0.16
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 48.064,
+   "resume": {
+    "zones": 12,
+    "justesseMesuree": 12,
+    "pireEcartCents": 0.1,
+    "sansHauteur": null,
+    "boucles": 12,
+    "pireClicDb": 1.73
+   }
+  },
+  {
+   "id": "vsco-trombone@1",
+   "zones": [
+    {
+     "fichier": "z034-v1.ogg",
+     "racine": 34,
+     "justesse": 0.86,
+     "clicDb": 0.08
+    },
+    {
+     "fichier": "z037-v1.ogg",
+     "racine": 37,
+     "justesse": -0.02,
+     "clicDb": 0.04
+    },
+    {
+     "fichier": "z040-v1.ogg",
+     "racine": 40,
+     "justesse": -0.01,
+     "clicDb": 0.23
+    },
+    {
+     "fichier": "z043-v1.ogg",
+     "racine": 43,
+     "justesse": -0.02,
+     "clicDb": -0.22
+    },
+    {
+     "fichier": "z046-v1.ogg",
+     "racine": 46,
+     "justesse": 0.07,
+     "clicDb": -0.06
+    },
+    {
+     "fichier": "z049-v1.ogg",
+     "racine": 49,
+     "justesse": -0.04,
+     "clicDb": 0.02
+    },
+    {
+     "fichier": "z052-v1.ogg",
+     "racine": 52,
+     "justesse": -0.16,
+     "clicDb": -0.06
+    },
+    {
+     "fichier": "z055-v1.ogg",
+     "racine": 55,
+     "justesse": -0.03,
+     "clicDb": -0.11
+    },
+    {
+     "fichier": "z058-v1.ogg",
+     "racine": 58,
+     "justesse": 0.05,
+     "clicDb": -0.77
+    },
+    {
+     "fichier": "z060-v1.ogg",
+     "racine": 60,
+     "justesse": 0.03,
+     "clicDb": -0.07
+    },
+    {
+     "fichier": "z063-v1.ogg",
+     "racine": 63,
+     "justesse": -0.04,
+     "clicDb": 0.02
+    },
+    {
+     "fichier": "z066-v1.ogg",
+     "racine": 66,
+     "justesse": -0.04,
+     "clicDb": 0.03
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 47.609,
+   "resume": {
+    "zones": 12,
+    "justesseMesuree": 12,
+    "pireEcartCents": 0.86,
+    "sansHauteur": null,
+    "boucles": 12,
+    "pireClicDb": 0.23
+   }
+  },
+  {
+   "id": "vsco-tuba@1",
+   "zones": [
+    {
+     "fichier": "z029-v1.ogg",
+     "racine": 29,
+     "justesse": 0.11,
+     "clicDb": 1.62
+    },
+    {
+     "fichier": "z032-v1.ogg",
+     "racine": 32,
+     "justesse": 0.03,
+     "clicDb": 0.13
+    },
+    {
+     "fichier": "z035-v1.ogg",
+     "racine": 35,
+     "justesse": -0.16,
+     "clicDb": 2.01
+    },
+    {
+     "fichier": "z038-v1.ogg",
+     "racine": 38,
+     "justesse": 0.04,
+     "clicDb": 0.09
+    },
+    {
+     "fichier": "z041-v1.ogg",
+     "racine": 41,
+     "justesse": 0.19,
+     "clicDb": -0.02
+    },
+    {
+     "fichier": "z044-v1.ogg",
+     "racine": 44,
+     "justesse": -0.0,
+     "clicDb": 0.62
+    },
+    {
+     "fichier": "z047-v1.ogg",
+     "racine": 47,
+     "justesse": -0.12,
+     "clicDb": -0.15
+    },
+    {
+     "fichier": "z050-v1.ogg",
+     "racine": 50,
+     "justesse": 0.13,
+     "clicDb": 0.04
+    },
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": -0.06,
+     "clicDb": 0.05
+    },
+    {
+     "fichier": "z055-v1.ogg",
+     "racine": 55,
+     "justesse": 0.0,
+     "clicDb": 0.02
+    },
+    {
+     "fichier": "z058-v1.ogg",
+     "racine": 58,
+     "justesse": -0.15,
+     "clicDb": 0.02
+    },
+    {
+     "fichier": "z061-v1.ogg",
+     "racine": 61,
+     "justesse": 0.05,
+     "clicDb": 0.06
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 41.077,
+   "resume": {
+    "zones": 12,
+    "justesseMesuree": 12,
+    "pireEcartCents": 0.19,
+    "sansHauteur": null,
+    "boucles": 12,
+    "pireClicDb": 2.01
+   }
+  },
+  {
+   "id": "vcsl-saxophone@1",
+   "zones": [
+    {
+     "fichier": "z045-v1.ogg",
+     "racine": 45,
+     "justesse": 0.05,
+     "clicDb": -0.08
+    },
+    {
+     "fichier": "z048-v1.ogg",
+     "racine": 48,
+     "justesse": -0.04,
+     "clicDb": 1.35
+    },
+    {
+     "fichier": "z051-v1.ogg",
+     "racine": 51,
+     "justesse": -0.07,
+     "clicDb": 0.89
+    },
+    {
+     "fichier": "z054-v1.ogg",
+     "racine": 54,
+     "justesse": -0.14,
+     "clicDb": 2.43
+    },
+    {
+     "fichier": "z057-v1.ogg",
+     "racine": 57,
+     "justesse": 0.14,
+     "clicDb": 0.17
+    },
+    {
+     "fichier": "z060-v1.ogg",
+     "racine": 60,
+     "justesse": -0.04,
+     "clicDb": 0.21
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": 0.15,
+     "clicDb": 1.31
+    },
+    {
+     "fichier": "z064-v1.ogg",
+     "racine": 64,
+     "justesse": -0.02,
+     "clicDb": 0.55
+    },
+    {
+     "fichier": "z067-v1.ogg",
+     "racine": 67,
+     "justesse": 0.01,
+     "clicDb": -0.32
+    },
+    {
+     "fichier": "z070-v1.ogg",
+     "racine": 70,
+     "justesse": -0.03,
+     "clicDb": 0.19
+    },
+    {
+     "fichier": "z073-v1.ogg",
+     "racine": 73,
+     "justesse": -0.11,
+     "clicDb": 0.35
+    },
+    {
+     "fichier": "z076-v1.ogg",
+     "racine": 76,
+     "justesse": 0.05,
+     "clicDb": 0.1
+    },
+    {
+     "fichier": "z079-v1.ogg",
+     "racine": 79,
+     "justesse": -0.14,
+     "clicDb": 0.24
+    },
+    {
+     "fichier": "z082-v1.ogg",
+     "racine": 82,
+     "justesse": -0.04,
+     "clicDb": -0.09
+    },
+    {
+     "fichier": "z085-v1.ogg",
+     "racine": 85,
+     "justesse": -0.47,
+     "clicDb": 0.18
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.48,
+   "resume": {
+    "zones": 15,
+    "justesseMesuree": 15,
+    "pireEcartCents": 0.47,
+    "sansHauteur": null,
+    "boucles": 15,
+    "pireClicDb": 2.43
+   }
+  },
+  {
+   "id": "vcsl-glockenspiel@1",
+   "zones": [
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": null,
+     "pourquoi": "lames aux partiels inharmoniques : YIN varie de ±25 cents selon l’instant mesuré"
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": null,
+     "pourquoi": "lames aux partiels inharmoniques : YIN varie de ±25 cents selon l’instant mesuré"
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": null,
+     "pourquoi": "lames aux partiels inharmoniques : YIN varie de ±25 cents selon l’instant mesuré"
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": null,
+     "pourquoi": "lames aux partiels inharmoniques : YIN varie de ±25 cents selon l’instant mesuré"
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": null,
+     "pourquoi": "lames aux partiels inharmoniques : YIN varie de ±25 cents selon l’instant mesuré"
+    },
+    {
+     "fichier": "z083-v1.ogg",
+     "racine": 83,
+     "justesse": null,
+     "pourquoi": "lames aux partiels inharmoniques : YIN varie de ±25 cents selon l’instant mesuré"
+    },
+    {
+     "fichier": "z086-v1.ogg",
+     "racine": 86,
+     "justesse": null,
+     "pourquoi": "lames aux partiels inharmoniques : YIN varie de ±25 cents selon l’instant mesuré"
+    },
+    {
+     "fichier": "z089-v1.ogg",
+     "racine": 89,
+     "justesse": null,
+     "pourquoi": "lames aux partiels inharmoniques : YIN varie de ±25 cents selon l’instant mesuré"
+    },
+    {
+     "fichier": "z092-v1.ogg",
+     "racine": 92,
+     "justesse": null,
+     "pourquoi": "lames aux partiels inharmoniques : YIN varie de ±25 cents selon l’instant mesuré"
+    },
+    {
+     "fichier": "z095-v1.ogg",
+     "racine": 95,
+     "justesse": null,
+     "pourquoi": "lames aux partiels inharmoniques : YIN varie de ±25 cents selon l’instant mesuré"
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 26.928,
+   "resume": {
+    "zones": 10,
+    "justesseMesuree": 0,
+    "pireEcartCents": null,
+    "sansHauteur": "lames aux partiels inharmoniques : YIN varie de ±25 cents selon l’instant mesuré",
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "freepats-kalimba@1",
+   "zones": [
+    {
+     "fichier": "z053-v1.ogg",
+     "racine": 53,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z054-v1.ogg",
+     "racine": 54,
+     "justesse": 0.27
+    },
+    {
+     "fichier": "z057-v1.ogg",
+     "racine": 57,
+     "justesse": -0.13
+    },
+    {
+     "fichier": "z060-v1.ogg",
+     "racine": 60,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z063-v1.ogg",
+     "racine": 63,
+     "justesse": 0.09
+    },
+    {
+     "fichier": "z066-v1.ogg",
+     "racine": 66,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z069-v1.ogg",
+     "racine": 69,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z072-v1.ogg",
+     "racine": 72,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z075-v1.ogg",
+     "racine": 75,
+     "justesse": 0.02
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 17.824,
+   "resume": {
+    "zones": 9,
+    "justesseMesuree": 9,
+    "pireEcartCents": 0.27,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vcsl-xylophone@1",
+   "zones": [
+    {
+     "fichier": "z056-v1.ogg",
+     "racine": 56,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z059-v1.ogg",
+     "racine": 59,
+     "justesse": -0.09
+    },
+    {
+     "fichier": "z062-v1.ogg",
+     "racine": 62,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z065-v1.ogg",
+     "racine": 65,
+     "justesse": 0.05
+    },
+    {
+     "fichier": "z068-v1.ogg",
+     "racine": 68,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z071-v1.ogg",
+     "racine": 71,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z074-v1.ogg",
+     "racine": 74,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z077-v1.ogg",
+     "racine": 77,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z080-v1.ogg",
+     "racine": 80,
+     "justesse": 0.06
+    },
+    {
+     "fichier": "z083-v1.ogg",
+     "racine": 83,
+     "justesse": -0.01
+    },
+    {
+     "fichier": "z086-v1.ogg",
+     "racine": 86,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z089-v1.ogg",
+     "racine": 89,
+     "justesse": -0.26
+    },
+    {
+     "fichier": "z092-v1.ogg",
+     "racine": 92,
+     "justesse": -0.2
+    },
+    {
+     "fichier": "z095-v1.ogg",
+     "racine": 95,
+     "justesse": -0.13
+    },
+    {
+     "fichier": "z056-v2.ogg",
+     "racine": 56,
+     "justesse": 0.01
+    },
+    {
+     "fichier": "z059-v2.ogg",
+     "racine": 59,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z062-v2.ogg",
+     "racine": 62,
+     "justesse": -0.04
+    },
+    {
+     "fichier": "z065-v2.ogg",
+     "racine": 65,
+     "justesse": -0.0
+    },
+    {
+     "fichier": "z068-v2.ogg",
+     "racine": 68,
+     "justesse": 0.0
+    },
+    {
+     "fichier": "z071-v2.ogg",
+     "racine": 71,
+     "justesse": 0.04
+    },
+    {
+     "fichier": "z074-v2.ogg",
+     "racine": 74,
+     "justesse": 0.02
+    },
+    {
+     "fichier": "z077-v2.ogg",
+     "racine": 77,
+     "justesse": 0.17
+    },
+    {
+     "fichier": "z080-v2.ogg",
+     "racine": 80,
+     "justesse": 0.03
+    },
+    {
+     "fichier": "z083-v2.ogg",
+     "racine": 83,
+     "justesse": -0.03
+    },
+    {
+     "fichier": "z086-v2.ogg",
+     "racine": 86,
+     "justesse": -0.07
+    },
+    {
+     "fichier": "z089-v2.ogg",
+     "racine": 89,
+     "justesse": -0.02
+    },
+    {
+     "fichier": "z092-v2.ogg",
+     "racine": 92,
+     "justesse": 0.14
+    },
+    {
+     "fichier": "z095-v2.ogg",
+     "racine": 95,
+     "justesse": -0.08
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 22.945,
+   "resume": {
+    "zones": 28,
+    "justesseMesuree": 28,
+    "pireEcartCents": 0.26,
+    "sansHauteur": null,
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vcsl-cloches@1",
+   "zones": [
+    {
+     "fichier": "z061-v1.ogg",
+     "racine": 61,
+     "justesse": null,
+     "pourquoi": "cloche : la note entendue est un son virtuel (partiels inharmoniques), YIN ne la mesure pas"
+    },
+    {
+     "fichier": "z064-v1.ogg",
+     "racine": 64,
+     "justesse": null,
+     "pourquoi": "cloche : la note entendue est un son virtuel (partiels inharmoniques), YIN ne la mesure pas"
+    },
+    {
+     "fichier": "z067-v1.ogg",
+     "racine": 67,
+     "justesse": null,
+     "pourquoi": "cloche : la note entendue est un son virtuel (partiels inharmoniques), YIN ne la mesure pas"
+    },
+    {
+     "fichier": "z070-v1.ogg",
+     "racine": 70,
+     "justesse": null,
+     "pourquoi": "cloche : la note entendue est un son virtuel (partiels inharmoniques), YIN ne la mesure pas"
+    },
+    {
+     "fichier": "z073-v1.ogg",
+     "racine": 73,
+     "justesse": null,
+     "pourquoi": "cloche : la note entendue est un son virtuel (partiels inharmoniques), YIN ne la mesure pas"
+    },
+    {
+     "fichier": "z076-v1.ogg",
+     "racine": 76,
+     "justesse": null,
+     "pourquoi": "cloche : la note entendue est un son virtuel (partiels inharmoniques), YIN ne la mesure pas"
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 30.0,
+   "resume": {
+    "zones": 6,
+    "justesseMesuree": 0,
+    "pireEcartCents": null,
+    "sansHauteur": "cloche : la note entendue est un son virtuel (partiels inharmoniques), YIN ne la mesure pas",
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "karoryfer-batterie@1",
+   "zones": [
+    {
+     "fichier": "n036-v1.ogg",
+     "racine": 36,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n036-v2.ogg",
+     "racine": 36,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n037-v1.ogg",
+     "racine": 37,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n037-v2.ogg",
+     "racine": 37,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n038-v1.ogg",
+     "racine": 38,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n038-v2.ogg",
+     "racine": 38,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n040-v1.ogg",
+     "racine": 40,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n040-v2.ogg",
+     "racine": 40,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n042-v1.ogg",
+     "racine": 42,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n042-v2.ogg",
+     "racine": 42,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n044-v1.ogg",
+     "racine": 44,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n044-v2.ogg",
+     "racine": 44,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n046-v1.ogg",
+     "racine": 46,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n046-v2.ogg",
+     "racine": 46,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n043-v1.ogg",
+     "racine": 43,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n043-v2.ogg",
+     "racine": 43,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n047-v1.ogg",
+     "racine": 47,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n047-v2.ogg",
+     "racine": 47,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n050-v1.ogg",
+     "racine": 50,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n050-v2.ogg",
+     "racine": 50,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n049-v1.ogg",
+     "racine": 49,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n049-v2.ogg",
+     "racine": 49,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n051-v1.ogg",
+     "racine": 51,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n051-v2.ogg",
+     "racine": 51,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n053-v1.ogg",
+     "racine": 53,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n053-v2.ogg",
+     "racine": 53,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.8,
+   "resume": {
+    "zones": 26,
+    "justesseMesuree": 0,
+    "pireEcartCents": null,
+    "sansHauteur": "batterie : pas de hauteur",
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "virtuosity-batterie-jazz@1",
+   "zones": [
+    {
+     "fichier": "n036-v1.ogg",
+     "racine": 36,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n036-v2.ogg",
+     "racine": 36,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n037-v1.ogg",
+     "racine": 37,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n037-v2.ogg",
+     "racine": 37,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n038-v1.ogg",
+     "racine": 38,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n038-v2.ogg",
+     "racine": 38,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n040-v1.ogg",
+     "racine": 40,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n040-v2.ogg",
+     "racine": 40,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n042-v1.ogg",
+     "racine": 42,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n042-v2.ogg",
+     "racine": 42,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n044-v1.ogg",
+     "racine": 44,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n044-v2.ogg",
+     "racine": 44,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n046-v1.ogg",
+     "racine": 46,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n046-v2.ogg",
+     "racine": 46,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n043-v1.ogg",
+     "racine": 43,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n043-v2.ogg",
+     "racine": 43,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n048-v1.ogg",
+     "racine": 48,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n048-v2.ogg",
+     "racine": 48,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n049-v1.ogg",
+     "racine": 49,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n049-v2.ogg",
+     "racine": 49,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n051-v1.ogg",
+     "racine": 51,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n051-v2.ogg",
+     "racine": 51,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n053-v1.ogg",
+     "racine": 53,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n053-v2.ogg",
+     "racine": 53,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 58.8,
+   "resume": {
+    "zones": 24,
+    "justesseMesuree": 0,
+    "pireEcartCents": null,
+    "sansHauteur": "batterie : pas de hauteur",
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "karoryfer-batterie-balais@1",
+   "zones": [
+    {
+     "fichier": "n036-v1.ogg",
+     "racine": 36,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n036-v2.ogg",
+     "racine": 36,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n038-v1.ogg",
+     "racine": 38,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n038-v2.ogg",
+     "racine": 38,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n040-v1.ogg",
+     "racine": 40,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n040-v2.ogg",
+     "racine": 40,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n042-v1.ogg",
+     "racine": 42,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n042-v2.ogg",
+     "racine": 42,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n044-v1.ogg",
+     "racine": 44,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n044-v2.ogg",
+     "racine": 44,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n046-v1.ogg",
+     "racine": 46,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n046-v2.ogg",
+     "racine": 46,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n043-v1.ogg",
+     "racine": 43,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n043-v2.ogg",
+     "racine": 43,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n047-v1.ogg",
+     "racine": 47,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n047-v2.ogg",
+     "racine": 47,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n050-v1.ogg",
+     "racine": 50,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n050-v2.ogg",
+     "racine": 50,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n049-v1.ogg",
+     "racine": 49,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n049-v2.ogg",
+     "racine": 49,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n051-v1.ogg",
+     "racine": 51,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n051-v2.ogg",
+     "racine": 51,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n056-v1.ogg",
+     "racine": 56,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    },
+    {
+     "fichier": "n056-v2.ogg",
+     "racine": 56,
+     "justesse": null,
+     "pourquoi": "batterie : pas de hauteur"
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 54.987,
+   "resume": {
+    "zones": 24,
+    "justesseMesuree": 0,
+    "pireEcartCents": null,
+    "sansHauteur": "batterie : pas de hauteur",
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "vcsl-percussions-latines@1",
+   "zones": [
+    {
+     "fichier": "n039-v1.ogg",
+     "racine": 39,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n039-v2.ogg",
+     "racine": 39,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n054-v1.ogg",
+     "racine": 54,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n054-v2.ogg",
+     "racine": 54,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n056-v1.ogg",
+     "racine": 56,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n056-v2.ogg",
+     "racine": 56,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n060-v1.ogg",
+     "racine": 60,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n060-v2.ogg",
+     "racine": 60,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n061-v1.ogg",
+     "racine": 61,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n061-v2.ogg",
+     "racine": 61,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n062-v1.ogg",
+     "racine": 62,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n062-v2.ogg",
+     "racine": 62,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n063-v1.ogg",
+     "racine": 63,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n063-v2.ogg",
+     "racine": 63,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n064-v1.ogg",
+     "racine": 64,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n064-v2.ogg",
+     "racine": 64,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n067-v1.ogg",
+     "racine": 67,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n067-v2.ogg",
+     "racine": 67,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n068-v1.ogg",
+     "racine": 68,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n068-v2.ogg",
+     "racine": 68,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n069-v1.ogg",
+     "racine": 69,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n070-v1.ogg",
+     "racine": 70,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n073-v1.ogg",
+     "racine": 73,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n074-v1.ogg",
+     "racine": 74,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n075-v1.ogg",
+     "racine": 75,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n075-v2.ogg",
+     "racine": 75,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n076-v1.ogg",
+     "racine": 76,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n076-v2.ogg",
+     "racine": 76,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n081-v1.ogg",
+     "racine": 81,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n081-v2.ogg",
+     "racine": 81,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 38.507,
+   "resume": {
+    "zones": 30,
+    "justesseMesuree": 0,
+    "pireEcartCents": null,
+    "sansHauteur": "percussions : pas de hauteur",
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  },
+  {
+   "id": "freepats-percussions@1",
+   "zones": [
+    {
+     "fichier": "n048-v1.ogg",
+     "racine": 48,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n050-v1.ogg",
+     "racine": 50,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n051-v1.ogg",
+     "racine": 51,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n052-v1.ogg",
+     "racine": 52,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n054-v1.ogg",
+     "racine": 54,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n057-v1.ogg",
+     "racine": 57,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n059-v1.ogg",
+     "racine": 59,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n060-v1.ogg",
+     "racine": 60,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n061-v1.ogg",
+     "racine": 61,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n062-v1.ogg",
+     "racine": 62,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n063-v1.ogg",
+     "racine": 63,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n064-v1.ogg",
+     "racine": 64,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n067-v1.ogg",
+     "racine": 67,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n069-v1.ogg",
+     "racine": 69,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n070-v1.ogg",
+     "racine": 70,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    },
+    {
+     "fichier": "n071-v1.ogg",
+     "racine": 71,
+     "justesse": null,
+     "pourquoi": "percussions : pas de hauteur"
+    }
+   ],
+   "erreurs": [],
+   "dureeDecodeeS": 11.683,
+   "resume": {
+    "zones": 16,
+    "justesseMesuree": 0,
+    "pireEcartCents": null,
+    "sansHauteur": "percussions : pas de hauteur",
+    "boucles": 0,
+    "pireClicDb": null
+   }
+  }
+ ],
+ "erreurs": 0
+}

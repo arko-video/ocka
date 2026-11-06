@@ -1,0 +1,155 @@
+{
+ "id": "freepats-percussions",
+ "source": {
+  "type": "archive",
+  "banque": "freepats",
+  "url": "https://github.com/freepats/world-percussion/releases/download/2020-09-05/WorldPercussion-SFZ+WAV-20200905.7z",
+  "sfz": "WorldPercussion 20200905.sfz"
+ },
+ "fichiers": [
+  {
+   "fichier": "n048-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n050-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n051-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n052-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n054-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n057-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n059-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n060-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n061-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n062-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n063-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n064-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n067-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n069-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n070-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "n071-v1.ogg",
+   "source": "WorldPercussion-SFZ+WAV-20200905.7z",
+   "sha256": [
+    "71a17639bd1884e9a1698de6f801770931e848e41b99a35aa6763f5a876663b2"
+   ],
+   "transposition": 0,
+   "decalage_decodeur": 0
+  }
+ ]
+}

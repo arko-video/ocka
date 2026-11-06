@@ -23,6 +23,7 @@ import './aller-vite/aller-vite.css';
 
 import { render } from 'preact';
 import { App } from './ui/App';
+import { chargerAvance } from './ui/etat';
 import { suivreExport } from './ui/exportation';
 import { suivreMorceau } from './ui/lecture';
 import { initialiserNavigation } from './ui/navigation';
@@ -32,6 +33,7 @@ initialiserNavigation();
 activerSauvegardeAuto();
 suivreMorceau();
 suivreExport();
+void chargerAvance();
 
 const racine = document.getElementById('app');
 if (racine) render(<App />, racine);

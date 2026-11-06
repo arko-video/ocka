@@ -1,6 +1,6 @@
 // Édition pure des effets de la voix (Réverbe, Écho, Radio, Doubler) et de la chaîne du master (colle).
 
-import type { EffetsVoix, Morceau, Piste } from '../../morceau/types';
+import type { EffetsVoix, Morceau, PisteFixe } from '../../morceau/types';
 
 export const EFFETS = ['reverbe', 'echo', 'radio', 'doubler'] as const;
 export type Effet = (typeof EFFETS)[number];
@@ -10,7 +10,10 @@ export const NIVEAU_DEFAUT: Record<EffetNiveau, number> = { reverbe: 0.35, echo:
 /** Niveau le plus bas du curseur : à 0, l'effet serait allumé sans rien faire. */
 export const NIVEAU_MIN = 0.05;
 
-const pisteVoix = (m: Morceau): Piste | undefined => m.pistes.find((p) => p.id === 'voix');
+const pisteVoix = (m: Morceau): PisteFixe | undefined => {
+  const p = m.pistes.find((x) => x.id === 'voix');
+  return p && p.genre !== 'instrument' ? p : undefined;
+};
 
 export function effetsVoix(m: Morceau): EffetsVoix {
   return pisteVoix(m)?.effets ?? {};
@@ -24,8 +27,8 @@ export function effetActif(e: EffetsVoix, effet: Effet): boolean {
 /** Écrit les effets sur la piste voix (créée si elle manque) ; `effets` vide = clé retirée. */
 function ecrire(m: Morceau, effets: EffetsVoix): Morceau {
   const p = pisteVoix(m);
-  const base: Piste = p ?? { id: 'voix', volume: 1, pan: 0, muet: false, solo: false, preset: 'naturel' };
-  const n: Piste = { ...base, effets };
+  const base: PisteFixe = p ?? { id: 'voix', volume: 1, pan: 0, muet: false, solo: false, preset: 'naturel' };
+  const n: PisteFixe = { ...base, effets };
   if (Object.keys(effets).length === 0) delete n.effets;
   if (p && JSON.stringify(n) === JSON.stringify(p)) return m;
   return { ...m, pistes: p ? m.pistes.map((x) => (x.id === 'voix' ? n : x)) : [...m.pistes, n] };

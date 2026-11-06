@@ -1,0 +1,93 @@
+{
+ "id": "vsco-trombone",
+ "source": {
+  "type": "vsco",
+  "sfz": "TromboneSus"
+ },
+ "fichiers": [
+  {
+   "fichier": "z034-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_A#0_v2_1.wav",
+   "sha256": "c8192572a34ba0c410cb77a33fe200a5850b334e1763b2ebc91ab5292978a0d4",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z037-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_C#1_v2_1.wav",
+   "sha256": "b957256f8057fef478fb8d713dd284ad9a1aa57f720ef9f18a4e0d1d59bbe65e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z040-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_D#1_v3_1.wav",
+   "sha256": "dd2e358d7994ae2b3fce9ccdc902f53f22393294d6b0408821a2a916f3c42d3a",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z043-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_F1_v3_1.wav",
+   "sha256": "7993b96b4a0643f413332cd1321ce992c31a883343a992511d343b9b6ff979b6",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z046-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_A#1_v3_1.wav",
+   "sha256": "9385dcf9b1a1b32db2d29b696d051fe8fe00aac9bfbd81270ff3570c57970d39",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z049-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_D2_v3_1.wav",
+   "sha256": "aad670ae4e1c97487c000c7e8b47f90486d1b835e6244de4ddad18e06b70465b",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z052-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_F2_v3_1.wav",
+   "sha256": "675abd9954c0bb01bd6049cb7f5dcf908f627c673668ac9393226a09ba0fad2a",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z055-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_F2_v3_1.wav",
+   "sha256": "675abd9954c0bb01bd6049cb7f5dcf908f627c673668ac9393226a09ba0fad2a",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z058-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_C3_v3_1.wav",
+   "sha256": "ba3760e74edf6c25f96a0deb526bf87eba2bf74be94ba76bf31d0d6592efe687",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_C3_v3_1.wav",
+   "sha256": "ba3760e74edf6c25f96a0deb526bf87eba2bf74be94ba76bf31d0d6592efe687",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_D#3_v3_1.wav",
+   "sha256": "289630ed8e777ff4f2542b010654e2aad372b8f4addb4635ef21ee1536eec615",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z066-v1.ogg",
+   "source": "Brass/Tenor Trombone/sus/tenortbn_sus_F3_v3_1.wav",
+   "sha256": "6f27199604f9f14254ae2fca7368b08cb17039f7401402fa95b9d9e2b7943420",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

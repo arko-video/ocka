@@ -8,7 +8,7 @@
 
 import { normaliserMorceau } from '../morceau/normaliser';
 import { arrangement, dureeMorceau, dureePas, PAS_PAR_MESURE } from '../morceau/temps';
-import { IDS_PISTES, type IdPiste, type Morceau } from '../morceau/types';
+import type { Morceau } from '../morceau/types';
 import { appliquerMaster } from './audio/master-hors-ligne';
 import { chargerMedias, rendreParFenetres } from './audio/rendu';
 import { retardMaster } from './audio/worklet';
@@ -16,6 +16,7 @@ import { ErreurOcka } from './erreur';
 import { construireGraphe } from './graphe';
 import { oublierBanque } from './instruments/banque';
 import { detruireBus } from './instruments/bus';
+import { preparerTranches } from './effets/preparer';
 import { PRE_MASTER } from './instruments/bus';
 import { creerChaineMaster } from './master';
 import { mesurerSonie } from './sonie';
@@ -89,9 +90,10 @@ export async function mesurerEcartAB(entree: Morceau): Promise<{ ecartLu: number
   const ctx = new OfflineAudioContext(2, Math.ceil((debut + n) / PAS_RENDU) * PAS_RENDU, FREQ);
   const melange = ctx.createGain();
   melange.connect(ctx.destination);
-  const pistesSeparees: Partial<Record<IdPiste, AudioNode>> = {};
-  for (const id of IDS_PISTES) pistesSeparees[id] = melange;
+  const pistesSeparees = Object.create(null) as Record<string, AudioNode>;
+  for (const p of morceau.pistes) pistesSeparees[p.id] = melange;
   const nulle = ctx.createGain(); // la sortie du master (rien n'y arrive) ne va nulle part
+  await preparerTranches(ctx, morceau, medias.prises, medias.sons, f.debut - f.avant); // inserts JS, depuis la fenêtre
   const graphe = await outilsAB.construireGraphe(ctx, morceau, medias.prises, nulle, { pistesSeparees, sons: medias.sons });
   let rendu: AudioBuffer;
   try {

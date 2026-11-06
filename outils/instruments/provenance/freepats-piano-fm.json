@@ -1,0 +1,347 @@
+{
+ "id": "freepats-piano-fm",
+ "source": {
+  "type": "archive",
+  "banque": "freepats",
+  "url": "https://github.com/freepats/fm-piano1/releases/download/2019-09-16/FM-Piano1-SFZ+FLAC-20190916.7z",
+  "sfz": "FM-Piano1 20190916.sfz"
+ },
+ "fichiers": [
+  {
+   "fichier": "z029-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z032-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z035-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z038-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z041-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z068-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z076-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z079-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z082-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z085-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z088-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z091-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z094-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z097-v1.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z029-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z032-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z035-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z038-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z041-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z062-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z065-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z068-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z073-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z076-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z079-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z082-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z085-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z088-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z091-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z094-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": -2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z097-v2.ogg",
+   "source": "FM-Piano1-SFZ+FLAC-20190916.7z",
+   "sha256": "fa308cead617211b29f500db2f962f34e18c9cd55a94ae9176e1d63babeab083",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

@@ -1,0 +1,240 @@
+/* Frise (Structure) et couloirs d'automation — propriétaire : U2. Mobile d'abord (360 px), au pouce. */
+
+.bascule-structure {
+  margin-bottom: 12px;
+}
+
+.frise {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.frise-barre {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.frise-barre .aide {
+  flex: 1;
+  margin: 0;
+  font-size: 12px;
+}
+.frise-zoom {
+  display: flex;
+  gap: 4px;
+}
+.frise-zoom .btn-bascule {
+  font-size: 18px;
+}
+
+/* La frise déborde des marges de l'écran (pleine largeur) et défile seule, à l'horizontale. */
+.frise-defile {
+  margin: 0 calc(-1 * var(--marge));
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  border-top: 1px solid var(--bord);
+  border-bottom: 1px solid var(--bord);
+  background: var(--fond-creux);
+}
+.frise-contenu {
+  position: relative;
+  min-width: 100%;
+}
+.frise-ligne {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--bord);
+}
+.frise-piste:last-of-type .frise-ligne:last-child {
+  border-bottom: none;
+}
+
+/* Colonne des noms, collée à gauche pendant le défilement. */
+.frise-nom {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  flex: 0 0 var(--nom);
+  width: var(--nom);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 3px 0 8px;
+  background: var(--surface);
+  border-right: 1px solid var(--bord-fort);
+  box-shadow: inset 3px 0 0 var(--c, transparent);
+}
+.frise-nom-texte {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 700;
+}
+.frise-auto {
+  flex: none;
+  width: 24px;
+  height: 28px;
+  border-radius: 7px;
+  border: 1px solid var(--bord-fort);
+  background: transparent;
+  color: var(--texte-faible);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.frise-auto[aria-pressed='true'] {
+  border-color: var(--violet);
+  background: var(--violet-voile);
+  color: #fff;
+}
+
+/* Règle : un bouton par passage de section (toucher = y aller). */
+.frise-regle {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+.frise-regle .frise-nom {
+  background: var(--fond-creux);
+}
+.frise-passage {
+  flex: none;
+  height: 30px;
+  min-width: 0;
+  padding: 0 6px;
+  border: none;
+  border-left: 1px solid var(--bord-fort);
+  background: var(--fond-creux);
+  color: var(--texte-doux);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.frise-passage[data-courant='1'] {
+  color: var(--texte);
+  background: var(--surface-2);
+}
+
+/* Clip : la couleur de la piste en fond léger, l'aperçu des notes dans la couleur pleine. */
+.clip {
+  position: relative;
+  flex: none;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-left: 1px solid var(--bord);
+  background: transparent;
+  color: var(--c);
+  overflow: hidden;
+  cursor: pointer;
+  touch-action: pan-x pan-y;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+.clip[data-plein='1']::before {
+  content: '';
+  position: absolute;
+  inset: 3px 1px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--c) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c) 55%, transparent);
+}
+.clip:active::before {
+  background: color-mix(in srgb, var(--c) 32%, transparent);
+}
+.clip:focus-visible {
+  outline-offset: -2px;
+}
+.clip-apercu {
+  position: absolute;
+  inset: 7px 3px;
+  width: calc(100% - 6px);
+  height: calc(100% - 14px);
+  fill: var(--c);
+}
+.clip-reprise {
+  stroke: color-mix(in srgb, var(--c) 45%, transparent);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+.clip-texte {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: left;
+}
+.clip-lien {
+  position: absolute;
+  top: 5px;
+  right: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  padding: 0 4px 0 2px;
+  height: 16px;
+  border-radius: 8px;
+  background: rgba(14, 11, 20, 0.85);
+  color: var(--texte);
+  font-size: 10px;
+  font-weight: 700;
+}
+.clip-lien svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+/* Tête de lecture. */
+.frise-tete {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 2px;
+  margin-left: -1px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.frise-avance {
+  margin: 0;
+  font-size: 12px;
+}
+.frise-avance .lien,
+.lien-u2 {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--violet-clair);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Menu d'un clip. */
+.menu-clip {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.menu-clip-ligne {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.menu-clip-ligne .aide {
+  margin: 0;
+}

@@ -1,0 +1,79 @@
+{
+ "id": "vsco-cor",
+ "source": {
+  "type": "vsco",
+  "sfz": "FHornSus"
+ },
+ "fichiers": [
+  {
+   "fichier": "z036-v1.ogg",
+   "source": "Brass/F Horn/sus/MOHorn_sus_C1_v3_1.wav",
+   "sha256": "ab9e142f880687083e8f6fa72d37a60f3d1a067065feb457028e7f254490d2b7",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z039-v1.ogg",
+   "source": "Brass/F Horn/sus/MOHorn_sus_D#1_v3_1.wav",
+   "sha256": "cab9954a651d0aa23becff6910f149442f6bc29c05a1843b2389445822f124f8",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z042-v1.ogg",
+   "source": "Brass/F Horn/sus/MOHorn_sus_G1_v3_1.wav",
+   "sha256": "10bf965bc7ea2db883983e93bf52fa44590ec8dc812801b564863640ee3cedce",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z044-v1.ogg",
+   "source": "Brass/F Horn/sus/MOHorn_sus_G1_v3_1.wav",
+   "sha256": "10bf965bc7ea2db883983e93bf52fa44590ec8dc812801b564863640ee3cedce",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z047-v1.ogg",
+   "source": "Brass/F Horn/sus/MOHorn_sus_A#1_v3_1.wav",
+   "sha256": "d30b661831843acb75220ae59549daec1557102cd6271414e54bff28da9f6766",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z050-v1.ogg",
+   "source": "Brass/F Horn/sus/MOHorn_sus_D2_v4_1.wav",
+   "sha256": "0acdf87ea416c52dd5178a62279f03b2014f32c98a6a2ea517a481c7365cf292",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z053-v1.ogg",
+   "source": "Brass/F Horn/sus/MOHorn_sus_F2_v3_1.wav",
+   "sha256": "87351ffabbfb953553edb38d0f53c5f2a3f95a9085024461346ea977afb296bc",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z056-v1.ogg",
+   "source": "Brass/F Horn/sus/MOHorn_sus_A2_v3_1.wav",
+   "sha256": "7ca89d390ac4f9d680d8052a0df0adac9051d844f6fca9154f29cc7aa8b4095a",
+   "transposition": -1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z058-v1.ogg",
+   "source": "Brass/F Horn/sus/MOHorn_sus_A2_v3_1.wav",
+   "sha256": "7ca89d390ac4f9d680d8052a0df0adac9051d844f6fca9154f29cc7aa8b4095a",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z061-v1.ogg",
+   "source": "Brass/F Horn/sus/MOHorn_sus_C3_v4_1.wav",
+   "sha256": "e8668437838648d4cb6a0fd9e7b207de399bfb87ab1e0e025b5d14e3175aff7d",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

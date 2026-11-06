@@ -2,13 +2,14 @@
 import { describe, expect, it } from 'vitest';
 import { nouveauMorceau } from '../morceau/styles';
 import { dureePas, pasVersSecondes } from '../morceau/temps';
-import type { Morceau, MotifBatterie } from '../morceau/types';
+import type { Morceau, MotifBatterie, PisteInstrument } from '../morceau/types';
 import { calculerPlanning, GAIN_NOTE, type Evenement } from './planning';
 
-function base(swing = 0): Morceau {
+function base(swing = 0, instrument = 'ocka-piano@1'): Morceau {
   const m = nouveauMorceau('trap');
   m.tempo = 120;
   m.swing = swing;
+  m.pistes = m.pistes.map((p) => (p.id === 'melodie' ? ({ ...p, instrument } as PisteInstrument) : p));
   return m;
 }
 
@@ -17,8 +18,8 @@ const boucles = (p: Evenement[]) => p.filter((e): e is Extract<Evenement, { type
 
 describe('planning de la mélodie', () => {
   it('temps et durées exacts (swing compris), motif répété sur la section, vélocité', () => {
-    const m = base(0.25);
-    m.motifs.mel = { type: 'melodie', pas: 16, son: 'pluck', notes: [{ pas: 0, duree: 3, midi: 60 }, { pas: 5, duree: 2, midi: 67, vel: 0.5 }, { pas: 15, duree: 1, midi: 72 }] };
+    const m = base(0.25, 'ocka-pluck@1');
+    m.motifs.mel = { type: 'notes', pas: 16, notes: [{ pas: 0, duree: 3, midi: 60, vel: 1 }, { pas: 5, duree: 2, midi: 67, vel: 0.5 }, { pas: 15, duree: 1, midi: 72, vel: 1 }] };
     m.sections = [{ id: 'a', nom: 'Intro', mesures: 1, motifs: {} }, { id: 's', nom: 'Couplet', mesures: 2, motifs: { melodie: 'mel' } }];
     m.ordre = ['a', 's'];
     const n = notes(calculerPlanning(m));
@@ -29,7 +30,7 @@ describe('planning de la mélodie', () => {
       expect(e.t).toBe(pasVersSecondes(m, pas!));
       expect(e.duree).toBeCloseTo(pasVersSecondes(m, pas! + duree!) - pasVersSecondes(m, pas!), 12);
       expect(e.midi).toBe(midi);
-      expect(e.son).toBe('pluck');
+      expect([e.son, e.piste, e.instrument]).toEqual(['pluck', 'melodie', 'ocka-pluck@1']);
       expect(e.vel).toBeCloseTo(GAIN_NOTE * vel!, 12);
     });
     // Swing : la note du pas 21 (impair) est retardée de 0,25 pas.
@@ -38,7 +39,7 @@ describe('planning de la mélodie', () => {
 
   it('motif plus long que la section : coupé à la fin de la section (note comprise)', () => {
     const m = base();
-    m.motifs.mel = { type: 'melodie', pas: 32, son: 'piano', notes: [{ pas: 12, duree: 8, midi: 64 }, { pas: 20, duree: 4, midi: 65 }] };
+    m.motifs.mel = { type: 'notes', pas: 32, notes: [{ pas: 12, duree: 8, midi: 64, vel: 1 }, { pas: 20, duree: 4, midi: 65, vel: 1 }] };
     m.sections = [{ id: 's', nom: 'Couplet', mesures: 1, motifs: { melodie: 'mel' } }];
     m.ordre = ['s'];
     const n = notes(calculerPlanning(m));

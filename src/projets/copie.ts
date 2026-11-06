@@ -1,6 +1,7 @@
 // Import d'un projet : recopie EN FLUX des WAV du ZIP vers OPFS (ocka-prises, ocka-sons), sous leur clé neuve.
 // Le CRC32 de l'entrée est recalculé pendant la copie : un fichier abîmé fait échouer l'import (tout ou rien).
 // Sons stéréo : le WAV est entrelacé (G D G D…), le fichier d'OCKA est par canal (tout G, puis tout D).
+// SoundFonts (C3, `wav` null) : recopiées telles quelles.
 
 import type { OptionsLongues } from '../moteur/api-fichiers';
 import type { InfosWav } from '../moteur/wav';
@@ -8,12 +9,13 @@ import { crc32 } from '../zip/crc32';
 import { illisible, verifierAnnulation } from './commun';
 
 export interface Copie {
-  dossier: 'prises' | 'sons';
+  dossier: 'prises' | 'sons' | 'sf2';
   /** Clé NEUVE du fichier dans OPFS. */
   cle: string;
   /** L'entrée du ZIP (WAV complet : en-tête + données), sans copie (File.slice). */
   blob: Blob;
-  wav: InfosWav;
+  /** null : fichier recopié tel quel (SoundFont). */
+  wav: InfosWav | null;
   /** CRC32 annoncé par le ZIP. */
   crc: number;
 }
@@ -47,6 +49,7 @@ export async function copierVersOpfs(copies: Copie[], dossiers: Dossiers, crees:
 }
 
 async function copierEntree(c: Copie, flux: FileSystemWritableFileStream, options: OptionsLongues, avancer: (n: number) => void): Promise<void> {
+  if (!c.wav) return copierTelQuel(c, flux, options, avancer);
   const { donnees, trames, canaux } = c.wav;
   const fin = donnees + trames * 4 * canaux;
   const ecrire = (position: number, data: Uint8Array | Float32Array) => flux.write({ type: 'write', position, data: data as Uint8Array<ArrayBuffer> });
@@ -87,4 +90,21 @@ async function copierEntree(c: Copie, flux: FileSystemWritableFileStream, option
     pos += value.length;
   }
   if (pos !== c.blob.size || crc !== c.crc) throw illisible('un fichier audio est abîmé (contrôle faux)');
+}
+
+/** Copie brute (SoundFont) : CRC32 vérifié. */
+async function copierTelQuel(c: Copie, flux: FileSystemWritableFileStream, options: OptionsLongues, avancer: (n: number) => void): Promise<void> {
+  let crc = 0;
+  let pos = 0;
+  const lecteur = c.blob.stream().getReader();
+  for (;;) {
+    const { done, value } = await lecteur.read();
+    if (done) break;
+    verifierAnnulation(options.signal);
+    crc = crc32(value, crc);
+    await flux.write({ type: 'write', position: pos, data: value as Uint8Array<ArrayBuffer> });
+    pos += value.length;
+    avancer(value.length);
+  }
+  if (pos !== c.blob.size || crc !== c.crc) throw illisible('une SoundFont est abîmée (contrôle faux)');
 }

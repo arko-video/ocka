@@ -10,11 +10,11 @@ import type { Lecteur } from './api';
 import { preparerGraphe, type Graphe, type PcmPrise } from './graphe';
 import { banqueDe } from './instruments/banque';
 import { detruireBus } from './instruments/bus';
+import { cacheZones } from './instruments/cache-zones';
+import { relacherNoteTenue } from './instruments/note-seule';
 import { lirePrises, lireSons } from './instruments/pistes';
 import type { PcmSon } from './types-moteur';
-
-/** Fenêtre de planification (s). */
-const FENETRE = 0.2;
+const FENETRE = 0.2; // fenêtre de planification (s)
 
 export function creerLecteur(): Lecteur {
   let ctx: AudioContext | null = null;
@@ -113,7 +113,6 @@ export function creerLecteur(): Lecteur {
 
   /** Coupe aussi les graphes relayés qui finissent leurs frappes. */
   const couperRelayes = () => relayes.forEach((r) => r.arreter());
-
   /** (Re)démarre la planification à partir du temps `t` du morceau. */
   function demarrerA(t: number) {
     if (!ctx || !graphe) return;
@@ -245,10 +244,12 @@ export function creerLecteur(): Lecteur {
     metronome(actif) {
       metronome = actif;
     },
-    entendreNote(son, midi) {
+    get notesMuettes() { return graphe?.muettes ?? 0; }, // prettier-ignore
+    entendreNote(piste, midi, options) {
       void contexte().resume();
-      graphe?.entendreNote(son, midi); // une note pas prête est sautée (et préparée pour la fois suivante)
+      graphe?.entendreNote(piste, midi, options); // une note pas prête est sautée (et préparée pour la fois suivante)
     },
+    relacherNote: (piste, midi) => void (ctx && relacherNoteTenue(ctx, piste, midi)),
     get latenceSortie() {
       // outputLatency (jusqu'au haut-parleur) quand le navigateur la donne, sinon baseLatency.
       const c = contexte() as AudioContext & { outputLatency?: number; baseLatency?: number };
@@ -291,9 +292,8 @@ export function creerLecteur(): Lecteur {
       graphe = null;
       relayes.forEach((r) => r.detruire());
       if (ctx) detruireBus(ctx); // contexte commun : pas fermé, mais son bus master est débranché
-      prises.clear();
-      sons.clear();
-      ecouteurs.clear();
+      [prises, sons, ecouteurs].forEach((x) => x.clear());
+      cacheZones.purger(); // zones décodées des instruments : celles qu'aucun graphe n'épingle sont lâchées
     },
   };
 }

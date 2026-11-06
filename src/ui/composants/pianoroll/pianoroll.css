@@ -1,0 +1,160 @@
+/* Piano roll plein écran (U1) : barre de 48 px, clavier de 32 px, grille à gestes, vélocité, outils. */
+
+.pr {
+  position: fixed;
+  inset: 0;
+  z-index: 58;
+  display: flex;
+  flex-direction: column;
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--fond);
+  padding-top: env(safe-area-inset-top);
+  overscroll-behavior: contain;
+  --pr-mesure: rgba(244, 242, 248, 0.32);
+  --pr-temps: rgba(244, 242, 248, 0.13);
+  --pr-pas: rgba(244, 242, 248, 0.05);
+}
+.pr-barre {
+  flex-shrink: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px;
+  border-bottom: 1px solid var(--bord);
+}
+.pr-barre .btn-icone {
+  width: 44px;
+  height: 44px;
+}
+.pr-lecture {
+  color: var(--violet-clair);
+}
+.pr-modes {
+  flex: 1;
+  padding: 3px;
+  margin: 0 4px;
+}
+.pr-modes .segment {
+  min-height: 36px;
+  font-size: 14px;
+}
+.pr-modes .segment[aria-checked='true'] {
+  background: var(--degrade);
+  color: #fff;
+}
+.pr-infos {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 2px 8px 2px 12px;
+}
+.pr-piste {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.pr-piste-nom {
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pr-piste-instr {
+  font-size: 12px;
+  color: var(--violet-clair);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pr-section {
+  flex-shrink: 0;
+  max-width: 120px;
+  height: 36px;
+  padding: 0 8px;
+  border-radius: 10px;
+  border: 1px solid var(--bord-fort);
+  background: var(--surface);
+  color: var(--texte);
+  font: inherit;
+  font-size: 14px;
+}
+.pr-gamme {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-size: 13px;
+  color: var(--texte-doux);
+  cursor: pointer;
+}
+.pr-gamme input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 36px;
+  height: 22px;
+  margin: 0;
+  border-radius: 11px;
+  background: var(--surface-3);
+  position: relative;
+  cursor: pointer;
+}
+.pr-gamme input::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.15s;
+}
+.pr-gamme input:checked {
+  background: var(--violet);
+}
+.pr-gamme input:checked::after {
+  transform: translateX(14px);
+}
+.pr-partage {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 8px 4px;
+  padding: 4px 4px 4px 10px;
+  border-radius: 10px;
+  background: var(--magenta-voile);
+  font-size: 13px;
+}
+.pr-partage span {
+  flex: 1;
+}
+.pr-lien {
+  min-height: 36px;
+  padding: 0 8px;
+  border: none;
+  background: none;
+  color: var(--violet-clair);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.pr-simple {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px var(--marge) 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

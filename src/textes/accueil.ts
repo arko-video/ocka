@@ -1,8 +1,14 @@
 // Textes de l'accueil (onglets Morceaux | Sorties, import d'un projet) et du choix du style. Propriétaire : A1.
+// C2 : les noms et phrases des styles sont dans le registre (morceau/styles/<id>.ts) ; familles et recherche :
+// textes/styles-autres.ts (S2).
 // Groupe `allerVite` (vague B, B1) : « Au hasard », « Une autre idée », « Revenir », Boucles OCKA.
 
+import { DEFINITIONS_STYLES, type DefinitionStyle } from '../morceau/styles/index';
 import type { Mode, Style } from '../morceau/types';
 import type { TypeBoucle } from '../aller-vite/boucles';
+
+const parStyle = <T>(lire: (d: DefinitionStyle) => T): Readonly<Record<Style, T>> =>
+  Object.fromEntries(Object.values(DEFINITIONS_STYLES).map((d) => [d.id, lire(d)])) as Record<Style, T>;
 
 export const TEXTES_ACCUEIL = {
   accueil: {
@@ -45,16 +51,10 @@ export const TEXTES_ACCUEIL = {
     titre: 'Choisis un style',
     intro: 'Tout est prêt : batterie, basse, accords et 6 sections. Tu pourras tout changer.',
     bpm: (t: number) => `${t} BPM`,
-    noms: { trap: 'Trap', drill: 'Drill', lofi: 'Lo-fi', phonk: 'Phonk', pop: 'Pop', boombap: 'Boom bap' } satisfies Record<Style, string>,
-    tempos: { trap: 140, drill: 142, lofi: 85, phonk: 135, pop: 110, boombap: 90 } satisfies Record<Style, number>,
-    phrases: {
-      trap: 'Gros 808, charleys qui roulent. Le son du rap d’aujourd’hui.',
-      drill: '808 qui glissent, rythme sombre et sautillant.',
-      lofi: 'Doux, swingué, accords jazzy. Pour poser tranquille.',
-      phonk: 'Cloche qui chante, 808 saturée, charleys en triolets.',
-      pop: 'Batterie franche, clap sur 2 et 4, accords au piano.',
-      boombap: 'Kick et caisse poussiéreux, swing, piano et vinyle.',
-    } satisfies Record<Style, string>,
+    // Noms, tempos et phrases : dans le fichier de chaque style (morceau/styles/<id>.ts, registre).
+    noms: parStyle((d) => d.textes.nom),
+    tempos: parStyle((d) => d.reglages.tempo),
+    phrases: parStyle((d) => d.textes.phrase),
     erreur: 'Impossible de créer le morceau pour l’instant.',
   },
 

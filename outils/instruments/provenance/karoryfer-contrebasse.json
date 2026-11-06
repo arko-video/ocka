@@ -1,0 +1,193 @@
+{
+ "id": "karoryfer-contrebasse",
+ "source": {
+  "type": "zip",
+  "banque": "karoryfer",
+  "url": "https://github.com/sfzinstruments/karoryfer.meatbass/releases/download/v1.001/Karoryfer.Meatbass.v1.001.zip",
+  "sfz": "Meatbass/Programs/pizz_basic.sfz"
+ },
+ "fichiers": [
+  {
+   "fichier": "z024-v1.ogg",
+   "source": "Meatbass/Samples/pizz/c1_vl2_rr1.wav",
+   "sha256": "091ab69a4f65af1c88cdc0ae9263df51ab0784a920ef0819298e18b123e30d23",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z027-v1.ogg",
+   "source": "Meatbass/Samples/pizz/eb1_vl2_rr1.wav",
+   "sha256": "2266ba00390b3405827ffc0935ee681093d4355b21a8a1163d6161ab3794d8d9",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z030-v1.ogg",
+   "source": "Meatbass/Samples/pizz/gb1_vl2_rr1.wav",
+   "sha256": "73e3d69fef4c757a8df34dabae15ed66dcb724986810843d6069c6926a2e565a",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z033-v1.ogg",
+   "source": "Meatbass/Samples/pizz/a1_vl2_rr1.wav",
+   "sha256": "52ad2914e4185cbc60033b5aff2bdb53ed92dc05cbae2e30c7e525f308e83e6b",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z036-v1.ogg",
+   "source": "Meatbass/Samples/pizz/c2_vl2_rr1.wav",
+   "sha256": "3585d538ae1c10f0eeb402e33841535071192a01e09930b2697703c7149babbd",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z039-v1.ogg",
+   "source": "Meatbass/Samples/pizz/eb2_vl2_rr1.wav",
+   "sha256": "7af31126e4d6cfb9fc1f7aba4e02f39bd4b7a83eced346c6e3f73f067bde6fe4",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z042-v1.ogg",
+   "source": "Meatbass/Samples/pizz/gb2_vl2_rr1.wav",
+   "sha256": "46e3f53eb05a580754da495e455340be01b4e30704fbd19f93dfdacc210cadb4",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z045-v1.ogg",
+   "source": "Meatbass/Samples/pizz/a2_vl2_rr1.wav",
+   "sha256": "b32a2c5e22a22ef373e19b3c4593f73b78bcdae37ddab38ff03e612150ee2642",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z048-v1.ogg",
+   "source": "Meatbass/Samples/pizz/c3_vl2_rr1.wav",
+   "sha256": "0903b6e1ab5b89d80a46041446c93df372701f08ed37c70a40ff4f00dcc8755e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z051-v1.ogg",
+   "source": "Meatbass/Samples/pizz/eb3_vl2_rr1.wav",
+   "sha256": "e712a3a2a37f148c273c5c0d394533c38501ea2241b5c5fcf56de2b0cd6e41ff",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "source": "Meatbass/Samples/pizz/gb3_vl2_rr1.wav",
+   "sha256": "35a2325ef192ae876de0dd35a251a9f0a80af457ed3dcf4b00cb1dd917c683ba",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "source": "Meatbass/Samples/pizz/a3_vl2_rr1.wav",
+   "sha256": "df9639319674416d407c97da19bed928ccd840e2900f69f12eb4498ca397d565",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v1.ogg",
+   "source": "Meatbass/Samples/pizz/a3_vl2_rr1.wav",
+   "sha256": "df9639319674416d407c97da19bed928ccd840e2900f69f12eb4498ca397d565",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z024-v2.ogg",
+   "source": "Meatbass/Samples/pizz/c1_vl4_rr1.wav",
+   "sha256": "1f669fea378c72786b4a0e50c1ef20ce3aa5c1c15a54f498bd01cb8cd3f3f649",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z027-v2.ogg",
+   "source": "Meatbass/Samples/pizz/eb1_vl4_rr1.wav",
+   "sha256": "1a015291a120a9d1424552319fc3429fd2326a79d681be2e972f2ca92d9d3349",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z030-v2.ogg",
+   "source": "Meatbass/Samples/pizz/gb1_vl4_rr1.wav",
+   "sha256": "ae2e02924a9ba39c6c6beedb3b62b9e9ac7a3273d14a3b190cee2aae81b6ade9",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z033-v2.ogg",
+   "source": "Meatbass/Samples/pizz/a1_vl4_rr1.wav",
+   "sha256": "dad26c7ad093cf0d1017eed58e5d2d0af2444d8aa7855ec2b2c09133f9c37ca5",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z036-v2.ogg",
+   "source": "Meatbass/Samples/pizz/c2_vl4_rr1.wav",
+   "sha256": "8768f1fe1014366d68744f2cbb1afde402fe88e89a6140f86cfc258981182f07",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z039-v2.ogg",
+   "source": "Meatbass/Samples/pizz/eb2_vl4_rr1.wav",
+   "sha256": "00e55dcd81719b7e74db500b6d22ece7012e84bdcc4ecd9ef3ca0cd85138982d",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z042-v2.ogg",
+   "source": "Meatbass/Samples/pizz/gb2_vl4_rr1.wav",
+   "sha256": "cc0063510aaa80cab2fa0c2f0de8ea28b14e97ab7fbc13e2035e3e49854f46aa",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z045-v2.ogg",
+   "source": "Meatbass/Samples/pizz/a2_vl4_rr1.wav",
+   "sha256": "206b9e2ef31c03dfed0be144383ac043e2064e90b49e7a9ce6ad9e5860e86ed4",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z048-v2.ogg",
+   "source": "Meatbass/Samples/pizz/c3_vl4_rr1.wav",
+   "sha256": "943f5a41eb468a75465a9f6b63b58e5b2668ad04e44f332a38b1cb29918b0e87",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z051-v2.ogg",
+   "source": "Meatbass/Samples/pizz/eb3_vl4_rr1.wav",
+   "sha256": "66656f75bcd28e2ec015b41db1168ceeee782410f991a94ae27a77b719b149db",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z054-v2.ogg",
+   "source": "Meatbass/Samples/pizz/gb3_vl4_rr1.wav",
+   "sha256": "f85f8e2a238bb37d8ecd3429f90636984d1fe1df113cb9d8fe69c1666389fed9",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z057-v2.ogg",
+   "source": "Meatbass/Samples/pizz/a3_vl4_rr1.wav",
+   "sha256": "074e52f62b413f868f42453e075ce0015ec586cda146bd891bc95a6217ba8e77",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z059-v2.ogg",
+   "source": "Meatbass/Samples/pizz/a3_vl4_rr1.wav",
+   "sha256": "074e52f62b413f868f42453e075ce0015ec586cda146bd891bc95a6217ba8e77",
+   "transposition": 2,
+   "decalage_decodeur": 0
+  }
+ ]
+}

@@ -1,0 +1,169 @@
+/* « Chanter » et « Beatbox » (D) : roue des 12 notes, réglages, entraînement. Mobile d'abord (360 px). */
+
+.dubler {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.dubler-etiquette {
+  margin: 4px 0 -4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texte-doux);
+}
+.dubler-piste {
+  margin: 0;
+  font-weight: 600;
+  color: var(--texte);
+}
+.dubler-bouton {
+  width: 100%;
+  min-height: 52px;
+}
+.dubler-etat {
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+  color: var(--violet-clair);
+}
+.dubler-casque {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--r-petit);
+  background: var(--violet-voile);
+  font-size: 13px;
+  color: var(--texte);
+}
+.dubler-retard {
+  border-left: 3px solid var(--bord-fort);
+  padding-left: 10px;
+}
+.dubler-reglages,
+.dubler-enregistrer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  border-radius: var(--r);
+  background: var(--fond-creux);
+  border: 1px solid var(--bord);
+}
+
+/* ------------------------------------------------------------ roue des 12 notes */
+.roue-notes {
+  width: min(260px, 100%);
+  margin: 0 auto;
+  aspect-ratio: 1;
+}
+.roue-notes svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.roue-niveau-fond {
+  fill: none;
+  stroke: var(--surface-2);
+  stroke-width: 4;
+}
+.roue-niveau {
+  fill: none;
+  stroke: var(--vert);
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.06s linear;
+}
+.roue-case path {
+  stroke: var(--fond);
+  stroke-width: 2;
+  transition: fill 0.08s;
+}
+.roue-case text {
+  font-size: 12px;
+  font-weight: 600;
+  pointer-events: none;
+}
+.roue-hors path {
+  fill: var(--surface);
+}
+.roue-hors text {
+  fill: var(--texte-faible);
+}
+.roue-gamme path {
+  fill: var(--surface-3);
+}
+.roue-gamme text {
+  fill: var(--violet-clair);
+}
+.roue-accord path {
+  fill: var(--violet);
+}
+.roue-accord text,
+.roue-jouee text {
+  fill: #fff;
+}
+.roue-jouee path {
+  fill: var(--magenta);
+}
+.roue-aiguille {
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.roue-nom {
+  fill: var(--texte);
+  font-family: var(--police-titre);
+  font-size: 30px;
+  font-weight: 700;
+}
+.roue-ecart {
+  fill: var(--texte-doux);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------ entraînement du beatbox */
+.beatbox-etapes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.beatbox-etape {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--r);
+  background: var(--surface);
+  border: 1px solid var(--bord);
+}
+.beatbox-etape-active {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 1px var(--violet) inset;
+}
+.beatbox-etape-tete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.beatbox-points {
+  display: inline-flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.beatbox-point {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface-3);
+}
+.beatbox-point-plein {
+  background: var(--degrade);
+}
+.beatbox-actions {
+  display: flex;
+  gap: 8px;
+}

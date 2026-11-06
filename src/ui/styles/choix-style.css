@@ -1,0 +1,217 @@
+/* Choix du style par familles, avec la recherche et l'écoute rapide (vague C2). Propriétaire : S2.
+   Cartes compactes pensées pour le pouce sur 360 px : la carte entière choisit le style, le rond à droite
+   (48 px) fait écouter 4 mesures. Chaque style a sa teinte (--teinte), sa famille une teinte par défaut. */
+.recherche-style {
+  margin: 4px 0 0;
+}
+
+/* ------------------------------------------------------------ puces des familles (défilent à l'horizontale) */
+.puces-familles {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 0 calc(-1 * var(--marge));
+  padding: 2px var(--marge) 4px;
+  scrollbar-width: none;
+}
+.puces-familles::-webkit-scrollbar {
+  display: none;
+}
+.puce-famille {
+  flex-shrink: 0;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--bord-fort);
+  background: var(--surface);
+  color: var(--texte);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.puce-famille:active {
+  background: var(--surface-3);
+}
+
+/* ------------------------------------------------------------ une famille */
+.famille-styles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  --teinte: var(--violet);
+}
+.famille-styles[data-famille='electro'] {
+  --teinte: #22d3ee;
+}
+.famille-styles[data-famille='monde'] {
+  --teinte: #f59e0b;
+}
+.famille-styles[data-famille='poprockjazz'] {
+  --teinte: #ec4899;
+}
+.famille-styles[data-famille='cinema'] {
+  --teinte: #60a5fa;
+}
+.famille-styles-tete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 14px;
+}
+.famille-styles-titre {
+  margin: 0;
+  font-family: var(--police-titre);
+  font-size: 20px;
+  font-weight: 700;
+  scroll-margin-top: 72px;
+}
+.hasard-famille {
+  flex-shrink: 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--violet-clair);
+}
+.liste-styles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ------------------------------------------------------------ carte compacte d'un style */
+.ligne-style {
+  position: relative;
+}
+.liste-styles .carte-style {
+  width: 100%;
+  min-height: 84px;
+  padding: 12px 68px 12px 18px;
+  border-radius: 16px;
+  gap: 4px;
+}
+.liste-styles .ligne-style .carte-style::before {
+  opacity: 1;
+  background:
+    linear-gradient(var(--teinte), var(--teinte)) left / 4px 100% no-repeat,
+    radial-gradient(80% 140% at 100% 0%, color-mix(in srgb, var(--teinte) 22%, transparent), transparent 70%);
+}
+.liste-styles .carte-style-nom {
+  font-size: 19px;
+  line-height: 1.2;
+}
+.liste-styles .carte-style-haut {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.liste-styles .carte-style-bpm {
+  font-size: 12px;
+  padding: 2px 8px;
+}
+.liste-styles .carte-style-phrase {
+  font-size: 14px;
+  line-height: 1.3;
+  max-width: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.liste-styles .carte-style-onde {
+  position: absolute !important;
+  left: auto;
+  right: 12px;
+  top: 12px;
+  bottom: auto;
+  width: 44px;
+  height: 12px;
+  gap: 2px;
+  opacity: 0.7;
+}
+.liste-styles .carte-style-onde i {
+  background: var(--teinte);
+}
+
+/* ------------------------------------------------------------ bouton d'écoute (rond, 48 px, à droite) */
+.ecoute-style {
+  position: absolute;
+  right: 10px;
+  bottom: 12px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--bord-fort);
+  background: var(--surface-2);
+  color: var(--texte);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.ecoute-style[aria-pressed='true'] {
+  background: var(--teinte);
+  border-color: var(--teinte);
+  color: var(--fond);
+}
+.ecoute-style:disabled {
+  opacity: 0.5;
+}
+.ecoute-attente {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2.5px solid currentColor;
+  border-right-color: transparent;
+  animation: ecoute-tourne 0.8s linear infinite;
+}
+@keyframes ecoute-tourne {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ecoute-attente {
+    animation: none;
+    border-right-color: currentColor;
+    opacity: 0.6;
+  }
+}
+
+/* ------------------------------------------------------------ teintes des styles */
+.ligne-style[data-style='trap'] { --teinte: #a855f7; }
+.ligne-style[data-style='drill'] { --teinte: #6366f1; }
+.ligne-style[data-style='lofi'] { --teinte: #f9a8d4; }
+.ligne-style[data-style='phonk'] { --teinte: #ef4444; }
+.ligne-style[data-style='boombap'] { --teinte: #d97706; }
+.ligne-style[data-style='rage'] { --teinte: #f43f5e; }
+.ligne-style[data-style='plugg'] { --teinte: #c084fc; }
+.ligne-style[data-style='cloud'] { --teinte: #93c5fd; }
+.ligne-style[data-style='jerseyclub'] { --teinte: #facc15; }
+.ligne-style[data-style='afrotrap'] { --teinte: #fb923c; }
+.ligne-style[data-style='rapmelodique'] { --teinte: #f472b6; }
+.ligne-style[data-style='jazzrap'] { --teinte: #fbbf24; }
+.ligne-style[data-style='ukdrill'] { --teinte: #818cf8; }
+.ligne-style[data-style='memphis'] { --teinte: #b91c1c; }
+.ligne-style[data-style='hyperpop'] { --teinte: #f0abfc; }
+.ligne-style[data-style='house'] { --teinte: #22d3ee; }
+.ligne-style[data-style='techno'] { --teinte: #94a3b8; }
+.ligne-style[data-style='dnb'] { --teinte: #34d399; }
+.ligne-style[data-style='ukgarage'] { --teinte: #2dd4bf; }
+.ligne-style[data-style='synthwave'] { --teinte: #e879f9; }
+.ligne-style[data-style='bossanova'] { --teinte: #84cc16; }
+.ligne-style[data-style='afrobeats'] { --teinte: #f59e0b; }
+.ligne-style[data-style='reggaeton'] { --teinte: #fb7185; }
+.ligne-style[data-style='amapiano'] { --teinte: #fdba74; }
+.ligne-style[data-style='reggae'] { --teinte: #4ade80; }
+.ligne-style[data-style='pop'] { --teinte: #f472b6; }
+.ligne-style[data-style='rnb'] { --teinte: #c4b5fd; }
+.ligne-style[data-style='jazz'] { --teinte: #fcd34d; }
+.ligne-style[data-style='rock'] { --teinte: #f87171; }
+.ligne-style[data-style='poppunk'] { --teinte: #a3e635; }
+.ligne-style[data-style='funk'] { --teinte: #fb923c; }
+.ligne-style[data-style='gospel'] { --teinte: #fde68a; }
+.ligne-style[data-style='kpop'] { --teinte: #f9a8d4; }
+.ligne-style[data-style='orchestral'] { --teinte: #60a5fa; }
+.ligne-style[data-style='ambient'] { --teinte: #a5b4fc; }

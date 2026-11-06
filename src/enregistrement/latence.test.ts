@@ -55,7 +55,7 @@ describe('mémoire de latence par appareil', () => {
 });
 
 describe('détection du Bluetooth par le nom', () => {
-  it.each(['Casque Bluetooth', 'Hands-Free AG Audio', 'AirPods Pro de Romain', 'BT headset'])('« %s » → oui', (nom) => {
+  it.each(['Casque Bluetooth', 'Hands-Free AG Audio', 'AirPods Pro de Romain', 'BT headset', 'Galaxy Buds2 Pro'])('« %s » → oui', (nom) => {
     expect(ressembleBluetooth(nom)).toBe(true);
   });
   it.each(['Micro par défaut', 'Casque filaire', 'Speakerphone'])('« %s » → non', (nom) => {

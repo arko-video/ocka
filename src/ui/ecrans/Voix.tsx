@@ -1,12 +1,16 @@
 // Étape 3 — Voix : calibrage, choix de la section, gros bouton rouge, prises (écouter, garder, supprimer),
-// son de la voix et effets (Réverbe, Écho, Radio, Doubler).
+// carte « Autotune » de la prise gardée (préréglages, gamme, Avant / Après, Corriger tout seul, IA ; C2, A2), son de la
+// voix et effets (Réverbe, Écho, Radio, Doubler). En « Avancé » : « Notes » ouvre l'éditeur de notes de la prise.
 
+import { EntreesVoix } from '../composants/EntreesC3';
 import { useEffect, useState } from 'preact/hooks';
-import type { Piste } from '../../morceau/types';
+import { pisteVoix } from '../../morceau/acces';
+import type { PisteFixe } from '../../morceau/types';
 import { T } from '../../textes-fr';
 import { prisesDe, reglerPiste } from '../edition/reglages';
 import { dureeSection, occurrence } from '../edition/sections';
-import { modifier, morceau, sectionCourante } from '../etat';
+import { modeAvance, modifier, morceau, sectionCourante } from '../etat';
+import { ouvrirEditeurAutotune } from '../navigation';
 import { mmss } from '../format';
 import {
   avertissementsMicro,
@@ -25,10 +29,11 @@ import {
   suivreAppareil,
 } from '../voix';
 import { IconeAlerte, IconeLecture, IconeMicro, IconePoubelle, IconeStop } from '../composants/Icones';
+import { CarteAutotune } from '../composants/voix/CarteAutotune';
 import { EffetsVoix } from '../composants/voix/EffetsVoix';
 import { Enregistrement } from '../composants/voix/Enregistrement';
 
-const PRESETS: NonNullable<Piste['preset']>[] = ['naturel', 'rap', 'chant'];
+const PRESETS: NonNullable<PisteFixe['preset']>[] = ['naturel', 'rap', 'chant'];
 
 export function Voix() {
   const m = morceau.value;
@@ -42,7 +47,8 @@ export function Voix() {
   const section = m.sections.find((s) => s.id === idSection)!;
   const occ = occurrence(m.ordre, i);
   const prises = prisesDe(m, idSection, occ);
-  const voix = m.pistes.find((p) => p.id === 'voix');
+  const kChoisie = prises.findIndex((p) => p.choisie);
+  const voix = pisteVoix(m);
   const lat = latence.value;
   const cal = calibrage.value;
   const err = erreurVoix.value;
@@ -115,6 +121,7 @@ export function Voix() {
           {T.voix.enregistrer} · {section.nom} <span class="chiffres doux">({mmss(dureeSection(m, section))})</span>
         </span>
       </div>
+      <EntreesVoix />
 
       <section class="carte" aria-labelledby="titre-prises">
         <h2 id="titre-prises" class="carte-titre">
@@ -150,6 +157,17 @@ export function Voix() {
                   >
                     {p.choisie ? T.voix.gardee : T.voix.garder}
                   </button>
+                  {modeAvance.value && (
+                    <button
+                      type="button"
+                      class="btn btn-petit btn-discret"
+                      aria-label={T.autotuneAvance.editerAide(p.nom ?? T.voix.prise(k + 1))}
+                      onClick={() => ouvrirEditeurAutotune(p.id)}
+                      data-testid="editer-notes-prise"
+                    >
+                      {T.autotuneAvance.editer}
+                    </button>
+                  )}
                   <button type="button" class="btn-icone" aria-label={`${T.voix.supprimer} ${T.voix.prise(k + 1)}`} onClick={() => supprimer(p)}>
                     <IconePoubelle taille={20} />
                   </button>
@@ -159,6 +177,8 @@ export function Voix() {
           </ul>
         )}
       </section>
+
+      {kChoisie >= 0 && <CarteAutotune m={m} prise={prises[kChoisie]!} nom={prises[kChoisie]!.nom ?? T.voix.prise(kChoisie + 1)} />}
 
       <section class="carte" aria-labelledby="titre-preset-voix">
         <h2 id="titre-preset-voix" class="carte-titre">

@@ -1,0 +1,95 @@
+{
+ "id": "freepats-accordeon",
+ "source": {
+  "type": "archive",
+  "banque": "freepats",
+  "url": "https://github.com/freepats/button-accordion-HN/releases/download/2024-03-29/ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+  "sfz": "PRESET Button Accordion HN tuned.sfz"
+ },
+ "fichiers": [
+  {
+   "fichier": "z048-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z051-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z054-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z057-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z060-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z063-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z066-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z069-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z071-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z074-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 0,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z077-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  },
+  {
+   "fichier": "z080-v1.ogg",
+   "source": "ButtonAccordionHN-SFZ+FLAC-20240329.7z",
+   "sha256": "e5326a8830f0358faa195609fd21d0c1dbab899e39bd7f44b1590ebf2ce5035e",
+   "transposition": 1,
+   "decalage_decodeur": 0
+  }
+ ]
+}

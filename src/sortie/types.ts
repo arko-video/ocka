@@ -59,6 +59,8 @@ export interface Reglages {
   artiste?: string;
   lienProfil?: string;
   distributeur?: Distributeur;
+  /** Réglage « Avancé » du studio (v2) ; absent = désactivé. Ancienne place : localStorage « ocka-avance ». */
+  avance?: boolean;
 }
 
 /**
